@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  identifier:
+    networks:
+      - proxy
+      - default
+    restart: "no"
+  dispatcher:
+    restart: "no"
+  database:
+    restart: "no"
+  virtuoso:
+    ports:
+      - "8890:8890"
+    restart: "no"
+  migrations:
+    restart: "no"
+  cache:
+    restart: "no"
+  resource:
+    restart: "no"
+  login:
+    restart: "no"
