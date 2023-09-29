@@ -47,7 +47,6 @@ services:
     volumes:
       - ./data/db:/data
       - ./config/virtuoso/virtuoso.ini:/data/virtuoso.ini # Note: on production override this setting
-      - ./config/virtuoso/:/opt/virtuoso-scripts
     labels:
       - "logging=true"
     restart: always

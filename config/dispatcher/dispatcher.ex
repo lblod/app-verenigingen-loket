@@ -16,7 +16,7 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/organizations/"
   end
 
-  match "/accounts", %{ accept: [:json], layer: :api} do
+  match "/accounts/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, [], "http://resource/accounts/"
   end
 

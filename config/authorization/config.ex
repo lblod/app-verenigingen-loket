@@ -25,6 +25,17 @@ defmodule Acl.UserGroups.Config do
                       ]
                     } } ] },
 
+      # // GEBRUIKER
+      %GroupSpec{
+        name: "LoketVerenigingen-Gebruiker",
+        useage: [:read],
+        access: %AlwaysAccessible{},
+        graphs: [ %GraphSpec{
+                    graph: "http://mu.semte.ch/graphs/gebruikers",
+                    constraint: %ResourceConstraint{
+                      resource_types: [
+                      ]
+                    } } ] },
       # // CLEANUP
       #
       %GraphCleanup{
