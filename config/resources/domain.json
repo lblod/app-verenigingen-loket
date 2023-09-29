@@ -1,0 +1,1064 @@
+{
+    "version": "0.1",
+    "prefixes": {
+      "org": "http://www.w3.org/ns/org#",
+      "locn": "http://www.w3.org/ns/locn#",
+      "schema": "http://schema.org/",
+      "regorg": "http://www.w3.org/ns/regorg#",
+      "person": "http://www.w3.org/ns/person#",
+      "vcard": "http://www.w3.org/2006/vcard/ns#",
+      "dbpedia": "http://dbpedia.org/ontology/",
+      "adms": "http://www.w3.org/ns/adms#",
+      "euro": "http://data.europa.eu/m8g/",
+      "prov": "http://www.w3.org/ns/prov#",
+      "organisatie": "https://data.vlaanderen.be/ns/organisatie#",
+      "persoon": "https://data.vlaanderen.be/ns/persoon#",
+      "adres": "https://data.vlaanderen.be/ns/adres#",
+      "generiek": "https://data.vlaanderen.be/ns/generiek#",
+      "mandaat": "http://data.vlaanderen.be/ns/mandaat#",
+      "besluit": "http://data.vlaanderen.be/ns/besluit#",
+      "lblodlg": "http://data.lblod.info/vocabularies/leidinggevenden/",
+      "lblodorg": "https://data.lblod.info/vocabularies/organisatie/",
+      "lblodgeneriek": "https://data.lblod.info/vocabularies/generiek/",
+      "dc_terms": "http://purl.org/dc/terms/",
+      "foaf": "http://xmlns.com/foaf/0.1/",
+      "skos": "http://www.w3.org/2004/02/skos/core#",
+      "euvoc": "http://publications.europa.eu/ontology/euvoc#",
+      "ere": "http://data.lblod.info/vocabularies/erediensten/",
+      "ch": "http://data.lblod.info/vocabularies/contacthub/",
+      "code": "http://lblod.data.gift/vocabularies/organisatie/",
+      "ext": "http://mu.semte.ch/vocabularies/ext/",
+      "geo": "http://www.opengis.net/ont/geosparql#",
+      "nacebel": "http://data.gift/vocabularies/nace-bel/"
+    },
+    "resources": {
+      "people": {
+        "class": "person:Person",
+        "attributes": {
+          "given-name": {
+            "type": "string",
+            "predicate": "foaf:givenName"
+          },
+          "family-name": {
+            "type": "string",
+            "predicate": "foaf:familyName"
+          },
+          "first-name-used": {
+            "type": "string",
+            "predicate": "persoon:gebruikteVoornaam"
+          }
+        },
+        "relationships": {
+          "mandatories": {
+            "predicate": "mandaat:isBestuurlijkeAliasVan",
+            "target": "mandatories",
+            "cardinality": "many",
+            "inverse": true
+          },
+          "agents-in-position": {
+            "predicate": "org:heldBy",
+            "target": "agents-in-position",
+            "cardinality": "many",
+            "inverse": true
+          },
+          "agents": {
+            "predicate": "mandaat:isBestuurlijkeAliasVan",
+            "target": "agents",
+            "cardinality": "many",
+            "inverse": true
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/personen/"
+      },
+      "agents-in-position": {
+        "class": "ch:AgentInPositie",
+        "attributes": {
+          "agent-start-date": {
+            "type": "date",
+            "predicate": "ch:startdatum"
+          },
+          "agent-end-date": {
+            "type": "date",
+            "predicate": "ch:eindedatum"
+          }
+        },
+        "relationships": {
+          "position": {
+            "predicate": "org:holds",
+            "target": "posts",
+            "cardinality": "one"
+          },
+          "person": {
+            "predicate": "org:heldBy",
+            "target": "people",
+            "cardinality": "one"
+          },
+          "contacts": {
+            "predicate": "schema:contactPoint",
+            "target": "contact-points",
+            "cardinality": "many"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/agentenInPositie/"
+      },
+      "posts": {
+        "class": "org:Post",
+        "relationships": {
+          "general-role": {
+            "predicate": "org:role",
+            "target": "roles",
+            "cardinality": "one"
+          },
+          "organization": {
+            "predicate": "org:postIn",
+            "target": "organizations",
+            "cardinality": "one"
+          },
+          "agents-in-position": {
+            "predicate": "org:holds",
+            "target": "agents-in-position",
+            "cardinality": "many",
+            "inverse": true
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/posities/"
+      },
+      "mandatories": {
+        "class": "mandaat:Mandataris",
+        "super": [
+          "agents-in-position"
+        ],
+        "attributes": {
+          "start-date": {
+            "type": "date",
+            "predicate": "mandaat:start"
+          },
+          "end-date": {
+            "type": "date",
+            "predicate": "mandaat:einde"
+          }
+        },
+        "relationships": {
+          "status": {
+            "predicate": "mandaat:status",
+            "target": "mandatory-status-codes",
+            "cardinality": "one"
+          },
+          "governing-alias": {
+            "predicate": "mandaat:isBestuurlijkeAliasVan",
+            "target": "people",
+            "cardinality": "one"
+          },
+          "contacts": {
+            "predicate": "schema:contactPoint",
+            "target": "contact-points",
+            "cardinality": "many"
+          },
+          "mandate": {
+            "predicate": "org:holds",
+            "target": "mandates",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/mandatarissen/"
+      },
+      "mandatory-status-codes": {
+        "class": "code:MandatarisStatusCode",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "features": [
+          "include-uri"
+        ],
+        "new-resource-base": "http://data.vlaanderen.be/id/concept/MandatarisStatusCode/"
+      },
+      "worship-mandatories": {
+        "class": "ere:EredienstMandataris",
+        "super": [
+          "mandatories"
+        ],
+        "attributes": {
+          "expected-end-date": {
+            "type": "date",
+            "predicate": "ere:geplandeEinddatumAanstelling"
+          },
+          "reason-stopped": {
+            "type": "string",
+            "predicate": "ere:redenVanStopzetting"
+          }
+        },
+        "relationships": {
+          "type-half": {
+            "predicate": "ere:typeHelft",
+            "target": "half-elections",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/mandatarissen/"
+      },
+      "half-elections": {
+        "class": "code:HelftVerkiezing",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "contact-points": {
+        "class": "schema:ContactPoint",
+        "attributes": {
+          "email": {
+            "type": "string",
+            "predicate": "schema:email"
+          },
+          "telephone": {
+            "type": "string",
+            "predicate": "schema:telephone"
+          },
+          "fax": {
+            "type": "string",
+            "predicate": "schema:faxNumber"
+          },
+          "website": {
+            "type": "uri",
+            "predicate": "foaf:page"
+          },
+          "type": {
+            "type": "string",
+            "predicate": "schema:contactType"
+          }
+        },
+        "relationships": {
+          "contact-address": {
+            "predicate": "locn:address",
+            "target": "addresses",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/contact-punten/"
+      },
+      "mandates": {
+        "class": "mandaat:Mandaat",
+        "super": [
+          "posts"
+        ],
+        "relationships": {
+          "role-board": {
+            "predicate": "org:role",
+            "target": "board-position-codes",
+            "cardinality": "one"
+          },
+          "governing-body": {
+            "predicate": "org:hasPost",
+            "target": "governing-bodies",
+            "cardinality": "one",
+            "inverse": true
+          },
+          "held-by": {
+            "predicate": "org:holds",
+            "target": "mandatories",
+            "cardinality": "many",
+            "inverse": true
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/mandaten/"
+      },
+      "agents": {
+        "class": "lblodlg:Functionaris",
+        "super": [
+          "agents-in-position"
+        ],
+        "attributes": {
+          "start-date": {
+            "type": "datetime",
+            "predicate": "mandaat:start"
+          },
+          "end-date": {
+            "type": "datetime",
+            "predicate": "mandaat:einde"
+          }
+        },
+        "relationships": {
+          "board-position": {
+            "predicate": "org:holds",
+            "target": "board-positions",
+            "cardinality": "one"
+          },
+          "status": {
+            "predicate": "mandaat:status",
+            "target": "agent-status-codes",
+            "cardinality": "one"
+          },
+          "governing-alias": {
+            "predicate": "mandaat:isBestuurlijkeAliasVan",
+            "target": "people",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/functionarissen/"
+      },
+      "agent-status-codes": {
+        "class": "lblodlg:FunctionarisStatusCode",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "features": [
+          "include-uri"
+        ],
+        "new-resource-base": "http://data.vlaanderen.be/id/concept/functionarisStatusCode/"
+      },
+      "board-positions": {
+        "class": "lblodlg:Bestuursfunctie",
+        "super": [
+          "posts"
+        ],
+        "relationships": {
+          "role-board": {
+            "predicate": "org:role",
+            "target": "board-position-codes",
+            "cardinality": "one"
+          },
+          "contact-point": {
+            "predicate": "schema:contactPoint",
+            "target": "contact-points",
+            "cardinality": "one"
+          },
+          "governing-bodies": {
+            "predicate": "lblodlg:heeftBestuursfunctie",
+            "target": "governing-bodies",
+            "cardinality": "many",
+            "inverse": true
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/bestuursfuncties/"
+      },
+      "board-position-codes": {
+        "class": "code:BestuursfunctieCode",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "relationships": {
+          "applies-to": {
+            "predicate": "ext:appliesTo",
+            "target": "governing-body-classification-codes",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.vlaanderen.be/id/concept/BestuursfunctieCode/"
+      },
+      "roles": {
+        "class": "org:Role",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/rollen/"
+      },
+      "organizations": {
+        "class": "org:Organization",
+        "attributes": {
+          "name": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          },
+          "alternative-name": {
+            "type": "string",
+            "predicate": "skos:altLabel"
+          },
+          "expected-end-date": {
+            "type": "date",
+            "predicate": "lblodgeneriek:geplandeEindDatum"
+          },
+          "purpose": {
+            "type": "string",
+            "predicate": "org:purpose"
+          }
+        },
+        "relationships": {
+          "identifiers": {
+            "predicate": "adms:identifier",
+            "target": "identifiers",
+            "cardinality": "many"
+          },
+          "organization-status": {
+            "predicate": "regorg:orgStatus",
+            "target": "organization-status-codes",
+            "cardinality": "one"
+          },
+          "primary-site": {
+            "predicate": "org:hasPrimarySite",
+            "target": "sites",
+            "cardinality": "one"
+          },
+          "sites": {
+            "predicate": "org:hasSite",
+            "target": "sites",
+            "cardinality": "many"
+          },
+          "changed-by": {
+            "predicate": "org:originalOrganization",
+            "target": "change-events",
+            "cardinality": "many",
+            "inverse": true
+          },
+          "resulted-from": {
+            "predicate": "org:resultingOrganization",
+            "target": "change-events",
+            "cardinality": "many",
+            "inverse": true
+          },
+          "change-event-results": {
+            "predicate": "ext:resultingOrganization",
+            "target": "change-event-results",
+            "cardinality": "many",
+            "inverse": true
+          },
+          "positions": {
+            "predicate": "org:hasPost",
+            "target": "posts",
+            "cardinality": "many"
+          },
+          "associated-organizations": {
+            "predicate": "org:linkedTo",
+            "target": "organizations",
+            "cardinality": "many"
+          },
+          "sub-organizations": {
+            "predicate": "org:hasSubOrganization",
+            "target": "organizations",
+            "cardinality": "many"
+          },
+          "is-associated-with": {
+            "predicate": "org:linkedTo",
+            "target": "organizations",
+            "cardinality": "one",
+            "inverse": true
+          },
+          "is-sub-organization-of": {
+            "predicate": "org:hasSubOrganization",
+            "target": "organizations",
+            "cardinality": "one",
+            "inverse": true
+          },
+          "founded-organizations": {
+            "predicate": "ext:isFounderOfOrganization",
+            "target": "organizations",
+            "cardinality": "many"
+          },
+          "was-founded-by-organization": {
+            "predicate": "ext:isFounderOfOrganization",
+            "target": "organizations",
+            "cardinality": "one",
+            "inverse": true
+          },
+          "sector": {
+            "predicate": "dc_terms:isPartOf",
+            "target": "sectors",
+            "cardinality": "many"
+          },
+          "activities": {
+            "predicate": "regorg:orgActivity",
+            "target": "nace-bel-codes",
+            "cardinality": "many"
+          },
+          "participates-in": {
+            "predicate": "org:memberOf",
+            "target": "organizations",
+            "cardinality": "many"
+          },
+          "has-participants": {
+            "predicate": "org:memberOf",
+            "target": "organizations",
+            "cardinality": "many",
+            "inverse": true
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/organisaties/"
+      },
+      "administrative-units": {
+        "class": "besluit:Bestuurseenheid",
+        "super": [
+          "organizations"
+        ],
+        "relationships": {
+          "classification": {
+            "predicate": "org:classification",
+            "target": "administrative-unit-classification-codes",
+            "cardinality": "one"
+          },
+          "governing-bodies": {
+            "predicate": "besluit:bestuurt",
+            "target": "governing-bodies",
+            "cardinality": "many",
+            "inverse": true
+          },
+          "scope": {
+            "predicate": "besluit:werkingsgebied",
+            "target": "locations",
+            "cardinality": "one"
+          },
+          "involved-boards": {
+            "predicate": "ere:betrokkenBestuur",
+            "target": "local-involvements",
+            "cardinality": "many"
+          },
+          "located-within": {
+            "predicate": "geo:sfWithin",
+            "target": "locations",
+            "cardinality": "one"
+          },
+          "exact-match": {
+            "predicate": "skos:exactMatch",
+            "target": "concepts",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/bestuurseenheden/"
+      },
+      "administrative-unit-classification-codes": {
+        "class": "code:BestuurseenheidClassificatieCode",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/"
+      },
+      "worship-administrative-units": {
+        "class": "ere:EredienstBestuurseenheid",
+        "super": [
+          "administrative-units"
+        ],
+        "relationships": {
+          "recognized-worship-type": {
+            "predicate": "ere:typeEredienst",
+            "target": "recognized-worship-types",
+            "cardinality": "one"
+          },
+          "minister-positions": {
+            "predicate": "ere:wordtBediendDoor",
+            "target": "minister-positions",
+            "cardinality": "many"
+          },
+          "involvements": {
+            "predicate": "org:organization",
+            "target": "local-involvements",
+            "cardinality": "many",
+            "inverse": true
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/eredienstBestuurseenheden/"
+      },
+      "worship-services": {
+        "class": "ere:BestuurVanDeEredienst",
+        "super": [
+          "worship-administrative-units"
+        ],
+        "attributes": {
+          "denomination": {
+            "type": "string",
+            "predicate": "ere:denominatie"
+          },
+          "cross-border": {
+            "type": "boolean",
+            "predicate": "ere:grensoverschrijdend"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/besturenVanDeEredienst/"
+      },
+      "recognized-worship-types": {
+        "class": "code:TypeEredienst",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "central-worship-services": {
+        "class": "ere:CentraalBestuurVanDeEredienst",
+        "super": [
+          "worship-administrative-units"
+        ],
+        "new-resource-base": "http://data.lblod.info/id/centraleBesturenVanDeEredienst/"
+      },
+      "representative-bodies": {
+        "class": "ere:RepresentatiefOrgaan",
+        "super": [
+          "organizations"
+        ],
+        "relationships": {
+          "recognized-worship-type": {
+            "predicate": "ere:typeEredienst",
+            "target": "recognized-worship-types",
+            "cardinality": "one"
+          },
+          "minister-positions": {
+            "predicate": "ere:behoort",
+            "target": "minister-positions",
+            "cardinality": "many",
+            "inverse": true
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/representatieveOrganen/"
+      },
+      "governing-bodies": {
+        "class": "besluit:Bestuursorgaan",
+        "attributes": {
+          "start-date": {
+            "type": "datetime",
+            "predicate": "mandaat:bindingStart"
+          },
+          "end-date": {
+            "type": "datetime",
+            "predicate": "mandaat:bindingEinde"
+          }
+        },
+        "relationships": {
+          "administrative-unit": {
+            "predicate": "besluit:bestuurt",
+            "target": "administrative-units",
+            "cardinality": "one"
+          },
+          "classification": {
+            "predicate": "org:classification",
+            "target": "governing-body-classification-codes",
+            "cardinality": "one"
+          },
+          "is-time-specialization-of": {
+            "predicate": "generiek:isTijdspecialisatieVan",
+            "target": "governing-bodies",
+            "cardinality": "one"
+          },
+          "has-time-specializations": {
+            "predicate": "generiek:isTijdspecialisatieVan",
+            "target": "governing-bodies",
+            "cardinality": "many",
+            "inverse": true
+          },
+          "mandates": {
+            "predicate": "org:hasPost",
+            "target": "mandates",
+            "cardinality": "many"
+          },
+          "board-positions": {
+            "predicate": "org:hasPost",
+            "target": "board-positions",
+            "cardinality": "many"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/bestuursorganen/"
+      },
+      "governing-body-classification-codes": {
+        "class": "code:BestuursorgaanClassificatieCode",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "relationships": {
+          "applies-within": {
+            "predicate": "ext:appliesWithin",
+            "target": "administrative-unit-classification-codes",
+            "cardinality": "many"
+          }
+        },
+        "new-resource-base": "http://data.vlaanderen.be/id/concept/BestuursorgaanClassificatieCode/"
+      },
+      "local-involvements": {
+        "class": "ere:BetrokkenLokaleBesturen",
+        "attributes": {
+          "percentage": {
+            "type": "number",
+            "predicate": "ere:financieringspercentage"
+          }
+        },
+        "relationships": {
+          "involvement-type": {
+            "predicate": "ere:typebetrokkenheid",
+            "target": "involvement-types",
+            "cardinality": "one"
+          },
+          "worship-administrative-unit": {
+            "predicate": "org:organization",
+            "target": "worship-administrative-units",
+            "cardinality": "one"
+          },
+          "administrative-unit": {
+            "predicate": "ere:betrokkenBestuur",
+            "target": "administrative-units",
+            "cardinality": "one",
+            "inverse": true
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/betrokkenLokaleBesturen/"
+      },
+      "identifiers": {
+        "class": "adms:Identifier",
+        "attributes": {
+          "id-name": {
+            "type": "string",
+            "predicate": "skos:notation"
+          }
+        },
+        "relationships": {
+          "structured-identifier": {
+            "predicate": "generiek:gestructureerdeIdentificator",
+            "target": "structured-identifiers",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/identificatoren/"
+      },
+      "structured-identifiers": {
+        "class": "generiek:GestructureerdeIdentificator",
+        "attributes": {
+          "local-id": {
+            "type": "string",
+            "predicate": "generiek:lokaleIdentificator"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/gestructureerdeIdentificatoren/"
+      },
+      "addresses": {
+        "class": "locn:Address",
+        "attributes": {
+          "number": {
+            "type": "string",
+            "predicate": "adres:Adresvoorstelling.huisnummer"
+          },
+          "box-number": {
+            "type": "string",
+            "predicate": "adres:Adresvoorstelling.busnummer"
+          },
+          "street": {
+            "type": "string",
+            "predicate": "locn:thoroughfare"
+          },
+          "postcode": {
+            "type": "string",
+            "predicate": "locn:postCode"
+          },
+          "municipality": {
+            "type": "string",
+            "predicate": "adres:gemeentenaam"
+          },
+          "province": {
+            "type": "string",
+            "predicate": "locn:adminUnitL2"
+          },
+          "country": {
+            "type": "string",
+            "predicate": "adres:land"
+          },
+          "full-address": {
+            "type": "string",
+            "predicate": "locn:fullAddress"
+          },
+          "address-register-uri": {
+            "type": "url",
+            "predicate": "adres:verwijstNaar"
+          }
+        },
+        "relationships": {
+          "source": {
+            "predicate": "dc_terms:source",
+            "target": "concepts",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/adressen/"
+      },
+      "sites": {
+        "class": "org:Site",
+        "relationships": {
+          "contacts": {
+            "predicate": "org:siteAddress",
+            "target": "contact-points",
+            "cardinality": "many"
+          },
+          "address": {
+            "predicate": "organisatie:bestaatUit",
+            "target": "addresses",
+            "cardinality": "one"
+          },
+          "site-type": {
+            "predicate": "ere:vestigingstype",
+            "target": "site-types",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/vestigingen/"
+      },
+      "concepts": {
+        "class": "skos:Concept",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          },
+          "notation": {
+            "type": "string",
+            "predicate": "skos:notation"
+          },
+          "alt-label": {
+            "type": "string",
+            "predicate": "skos:altLabel"
+          }
+        },
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "organization-status-codes": {
+        "class": "code:OrganisatieStatusCode",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "features": [
+          "include-uri"
+        ],
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "locations": {
+        "class": "prov:Location",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "rdfs:label"
+          },
+          "level": {
+            "type": "string",
+            "predicate": "ext:werkingsgebiedNiveau"
+          }
+        },
+        "relationships": {
+          "administrative-units": {
+            "predicate": "geo:sfWithin",
+            "target": "administrative-units",
+            "cardinality": "many",
+            "inverse": true
+          },
+          "located-within": {
+            "predicate": "geo:sfWithin",
+            "target": "locations",
+            "cardinality": "one"
+          },
+          "locations": {
+            "predicate": "geo:sfWithin",
+            "target": "locations",
+            "cardinality": "many",
+            "inverse": true
+          },
+          "exact-match": {
+            "predicate": "skos:exactMatch",
+            "target": "concepts",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/werkingsgebieden/"
+      },
+      "involvement-types": {
+        "class": "code:TypeBetrokkenheid",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "ministers": {
+        "class": "ere:RolBedienaar",
+        "super": [
+          "agents-in-position"
+        ],
+        "relationships": {
+          "minister-position": {
+            "predicate": "org:holds",
+            "target": "minister-positions",
+            "cardinality": "one"
+          },
+          "financing": {
+            "predicate": "ere:financiering",
+            "target": "financing-codes",
+            "cardinality": "one"
+          },
+          "conditions": {
+            "predicate": "ere:voldoetAan",
+            "target": "minister-conditions",
+            "cardinality": "many"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/rollenBedienaar/"
+      },
+      "minister-conditions": {
+        "class": "ere:VoorwaardenBedienaar",
+        "attributes": {
+          "satisfied": {
+            "type": "boolean",
+            "predicate": "ere:voldaan"
+          }
+        },
+        "relationships": {
+          "criterion": {
+            "predicate": "ere:criterium",
+            "target": "minister-condition-criterions",
+            "cardinality": "one"
+          },
+          "document-type-criterion": {
+            "predicate": "ere:criteriumbewijsstuktype",
+            "target": "document-types-criterions",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/voorwaardenBedienaar/"
+      },
+      "nationalities": {
+        "class": "euvoc:Country",
+        "attributes": {
+          "country-label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          },
+          "nationality-label": {
+            "type": "string",
+            "predicate": "rdfs:label"
+          }
+        },
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "gender-codes": {
+        "class": "ext:GeslachtCode",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://data.vlaanderen.be/id/concept/GeslachtCode/"
+      },
+      "minister-positions": {
+        "class": "ere:PositieBedienaar",
+        "super": [
+          "posts"
+        ],
+        "relationships": {
+          "function": {
+            "predicate": "ere:functie",
+            "target": "minister-position-functions",
+            "cardinality": "one"
+          },
+          "held-by-ministers": {
+            "predicate": "org:holds",
+            "target": "ministers",
+            "cardinality": "many",
+            "inverse": true
+          },
+          "worship-service": {
+            "predicate": "ere:wordtBediendDoor",
+            "target": "worship-administrative-units",
+            "cardinality": "one",
+            "inverse": true
+          },
+          "representative-body": {
+            "predicate": "ere:behoort",
+            "target": "representative-bodies",
+            "cardinality": "one"
+          }
+        },
+        "new-resource-base": "http://data.lblod.info/id/positiesBedienaar/"
+      },
+      "minister-position-functions": {
+        "class": "code:EredienstBeroepen",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "financing-codes": {
+        "class": "code:BedienaarFinanceringCode",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "minister-condition-criterions": {
+        "class": "code:VoorwaardenBedienaarCriterium",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "document-types-criterions": {
+        "class": "code:BedienaarCriteriumBewijsstuk",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "site-types": {
+        "class": "code:TypeVestiging",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "sectors": {
+        "class": "code:Sector",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          }
+        },
+        "new-resource-base": "http://lblod.data.gift/concepts/"
+      },
+      "nace-bel-codes": {
+        "class": "nacebel:NaceBelCode",
+        "attributes": {
+          "label": {
+            "type": "string",
+            "predicate": "skos:prefLabel"
+          },
+          "code": {
+            "type": "string",
+            "predicate": "skos:notation"
+          }
+        },
+        "new-resource-base": "http://data.relance.lblod.info/id/nace-bel/"
+      }
+    }
+  }

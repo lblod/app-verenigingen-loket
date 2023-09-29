@@ -1,18 +1,27 @@
 defmodule Dispatcher do
   use Matcher
-  define_accept_types []
 
-  # In order to forward the 'themes' resource to the
-  # resource service, use the following forward rule.
-  #
-  # docker-compose stop; docker-compose rm; docker-compose up
-  # after altering this file.
-  #
-  # match "/themes/*path" do
-  #   forward conn, path, "http://resource/themes/"
-  # end
+  define_accept_types [
+    html: ["text/html", "application/xhtml+html"],
+    json: ["application/json", "application/vnd.api+json"],
+    upload: ["multipart/form-data"],
+    sparql_json: ["application/sparql-results+json"],
+    any: [ "*/*" ],
+  ]
 
-  match "/*_" do
+  define_layers [ :api_services, :api, :frontend, :not_found ]
+
+
+  match "/organizations/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/organizations/"
+  end
+
+  match "/accounts", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, [], "http://resource/accounts/"
+  end
+
+  match "/*_", %{accept: [:any], layer: :not_found} do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
 
+end
