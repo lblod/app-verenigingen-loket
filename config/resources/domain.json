@@ -20,7 +20,6 @@
     "lblodlg": "http://data.lblod.info/vocabularies/leidinggevenden/",
     "lblodorg": "https://data.lblod.info/vocabularies/organisatie/",
     "lblodgeneriek": "https://data.lblod.info/vocabularies/generiek/",
-    "dc_terms": "http://purl.org/dc/terms/",
     "foaf": "http://xmlns.com/foaf/0.1/",
     "skos": "http://www.w3.org/2004/02/skos/core#",
     "euvoc": "http://publications.europa.eu/ontology/euvoc#",
@@ -30,7 +29,8 @@
     "ext": "http://mu.semte.ch/vocabularies/ext/",
     "geo": "http://www.opengis.net/ont/geosparql#",
     "nacebel": "http://data.gift/vocabularies/nace-bel/",
-    "dct": "http://purl.org/dc/terms/"
+    "dct": "http://purl.org/dc/terms/", 
+    "vereniging": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#"
   },
   "resources": {
     "users": {
@@ -127,6 +127,20 @@
         }
       },
       "new-resource-base": "http://data.lblod.info/id/organisaties/"
+    },
+    "associations": {
+      "name": "association",
+      "class": "vereniging:FeitelijkeVereniging",
+      "super": [
+        "organization"
+      ],
+      "attributes": {
+        "beschrijving": {
+          "type": "string",
+          "predicate": "dct:description"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/verenigingen/"
     },
     "administrative-units": {
       "name": "administrative-unit",
@@ -296,7 +310,7 @@
       },
       "relationships": {
         "source": {
-          "predicate": "dc_terms:source",
+          "predicate": "dct:source",
           "target": "concept",
           "cardinality": "one"
         }
@@ -335,7 +349,3 @@
     }
   }
 }
-
-
-
-
