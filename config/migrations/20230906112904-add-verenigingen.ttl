@@ -1,6 +1,4 @@
 @prefix ns1: <https://data.vlaanderen.be/ns/> .
-@prefix ns2: <https://data.vlaanderen.be/ns/adres#> .
-@prefix ns3: <http://www.w3.org/ns/locn#> .
 @prefix organisatie: <https://data.vlaanderen.be/ns/organisatie#> .
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -8,7 +6,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix locn: <http://www.w3.org/ns/locn#> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
-@prefix generiek: <http://data.vlaanderen.be/ns/generiek#> .
+@prefix generiek: <https://data.vlaanderen.be/ns/generiek#> .
 @prefix adres: <https://data.vlaanderen.be/ns/adres#> .
 @prefix mu: <http://mu.semte.ch/vocabularies/core/> . 
 
@@ -16,7 +14,7 @@
 
 ns1:V0001001
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
-  skos:prefLabel "Mijn hyper super vereniging" ;
+  skos:prefLabel "Feitelijke vereniging" ;
   dc:description "Beschrijving van de Feitelijke vereniging" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5';
@@ -65,16 +63,25 @@ ns1:V0001001
   adres:land "België".
 
 ns1:V0001001 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8573f48f6b90d0d619c344986> .
-<http://data.lblod.info/id/identificatoren/ff82c6f8573f48f6b90d0d619c344986>
+
+
+<http://data.lblod.info/id/identificatoren/ff82c6f8573f48f6b90d0d619c344986> a adms:Identifier;
     skos:notation "KBO nummer";
     mu:uuid "5358a496-41fd-gr88-ae86-c00a89ba6314" ;
-    generiek:gestructureerdeIdentificator <http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e853>.
-<http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e853>  generiek:lokaleIdentificator "0123456789".
+    generiek:gestructureerdeIdentificator <http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e882> .
+
+
+<http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e882> a generiek:GestructureerdeIdentificator;
+  mu:uuid "5358a496-6f1e-rg21-fe77-c00a89ba6314" ;
+  generiek:lokaleIdentificator "0477999271".
 
 ns1:V0001001 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba30df48cea4ff9dd8d311cda2> .
-<http://data.lblod.info/id/identificatoren/c0ed06ba30df48cea4ff9dd8d311cda2>
+
+<http://data.lblod.info/id/identificatoren/c0ed06ba30df48cea4ff9dd8d311cda2> a adms:Identifier;
   skos:notation "vCode";
   mu:uuid "5358a496-41fd-gr88-fe77-c00a89ba6314" ;
-  generiek:gestructureerdeIdentificator <http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e853>.
+  generiek:gestructureerdeIdentificator <http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e853> .
 
-<http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e853> generiek:lokaleIdentificator "123456".
+<http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e853> a generiek:GestructureerdeIdentificator;
+  mu:uuid "5358a496-41fd-rg21-fe77-c00a89ba6314" ;
+   generiek:lokaleIdentificator "V0001001".

@@ -21,15 +21,23 @@ defmodule Dispatcher do
   end
 
   match "/sites/*path", %{ accept: [:json], layer: :api} do
-    Proxy.forward conn, path, "http://cache/sites/"
+    Proxy.forward conn, path, "http://resource/sites/"
   end
 
   match "/addresses/*path", %{ accept: [:json], layer: :api} do
-    Proxy.forward conn, path, "http://cache/addresses/"
+    Proxy.forward conn, path, "http://resource/addresses/"
   end
 
   match "/administrative-unit-classification-codes/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/administrative-unit-classification-codes/"
+  end
+  
+  match "/identifiers/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/identifiers/"
+  end
+
+  match "/structured-identifiers/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/structured-identifiers/"
   end
 
   match "/accounts/*path", %{ accept: [:json], layer: :api} do

@@ -33,6 +33,56 @@
     "vereniging": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#"
   },
   "resources": {
+    "addresses": {
+      "name": "address",
+      "class": "locn:Address",
+      "attributes": {
+        "number": {
+          "type": "string",
+          "predicate": "adres:Adresvoorstelling.huisnummer"
+        },
+        "box-number": {
+          "type": "string",
+          "predicate": "adres:Adresvoorstelling.busnummer"
+        },
+        "street": {
+          "type": "string",
+          "predicate": "locn:thoroughfare"
+        },
+        "postcode": {
+          "type": "string",
+          "predicate": "locn:postCode"
+        },
+        "municipality": {
+          "type": "string",
+          "predicate": "adres:gemeentenaam"
+        },
+        "province": {
+          "type": "string",
+          "predicate": "locn:adminUnitL2"
+        },
+        "country": {
+          "type": "string",
+          "predicate": "adres:land"
+        },
+        "full-address": {
+          "type": "string",
+          "predicate": "locn:fullAddress"
+        },
+        "address-register-uri": {
+          "type": "url",
+          "predicate": "adres:verwijstNaar"
+        }
+      },
+      "relationships": {
+        "source": {
+          "predicate": "dct:source",
+          "target": "concept",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/adressen/"
+    },
     "users": {
       "name": "user",
       "class": "foaf:Person",
@@ -135,7 +185,7 @@
         "organization"
       ],
       "attributes": {
-        "beschrijving": {
+        "description": {
           "type": "string",
           "predicate": "dct:description"
         }
@@ -267,56 +317,7 @@
       },
       "new-resource-base": "http://data.lblod.info/id/contact-punten/"
     },
-    "addresses": {
-      "name": "address",
-      "class": "locn:Address",
-      "attributes": {
-        "number": {
-          "type": "string",
-          "predicate": "adres:Adresvoorstelling.huisnummer"
-        },
-        "box-number": {
-          "type": "string",
-          "predicate": "adres:Adresvoorstelling.busnummer"
-        },
-        "street": {
-          "type": "string",
-          "predicate": "locn:thoroughfare"
-        },
-        "postcode": {
-          "type": "string",
-          "predicate": "locn:postCode"
-        },
-        "municipality": {
-          "type": "string",
-          "predicate": "adres:gemeentenaam"
-        },
-        "province": {
-          "type": "string",
-          "predicate": "locn:adminUnitL2"
-        },
-        "country": {
-          "type": "string",
-          "predicate": "adres:land"
-        },
-        "full-address": {
-          "type": "string",
-          "predicate": "locn:fullAddress"
-        },
-        "address-register-uri": {
-          "type": "url",
-          "predicate": "adres:verwijstNaar"
-        }
-      },
-      "relationships": {
-        "source": {
-          "predicate": "dct:source",
-          "target": "concept",
-          "cardinality": "one"
-        }
-      },
-      "new-resource-base": "http://data.lblod.info/id/adressen/"
-    },
+   
     "concepts": {
       "name": "concept",
       "class": "skos:Concept",

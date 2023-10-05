@@ -1,7 +1,7 @@
 # This is an extract from Organization portal data 2023-10-02. This should be replaced with a live sync later.
 @prefix org: <http://www.w3.org/ns/org#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix mu: <http://mu.semte.ch/vocabularies/core/>
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
 
 
 <http://data.lblod.info/id/bestuurseenheden/003e84121111866af60611a59e13d4c478718f60472655936edec1e352a34c5f> a <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid> ;
