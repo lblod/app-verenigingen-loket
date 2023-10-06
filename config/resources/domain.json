@@ -267,17 +267,17 @@
       "relationships": {
         "contacts": {
           "predicate": "org:siteAddress",
-          "target": "contact-points",
+          "target": "contact-point",
           "cardinality": "many"
         },
         "address": {
           "predicate": "organisatie:bestaatUit",
-          "target": "addresses",
+          "target": "address",
           "cardinality": "one"
         },
         "site-type": {
           "predicate": "ere:vestigingstype",
-          "target": "site-types",
+          "target": "site-type",
           "cardinality": "one"
         }
       },
