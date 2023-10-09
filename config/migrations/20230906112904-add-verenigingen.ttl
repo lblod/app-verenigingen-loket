@@ -18,6 +18,7 @@ ns1:V0001001
   dc:description "Beschrijving van de Feitelijke vereniging" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5';
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_2> .
 
   # ns1:doelgroep <https://data.vlaanderen.be/ns/doelgroep/V0001001> ;
@@ -33,6 +34,12 @@ ns1:V0001001
 <http://data.lblod.info/id/vestigingen/V0001001_2> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75e5';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_2> .
+
+<http://data.lblod.info/id/vestigingen/V0001001_3> a org:Site ;
+  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75e6';
+  organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_3> .
+
+
 
 # <https://data.vlaanderen.be/ns/doelgroep/V0001001> ns1:maximumleeftijd 150 ;
 #   ns1:minimumleeftijd 0 .
@@ -62,6 +69,15 @@ ns1:V0001001
   adres:gemeentenaam "Halle"@nl ;
   adres:land "België".
 
+<http://data.lblod.info/id/adressen/V0001001_3> a locn:Address ;
+  mu:uuid "5358a496-41fd-410f-ae86-c00a89ba6315" ;
+  locn:fullAddress "Schaapschuur 1, 9258 Affligem, België" ;
+  locn:thoroughfare "Schaapschuur";
+  adres:Adresvoorstelling.huisnummer "1";
+  locn:postCode "9258" ;
+  adres:gemeentenaam "Affligem"@nl ;
+  adres:land "België".
+
 ns1:V0001001 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8573f48f6b90d0d619c344986> .
 
 
@@ -85,3 +101,81 @@ ns1:V0001001 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba
 <http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e853> a generiek:GestructureerdeIdentificator;
   mu:uuid "5358a496-41fd-rg21-fe77-c00a89ba6314" ;
    generiek:lokaleIdentificator "V0001001".
+
+ns1:V0001002
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  skos:prefLabel "Een tweede vereniging" ;
+  dc:description "Beschrijving van de Feitelijke vereniging" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001002_1> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e6';
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001002_2> .
+
+  # ns1:doelgroep <https://data.vlaanderen.be/ns/doelgroep/V0001001> ;
+  # ns1:hoofdactiviteitenVerenigingsloket <https://data.vlaanderen.be/ns/hoofdactiviteitenVerenigingsloket/BIAG> ;
+  # ns1:korteNaam "FV"^^<xsd:string> ;
+  # ns1:links <https://publiek.verenigingen.staging-vlaanderen.be/v1/verenigingen/V0001001> ;
+  # ns1:type <https://data.vlaanderen.be/ns/type/V0001001> .
+
+<http://data.lblod.info/id/vestigingen/V0001002_1> a org:Site ;
+  mu:uuid 'fa968d12-12b4-46ce-fe2s-578eevvc75e5';
+  organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001002_1> .
+
+<http://data.lblod.info/id/vestigingen/V0001002_2> a org:Site ;
+  mu:uuid 'fa968d12-12b4-46ce-897f-578bbcdc75e5';
+  organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001002_2> .
+
+
+
+# <https://data.vlaanderen.be/ns/doelgroep/V0001001> ns1:maximumleeftijd 150 ;
+#   ns1:minimumleeftijd 0 .
+
+# <https://data.vlaanderen.be/ns/hoofdactiviteitenVerenigingsloket/BIAG> a <xsd:string> .
+
+# <https://data.vlaanderen.be/ns/type/V0001001> ns1:beschrijving "Feitelijke vereniging" ;
+#   ns1:code "FV" .
+
+# <https://publiek.verenigingen.staging-vlaanderen.be/v1/verenigingen/V0001001> ns1:detail "https://publiek.verenigingen.staging-vlaanderen.be/v1/verenigingen/V0001001" .
+
+<http://data.lblod.info/id/adressen/V0001002_1> a locn:Address ;
+  mu:uuid 'a9ae2fb3-a2f7-8224-939b-a41e221bf6cc';
+  locn:fullAddress "Kerkstraat 64, 9300 Aalst, België" ;
+  locn:thoroughfare "Kerkstraat";
+  adres:Adresvoorstelling.huisnummer "64";
+  locn:postCode "9300" ;
+  adres:gemeentenaam "Aalst"@nl ;
+  adres:land "België".
+
+<http://data.lblod.info/id/adressen/V0001002_2> a locn:Address ;
+  mu:uuid "5358a496-41fd-410f-fv44-c00a89ba6314" ;
+  locn:fullAddress "Stationstraat 8, 9300 Aalst, België" ;
+  locn:thoroughfare "Stationstraat";
+  adres:Adresvoorstelling.huisnummer "8";
+  locn:postCode "9300" ;
+  adres:gemeentenaam "Aalst"@nl ;
+  adres:land "België".
+
+
+
+ns1:V0001002 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba30df48cea4ff9dd8d311cd20> .
+
+<http://data.lblod.info/id/identificatoren/c0ed06ba30df48cea4ff9dd8d311cd20> a adms:Identifier;
+  skos:notation "vCode";
+  mu:uuid "5358a496-41fd-gr88-fe77-c00a89ba6320" ;
+  generiek:gestructureerdeIdentificator <http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e820> .
+
+<http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e820> a generiek:GestructureerdeIdentificator;
+  mu:uuid "5358a496-41fd-rg21-jj44-c00a89ba6314" ;
+   generiek:lokaleIdentificator "V0001002".
+
+
+ns1:V0001002 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8573f48f6b90d0d619c344985> .
+
+
+<http://data.lblod.info/id/identificatoren/ff82c6f8573f48f6b90d0d619c344985> a adms:Identifier;
+    skos:notation "KBO nummer";
+    mu:uuid "5358a496-41fd-gr88-ae86-c00a89ba6311" ;
+    generiek:gestructureerdeIdentificator <http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e885> .
+
+<http://data.lblod.info/id/gestructureerdeIdentificator/a5e5bbd299e541208c1e4951e817e885> a generiek:GestructureerdeIdentificator;
+  mu:uuid "5358a496-6f1e-rg21-ll44-c00a89ba6314" ;
+  generiek:lokaleIdentificator "045583644".
