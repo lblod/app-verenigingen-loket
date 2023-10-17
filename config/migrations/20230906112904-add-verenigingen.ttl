@@ -11,17 +11,16 @@
 @prefix mu: <http://mu.semte.ch/vocabularies/core/> . 
 @prefix ere: <http://data.lblod.info/vocabularies/erediensten/> . 
 @prefix code: <http://data.vlaanderen.be/id/concept/> .
-
-
-
+@prefix schema: <http://schema.org/> .
 
 ns1:V0001001
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
   skos:prefLabel "Feitelijke vereniging" ;
   dc:description "Beschrijving van de Feitelijke vereniging" ;
-  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_1> ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1> ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1> ;
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_2> .
 
   # ns1:doelgroep <https://data.vlaanderen.be/ns/doelgroep/V0001001> ;
@@ -31,17 +30,27 @@ ns1:V0001001
   # ns1:type <https://data.vlaanderen.be/ns/type/V0001001> .
 
 <http://data.lblod.info/id/vestigingen/V0001001_1> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75e5';
-    ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ; # Maatschappelijke zetel. cf onderaan (export OP)
-  organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_1> .
+  mu:uuid "fa968d12-12b4-46ce-84dd-578eecdc75e8";
+  ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ; # Maatschappelijke zetel. cf onderaan (export OP)
+  dc:description "Kanitine"; # Ander administratief adres
+  organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_1> ;
+  org:siteAddress <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617289>.
 
 <http://data.lblod.info/id/vestigingen/V0001001_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75e5';
-  organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_2> .
+  mu:uuid "fa968d12-12b4-46ce-84dd-578eecdc75e0";
+  ere:vestigingstype  <http://lblod.data.gift/concepts/fbec5e94aba343b0a7361aca8a0c7d79> ;
+  dc:description "Feestzaal"; # Ander administratief adres
+  organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_2> ;
+  org:siteAddress <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a7c86635fdd1>.
+
 
 <http://data.lblod.info/id/vestigingen/V0001001_3> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75e6';
+    ere:vestigingstype  <http://lblod.data.gift/concepts/fbec5e94aba343b0a7361aca8a0c7d79> ;
+  dc:description "Kantoor"; # Ander administratief adres
+  org:siteAddress <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1> ;
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_3> .
+
 
 
 
@@ -64,6 +73,14 @@ ns1:V0001001
   adres:gemeentenaam "Antwerpen"@nl ;
   adres:land "België".
 
+<http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617289> a schema:ContactPoint ;
+  mu:uuid "a0717ed507fc476ab2ca16bd7e617289" ;
+  schema:email "contact@example.org" ;
+  schema:telephone "+32 123 45 67 89" ; # Formaat kan nog wijzigen
+  foaf:page "https://www.example.org" ;
+  schema:contactType "Primary"  .
+
+
 <http://data.lblod.info/id/adressen/V0001001_2> a locn:Address ;
   mu:uuid "5358a496-41fd-410f-ae86-c00a89ba6314" ;
   locn:fullAddress "Edingensesteenweg 1, 1500 Halle, België" ;
@@ -73,6 +90,11 @@ ns1:V0001001
   adres:gemeentenaam "Halle"@nl ;
   adres:land "België".
 
+<http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a7c86635fdd1> a schema:ContactPoint ;
+  mu:uuid "fcb8d6a1a7d3409d9339a7c86635fdd1" ;
+  schema:email "firstname.lastname@example.org" ;
+  schema:telephone "+32 123 45 67 90" . # Formaat kan nog wijzigen
+
 <http://data.lblod.info/id/adressen/V0001001_3> a locn:Address ;
   mu:uuid "5358a496-41fd-410f-ae86-c00a89ba6315" ;
   locn:fullAddress "Schaapschuur 1, 9258 Affligem, België" ;
@@ -81,6 +103,11 @@ ns1:V0001001
   locn:postCode "9258" ;
   adres:gemeentenaam "Affligem"@nl ;
   adres:land "België".
+
+<http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1> a schema:ContactPoint ;
+  mu:uuid "fcb8d6a1a7d3409d9339a8c86635fdd1" ;
+  schema:email "a.lastname@example.org" ;
+  schema:telephone "+32 471 07 42 67" . # Formaat kan nog wijzigen
 
 ns1:V0001001 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8573f48f6b90d0d619c344986> .
 
@@ -1116,7 +1143,9 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba
 <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd>	<http://www.w3.org/2004/02/skos/core#inScheme>	<http://lblod.data.gift/concept-schemes/10caf4a4-1ff5-4c05-917e-56489910d68b> .
 <http://lblod.data.gift/concepts/dd0418307e7038c0c3809e3ec03a0932>	<http://mu.semte.ch/vocabularies/core/uuid>	"dd0418307e7038c0c3809e3ec03a0932" .
 <http://lblod.data.gift/concepts/db13a289b78e42d19d8d1d269b61b18f>	<http://www.w3.org/2004/02/skos/core#topConceptOf>	<http://lblod.data.gift/concept-schemes/f8319ccf40fc2a1697edc5cf7e03018f> .
-<http://lblod.data.gift/concepts/fbec5e94aba343b0a7361aca8a0c7d79>	<http://www.w3.org/2004/02/skos/core#inScheme>	<http://lblod.data.gift/concept-schemes/10caf4a4-1ff5-4c05-917e-56489910d68b> .
+<http://lblod.data.gift/concepts/fbec5e94aba343b0a7361aca8a0c7d79>	<http://www.w3.org/2004/02/skos/core#inScheme>	<http://lblod.data.gift/concept-schemes/10caf4a4-1ff5-4c05-917e-56489910d68b> ;
+     a code:TypeVestiging .
+
 <http://lblod.data.gift/concepts/15f2683c61b74541b27b64b4365806c7>	<http://www.w3.org/2004/02/skos/core#inScheme>	<http://lblod.data.gift/concept-schemes/f8319ccf40fc2a1697edc5cf7e03018f> .
 <http://lblod.data.gift/concepts/dd0418307e7038c0c3809e3ec03a0932>	<http://www.w3.org/2004/02/skos/core#prefLabel>	"Hoofdgebouw erediensten" .
 <http://lblod.data.gift/concepts/fbec5e94aba343b0a7361aca8a0c7d79>	<http://www.w3.org/2004/02/skos/core#topConceptOf>	<http://lblod.data.gift/concept-schemes/f8319ccf40fc2a1697edc5cf7e03018f> .
