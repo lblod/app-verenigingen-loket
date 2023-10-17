@@ -175,10 +175,10 @@
           "target": "site",
           "cardinality": "many"
         },
-        "contact-point": {
+        "contact-points": {
           "predicate": "schema:contactPoint",
           "target": "contact-point",
-          "cardinality": "one"
+          "cardinality": "many"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/organisaties/"
@@ -298,6 +298,10 @@
       "name": "contact-point",
       "class": "schema:ContactPoint",
       "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "foaf:name"
+        },
         "email": {
           "type": "string",
           "predicate": "schema:email"
