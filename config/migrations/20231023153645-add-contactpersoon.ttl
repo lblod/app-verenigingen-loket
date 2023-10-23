@@ -1,0 +1,56 @@
+@prefix ns1: <https://data.vlaanderen.be/ns/> .
+@prefix ns2: <https://data.vlaanderen.be/ns/adres#> .
+@prefix ns3: <http://www.w3.org/ns/locn#> .
+@prefix organisatie: <https://data.vlaanderen.be/ns/organisatie#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix generiek: <http://data.vlaanderen.be/ns/generiek#> .
+@prefix adres: <https://data.vlaanderen.be/ns/adres#> .
+@prefix ere: <http://data.lblod.info/vocabularies/erediensten/> . # TODO: move to a different namespace? re-using OP vocabularies for now
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix schema: <http://schema.org/> .
+@prefix regorg: <http://www.w3.org/ns/regorg#> .
+
+
+<http://data.lblod.info/id/lidmaatschap/adc532c43de64e08b50fa085a4136c5b>
+  a <http://www.w3.org/ns/org#Membership>;
+  mu:uuid "adc532c43de64e08b50fa085a4136c5b";
+  org:organization ns1:V0001001 ;
+  org:member <http://data.lblod.info/id/persoon/43732af967f8445aa923f724110dcc5d>.
+  # rol heb ik nog weggelaten want ik zie dit niet direct in de bron applicatie.
+  # indien nodig zal dit via org:role en een codelist moeten gebeuren.
+
+<http://data.lblod.info/id/personen/43732af967f8445aa923f724110dcc5d>
+  a person:Person;
+  mu:uuid "43732af967f8445aa923f724110dcc5d";
+  foaf:givenName "Jan";
+  foaf:familyName "Janssens";
+  org:basedAt <http://data.lblod.info/id/vestigingen/77b0ac8bd0e4429d9990748c383c7ca2> .
+
+<http://data.lblod.info/id/vestigingen/77b0ac8bd0e4429d9990748c383c7ca2> a org:Site ;
+  mu:uuid "77b0ac8bd0e4429d9990748c383c7ca2";
+  org:siteAddress <http://data.lblod.info/id/adres/1a2b3c4d5e6f7g8h9i0j> ;
+  organisatie:bestaatUit <http://data.lblod.info/id/adressen/1c992f5dabc3400e9e22ca965fd91e4f> ;
+  org:siteAddress <http://data.lblod.info/id/contact-punten/1c992f5dabc3400e9e22ca965fd91e4f>.
+
+<http://data.lblod.info/id/adressen/1c992f5dabc3400e9e22ca965fd91e4f> a adres:Adres;
+  mu:uuid "1c992f5dabc3400e9e22ca965fd91e4f";
+  adres:gemeentenaam "Gent"@nl;
+  locn:postCode "9000";
+  locn:thoroughfare "Sint-Pietersnieuwstraat";
+  adres:Adresvoorstelling.huisnummer "25";
+  adres:land "België";
+  locn:fullAddress "Sint-Pietersnieuwstraat 25, 9000 Gent, België".
+
+
+<http://data.lblod.info/id/contact-punten/1c992f5dabc3400e9e22ca965fd91e4f>
+  a schema:ContactPoint;
+  mu:uuid "1c992f5dabc3400e9e22ca965fd91e4f";
+  schema:email "x@y.z";
+  schema:telephone "tel:+32123456789";
+  schema:contactType "Primary".
+

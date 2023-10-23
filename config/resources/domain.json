@@ -160,6 +160,11 @@
           "target": "identifier",
           "cardinality": "many"
         },
+        "parent-organization": {
+          "predicate": "org:memberOf",
+          "target": "organization",
+          "cardinality": "one"
+        },
         "organization-status": {
           "predicate": "regorg:orgStatus",
           "target": "organization-status-code",
@@ -193,6 +198,13 @@
         "description": {
           "type": "string",
           "predicate": "dct:description"
+        }
+      },
+      "relationships": {
+        "activities": {
+          "predicate": "regorg:orgActivity",
+          "target": "activity",
+          "cardinality": "many"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/verenigingen/"
@@ -362,6 +374,17 @@
         }
       },
       "new-resource-base": "http://lblod.data.gift/concepts/"
+    },
+    "activities": {
+      "name": "activity",
+      "class": "skos:Concept",
+      "attributes": {
+        "label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/identificatoren/"
     }
   }
 }

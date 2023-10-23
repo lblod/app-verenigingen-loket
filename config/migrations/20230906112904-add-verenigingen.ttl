@@ -13,10 +13,17 @@
 @prefix code: <http://data.vlaanderen.be/id/concept/> .
 @prefix schema: <http://schema.org/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix regorg: <http://www.w3.org/ns/regorg#> .
+@prefix act: <http://data.lblod.info/id/concept/activiteit/> .
+
+ns1:org a org:Organization ;
+  skos:prefLabel "Vereniging der verenigingen" ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75vv'.
+
 
 ns1:V0001001
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
-  skos:prefLabel "Feitelijke vereniging" ;
+  skos:prefLabel "Random Association 1" ;
   dc:description "Beschrijving van de Feitelijke vereniging" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5';
@@ -24,63 +31,35 @@ ns1:V0001001
     <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
     <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
     <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_2> .
-
-  # ns1:doelgroep <https://data.vlaanderen.be/ns/doelgroep/V0001001> ;
-  # ns1:hoofdactiviteitenVerenigingsloket <https://data.vlaanderen.be/ns/hoofdactiviteitenVerenigingsloket/BIAG> ;
-  # ns1:korteNaam "FV"^^<xsd:string> ;
-  # ns1:links <https://publiek.verenigingen.staging-vlaanderen.be/v1/verenigingen/V0001001> ;
-  # ns1:type <https://data.vlaanderen.be/ns/type/V0001001> .
+  org:memberOf ns1:org ; 
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001001_1> a org:Site ;
   mu:uuid "fa968d12-12b4-46ce-84dd-578eecdc75e8";
   ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ; # Maatschappelijke zetel. cf onderaan (export OP)
-  dc:description "Kanitine"; # Ander administratief adres
+  dc:description "Kantine"; 
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_1> ;
   org:siteAddress <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617289>.
 
 <http://data.lblod.info/id/vestigingen/V0001001_2> a org:Site ;
   mu:uuid "fa968d12-12b4-46ce-84dd-578eecdc75e0";
   ere:vestigingstype  <http://lblod.data.gift/concepts/fbec5e94aba343b0a7361aca8a0c7d79> ;
-  dc:description "Feestzaal"; # Ander administratief adres
+  dc:description "Feestzaal"; 
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_2> ;
   org:siteAddress <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a7c86635fdd1>.
 
 
 <http://data.lblod.info/id/vestigingen/V0001001_3> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75e6';
-    ere:vestigingstype  <http://lblod.data.gift/concepts/fbec5e94aba343b0a7361aca8a0c7d79> ;
-  dc:description "Kantoor"; # Ander administratief adres
-  org:siteAddress <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1> ;
-  organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_3> .
-
-
-
-
-# <https://data.vlaanderen.be/ns/doelgroep/V0001001> ns1:maximumleeftijd 150 ;
-#   ns1:minimumleeftijd 0 .
-
-# <https://data.vlaanderen.be/ns/hoofdactiviteitenVerenigingsloket/BIAG> a <xsd:string> .
-
-# <https://data.vlaanderen.be/ns/type/V0001001> ns1:beschrijving "Feitelijke vereniging" ;
-#   ns1:code "FV" .
-
-# <https://publiek.verenigingen.staging-vlaanderen.be/v1/verenigingen/V0001001> ns1:detail "https://publiek.verenigingen.staging-vlaanderen.be/v1/verenigingen/V0001001" .
-
-<http://data.lblod.info/id/adressen/V0001001_1> a locn:Address ;
-  mu:uuid 'a9ae2fb3-a2f7-4154-939b-a41e221bf6cc';
-  locn:fullAddress "Nationalestraat 1, 2000 Antwerpen, België" ;
-  locn:thoroughfare "Nationalestraat";
-  adres:Adresvoorstelling.huisnummer "1";
-  locn:postCode "2000" ;
-  adres:gemeentenaam "Antwerpen"@nl ;
-  adres:land "België".
+  ere:vestigingstype  <http://lblod.data.gift/concepts/fbec5e94aba343b0a7361aca8a0c7d79> ;
+  dc:description "Kantoor"; 
+  organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_3> ;
+  org:siteAddress <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292> .
 
 <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617289> a schema:ContactPoint ;
   mu:uuid "a0717ed507fc476ab2ca16bd7e617289" ;
   schema:email "contact@example.org" ;
-  schema:telephone "tel:+32471074268" ; # Formaat kan nog wijzigen
+  schema:telephone "tel:+32471074268" ;
   schema:contactType "Primary"  .
 
 <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290> a schema:ContactPoint ;
@@ -93,12 +72,19 @@ ns1:V0001001
   foaf:name "Facebook" ;
   foaf:page "https://www.facebook.com/xyz"  .
 
-
-
 <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> a schema:ContactPoint ;
   mu:uuid "a0717ed507fc476ab2ca16bd7e617291" ;
   foaf:name "Website" ;
   foaf:page "https://www.domain.org"  .
+
+<http://data.lblod.info/id/adressen/V0001001_1> a locn:Address ;
+  mu:uuid 'a9ae2fb3-a2f7-4154-939b-a41e221bf6cc';
+  locn:fullAddress "Nationalestraat 1, 2000 Antwerpen, België" ;
+  locn:thoroughfare "Nationalestraat";
+  adres:Adresvoorstelling.huisnummer "1";
+  locn:postCode "2000" ;
+  adres:gemeentenaam "Antwerpen"@nl ;
+  adres:land "België".
 
 <http://data.lblod.info/id/adressen/V0001001_2> a locn:Address ;
   mu:uuid "5358a496-41fd-410f-ae86-c00a89ba6314" ;
@@ -109,13 +95,8 @@ ns1:V0001001
   adres:gemeentenaam "Halle"@nl ;
   adres:land "België".
 
-<http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a7c86635fdd1> a schema:ContactPoint ;
-  mu:uuid "fcb8d6a1a7d3409d9339a7c86635fdd1" ;
-  schema:email "firstname.lastname@example.org" ;
-  schema:telephone "tel:+32471074867" . # Formaat kan nog wijzigen
-
 <http://data.lblod.info/id/adressen/V0001001_3> a locn:Address ;
-  mu:uuid "5358a496-41fd-410f-ae86-c00a89ba6315" ;
+  mu:uuid "5358a496-41fd-410f-ae86-c00a89ba63VV" ;
   locn:fullAddress "Schaapschuur 1, 9258 Affligem, België" ;
   locn:thoroughfare "Schaapschuur";
   adres:Adresvoorstelling.huisnummer "1";
@@ -123,13 +104,17 @@ ns1:V0001001
   adres:gemeentenaam "Affligem"@nl ;
   adres:land "België".
 
+<http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a7c86635fdd1> a schema:ContactPoint ;
+  mu:uuid "fcb8d6a1a7d3409d9339a7c86635fdd1" ;
+  schema:email "firstname.lastname@example.org" ;
+  schema:telephone "tel:+32471074867" .
+
 <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1> a schema:ContactPoint ;
   mu:uuid "fcb8d6a1a7d3409d9339a8c86635fdd1" ;
-  schema:email "a.lastname@example.org" ;
-  schema:telephone "tel:+32471074269" . # Formaat kan nog wijzigen
+  schema:email "firstname.lastname@example.org" ;
+  schema:telephone "tel:+32471074869" .
 
 ns1:V0001001 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8573f48f6b90d0d619c344986> .
-
 
 <http://data.lblod.info/id/identificatoren/ff82c6f8573f48f6b90d0d619c344986> a adms:Identifier;
     skos:notation "KBO nummer";
@@ -152,19 +137,13 @@ ns1:V0001001 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba
   mu:uuid "5358a496-41fd-rg21-fe77-c00a89ba6314" ;
    generiek:lokaleIdentificator "V0001001".
 
-ns1:V0001002
+  ns1:V0001002
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
-  skos:prefLabel "Een tweede vereniging" ;
+  skos:prefLabel "Random Association 2" ;
   dc:description "Beschrijving van de Feitelijke vereniging" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001002_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e6';
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001002_2> .
-
-  # ns1:doelgroep <https://data.vlaanderen.be/ns/doelgroep/V0001001> ;
-  # ns1:hoofdactiviteitenVerenigingsloket <https://data.vlaanderen.be/ns/hoofdactiviteitenVerenigingsloket/BIAG> ;
-  # ns1:korteNaam "FV"^^<xsd:string> ;
-  # ns1:links <https://publiek.verenigingen.staging-vlaanderen.be/v1/verenigingen/V0001001> ;
-  # ns1:type <https://data.vlaanderen.be/ns/type/V0001001> .
 
 <http://data.lblod.info/id/vestigingen/V0001002_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eevvc75e5';
@@ -174,17 +153,6 @@ ns1:V0001002
   mu:uuid 'fa968d12-12b4-46ce-897f-578bbcdc75e5';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001002_2> .
 
-
-
-# <https://data.vlaanderen.be/ns/doelgroep/V0001001> ns1:maximumleeftijd 150 ;
-#   ns1:minimumleeftijd 0 .
-
-# <https://data.vlaanderen.be/ns/hoofdactiviteitenVerenigingsloket/BIAG> a <xsd:string> .
-
-# <https://data.vlaanderen.be/ns/type/V0001001> ns1:beschrijving "Feitelijke vereniging" ;
-#   ns1:code "FV" .
-
-# <https://publiek.verenigingen.staging-vlaanderen.be/v1/verenigingen/V0001001> ns1:detail "https://publiek.verenigingen.staging-vlaanderen.be/v1/verenigingen/V0001001" .
 
 <http://data.lblod.info/id/adressen/V0001002_1> a locn:Address ;
   mu:uuid 'a9ae2fb3-a2f7-8224-939b-a41e221bf6cc';
@@ -238,8 +206,7 @@ ns1:V0001003
   dc:description "Description of Association 3" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001003_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e7';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001003_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001003_2> .
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001003_3> ,<http://data.lblod.info/id/vestigingen/V0001003_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001003_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75e7';
@@ -270,16 +237,15 @@ ns1:V0001004
   skos:prefLabel "Random Association 4" ;
   dc:description "Description of Association 4" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001004_1> ;
-  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e8';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001004_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001004_2> .
+  mu:uuid 'fa968d12-12b4-46ce-8vad-578eecdc75e8';
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001004_3> ,<http://data.lblod.info/id/vestigingen/V0001004_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001004_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75e8';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001004_1> .
 
 <http://data.lblod.info/id/vestigingen/V0001004_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75e8';
+  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdcpde8';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001004_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001004_3> a org:Site ;
@@ -301,18 +267,18 @@ ns1:V0001004 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 ns1:V0001006
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
   skos:prefLabel "Random Association 6" ;
+  
   dc:description "Description of Association 6" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001006_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e9';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001006_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001006_2> .
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001006_3> ,<http://data.lblod.info/id/vestigingen/V0001006_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001006_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75e9';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001006_1> .
 
 <http://data.lblod.info/id/vestigingen/V0001006_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75e9';
+  mu:uuid 'fa968d12-12b4-46ce-897f-578evvdc75e9';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001006_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001006_3> a org:Site ;
@@ -337,15 +303,14 @@ ns1:V0001007
   dc:description "Description of Association 7" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001007_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75ea';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001007_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001007_2> .
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001007_3> ,<http://data.lblod.info/id/vestigingen/V0001007_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001007_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75ea';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001007_1> .
 
 <http://data.lblod.info/id/vestigingen/V0001007_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75ea';
+  mu:uuid 'fa968d12-12b4-46ce-897f-578eepvs75ea';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001007_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001007_3> a org:Site ;
@@ -370,15 +335,14 @@ ns1:V0001008
   dc:description "Description of Association 8" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001008_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75eb';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001008_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001008_2> .
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001008_3> ,<http://data.lblod.info/id/vestigingen/V0001008_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001008_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75eb';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001008_1> .
 
 <http://data.lblod.info/id/vestigingen/V0001008_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75eb';
+  mu:uuid 'fa968d12-12b4-46ce-897f-578eecaa75eb';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001008_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001008_3> a org:Site ;
@@ -403,15 +367,14 @@ ns1:V0001009
   dc:description "Description of Association 9" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001009_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75ec';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001009_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001009_2> .
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001009_3> ,<http://data.lblod.info/id/vestigingen/V0001009_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001009_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75ec';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001009_1> .
 
 <http://data.lblod.info/id/vestigingen/V0001009_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75ec';
+  mu:uuid 'fa968d12-12b4-46ce-897f-578eevmc75ec';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001009_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001009_3> a org:Site ;
@@ -436,15 +399,14 @@ ns1:V0001010
   dc:description "Description of Association 10" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001010_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75ed';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001010_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001010_2> .
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001010_3> ,<http://data.lblod.info/id/vestigingen/V0001010_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001010_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75ed';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001010_1> .
 
 <http://data.lblod.info/id/vestigingen/V0001010_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75ed';
+  mu:uuid 'fa968d12-12b4-vvvv-897f-578eecdc75ed';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001010_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001010_3> a org:Site ;
@@ -469,15 +431,14 @@ ns1:V0001011
   dc:description "Description of Association 11" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001011_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75ee';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001011_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001011_2> .
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001011_3> ,<http://data.lblod.info/id/vestigingen/V0001011_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001011_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75ee';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001011_1> .
 
 <http://data.lblod.info/id/vestigingen/V0001011_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75ee';
+  mu:uuid 'fa968d12-12b4-46ce-kd7f-578eecdc75ee';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001011_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001011_3> a org:Site ;
@@ -502,15 +463,14 @@ ns1:V0001012
   dc:description "Description of Association 12" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001012_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75ef';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001012_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001012_2> .
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001012_3> ,<http://data.lblod.info/id/vestigingen/V0001012_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001012_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75ef';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001012_1> .
 
 <http://data.lblod.info/id/vestigingen/V0001012_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75ef';
+  mu:uuid 'fa968d12-12b4-433e-897f-578eecdc75ef';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001012_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001012_3> a org:Site ;
@@ -535,15 +495,14 @@ ns1:V0001013
   dc:description "Description of Association 13" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001013_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75f0';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001013_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001013_2> .
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001013_3> ,<http://data.lblod.info/id/vestigingen/V0001013_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001013_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75f0';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001013_1> .
 
 <http://data.lblod.info/id/vestigingen/V0001013_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75f0';
+  mu:uuid 'fa968d12-12b4-PO0e-897f-578eecdc75f0';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001013_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001013_3> a org:Site ;
@@ -568,15 +527,14 @@ ns1:V0001014
   dc:description "Description of Association 14" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001014_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75f1';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001014_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001014_2> .
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001014_3> ,<http://data.lblod.info/id/vestigingen/V0001014_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001014_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75f1';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001014_1> .
 
 <http://data.lblod.info/id/vestigingen/V0001014_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75f1';
+  mu:uuid 'fa968d12-99b4-46ce-897f-578eecdc75f1';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001014_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001014_3> a org:Site ;
@@ -601,15 +559,14 @@ ns1:V0001015
   dc:description "Description of Association 15" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001015_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75f2';
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001015_3> ;
-  org:hasSite <http://data.lblod.info/id/vestigingen/V0001015_2> .
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001015_3> ,<http://data.lblod.info/id/vestigingen/V0001015_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001015_1> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-fe2s-578eecdc75f2';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001015_1> .
 
 <http://data.lblod.info/id/vestigingen/V0001015_2> a org:Site ;
-  mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75f2';
+  mu:uuid 'fa968d12-12b4-46ce-8900-578eecdc75f2';
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001015_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001015_3> a org:Site ;
@@ -675,7 +632,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   adres:land "Country 5".
 
 <http://data.lblod.info/id/adressen/V0001012_3> a locn:Address ;
-  mu:uuid "5358a496-41fd-410f-ae86-c00a89ba6314" ;
+  mu:uuid "5358a496-41fd-410f-ae86-c00a89ba63FF" ;
   locn:fullAddress "Street 6, City 6, Country 6" ;
   locn:thoroughfare "Street 6";
   adres:Adresvoorstelling.huisnummer "6";
@@ -713,11 +670,11 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 
 # Address for Site 14
 <http://data.lblod.info/id/adressen/V0001014_1> a locn:Address ;
-  mu:uuid 'a9ae2fb3-a2f7-4154-939b-a41e221bf6c4';
+  mu:uuid 'a9ae2fb3-a2f7-4154-9NNb-a41e221bf6c4';
   locn:fullAddress "Street 10, City 10, Country 10" ;
   locn:thoroughfare "Street 10";
   adres:Adresvoorstelling.huisnummer "10";
-  locn:postCode "10000" ;
+  locn:postCode "1860" ;
   adres:gemeentenaam "City 10"@nl ;
   adres:land "Country 10".
 
@@ -726,7 +683,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 11, City 11, Country 11" ;
   locn:thoroughfare "Street 11";
   adres:Adresvoorstelling.huisnummer "11";
-  locn:postCode "11000" ;
+  locn:postCode "1100" ;
   adres:gemeentenaam "City 11"@nl ;
   adres:land "Country 11".
 
@@ -735,7 +692,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 12, City 12, Country 12" ;
   locn:thoroughfare "Street 12";
   adres:Adresvoorstelling.huisnummer "12";
-  locn:postCode "12000" ;
+  locn:postCode "1020" ;
   adres:gemeentenaam "City 12"@nl ;
   adres:land "Country 12".
 
@@ -745,7 +702,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 13, City 13, Country 13" ;
   locn:thoroughfare "Street 13";
   adres:Adresvoorstelling.huisnummer "13";
-  locn:postCode "13000" ;
+  locn:postCode "1890" ;
   adres:gemeentenaam "City 13"@nl ;
   adres:land "Country 13".
 
@@ -754,7 +711,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 14, City 14, Country 14" ;
   locn:thoroughfare "Street 14";
   adres:Adresvoorstelling.huisnummer "14";
-  locn:postCode "14000" ;
+  locn:postCode "1400" ;
   adres:gemeentenaam "City 14"@nl ;
   adres:land "Country 14".
 
@@ -763,7 +720,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 15, City 15, Country 15" ;
   locn:thoroughfare "Street 15";
   adres:Adresvoorstelling.huisnummer "15";
-  locn:postCode "15000" ;
+  locn:postCode "1500" ;
   adres:gemeentenaam "City 15"@nl ;
   adres:land "Country 15".
 
@@ -773,7 +730,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 16, City 16, Country 16" ;
   locn:thoroughfare "Street 16";
   adres:Adresvoorstelling.huisnummer "16";
-  locn:postCode "16000" ;
+  locn:postCode "1600" ;
   adres:gemeentenaam "City 16"@nl ;
   adres:land "Country 16".
 
@@ -782,7 +739,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 17, City 17, Country 17" ;
   locn:thoroughfare "Street 17";
   adres:Adresvoorstelling.huisnummer "17";
-  locn:postCode "17000" ;
+  locn:postCode "1700" ;
   adres:gemeentenaam "City 17"@nl ;
   adres:land "Country 17".
 
@@ -791,7 +748,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 18, City 18, Country 18" ;
   locn:thoroughfare "Street 18";
   adres:Adresvoorstelling.huisnummer "18";
-  locn:postCode "18000" ;
+  locn:postCode "8890" ;
   adres:gemeentenaam "City 18"@nl ;
   adres:land "Country 18".
 
@@ -801,7 +758,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 19, City 19, Country 19" ;
   locn:thoroughfare "Street 19";
   adres:Adresvoorstelling.huisnummer "19";
-  locn:postCode "19000" ;
+  locn:postCode "1900" ;
   adres:gemeentenaam "City 19"@nl ;
   adres:land "Country 19".
 
@@ -810,7 +767,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 20, City 20, Country 20" ;
   locn:thoroughfare "Street 20";
   adres:Adresvoorstelling.huisnummer "20";
-  locn:postCode "20000" ;
+  locn:postCode "1730" ;
   adres:gemeentenaam "City 20"@nl ;
   adres:land "Country 20".
 
@@ -819,7 +776,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 21, City 21, Country 21" ;
   locn:thoroughfare "Street 21";
   adres:Adresvoorstelling.huisnummer "21";
-  locn:postCode "21000" ;
+  locn:postCode "9000" ;
   adres:gemeentenaam "City 21"@nl ;
   adres:land "Country 21".
 
@@ -829,7 +786,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 22, City 22, Country 22" ;
   locn:thoroughfare "Street 22";
   adres:Adresvoorstelling.huisnummer "22";
-  locn:postCode "22000" ;
+  locn:postCode "1030" ;
   adres:gemeentenaam "City 22"@nl ;
   adres:land "Country 22".
 
@@ -838,7 +795,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 23, City 23, Country 23" ;
   locn:thoroughfare "Street 23";
   adres:Adresvoorstelling.huisnummer "23";
-  locn:postCode "23000" ;
+  locn:postCode "1861" ;
   adres:gemeentenaam "City 23"@nl ;
   adres:land "Country 23".
 
@@ -847,7 +804,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 24, City 24, Country 24" ;
   locn:thoroughfare "Street 24";
   adres:Adresvoorstelling.huisnummer "24";
-  locn:postCode "24000" ;
+  locn:postCode "2040" ;
   adres:gemeentenaam "City 24"@nl ;
   adres:land "Country 24".
 
@@ -857,7 +814,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 25, City 25, Country 25" ;
   locn:thoroughfare "Street 25";
   adres:Adresvoorstelling.huisnummer "25";
-  locn:postCode "25000" ;
+  locn:postCode "2500" ;
   adres:gemeentenaam "City 25"@nl ;
   adres:land "Country 25".
 
@@ -866,7 +823,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 26, City 26, Country 26" ;
   locn:thoroughfare "Street 26";
   adres:Adresvoorstelling.huisnummer "26";
-  locn:postCode "26000" ;
+  locn:postCode "2600" ;
   adres:gemeentenaam "City 26"@nl ;
   adres:land "Country 26".
 
@@ -875,7 +832,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 27, City 27, Country 27" ;
   locn:thoroughfare "Street 27";
   adres:Adresvoorstelling.huisnummer "27";
-  locn:postCode "27000" ;
+  locn:postCode "2700" ;
   adres:gemeentenaam "City 27"@nl ;
   adres:land "Country 27".
 
@@ -885,7 +842,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 28, City 28, Country 28" ;
   locn:thoroughfare "Street 28";
   adres:Adresvoorstelling.huisnummer "28";
-  locn:postCode "28000" ;
+  locn:postCode "2800" ;
   adres:gemeentenaam "City 28"@nl ;
   adres:land "Country 28".
 
@@ -894,7 +851,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 29, City 29, Country 29" ;
   locn:thoroughfare "Street 29";
   adres:Adresvoorstelling.huisnummer "29";
-  locn:postCode "29000" ;
+  locn:postCode "1000" ;
   adres:gemeentenaam "City 29"@nl ;
   adres:land "Country 29".
 
@@ -903,7 +860,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 30, City 30, Country 30" ;
   locn:thoroughfare "Street 30";
   adres:Adresvoorstelling.huisnummer "30";
-  locn:postCode "30000" ;
+  locn:postCode "9300" ;
   adres:gemeentenaam "City 30"@nl ;
   adres:land "Country 30".
 
@@ -913,7 +870,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 31, City 31, Country 31" ;
   locn:thoroughfare "Street 31";
   adres:Adresvoorstelling.huisnummer "31";
-  locn:postCode "31000" ;
+  locn:postCode "3100" ;
   adres:gemeentenaam "City 31"@nl ;
   adres:land "Country 31".
 
@@ -922,7 +879,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 32, City 32, Country 32" ;
   locn:thoroughfare "Street 32";
   adres:Adresvoorstelling.huisnummer "32";
-  locn:postCode "32000" ;
+  locn:postCode "3200" ;
   adres:gemeentenaam "City 32"@nl ;
   adres:land "Country 32".
 
@@ -931,7 +888,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 33, City 33, Country 33" ;
   locn:thoroughfare "Street 33";
   adres:Adresvoorstelling.huisnummer "33";
-  locn:postCode "33000" ;
+  locn:postCode "3300" ;
   adres:gemeentenaam "City 33"@nl ;
   adres:land "Country 33".
 
@@ -1103,7 +1060,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba
 
 # Address for Site 2 of Association 3
 <http://data.lblod.info/id/adressen/V0001003_2> a locn:Address ;
-  mu:uuid "5358a496-41fd-410f-ae86-c00a89ba6335" ;
+  mu:uuid "5358a496-41fd-410f-aeLL-c00a89ba6335" ;
   locn:fullAddress "Edingensesteenweg 3, 1500 Halle, België" ;
   locn:thoroughfare "Edingensesteenweg" ;
   adres:Adresvoorstelling.huisnummer "3" ;
@@ -1198,6 +1155,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba
 <http://lblod.data.gift/concepts/fbec5e94aba343b0a7361aca8a0c7d79>	<http://www.w3.org/2004/02/skos/core#inScheme>	<http://lblod.data.gift/concept-schemes/f8319ccf40fc2a1697edc5cf7e03018f> .
 <http://lblod.data.gift/concepts/57e8e5498ca84056b8a87631a26c90af>	<http://www.w3.org/1999/02/22-rdf-syntax-ns#type>	<http://lblod.data.gift/vocabularies/organisatie/TypeVestiging> .
 <http://lblod.data.gift/concepts/dd0418307e7038c0c3809e3ec03a0932>	<http://www.w3.org/2004/02/skos/core#topConceptOf>	<http://lblod.data.gift/concept-schemes/f8319ccf40fc2a1697edc5cf7e03018f> .
+
 
 
 
