@@ -1,0 +1,352 @@
+{
+  "version": "0.1",
+  "prefixes": {
+    "org": "http://www.w3.org/ns/org#",
+    "locn": "http://www.w3.org/ns/locn#",
+    "schema": "http://schema.org/",
+    "regorg": "http://www.w3.org/ns/regorg#",
+    "person": "http://www.w3.org/ns/person#",
+    "vcard": "http://www.w3.org/2006/vcard/ns#",
+    "dbpedia": "http://dbpedia.org/ontology/",
+    "adms": "http://www.w3.org/ns/adms#",
+    "euro": "http://data.europa.eu/m8g/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "organisatie": "https://data.vlaanderen.be/ns/organisatie#",
+    "persoon": "https://data.vlaanderen.be/ns/persoon#",
+    "adres": "https://data.vlaanderen.be/ns/adres#",
+    "generiek": "https://data.vlaanderen.be/ns/generiek#",
+    "mandaat": "http://data.vlaanderen.be/ns/mandaat#",
+    "besluit": "http://data.vlaanderen.be/ns/besluit#",
+    "lblodlg": "http://data.lblod.info/vocabularies/leidinggevenden/",
+    "lblodorg": "https://data.lblod.info/vocabularies/organisatie/",
+    "lblodgeneriek": "https://data.lblod.info/vocabularies/generiek/",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "euvoc": "http://publications.europa.eu/ontology/euvoc#",
+    "ere": "http://data.lblod.info/vocabularies/erediensten/",
+    "ch": "http://data.lblod.info/vocabularies/contacthub/",
+    "code": "http://data.vlaanderen.be/id/concept/",
+    "ext": "http://mu.semte.ch/vocabularies/ext/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "nacebel": "http://data.gift/vocabularies/nace-bel/",
+    "dct": "http://purl.org/dc/terms/", 
+    "vereniging": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#"
+  },
+  "resources": {
+    "addresses": {
+      "name": "address",
+      "class": "locn:Address",
+      "attributes": {
+        "number": {
+          "type": "string",
+          "predicate": "adres:Adresvoorstelling.huisnummer"
+        },
+        "box-number": {
+          "type": "string",
+          "predicate": "adres:Adresvoorstelling.busnummer"
+        },
+        "street": {
+          "type": "string",
+          "predicate": "locn:thoroughfare"
+        },
+        "postcode": {
+          "type": "string",
+          "predicate": "locn:postCode"
+        },
+        "municipality": {
+          "type": "string",
+          "predicate": "adres:gemeentenaam"
+        },
+        "province": {
+          "type": "string",
+          "predicate": "locn:adminUnitL2"
+        },
+        "country": {
+          "type": "string",
+          "predicate": "adres:land"
+        },
+        "full-address": {
+          "type": "string",
+          "predicate": "locn:fullAddress"
+        },
+        "address-register-uri": {
+          "type": "url",
+          "predicate": "adres:verwijstNaar"
+        }
+      },
+      "relationships": {
+        "source": {
+          "predicate": "dct:source",
+          "target": "concept",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/adressen/"
+    },
+    "users": {
+      "name": "user",
+      "class": "foaf:Person",
+      "attributes": {
+          "first-name": {
+              "type": "string",
+              "predicate": "foaf:firstName"
+          },
+          "family-name": {
+              "type": "string",
+              "predicate": "foaf:familyName"
+          }
+      },
+      "relationships": {
+          "accounts": {
+              "predicate": "foaf:account",
+              "target": "account",
+              "cardinality": "many"
+          },
+          "groups": {
+              "predicate": "foaf:member",
+              "target": "administrative-unit",
+              "cardinality": "many"
+          }
+      },
+      "new-resource-base": "http://data.lblod.info/id/gebruiker/"
+    },
+    "accounts": {
+        "name": "account",
+        "class": "foaf:OnlineAccount",
+        "attributes": {
+            "provider": {
+                "type": "string",
+                "predicate": "foaf:accountServiceHomepage"
+            },
+            "identifier": {
+                "type": "string",
+                "predicate": "dct:identifier"
+            }
+        },
+        "relationships": {
+            "user": {
+                "predicate": "foaf:account",
+                "target": "user",
+                "cardinality": "one",
+                "inverse": true
+            }
+        },
+        "new-resource-base": "http://data.lblod.info/id/account/"
+    },
+    "organizations": {
+      "name": "organization",
+      "class": "org:Organization",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        },
+        "alternative-name": {
+          "type": "string",
+          "predicate": "skos:altLabel"
+        },
+        "expected-end-date": {
+          "type": "date",
+          "predicate": "lblodgeneriek:geplandeEindDatum"
+        },
+        "purpose": {
+          "type": "string",
+          "predicate": "org:purpose"
+        }
+      },
+      "relationships": {
+        "identifiers": {
+          "predicate": "adms:identifier",
+          "target": "identifier",
+          "cardinality": "many"
+        },
+        "organization-status": {
+          "predicate": "regorg:orgStatus",
+          "target": "organization-status-code",
+          "cardinality": "one"
+        },
+        "primary-site": {
+          "predicate": "org:hasPrimarySite",
+          "target": "site",
+          "cardinality": "one"
+        },
+        "sites": {
+          "predicate": "org:hasSite",
+          "target": "site",
+          "cardinality": "many"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/organisaties/"
+    },
+    "associations": {
+      "name": "association",
+      "class": "vereniging:FeitelijkeVereniging",
+      "super": [
+        "organization"
+      ],
+      "attributes": {
+        "description": {
+          "type": "string",
+          "predicate": "dct:description"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/verenigingen/"
+    },
+    "administrative-units": {
+      "name": "administrative-unit",
+      "class": "besluit:Bestuurseenheid",
+      "super": [
+        "organization"
+      ],
+      "relationships": {
+        "classification": {
+          "predicate": "org:classification",
+          "target": "administrative-unit-classification-code",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/bestuurseenheden/"
+    },
+    "identifiers": {
+      "name": "identifier",
+      "class": "adms:Identifier",
+      "attributes": {
+        "id-name": {
+          "type": "string",
+          "predicate": "skos:notation"
+        }
+      },
+      "relationships": {
+        "structured-identifier": {
+          "predicate": "generiek:gestructureerdeIdentificator",
+          "target": "structured-identifier",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/identificatoren/"
+    },
+    "structured-identifiers": {
+      "name": "structured-identifier",
+      "class": "generiek:GestructureerdeIdentificator",
+      "attributes": {
+        "local-id": {
+          "type": "string",
+          "predicate": "generiek:lokaleIdentificator"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/gestructureerdeIdentificatoren/"
+    },
+    "administrative-unit-classification-codes": {
+      "name": "administrative-unit-classification-code",
+      "class": "code:BestuurseenheidClassificatieCode",
+      "attributes": {
+        "label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        }
+      },
+      "new-resource-base": "http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/"
+    },
+    "organization-status-codes": {
+      "name": "organization-status-code",
+      "class": "code:OrganisatieStatusCode",
+      "attributes": {
+        "label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        }
+      },
+      "features": [
+        "include-uri"
+      ],
+      "new-resource-base": "http://lblod.data.gift/concepts/"
+    },
+    "sites": {
+      "name": "site",
+      "class": "org:Site",
+      "relationships": {
+        "contacts": {
+          "predicate": "org:siteAddress",
+          "target": "contact-point",
+          "cardinality": "many"
+        },
+        "address": {
+          "predicate": "organisatie:bestaatUit",
+          "target": "address",
+          "cardinality": "one"
+        },
+        "site-type": {
+          "predicate": "ere:vestigingstype",
+          "target": "site-type",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/vestigingen/"
+    },
+    "contact-points": {
+      "name": "contact-point",
+      "class": "schema:ContactPoint",
+      "attributes": {
+        "email": {
+          "type": "string",
+          "predicate": "schema:email"
+        },
+        "telephone": {
+          "type": "string",
+          "predicate": "schema:telephone"
+        },
+        "fax": {
+          "type": "string",
+          "predicate": "schema:faxNumber"
+        },
+        "website": {
+          "type": "uri",
+          "predicate": "foaf:page"
+        },
+        "type": {
+          "type": "string",
+          "predicate": "schema:contactType"
+        }
+      },
+      "relationships": {
+        "contact-address": {
+          "predicate": "locn:address",
+          "target": "address",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/contact-punten/"
+    },
+   
+    "concepts": {
+      "name": "concept",
+      "class": "skos:Concept",
+      "attributes": {
+        "label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        },
+        "notation": {
+          "type": "string",
+          "predicate": "skos:notation"
+        },
+        "alt-label": {
+          "type": "string",
+          "predicate": "skos:altLabel"
+        }
+      },
+      "new-resource-base": "http://lblod.data.gift/concepts/"
+    },
+    "site-types": {
+      "name": "site-type",
+      "class": "code:TypeVestiging",
+      "attributes": {
+        "label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        }
+      },
+      "new-resource-base": "http://lblod.data.gift/concepts/"
+    }
+  }
+}
