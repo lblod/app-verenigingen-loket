@@ -184,6 +184,12 @@
           "predicate": "schema:contactPoint",
           "target": "contact-point",
           "cardinality": "many"
+        },
+        "members": {
+          "predicate": "org:organization",
+          "target": "membership",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "new-resource-base": "http://data.lblod.info/id/organisaties/"
@@ -208,6 +214,38 @@
         }
       },
       "new-resource-base": "http://data.lblod.info/id/verenigingen/"
+    },
+    "persons": {
+      "name": "person",
+      "class": "person:Person",
+      "attributes": {
+        "given-name": {
+          "type": "string",
+          "predicate": "foaf:givenName"
+        },
+        "family-name": {
+          "type": "string",
+          "predicate": "foaf:familyName"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/personen/"
+    },
+    "memberships": {
+      "name": "membership",
+      "class": "org:Membership",
+      "relationships": {
+        "person": {
+          "predicate": "org:member",
+          "target": "person",
+          "cardinality": "one"
+        },
+        "association": {
+          "predicate": "org:organization",
+          "target": "association",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/identificatoren/"
     },
     "administrative-units": {
       "name": "administrative-unit",
@@ -302,6 +340,12 @@
           "predicate": "ere:vestigingstype",
           "target": "site-type",
           "cardinality": "one"
+        },
+        "associations": {
+          "target": "association",
+          "predicate": "org:hasSite",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "new-resource-base": "http://data.lblod.info/id/vestigingen/"

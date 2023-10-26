@@ -32,6 +32,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/addresses/"
   end
 
+  match "/activities/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/activities/"
+  end
+
   match "/administrative-unit-classification-codes/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/administrative-unit-classification-codes/"
   end
@@ -64,6 +68,17 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/associations/"
   end
 
+  match "/organization-status-codes/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/organization-status-codes/"
+  end
+
+  match "/persons/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/persons/"
+  end
+
+  match "/memberships/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/memberships/"
+  end
 
   match "/*_", %{accept: [:any], layer: :not_found} do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
