@@ -228,6 +228,13 @@
           "predicate": "foaf:familyName"
         }
       },
+      "relationships": {
+        "site": {
+          "predicate": "org:basedAt",
+          "target": "site",
+          "cardinality": "one"
+        }
+      },
       "new-resource-base": "http://data.lblod.info/id/personen/"
     },
     "memberships": {
@@ -326,7 +333,7 @@
         }
       },
       "relationships": {
-        "contacts": {
+        "contact-points": {
           "predicate": "org:siteAddress",
           "target": "contact-point",
           "cardinality": "many"
@@ -419,6 +426,21 @@
       },
       "new-resource-base": "http://lblod.data.gift/concepts/"
     },
+    "postalCodes" : {
+      "name": "postalCode",
+      "class": "adres:Postinfo",
+      "attributes": {
+        "postalCode": {
+          "type": "string",
+          "predicate": "adres:postcode"
+        },
+        "postName": {
+          "type": "string",
+          "predicate": "adres:postnaam"
+        }
+    },
+    "new-resource-base": "http://lblod.data.gift/concepts/"
+  },
     "activities": {
       "name": "activity",
       "class": "skos:Concept",

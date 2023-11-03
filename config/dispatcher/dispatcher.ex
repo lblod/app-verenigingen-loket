@@ -80,6 +80,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/memberships/"
   end
 
+  match "/postalcodes/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://resource/postalCodes/"
+  end
+
   match "/*_", %{accept: [:any], layer: :not_found} do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
