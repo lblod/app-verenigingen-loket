@@ -11,7 +11,9 @@ DELETE {
   GRAPH  <http://mu.semte.ch/graphs/public> {
              ?postInfo
                  a adres:Postinfo ;
-                 geo:sfWithin ?werkingsgebied .
+                 geo:sfWithin ?werkingsgebied ;
+                 adres:postcode ?code ;
+                adres:postnaam ?name . 
   }
 } INSERT {
         GRAPH ?g {
@@ -34,7 +36,9 @@ WHERE {
 
         ?postInfo
                 geo:sfWithin ?werkingsgebied;
-                ?p2 ?o2 .
+                ?p2 ?o2 ;
+                adres:postcode ?code ;
+                adres:postnaam ?name .
 
         BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
 }

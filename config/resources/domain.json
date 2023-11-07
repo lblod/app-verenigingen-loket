@@ -430,11 +430,12 @@
       "name": "postalCode",
       "class": "adres:Postinfo",
       "attributes": {
-        "postalCode": {
+        "postal-code": {
           "type": "string",
           "predicate": "adres:postcode"
         },
-        "postName": {
+
+        "postal-name": {
           "type": "string",
           "predicate": "adres:postnaam"
         }
