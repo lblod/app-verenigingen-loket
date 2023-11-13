@@ -9,6 +9,8 @@ x-logging: &default-logging
 services:
   frontend: 
     image: lblod/frontend-verenigingen-loket:0.0.1
+    links:
+      - identifier:backend 
     labels:
       - "logging=true"
     restart: always

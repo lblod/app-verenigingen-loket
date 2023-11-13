@@ -84,7 +84,11 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/postalCodes/"
   end
 
-    match "/@appuniversum/*path", %{ layer: :api } do
+  match "/assets/*path", %{ layer: :api } do
+    Proxy.forward conn, path, "http://frontend/assets/"
+  end
+
+  match "/@appuniversum/*path", %{ layer: :api } do
     Proxy.forward conn, path, "http://frontend/@appuniversum/"
   end
 
@@ -92,7 +96,7 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://frontend/index.html"
   end
 
-  match "/*path", %{ layer: :frontend } do
+  match "/*_path", %{ layer: :frontend } do
     Proxy.forward conn, [], "http://frontend/index.html"
   end
 
@@ -102,5 +106,3 @@ defmodule Dispatcher do
   end
 
 end
-
-
