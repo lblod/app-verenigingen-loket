@@ -100,7 +100,7 @@ ns1:V0001001
   locn:fullAddress "Schaapschuur 1, 9258 Affligem, België" ;
   locn:thoroughfare "Schaapschuur";
   adres:Adresvoorstelling.huisnummer "1";
-  locn:postCode "9258" ;
+  locn:postCode "9300" ;
   adres:gemeentenaam "Affligem"@nl ;
   adres:land "België".
 
@@ -618,7 +618,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 4, City 4, Country 4" ;
   locn:thoroughfare "Street 4";
   adres:Adresvoorstelling.huisnummer "4";
-  locn:postCode "4000" ;
+  locn:postCode "9300" ;
   adres:gemeentenaam "City 4"@nl ;
   adres:land "Country 4".
 
@@ -702,7 +702,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 13, City 13, Country 13" ;
   locn:thoroughfare "Street 13";
   adres:Adresvoorstelling.huisnummer "13";
-  locn:postCode "1890" ;
+  locn:postCode "9320" ;
   adres:gemeentenaam "City 13"@nl ;
   adres:land "Country 13".
 
@@ -711,7 +711,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 14, City 14, Country 14" ;
   locn:thoroughfare "Street 14";
   adres:Adresvoorstelling.huisnummer "14";
-  locn:postCode "1400" ;
+  locn:postCode "9310" ;
   adres:gemeentenaam "City 14"@nl ;
   adres:land "Country 14".
 
@@ -758,7 +758,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 19, City 19, Country 19" ;
   locn:thoroughfare "Street 19";
   adres:Adresvoorstelling.huisnummer "19";
-  locn:postCode "1900" ;
+  locn:postCode "9320" ;
   adres:gemeentenaam "City 19"@nl ;
   adres:land "Country 19".
 
@@ -786,7 +786,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 22, City 22, Country 22" ;
   locn:thoroughfare "Street 22";
   adres:Adresvoorstelling.huisnummer "22";
-  locn:postCode "1030" ;
+  locn:postCode "9310" ;
   adres:gemeentenaam "City 22"@nl ;
   adres:land "Country 22".
 
@@ -867,10 +867,10 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Address for Site 10
 <http://data.lblod.info/id/adressen/V0001010_1> a locn:Address ;
   mu:uuid 'a9ae2fb3-a2f7-4154-939b-a41e221bf6c0';
-  locn:fullAddress "Street 31, City 31, Country 31" ;
+  locn:fullAddress "Street 31, City 31, Country 9300" ;
   locn:thoroughfare "Street 31";
   adres:Adresvoorstelling.huisnummer "31";
-  locn:postCode "3100" ;
+  locn:postCode "9300" ;
   adres:gemeentenaam "City 31"@nl ;
   adres:land "Country 31".
 

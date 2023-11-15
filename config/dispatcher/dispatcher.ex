@@ -81,7 +81,15 @@ defmodule Dispatcher do
   end
 
   match "/postal-codes/*path", %{ accept: [:any], layer: :api} do
-    Proxy.forward conn, path, "http://resource/postalCodes/"
+    Proxy.forward conn, path, "http://cache/postalCodes/"
+  end
+
+  match "/changes/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://cache/changes/"
+  end
+
+  match "/change-events/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://resource/change-events/"
   end
 
   match "/assets/*path", %{ layer: :api } do

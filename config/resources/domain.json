@@ -11,6 +11,7 @@
     "adms": "http://www.w3.org/ns/adms#",
     "euro": "http://data.europa.eu/m8g/",
     "prov": "http://www.w3.org/ns/prov#",
+    "ns": "https://data.vlaanderen.be/ns/",
     "organisatie": "https://data.vlaanderen.be/ns/organisatie#",
     "persoon": "https://data.vlaanderen.be/ns/persoon#",
     "adres": "https://data.vlaanderen.be/ns/adres#",
@@ -30,7 +31,8 @@
     "geo": "http://www.opengis.net/ont/geosparql#",
     "nacebel": "http://data.gift/vocabularies/nace-bel/",
     "dct": "http://purl.org/dc/terms/", 
-    "vereniging": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#"
+    "vereniging": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#",
+    "orga": "http://lblod.data.gift/vocabularies/organisatie/"
   },
   "resources": {
     "addresses": {
@@ -190,6 +192,12 @@
           "target": "membership",
           "cardinality": "many",
           "inverse": true
+        },
+        "change-event": {
+          "predicate": "org:resultingOrganization",
+          "cardinality": "many",
+          "target": "change-event",
+          "inverse": true
         }
       },
       "new-resource-base": "http://data.lblod.info/id/organisaties/"
@@ -211,6 +219,12 @@
           "predicate": "regorg:orgActivity",
           "target": "activity",
           "cardinality": "many"
+        },
+        "change-event": {
+          "predicate": "org:resultingOrganization",
+          "cardinality": "many",
+          "target": "change-event",
+          "inverse": true
         }
       },
       "new-resource-base": "http://data.lblod.info/id/verenigingen/"
@@ -452,6 +466,47 @@
         }
       },
       "new-resource-base": "http://data.lblod.info/id/identificatoren/"
+    },
+    "changes": {
+      "name": "change",
+      "class": "orga:Veranderingsgebeurtenis",
+      "attributes": {
+        "label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/identificatoren/"
+    },
+    "change-events": {
+      "name": "change-event",
+      "class": "org:ChangeEvent",
+      "attributes": {
+        "date": {
+          "type": "date",
+          "predicate": "dct:date"
+        }
+      },
+      "relationships": {
+        "type": {
+          "predicate": "ns:typeWijziging",
+          "target": "change",
+          "cardinality": "one"
+        },
+        "result": {
+          "predicate": "locn:veranderingsgebeurtenisResultaat",
+          "target": "change",
+          "cardinality": "one"
+        },
+        "association": {
+          "target": "organization",
+          "predicate": "org:resultingOrganization",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/identificatoren/"
     }
   }
 }
+
+
