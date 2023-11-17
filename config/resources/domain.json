@@ -32,7 +32,8 @@
     "nacebel": "http://data.gift/vocabularies/nace-bel/",
     "dct": "http://purl.org/dc/terms/", 
     "vereniging": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#",
-    "orga": "http://lblod.data.gift/vocabularies/organisatie/"
+    "orga": "http://lblod.data.gift/vocabularies/organisatie/",
+    "ver": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/"
   },
   "resources": {
     "addresses": {
@@ -193,11 +194,16 @@
           "cardinality": "many",
           "inverse": true
         },
-        "change-event": {
+        "change-events": {
           "predicate": "org:resultingOrganization",
           "cardinality": "many",
           "target": "change-event",
           "inverse": true
+        },
+        "target-audience" : {
+          "predicate": "ver:doelgroep",
+          "cardinality": "one",
+          "target": "target-audience"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/organisaties/"
@@ -225,6 +231,11 @@
           "cardinality": "many",
           "target": "change-event",
           "inverse": true
+        },
+        "classification": {
+          "predicate": "org:classification",
+          "cardinality": "one",
+          "target": "concept"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/verenigingen/"
@@ -409,26 +420,6 @@
       },
       "new-resource-base": "http://data.lblod.info/id/contact-punten/"
     },
-   
-    "concepts": {
-      "name": "concept",
-      "class": "skos:Concept",
-      "attributes": {
-        "label": {
-          "type": "string",
-          "predicate": "skos:prefLabel"
-        },
-        "notation": {
-          "type": "string",
-          "predicate": "skos:notation"
-        },
-        "alt-label": {
-          "type": "string",
-          "predicate": "skos:altLabel"
-        }
-      },
-      "new-resource-base": "http://lblod.data.gift/concepts/"
-    },
     "site-types": {
       "name": "site-type",
       "class": "code:TypeVestiging",
@@ -505,6 +496,86 @@
         }
       },
       "new-resource-base": "http://data.lblod.info/id/identificatoren/"
+    },
+    "concepts": {
+      "name": "concept",
+      "class": "skos:Concept",
+      "attributes": {
+        "pref-label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        },
+        "notation" : {
+          "predicate": "skos:notation",
+          "type": "string"
+        },
+        "modified": {
+          "type": "datetime",
+          "predicate": "dct:modified"
+        }
+      },
+      "relationships": {
+        "concept-scheme": {
+          "predicate": "skos:inScheme",
+          "target": "concept-scheme",
+          "cardinality": "many"
+        },
+        "broader": {
+          "predicate": "skos:broader",
+          "target": "concept",
+          "cardinality": "many"
+        },
+        "top-concept-of": {
+          "predicate": "skos:hasTopConcept",
+          "target": "concept-scheme",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://awesome-poc.com/concepts/"
+    },
+    "concept-schemes": {
+      "name": "concept-scheme",
+      "class": "skos:ConceptScheme",
+      "attributes": {
+        "pref-label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        },
+        "definition" : {
+          "type": "string",
+          "predicate": "skos:definition"
+        }
+      },
+      "relationships": {
+        "in-scheme": {
+          "predicate": "skos:inScheme",
+          "target": "concept-scheme",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "top-concept": {
+          "predicate": "skos:topConceptOf",
+          "target": "concept",
+          "cardinality": "many"
+        }
+      },
+      "new-resource-base": "http://awesome-poc.com/concept-schemes/"
+    },
+    "target-audiences" :{
+      "name": "target-audience",
+      "class": "ver:Doelgroep",
+      "attributes": {
+        "minimum-leeftijd": {
+          "type": "number",
+          "predicate": "ver:minimumleeftijd"
+        },
+        "maximum-leeftijd" : {
+          "type": "number",
+          "predicate": "ver:maximumleeftijd"
+        }
+      },
+      "new-resource-base": "http://awesome-poc.com/target/"
     }
   }
 }
