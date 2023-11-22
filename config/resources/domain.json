@@ -555,7 +555,7 @@
           "inverse": true
         },
         "top-concept": {
-          "predicate": "skos:topConceptOf",
+          "predicate": "skos:hasTopConcept",
           "target": "concept",
           "cardinality": "many"
         }
