@@ -9,7 +9,7 @@ defmodule Dispatcher do
     any: [ "*/*" ],
   ]
 
-  define_layers [ :api_services, :api, :frontend, :not_found ]
+  define_layers [ :api, :frontend, :not_found ]
 
 
   match "/organizations/*path", %{ accept: [:json], layer: :api} do
