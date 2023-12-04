@@ -1,0 +1,15 @@
+DELETE {
+    GRAPH ?g {
+        ?s <https://data.vlaanderen.be/ns/typeWijziging> ?o .
+    }
+}
+INSERT {
+    GRAPH ?g {
+        ?s <http://data.lblod.info/vocabularies/contacthub/typeWijziging> ?o .
+    }
+}
+WHERE {
+    GRAPH ?g {
+        ?s <https://data.vlaanderen.be/ns/typeWijziging> ?o .
+    }
+}
