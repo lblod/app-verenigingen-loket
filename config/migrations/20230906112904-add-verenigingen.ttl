@@ -15,6 +15,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix regorg: <http://www.w3.org/ns/regorg#> .
 @prefix act: <http://data.lblod.info/id/concept/activiteit/> .
+@prefix pav: <http://purl.org/pav/> .
 
 ns1:org a org:Organization ;
   skos:prefLabel "Vereniging der verenigingen" ;
@@ -23,6 +24,7 @@ ns1:org a org:Organization ;
 
 ns1:V0001001
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-03-26T14:49:00+01:00"^^xsd:dateTime ;
   skos:prefLabel "Random Association 1" ;
   dc:description "Beschrijving van de Feitelijke vereniging" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
@@ -139,6 +141,7 @@ ns1:V0001001 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba
 
   ns1:V0001002
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+      pav:lastUpdateOn "2023-04-23T14:49:00+01:00"^^xsd:dateTime ;
   skos:prefLabel "Random Association 2" ;
   dc:description "Beschrijving van de Feitelijke vereniging" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001002_1> ;
@@ -202,6 +205,7 @@ ns1:V0001002 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 3
 ns1:V0001003
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
+  pav:lastUpdateOn "2023-10-26T14:49:00+01:00"^^xsd:dateTime ;
   skos:prefLabel "Random Association 3" ;
   dc:description "Description of Association 3" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001003_1> ;
@@ -236,6 +240,7 @@ ns1:V0001004
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
   skos:prefLabel "Random Association 4" ;
   dc:description "Description of Association 4" ;
+  pav:lastUpdateOn "2022-11-26T14:49:00+01:00"^^xsd:dateTime ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001004_1> ;
   mu:uuid 'fa968d12-12b4-46ce-8vad-578eecdc75e8';
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001004_3> ,<http://data.lblod.info/id/vestigingen/V0001004_2> .
@@ -267,7 +272,7 @@ ns1:V0001004 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 ns1:V0001006
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
   skos:prefLabel "Random Association 6" ;
-  
+  pav:lastUpdateOn "2023-08-02T14:49:00+01:00"^^xsd:dateTime ;
   dc:description "Description of Association 6" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001006_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e9';
@@ -299,6 +304,7 @@ ns1:V0001006 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 7
 ns1:V0001007
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
+  pav:lastUpdateOn "2023-06-13T14:49:00+01:00"^^xsd:dateTime ;
   skos:prefLabel "Random Association 7" ;
   dc:description "Description of Association 7" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001007_1> ;
@@ -331,6 +337,7 @@ ns1:V0001007 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 8
 ns1:V0001008
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
+  pav:lastUpdateOn "2023-03-11T14:49:00+01:00"^^xsd:dateTime ;
   skos:prefLabel "Random Association 8" ;
   dc:description "Description of Association 8" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001008_1> ;
@@ -590,7 +597,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 1, City 1, Country 1" ;
   locn:thoroughfare "Street 1";
   adres:Adresvoorstelling.huisnummer "1";
-  locn:postCode "1000" ;
+  locn:postCode "9320" ;
   adres:gemeentenaam "City 1"@nl ;
   adres:land "Country 1".
 
@@ -646,7 +653,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 7, City 7, Country 7" ;
   locn:thoroughfare "Street 7";
   adres:Adresvoorstelling.huisnummer "7";
-  locn:postCode "7000" ;
+  locn:postCode "9300" ;
   adres:gemeentenaam "City 7"@nl ;
   adres:land "Country 7".
 
@@ -851,7 +858,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 29, City 29, Country 29" ;
   locn:thoroughfare "Street 29";
   adres:Adresvoorstelling.huisnummer "29";
-  locn:postCode "1000" ;
+  locn:postCode "9320" ;
   adres:gemeentenaam "City 29"@nl ;
   adres:land "Country 29".
 
