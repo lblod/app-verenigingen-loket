@@ -11,7 +11,6 @@
     "adms": "http://www.w3.org/ns/adms#",
     "euro": "http://data.europa.eu/m8g/",
     "prov": "http://www.w3.org/ns/prov#",
-    "ns": "https://data.vlaanderen.be/ns/",
     "organisatie": "https://data.vlaanderen.be/ns/organisatie#",
     "persoon": "https://data.vlaanderen.be/ns/persoon#",
     "adres": "https://data.vlaanderen.be/ns/adres#",
@@ -30,7 +29,7 @@
     "ext": "http://mu.semte.ch/vocabularies/ext/",
     "geo": "http://www.opengis.net/ont/geosparql#",
     "nacebel": "http://data.gift/vocabularies/nace-bel/",
-    "dct": "http://purl.org/dc/terms/", 
+    "dct": "http://purl.org/dc/terms/",
     "vereniging": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#",
     "orga": "http://lblod.data.gift/vocabularies/organisatie/",
     "ver": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/"
@@ -90,51 +89,51 @@
       "name": "user",
       "class": "foaf:Person",
       "attributes": {
-          "first-name": {
-              "type": "string",
-              "predicate": "foaf:firstName"
-          },
-          "family-name": {
-              "type": "string",
-              "predicate": "foaf:familyName"
-          }
+        "first-name": {
+          "type": "string",
+          "predicate": "foaf:firstName"
+        },
+        "family-name": {
+          "type": "string",
+          "predicate": "foaf:familyName"
+        }
       },
       "relationships": {
-          "accounts": {
-              "predicate": "foaf:account",
-              "target": "account",
-              "cardinality": "many"
-          },
-          "groups": {
-              "predicate": "foaf:member",
-              "target": "administrative-unit",
-              "cardinality": "many"
-          }
+        "accounts": {
+          "predicate": "foaf:account",
+          "target": "account",
+          "cardinality": "many"
+        },
+        "groups": {
+          "predicate": "foaf:member",
+          "target": "administrative-unit",
+          "cardinality": "many"
+        }
       },
       "new-resource-base": "http://data.lblod.info/id/gebruiker/"
     },
     "accounts": {
-        "name": "account",
-        "class": "foaf:OnlineAccount",
-        "attributes": {
-            "provider": {
-                "type": "string",
-                "predicate": "foaf:accountServiceHomepage"
-            },
-            "identifier": {
-                "type": "string",
-                "predicate": "dct:identifier"
-            }
+      "name": "account",
+      "class": "foaf:OnlineAccount",
+      "attributes": {
+        "provider": {
+          "type": "string",
+          "predicate": "foaf:accountServiceHomepage"
         },
-        "relationships": {
-            "user": {
-                "predicate": "foaf:account",
-                "target": "user",
-                "cardinality": "one",
-                "inverse": true
-            }
-        },
-        "new-resource-base": "http://data.lblod.info/id/account/"
+        "identifier": {
+          "type": "string",
+          "predicate": "dct:identifier"
+        }
+      },
+      "relationships": {
+        "user": {
+          "predicate": "foaf:account",
+          "target": "user",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/account/"
     },
     "organizations": {
       "name": "organization",
@@ -200,7 +199,7 @@
           "target": "change-event",
           "inverse": true
         },
-        "target-audience" : {
+        "target-audience": {
           "predicate": "ver:doelgroep",
           "cardinality": "one",
           "target": "target-audience"
@@ -211,9 +210,7 @@
     "associations": {
       "name": "association",
       "class": "vereniging:FeitelijkeVereniging",
-      "super": [
-        "organization"
-      ],
+      "super": ["organization"],
       "attributes": {
         "description": {
           "type": "string",
@@ -282,9 +279,7 @@
     "administrative-units": {
       "name": "administrative-unit",
       "class": "besluit:Bestuurseenheid",
-      "super": [
-        "organization"
-      ],
+      "super": ["organization"],
       "relationships": {
         "classification": {
           "predicate": "org:classification",
@@ -343,17 +338,15 @@
           "predicate": "skos:prefLabel"
         }
       },
-      "features": [
-        "include-uri"
-      ],
+      "features": ["include-uri"],
       "new-resource-base": "http://lblod.data.gift/concepts/"
     },
     "sites": {
       "name": "site",
       "class": "org:Site",
       "attributes": {
-        "description" : {
-          "type":"string",
+        "description": {
+          "type": "string",
           "predicate": "dct:description"
         }
       },
@@ -431,7 +424,7 @@
       },
       "new-resource-base": "http://lblod.data.gift/concepts/"
     },
-    "postalCodes" : {
+    "postalCodes": {
       "name": "postalCode",
       "class": "adres:Postinfo",
       "attributes": {
@@ -444,9 +437,9 @@
           "type": "string",
           "predicate": "adres:postnaam"
         }
+      },
+      "new-resource-base": "http://lblod.data.gift/concepts/"
     },
-    "new-resource-base": "http://lblod.data.gift/concepts/"
-  },
     "activities": {
       "name": "activity",
       "class": "skos:Concept",
@@ -480,7 +473,7 @@
       },
       "relationships": {
         "type": {
-          "predicate": "ns:typeWijziging",
+          "predicate": "ch:typeWijziging",
           "target": "change",
           "cardinality": "one"
         },
@@ -505,7 +498,7 @@
           "type": "string",
           "predicate": "skos:prefLabel"
         },
-        "notation" : {
+        "notation": {
           "predicate": "skos:notation",
           "type": "string"
         },
@@ -542,7 +535,7 @@
           "type": "string",
           "predicate": "skos:prefLabel"
         },
-        "definition" : {
+        "definition": {
           "type": "string",
           "predicate": "skos:definition"
         }
@@ -562,7 +555,7 @@
       },
       "new-resource-base": "http://awesome-poc.com/concept-schemes/"
     },
-    "target-audiences" :{
+    "target-audiences": {
       "name": "target-audience",
       "class": "ver:Doelgroep",
       "attributes": {
@@ -570,7 +563,7 @@
           "type": "number",
           "predicate": "ver:minimumleeftijd"
         },
-        "maximum-leeftijd" : {
+        "maximum-leeftijd": {
           "type": "number",
           "predicate": "ver:maximumleeftijd"
         }
@@ -579,5 +572,3 @@
     }
   }
 }
-
-
