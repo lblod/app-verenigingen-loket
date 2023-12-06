@@ -29,8 +29,10 @@
     "ext": "http://mu.semte.ch/vocabularies/ext/",
     "geo": "http://www.opengis.net/ont/geosparql#",
     "nacebel": "http://data.gift/vocabularies/nace-bel/",
-    "dct": "http://purl.org/dc/terms/", 
-    "vereniging": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#"
+    "dct": "http://purl.org/dc/terms/",
+    "vereniging": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#",
+    "orga": "http://lblod.data.gift/vocabularies/organisatie/",
+    "ver": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/"
   },
   "resources": {
     "addresses": {
@@ -87,51 +89,51 @@
       "name": "user",
       "class": "foaf:Person",
       "attributes": {
-          "first-name": {
-              "type": "string",
-              "predicate": "foaf:firstName"
-          },
-          "family-name": {
-              "type": "string",
-              "predicate": "foaf:familyName"
-          }
+        "first-name": {
+          "type": "string",
+          "predicate": "foaf:firstName"
+        },
+        "family-name": {
+          "type": "string",
+          "predicate": "foaf:familyName"
+        }
       },
       "relationships": {
-          "accounts": {
-              "predicate": "foaf:account",
-              "target": "account",
-              "cardinality": "many"
-          },
-          "groups": {
-              "predicate": "foaf:member",
-              "target": "administrative-unit",
-              "cardinality": "many"
-          }
+        "accounts": {
+          "predicate": "foaf:account",
+          "target": "account",
+          "cardinality": "many"
+        },
+        "groups": {
+          "predicate": "foaf:member",
+          "target": "administrative-unit",
+          "cardinality": "many"
+        }
       },
       "new-resource-base": "http://data.lblod.info/id/gebruiker/"
     },
     "accounts": {
-        "name": "account",
-        "class": "foaf:OnlineAccount",
-        "attributes": {
-            "provider": {
-                "type": "string",
-                "predicate": "foaf:accountServiceHomepage"
-            },
-            "identifier": {
-                "type": "string",
-                "predicate": "dct:identifier"
-            }
+      "name": "account",
+      "class": "foaf:OnlineAccount",
+      "attributes": {
+        "provider": {
+          "type": "string",
+          "predicate": "foaf:accountServiceHomepage"
         },
-        "relationships": {
-            "user": {
-                "predicate": "foaf:account",
-                "target": "user",
-                "cardinality": "one",
-                "inverse": true
-            }
-        },
-        "new-resource-base": "http://data.lblod.info/id/account/"
+        "identifier": {
+          "type": "string",
+          "predicate": "dct:identifier"
+        }
+      },
+      "relationships": {
+        "user": {
+          "predicate": "foaf:account",
+          "target": "user",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/account/"
     },
     "organizations": {
       "name": "organization",
@@ -160,6 +162,11 @@
           "target": "identifier",
           "cardinality": "many"
         },
+        "parent-organization": {
+          "predicate": "org:memberOf",
+          "target": "organization",
+          "cardinality": "one"
+        },
         "organization-status": {
           "predicate": "regorg:orgStatus",
           "target": "organization-status-code",
@@ -174,6 +181,28 @@
           "predicate": "org:hasSite",
           "target": "site",
           "cardinality": "many"
+        },
+        "contact-points": {
+          "predicate": "schema:contactPoint",
+          "target": "contact-point",
+          "cardinality": "many"
+        },
+        "members": {
+          "predicate": "org:organization",
+          "target": "membership",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "change-events": {
+          "predicate": "org:resultingOrganization",
+          "cardinality": "many",
+          "target": "change-event",
+          "inverse": true
+        },
+        "target-audience": {
+          "predicate": "ver:doelgroep",
+          "cardinality": "one",
+          "target": "target-audience"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/organisaties/"
@@ -181,23 +210,76 @@
     "associations": {
       "name": "association",
       "class": "vereniging:FeitelijkeVereniging",
-      "super": [
-        "organization"
-      ],
+      "super": ["organization"],
       "attributes": {
         "description": {
           "type": "string",
           "predicate": "dct:description"
         }
       },
+      "relationships": {
+        "activities": {
+          "predicate": "regorg:orgActivity",
+          "target": "activity",
+          "cardinality": "many"
+        },
+        "change-event": {
+          "predicate": "org:resultingOrganization",
+          "cardinality": "many",
+          "target": "change-event",
+          "inverse": true
+        },
+        "classification": {
+          "predicate": "org:classification",
+          "cardinality": "one",
+          "target": "concept"
+        }
+      },
       "new-resource-base": "http://data.lblod.info/id/verenigingen/"
+    },
+    "persons": {
+      "name": "person",
+      "class": "person:Person",
+      "attributes": {
+        "given-name": {
+          "type": "string",
+          "predicate": "foaf:givenName"
+        },
+        "family-name": {
+          "type": "string",
+          "predicate": "foaf:familyName"
+        }
+      },
+      "relationships": {
+        "site": {
+          "predicate": "org:basedAt",
+          "target": "site",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/personen/"
+    },
+    "memberships": {
+      "name": "membership",
+      "class": "org:Membership",
+      "relationships": {
+        "person": {
+          "predicate": "org:member",
+          "target": "person",
+          "cardinality": "one"
+        },
+        "association": {
+          "predicate": "org:organization",
+          "target": "association",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/identificatoren/"
     },
     "administrative-units": {
       "name": "administrative-unit",
       "class": "besluit:Bestuurseenheid",
-      "super": [
-        "organization"
-      ],
+      "super": ["organization"],
       "relationships": {
         "classification": {
           "predicate": "org:classification",
@@ -256,16 +338,20 @@
           "predicate": "skos:prefLabel"
         }
       },
-      "features": [
-        "include-uri"
-      ],
+      "features": ["include-uri"],
       "new-resource-base": "http://lblod.data.gift/concepts/"
     },
     "sites": {
       "name": "site",
       "class": "org:Site",
+      "attributes": {
+        "description": {
+          "type": "string",
+          "predicate": "dct:description"
+        }
+      },
       "relationships": {
-        "contacts": {
+        "contact-points": {
           "predicate": "org:siteAddress",
           "target": "contact-point",
           "cardinality": "many"
@@ -279,6 +365,12 @@
           "predicate": "ere:vestigingstype",
           "target": "site-type",
           "cardinality": "one"
+        },
+        "associations": {
+          "target": "association",
+          "predicate": "org:hasSite",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "new-resource-base": "http://data.lblod.info/id/vestigingen/"
@@ -287,6 +379,10 @@
       "name": "contact-point",
       "class": "schema:ContactPoint",
       "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "foaf:name"
+        },
         "email": {
           "type": "string",
           "predicate": "schema:email"
@@ -317,26 +413,6 @@
       },
       "new-resource-base": "http://data.lblod.info/id/contact-punten/"
     },
-   
-    "concepts": {
-      "name": "concept",
-      "class": "skos:Concept",
-      "attributes": {
-        "label": {
-          "type": "string",
-          "predicate": "skos:prefLabel"
-        },
-        "notation": {
-          "type": "string",
-          "predicate": "skos:notation"
-        },
-        "alt-label": {
-          "type": "string",
-          "predicate": "skos:altLabel"
-        }
-      },
-      "new-resource-base": "http://lblod.data.gift/concepts/"
-    },
     "site-types": {
       "name": "site-type",
       "class": "code:TypeVestiging",
@@ -347,6 +423,152 @@
         }
       },
       "new-resource-base": "http://lblod.data.gift/concepts/"
+    },
+    "postalCodes": {
+      "name": "postalCode",
+      "class": "adres:Postinfo",
+      "attributes": {
+        "postal-code": {
+          "type": "string",
+          "predicate": "adres:postcode"
+        },
+
+        "postal-name": {
+          "type": "string",
+          "predicate": "adres:postnaam"
+        }
+      },
+      "new-resource-base": "http://lblod.data.gift/concepts/"
+    },
+    "activities": {
+      "name": "activity",
+      "class": "skos:Concept",
+      "attributes": {
+        "label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/identificatoren/"
+    },
+    "changes": {
+      "name": "change",
+      "class": "orga:Veranderingsgebeurtenis",
+      "attributes": {
+        "label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/identificatoren/"
+    },
+    "change-events": {
+      "name": "change-event",
+      "class": "org:ChangeEvent",
+      "attributes": {
+        "date": {
+          "type": "date",
+          "predicate": "dct:date"
+        }
+      },
+      "relationships": {
+        "type": {
+          "predicate": "ch:typeWijziging",
+          "target": "change",
+          "cardinality": "one"
+        },
+        "result": {
+          "predicate": "locn:veranderingsgebeurtenisResultaat",
+          "target": "change",
+          "cardinality": "one"
+        },
+        "association": {
+          "target": "organization",
+          "predicate": "org:resultingOrganization",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/identificatoren/"
+    },
+    "concepts": {
+      "name": "concept",
+      "class": "skos:Concept",
+      "attributes": {
+        "pref-label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        },
+        "notation": {
+          "predicate": "skos:notation",
+          "type": "string"
+        },
+        "modified": {
+          "type": "datetime",
+          "predicate": "dct:modified"
+        }
+      },
+      "relationships": {
+        "concept-scheme": {
+          "predicate": "skos:inScheme",
+          "target": "concept-scheme",
+          "cardinality": "many"
+        },
+        "broader": {
+          "predicate": "skos:broader",
+          "target": "concept",
+          "cardinality": "many"
+        },
+        "top-concept-of": {
+          "predicate": "skos:hasTopConcept",
+          "target": "concept-scheme",
+          "cardinality": "many",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://awesome-poc.com/concepts/"
+    },
+    "concept-schemes": {
+      "name": "concept-scheme",
+      "class": "skos:ConceptScheme",
+      "attributes": {
+        "pref-label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        },
+        "definition": {
+          "type": "string",
+          "predicate": "skos:definition"
+        }
+      },
+      "relationships": {
+        "in-scheme": {
+          "predicate": "skos:inScheme",
+          "target": "concept-scheme",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "top-concept": {
+          "predicate": "skos:hasTopConcept",
+          "target": "concept",
+          "cardinality": "many"
+        }
+      },
+      "new-resource-base": "http://awesome-poc.com/concept-schemes/"
+    },
+    "target-audiences": {
+      "name": "target-audience",
+      "class": "ver:Doelgroep",
+      "attributes": {
+        "minimum-leeftijd": {
+          "type": "number",
+          "predicate": "ver:minimumleeftijd"
+        },
+        "maximum-leeftijd": {
+          "type": "number",
+          "predicate": "ver:maximumleeftijd"
+        }
+      },
+      "new-resource-base": "http://awesome-poc.com/target/"
     }
   }
 }

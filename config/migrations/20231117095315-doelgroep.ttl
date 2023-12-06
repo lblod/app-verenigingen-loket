@@ -1,0 +1,51 @@
+@prefix ns1: <https://data.vlaanderen.be/ns/> .
+@prefix verenigingen_ext: <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+
+ns1:V0001001
+  verenigingen_ext:doelgroep ns1:491b5a8d844c1afae482a32fb775547 .
+
+ns1:V0001002
+  verenigingen_ext:doelgroep ns1:491b5a8d844c1afae482a32fb775544 .
+
+ns1:V0001003
+  verenigingen_ext:doelgroep ns1:491b5a8d844c1afae482a32fb775555 .
+
+ns1:V0001004
+  verenigingen_ext:doelgroep ns1:491b5a8d844c1afae482a32fb775566 .
+
+ns1:V0001005
+  verenigingen_ext:doelgroep ns1:491b5a8d844c1afae482a32fb775566 .
+
+ns1:V0001006
+  verenigingen_ext:doelgroep ns1:491b5a8d844c1afae482a32fb775577 .
+
+ns1:491b5a8d844c1afae482a32fb775547
+  a verenigingen_ext:Doelgroep ;
+  mu:uuid "491b5a8d-844c-51af-ae48-2a32fb775547" ;
+  verenigingen_ext:minimumleeftijd 0 ;
+  verenigingen_ext:maximumleeftijd 99 .
+
+ns1:491b5a8d844c1afae482a32fb775544
+  a verenigingen_ext:Doelgroep ;
+  mu:uuid "491b5a8d-844c-51af-ae48-2a32fb775544" ;
+  verenigingen_ext:minimumleeftijd 18 ;
+  verenigingen_ext:maximumleeftijd 35 .
+
+ns1:491b5a8d844c1afae482a32fb775555
+  a verenigingen_ext:Doelgroep ;
+  mu:uuid "491b5a8d-844c-51af-ae48-2a32fb775555" ;
+  verenigingen_ext:minimumleeftijd 65 ;
+  verenigingen_ext:maximumleeftijd 99 .
+
+ns1:491b5a8d844c1afae482a32fb775566
+  a verenigingen_ext:Doelgroep ;
+  mu:uuid "491b5a8d-844c-51af-ae48-2a32fb775566" ;
+  verenigingen_ext:minimumleeftijd 0 ;
+  verenigingen_ext:maximumleeftijd 3 .
+
+ns1:491b5a8d844c1afae482a32fb775577
+  a verenigingen_ext:Doelgroep ;
+  mu:uuid "491b5a8d-844c-51af-ae48-2a32fb775577" ;
+  verenigingen_ext:minimumleeftijd 0 ;
+  verenigingen_ext:maximumleeftijd 16 .

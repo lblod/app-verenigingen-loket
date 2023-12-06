@@ -1,0 +1,149 @@
+@prefix ns1: <https://data.vlaanderen.be/ns/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> . 
+@prefix regorg: <http://www.w3.org/ns/regorg#> .
+@prefix act: <http://data.lblod.info/id/concept/activiteit/> .
+
+act:956bfea836fe4908a1a2a2e7fc9a4a3d a skos:ConceptScheme ;
+  skos:prefLabel "Activities Concept Scheme"@en ;
+  mu:uuid "956bfea836fe4908a1a2a2e7fc9a4a3d" .
+
+act:26d90a2a2bef4cf7bac0c4405b5c1431 a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Burgerinitiatief & Actiegroep"@nl ;
+  mu:uuid "26d90a2a2bef4cf7bac0c4405b5c1431" .
+
+act:a9b7cbe591534c4e8379d2eb728a8f07 a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Buurtwerking & Wijkcomité"@nl ;
+  mu:uuid "a9b7cbe591534c4e8379d2eb728a8f07" .
+
+act:e665ac7e44ad44ba892b355c0ba0193c a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Diversiteit & Integratie"@nl ;
+  mu:uuid "e665ac7e44ad44ba892b355c0ba0193c" .
+
+act:eed72dcb59784354853c3222d55490c3 a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Gezondheid & Welzijn"@nl ;
+  mu:uuid "eed72dcb59784354853c3222d55490c3" .
+
+act:c5adb1c381db4d608b64d016e2bf864d a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Hobby & Spel"@nl ;
+  mu:uuid "c5adb1c381db4d608b64d016e2bf864d" .
+
+act:fbe4ffa1374049d3a617edf393725a43 a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Internationaal & Ontwikkelingssamenwerking"@nl ;
+  mu:uuid "fbe4ffa1374049d3a617edf393725a43" .
+
+act:268c170536844bba835e65f161214e8e a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Jeugdwerk"@nl ;
+  mu:uuid "268c170536844bba835e65f161214e8e" .
+
+act:5baf4ee4490d4b3ab3bd7fde295698ab a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Klimaat & Duurzaamheid"@nl ;
+  mu:uuid "5baf4ee4490d4b3ab3bd7fde295698ab" .
+
+act:cb908e2b17b149b6b5a38018e1375568 a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Kunsten, Erfgoed & Cultuur"@nl ;
+  mu:uuid "cb908e2b17b149b6b5a38018e1375568" .
+
+act:a1b43a00c8294e5a89a8d7384a29e654 a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Landbouw & Visserij"@nl ;
+  mu:uuid "a1b43a00c8294e5a89a8d7384a29e654" .
+
+act:e19a8220740a4ad3849d87aee638b800 a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Levensbeschouwelijk"@nl ;
+  mu:uuid "e19a8220740a4ad3849d87aee638b800" .
+
+act:1b628464963e4f3f9f7b05fc92f5c9aa a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Maatschappelijke dienstverlening & Politiek"@nl ;
+  mu:uuid "1b628464963e4f3f9f7b05fc92f5c9aa" .
+
+act:54e0c87d0aa34563be50fd6678571e45 a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Mediawijsheid & Digitale geletterdheid"@nl ;
+  mu:uuid "54e0c87d0aa34563be50fd6678571e45" .
+
+act:0274b50a1f5b460b959d581d6bcdfb3a a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Mobiliteit, Ruimtelijke ordening & Wonen"@nl ;
+  mu:uuid "0274b50a1f5b460b959d581d6bcdfb3a" .
+
+act:f5d17da93cb14fd2946a3d9aa2ac6c33 a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Natuur, Milieu & Dierenwelzijn"@nl ;
+  mu:uuid "f5d17da93cb14fd2946a3d9aa2ac6c33" .
+
+act:4230757d021e45acbfa940cd13a71411 a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Onderwijs & Vorming"@nl ;
+  mu:uuid "4230757d021e45acbfa940cd13a71411" .
+
+act:967afa67775b4de1ab8682ec423958dc a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Sociaal-cultureel volwassenenwerk"@nl ;
+  mu:uuid "967afa67775b4de1ab8682ec423958dc" .
+
+act:93db17a8127e427c9a3de94ba943420f a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Sport"@nl ;
+  mu:uuid "93db17a8127e427c9a3de94ba943420f" .
+
+act:f20d10d9c46541438f9f79de3722083d a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Technologie & Wetenschap"@nl ;
+  mu:uuid "f20d10d9c46541438f9f79de3722083d" .
+
+act:860f6220a30146f49dc57ac1799dd099 a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Toerisme"@nl ;
+  mu:uuid "860f6220a30146f49dc57ac1799dd099" .
+
+act:2799db1fb9dd4093bd77651fa14f600a a skos:Concept ;
+  skos:topConceptOf   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:inScheme   act:956bfea836fe4908a1a2a2e7fc9a4a3d ;
+  skos:prefLabel "Werk & Sociale economie"@nl ;
+  mu:uuid "2799db1fb9dd4093bd77651fa14f600a" .
+
+ns1:V0001001 regorg:orgActivity act:26d90a2a2bef4cf7bac0c4405b5c1431, act:2799db1fb9dd4093bd77651fa14f600a .
+ns1:V0001002 regorg:orgActivity act:2799db1fb9dd4093bd77651fa14f600a, act:860f6220a30146f49dc57ac1799dd099 .
+ns1:V0001003 regorg:orgActivity act:f20d10d9c46541438f9f79de3722083d .
+ns1:V0001004 regorg:orgActivity act:93db17a8127e427c9a3de94ba943420f,act:0274b50a1f5b460b959d581d6bcdfb3a, act:5baf4ee4490d4b3ab3bd7fde295698ab .
+ns1:V0001007 regorg:orgActivity act:a9b7cbe591534c4e8379d2eb728a8f07 .
+ns1:V0001008 regorg:orgActivity act:4230757d021e45acbfa940cd13a71411 , act:c5adb1c381db4d608b64d016e2bf864d .
+ns1:V0001009 regorg:orgActivity act:e665ac7e44ad44ba892b355c0ba0193c .
+ns1:V0001010 regorg:orgActivity act:93db17a8127e427c9a3de94ba943420f, act:e665ac7e44ad44ba892b355c0ba0193c .
+ns1:V0001011 regorg:orgActivity act:0274b50a1f5b460b959d581d6bcdfb3a, act:26d90a2a2bef4cf7bac0c4405b5c1431, act:2799db1fb9dd4093bd77651fa14f600a .
+ns1:V0001012 regorg:orgActivity act:860f6220a30146f49dc57ac1799dd099, act:f20d10d9c46541438f9f79de3722083d .
+ns1:V0001013 regorg:orgActivity act:2799db1fb9dd4093bd77651fa14f600a, act:860f6220a30146f49dc57ac1799dd099 .
+ns1:V0001014 regorg:orgActivity act:e665ac7e44ad44ba892b355c0ba0193c, act:0274b50a1f5b460b959d581d6bcdfb3a .
+ns1:V0001015 regorg:orgActivity act:0274b50a1f5b460b959d581d6bcdfb3a, act:26d90a2a2bef4cf7bac0c4405b5c1431, act:2799db1fb9dd4093bd77651fa14f600a .

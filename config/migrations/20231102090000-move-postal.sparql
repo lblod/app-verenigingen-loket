@@ -1,0 +1,44 @@
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#> 
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX mu:<http://mu.semte.ch/vocabularies/core/> 
+PREFIX ext:<http://mu.semte.ch/vocabularies/ext/> 
+PREFIX org: <http://www.w3.org/ns/org#> 
+PREFIX geo: <http://www.opengis.net/ont/geosparql#> 
+PREFIX adres: <https://data.vlaanderen.be/ns/adres#> 
+
+DELETE {
+  GRAPH  <http://mu.semte.ch/graphs/public> {
+             ?postInfo
+                 a adres:Postinfo ;
+                 geo:sfWithin ?werkingsgebied ;
+                 adres:postcode ?code ;
+                adres:postnaam ?name . 
+  }
+} INSERT {
+        GRAPH ?g {
+                ?werkingsgebied
+                        ?p ?o .
+
+                ?postInfo
+                        geo:sfWithin ?werkingsgebied;
+                        ?p2 ?o2.
+        }
+}
+WHERE {
+        ?bestuurseenheid
+                mu:uuid ?adminUnitUuid;
+                org:classification/skos:prefLabel "Gemeente" ;
+                besluit:werkingsgebied ?werkingsgebied .
+
+        ?werkingsgebied
+                ?p ?o .
+
+        ?postInfo
+                geo:sfWithin ?werkingsgebied;
+                ?p2 ?o2 ;
+                adres:postcode ?code ;
+                adres:postnaam ?name .
+
+        BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
+}

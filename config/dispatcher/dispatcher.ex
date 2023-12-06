@@ -32,6 +32,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/addresses/"
   end
 
+  match "/activities/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/activities/"
+  end
+
   match "/administrative-unit-classification-codes/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/administrative-unit-classification-codes/"
   end
@@ -64,11 +68,63 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/associations/"
   end
 
+  match "/organization-status-codes/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/organization-status-codes/"
+  end
+
+  match "/persons/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/persons/"
+  end
+
+  match "/memberships/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/memberships/"
+  end
+
+  match "/concept-schemes/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/concept-schemes/"
+  end
+
+
+  match "/postal-codes/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://cache/postalCodes/"
+  end
+
+  match "/changes/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://cache/changes/"
+  end
+
+  match "/change-events/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://cache/change-events/"
+  end
+
+  match "/concepts/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://cache/concepts/"
+  end
+
+  match "/target-audiences/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://cache/target-audiences/"
+  end
+  
+
+  # match "/assets/*path", %{ layer: :api } do
+  #   Proxy.forward conn, path, "http://frontend/assets/"
+  # end
+
+  # match "/@appuniversum/*path", %{ layer: :api } do
+  #   Proxy.forward conn, path, "http://frontend/@appuniversum/"
+  # end
+
+  # match "/*path", %{ accept: [:html], layer: :api } do
+  #   Proxy.forward conn, [], "http://frontend/index.html"
+  # end
+
+  # match "/*_path", %{ layer: :frontend } do
+  #   Proxy.forward conn, [], "http://frontend/index.html"
+  # end
+
 
   match "/*_", %{accept: [:any], layer: :not_found} do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
   end
 
 end
-
-

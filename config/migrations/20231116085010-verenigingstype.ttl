@@ -1,0 +1,19 @@
+@prefix ns1: <https://data.vlaanderen.be/ns/> .
+@prefix ns2: <https://data.vlaanderen.be/ns/adres#> .
+@prefix ns3: <http://www.w3.org/ns/locn#> .
+@prefix organisatie: <https://data.vlaanderen.be/ns/organisatie#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix generiek: <http://data.vlaanderen.be/ns/generiek#> .
+@prefix adres: <https://data.vlaanderen.be/ns/adres#> .
+@prefix ere: <http://data.lblod.info/vocabularies/erediensten/> . # TODO: move to a different namespace? re-using OP vocabularies for now
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix schema: <http://schema.org/> .
+
+ns1:V0001001
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging>;
+  org:classification <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/27955b23-50a0-527d-a474-cb929caaae1c>. # Feitelijke vereniging
