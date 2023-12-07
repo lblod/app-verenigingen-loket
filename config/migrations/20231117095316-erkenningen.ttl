@@ -1,0 +1,34 @@
+@prefix ns1: <https://data.vlaanderen.be/ns/> .
+@prefix mu:     <http://mu.semte.ch/vocabularies/core/> .
+@prefix fv: <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#heeftErkenning> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix ext: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix m8g: <http://data.europa.eu/m8g/> .
+@prefix : <urn:example:> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+
+
+ns1:V0001001 fv:heeftErkenning ns1:V0001001_erkenning .
+
+ns1:V0001001_erkenning a fv:Erkenning ;
+    mu:uuid "8a15b017-4c1e-46c1-9d69-d22851e9caa3" ;
+    fv:geldigheidsperiode ns1:V0001001_periode ;
+    fv:toegekendDoor <http://data.lblod.info/id/bestuurseenheden/974816591f269bb7d74aa1720922651529f3d3b2a787f5c60b73e5a0384950a4>  .
+    # prov:generated :besluitURI . # tbc
+
+
+# TODO:
+# - when besluit is an uploaded PDF.
+# - No bestuurseenheidURI
+
+ns1:V0001001_periode a m8g:PeriodOfTime ;
+    m8g:startTime "2020-12-01T00:00:00+02:00"^^xsd:dateTime ;
+    m8g:endTime "2023-12-01T00:00:00+02:00"^^xsd:dateTime .
+
+

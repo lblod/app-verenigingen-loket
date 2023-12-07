@@ -33,7 +33,8 @@
     "vereniging": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#",
     "orga": "http://lblod.data.gift/vocabularies/organisatie/",
     "ver": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/",
-    "pav": "http://purl.org/pav/"
+    "pav": "http://purl.org/pav/",
+    "fv": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#heeftErkenning"
   },
   "resources": {
     "addresses": {
@@ -215,7 +216,9 @@
     "associations": {
       "name": "association",
       "class": "vereniging:FeitelijkeVereniging",
-      "super": ["organization"],
+      "super": [
+        "organization"
+      ],
       "attributes": {
         "description": {
           "type": "string",
@@ -284,7 +287,9 @@
     "administrative-units": {
       "name": "administrative-unit",
       "class": "besluit:Bestuurseenheid",
-      "super": ["organization"],
+      "super": [
+        "organization"
+      ],
       "relationships": {
         "classification": {
           "predicate": "org:classification",
@@ -343,7 +348,9 @@
           "predicate": "skos:prefLabel"
         }
       },
-      "features": ["include-uri"],
+      "features": [
+        "include-uri"
+      ],
       "new-resource-base": "http://lblod.data.gift/concepts/"
     },
     "sites": {
@@ -429,7 +436,7 @@
       },
       "new-resource-base": "http://lblod.data.gift/concepts/"
     },
-    "postalCodes": {
+    "postal-codes": {
       "name": "postalCode",
       "class": "adres:Postinfo",
       "attributes": {
@@ -437,7 +444,6 @@
           "type": "string",
           "predicate": "adres:postcode"
         },
-
         "postal-name": {
           "type": "string",
           "predicate": "adres:postnaam"
@@ -571,6 +577,38 @@
         "maximum-leeftijd": {
           "type": "number",
           "predicate": "ver:maximumleeftijd"
+        }
+      },
+      "new-resource-base": "http://awesome-poc.com/target/"
+    },
+    "recognitions": {
+      "name": "recognition",
+      "class": "fv:Erkenning",
+      "relationships": {
+        "geldigheidsperiode": {
+          "predicate": "fv:geldigheidsperiode",
+          "target": "period",
+          "cardinality": "one"
+        },
+        "toegekendDoor": {
+          "predicate": "fv:toegekendDoor",
+          "target": "administrative-unit",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://awesome-poc.com/target/"
+    },
+    "periods": {
+      "name": "period",
+      "class": "euro:PeriodOfTime",
+      "attributes": {
+        "startTime": {
+          "type": "datetime",
+          "predicate": "euro:startTime"
+        },
+        "endTime": {
+          "type": "datetime",
+          "predicate": "euro:endTime"
         }
       },
       "new-resource-base": "http://awesome-poc.com/target/"

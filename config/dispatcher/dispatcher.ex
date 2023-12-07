@@ -20,6 +20,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/contact-points/"
   end
 
+  match "/activities/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/activities/"
+  end
+
+  match "/concept-schemes/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/concept-schemes/"
+  end
+
     match "/site-type/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/site-types/"
   end
@@ -35,7 +43,7 @@ defmodule Dispatcher do
   match "/administrative-unit-classification-codes/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/administrative-unit-classification-codes/"
   end
-  
+
   match "/identifiers/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/identifiers/"
   end
@@ -66,7 +74,7 @@ defmodule Dispatcher do
 
   match "/organization-status-codes/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/organization-status-codes/"
-  endm,
+  end
 
   match "/persons/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/persons/"
@@ -74,6 +82,10 @@ defmodule Dispatcher do
 
   match "/memberships/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/memberships/"
+  end
+
+  match "/recognitions/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/recognitions/"
   end
 
   match "/postal-codes/*path", %{ accept: [:any], layer: :api} do
