@@ -9,7 +9,7 @@
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "dbpedia": "http://dbpedia.org/ontology/",
     "adms": "http://www.w3.org/ns/adms#",
-    "euro": "http://data.europa.eu/m8g/",
+    "m8g": "http://data.europa.eu/m8g/",
     "prov": "http://www.w3.org/ns/prov#",
     "organisatie": "https://data.vlaanderen.be/ns/organisatie#",
     "persoon": "https://data.vlaanderen.be/ns/persoon#",
@@ -34,7 +34,8 @@
     "orga": "http://lblod.data.gift/vocabularies/organisatie/",
     "ver": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/",
     "pav": "http://purl.org/pav/",
-    "fv": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#heeftErkenning"
+    "fv": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#heeftErkenning",
+    "eli": "http://data.europa.eu/eli/ontology#"
   },
   "resources": {
     "addresses": {
@@ -584,34 +585,46 @@
     "recognitions": {
       "name": "recognition",
       "class": "fv:Erkenning",
+      "attributes": {
+        "date-document": {
+          "predicate": "eli:dateDocument",
+          "type": "date"
+        }
+      },
       "relationships": {
-        "geldigheidsperiode": {
+        "validity-period": {
           "predicate": "fv:geldigheidsperiode",
           "target": "period",
           "cardinality": "one"
         },
-        "toegekendDoor": {
+        "awarded-by": {
           "predicate": "fv:toegekendDoor",
           "target": "administrative-unit",
           "cardinality": "one"
+        },
+        "associations": {
+          "target": "association",
+          "predicate": "fv:heeftErkenning",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "new-resource-base": "http://awesome-poc.com/target/"
     },
     "periods": {
       "name": "period",
-      "class": "euro:PeriodOfTime",
+      "class": "m8g:PeriodOfTime",
       "attributes": {
-        "startTime": {
-          "type": "datetime",
-          "predicate": "euro:startTime"
+        "start-time": {
+          "predicate": "m8g:startTime",
+          "type": "datetime"
         },
-        "endTime": {
-          "type": "datetime",
-          "predicate": "euro:endTime"
+        "end-time": {
+          "predicate": "m8g:endTime",
+          "type": "datetime"
         }
       },
-      "new-resource-base": "http://awesome-poc.com/target/"
+      "new-resource-base": "http://data.lblod.info/id/periodes/"
     }
   }
 }
