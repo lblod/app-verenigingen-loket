@@ -34,7 +34,7 @@
     "orga": "http://lblod.data.gift/vocabularies/organisatie/",
     "ver": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/",
     "pav": "http://purl.org/pav/",
-    "fv": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#heeftErkenning",
+    "fv": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#",
     "eli": "http://data.europa.eu/eli/ontology#"
   },
   "resources": {
@@ -602,14 +602,14 @@
           "target": "administrative-unit",
           "cardinality": "one"
         },
-        "associations": {
+        "association": {
           "target": "association",
           "predicate": "fv:heeftErkenning",
-          "cardinality": "many",
+          "cardinality": "one",
           "inverse": true
         }
       },
-      "new-resource-base": "http://awesome-poc.com/target/"
+      "new-resource-base": "https://data.vlaanderen.be/ns/"
     },
     "periods": {
       "name": "period",

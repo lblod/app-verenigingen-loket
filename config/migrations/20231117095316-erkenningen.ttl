@@ -1,6 +1,6 @@
 @prefix ns1: <https://data.vlaanderen.be/ns/> .
 @prefix mu:     <http://mu.semte.ch/vocabularies/core/> .
-@prefix fv: <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#heeftErkenning> .
+@prefix fv: <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <http://schema.org/> .
