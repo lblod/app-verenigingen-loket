@@ -80,6 +80,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/organization-status-codes/"
   end
 
+  match "/download/*path", %{ layer: :api } do
+    Proxy.forward conn, path, "http://download/download/"
+  end
+
   match "/persons/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/persons/"
   end
@@ -100,21 +104,22 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/postal-codes/"
   end
 
-  # match "/assets/*path", %{ layer: :api } do
-  #   Proxy.forward conn, path, "http://frontend/assets/"
-  # end
+  match "/assets/*path", %{ layer: :api } do
+    Proxy.forward conn, path, "http://frontend/assets/"
+  end
 
-  # match "/@appuniversum/*path", %{ layer: :api } do
-  #   Proxy.forward conn, path, "http://frontend/@appuniversum/"
-  # end
+  match "/@appuniversum/*path", %{ layer: :api } do
+    Proxy.forward conn, path, "http://frontend/@appuniversum/"
+  end
 
-  # match "/*path", %{ accept: [:html], layer: :api } do
-  #   Proxy.forward conn, [], "http://frontend/index.html"
-  # end
+  match "/*path", %{ accept: [:html], layer: :api } do
+    Proxy.forward conn, [], "http://frontend/index.html"
+  end
 
-  # match "/*_path", %{ layer: :frontend } do
-  #   Proxy.forward conn, [], "http://frontend/index.html"
-  # end
+  match "/*_path", %{ layer: :frontend } do
+    Proxy.forward conn, [], "http://frontend/index.html"
+  end
+
 
 
   match "/*_", %{accept: [:any], layer: :not_found} do

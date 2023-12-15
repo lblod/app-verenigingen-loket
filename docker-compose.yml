@@ -87,6 +87,8 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  download:
+    image: lblod/verenigingsloket-download-service:latest
   login:
     image: lblod/acmidm-login-service:0.9.2
     environment:
