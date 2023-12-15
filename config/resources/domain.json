@@ -589,6 +589,10 @@
         "date-document": {
           "predicate": "eli:dateDocument",
           "type": "date"
+        },
+        "legal-resource": {
+          "predicate": "eli:hasLegalResource",
+          "type": "string"
         }
       },
       "relationships": {

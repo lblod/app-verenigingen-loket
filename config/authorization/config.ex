@@ -13,7 +13,7 @@ defmodule Acl.UserGroups.Config do
     "http://data.europa.eu/m8g/PeriodOfTime",
     "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging",
     "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
-    "http://www.w3.org/ns/org#Organization"
+    "http://www.w3.org/ns/org#Organization",
   ]
 
   @public_type [
