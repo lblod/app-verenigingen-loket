@@ -23,14 +23,14 @@ ns1:V0001006
 ns1:491b5a8d844c1afae482a32fb775547
   a verenigingen_ext:Doelgroep ;
   mu:uuid "491b5a8d-844c-51af-ae48-2a32fb775547" ;
-  verenigingen_ext:minimumleeftijd 0 ;
+  verenigingen_ext:minimumleeftijd 18 ;
   verenigingen_ext:maximumleeftijd 99 .
 
 ns1:491b5a8d844c1afae482a32fb775544
   a verenigingen_ext:Doelgroep ;
   mu:uuid "491b5a8d-844c-51af-ae48-2a32fb775544" ;
-  verenigingen_ext:minimumleeftijd 18 ;
-  verenigingen_ext:maximumleeftijd 35 .
+  verenigingen_ext:minimumleeftijd 0 ;
+  verenigingen_ext:maximumleeftijd 65 .
 
 ns1:491b5a8d844c1afae482a32fb775555
   a verenigingen_ext:Doelgroep ;
