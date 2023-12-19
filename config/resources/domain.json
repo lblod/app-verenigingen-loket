@@ -613,7 +613,7 @@
           "inverse": true
         }
       },
-      "new-resource-base": "https://data.vlaanderen.be/ns/"
+      "new-resource-base": "http://data.lblod.info/id/erkenningen/"
     },
     "periods": {
       "name": "period",
