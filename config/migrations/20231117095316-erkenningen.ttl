@@ -1,6 +1,6 @@
 @prefix ns1: <https://data.vlaanderen.be/ns/> .
 @prefix mu:     <http://mu.semte.ch/vocabularies/core/> .
-@prefix fv: <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#heeftErkenning> .
+@prefix fv: <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <http://schema.org/> .
@@ -12,23 +12,48 @@
 @prefix m8g: <http://data.europa.eu/m8g/> .
 @prefix : <urn:example:> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix eli: <http://data.europa.eu/eli/ontology#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 
-ns1:V0001001 fv:heeftErkenning ns1:V0001001_erkenning .
 
-ns1:V0001001_erkenning a fv:Erkenning ;
-    mu:uuid "8a15b017-4c1e-46c1-9d69-d22851e9caa3" ;
-    fv:geldigheidsperiode ns1:V0001001_periode ;
+ns1:V0001001 fv:heeftErkenning ns1:V0001001_erkenning_1, ns1:V0001001_erkenning_2 , ns1:V0001001_erkenning_3 .
+
+# erkenningen
+ns1:V0001001_erkenning_1 a fv:Erkenning ;
+    mu:uuid "8a15b017-4c1e-46c1-9d69-d22851e9caa1" ;
+    eli:dateDocument "2019-12-31"^^xsd:date ;
+    eli:hasLegalResource "https://lblod.knokke-heist.be/LBLODWeb/id/agendapunt/a27640c9f198432ca6ec421e84011df1-82113" ;
+    fv:geldigheidsperiode ns1:V0001001_periode_1 ;
     fv:toegekendDoor <http://data.lblod.info/id/bestuurseenheden/974816591f269bb7d74aa1720922651529f3d3b2a787f5c60b73e5a0384950a4>  .
-    # prov:generated :besluitURI . # tbc
+
+ns1:V0001001_erkenning_2 a fv:Erkenning ;
+    mu:uuid "8a15b017-4c1e-46c1-9d69-d22851e9caa2" ;
+    eli:dateDocument "2020-12-31"^^xsd:date ;
+    fv:geldigheidsperiode ns1:V0001001_periode_2 ;
+    fv:toegekendDoor <http://data.lblod.info/id/bestuurseenheden/974816591f269bb7d74aa1720922651529f3d3b2a787f5c60b73e5a0384950a4>  .
+
+ns1:V0001001_erkenning_3 a fv:Erkenning ;
+    mu:uuid "8a15b017-4c1e-46c1-9d69-d22851e9caa3" ;
+    eli:dateDocument "2021-12-31"^^xsd:date ;
+    fv:geldigheidsperiode ns1:V0001001_periode_3 ;
+    fv:toegekendDoor <http://data.lblod.info/id/bestuurseenheden/974816591f269bb7d74aa1720922651529f3d3b2a787f5c60b73e5a0384950a4>  .
 
 
-# TODO:
-# - when besluit is an uploaded PDF.
-# - No bestuurseenheidURI
 
-ns1:V0001001_periode a m8g:PeriodOfTime ;
-    m8g:startTime "2020-12-01T00:00:00+02:00"^^xsd:dateTime ;
-    m8g:endTime "2023-12-01T00:00:00+02:00"^^xsd:dateTime .
+# periodes
+ns1:V0001001_periode_1 a m8g:PeriodOfTime ;
+    mu:uuid "8a15b017-4c1e-46c1-9d69-d22851e9caa4" ;
+    m8g:startTime "2020-01-01T00:00:00+02:00"^^xsd:dateTime ;
+    m8g:endTime "2021-01-01T00:00:00+02:00"^^xsd:dateTime .
 
 
+ns1:V0001001_periode_2 a m8g:PeriodOfTime ;
+    mu:uuid "8a15b017-4c1e-46c1-9d69-d22851e9caa5" ;
+    m8g:startTime "2021-01-01T00:00:00+02:00"^^xsd:dateTime ;
+    m8g:endTime "2022-01-01T00:00:00+02:00"^^xsd:dateTime .
+
+ns1:V0001001_periode_3 a m8g:PeriodOfTime ;
+    mu:uuid "8a15b017-4c1e-46c1-9d69-d22851e9caa6" ;
+    m8g:startTime "2023-01-01T00:00:00+02:00"^^xsd:dateTime ;
+    m8g:endTime "2024-01-01T00:00:00+02:00"^^xsd:dateTime .

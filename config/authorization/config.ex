@@ -8,7 +8,12 @@ alias Acl.GroupSpec.GraphCleanup, as: GraphCleanup
 
 defmodule Acl.UserGroups.Config do
   @protected_resource_type [
-    "https://data.vlaanderen.be/ns/adres#Postinfo"
+    "https://data.vlaanderen.be/ns/adres#Postinfo",
+    "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Erkenning",
+    "http://data.europa.eu/m8g/PeriodOfTime",
+    "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging",
+    "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
+    "http://www.w3.org/ns/org#Organization",
   ]
 
   @public_type [
