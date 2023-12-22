@@ -17,3 +17,19 @@
 ns1:V0001001
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging>;
   org:classification <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/27955b23-50a0-527d-a474-cb929caaae1c>. # Feitelijke vereniging
+
+ns2:V0001010 org:classification <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/491b5a8d-844c-51af-ae48-2a32fb77f147> . 
+
+ns2:V0001011 org:classification <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/491b5a8d-844c-51af-ae48-2a32fb77f147> . 
+
+ns2:V0001012 org:classification <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/491b5a8d-844c-51af-ae48-2a32fb77f147> . 
+
+ns2:V0001013 org:classification  <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/27955b23-50a0-527d-a474-cb929caaae1c>. # Feitelijke vereniging
+
+ns2:V0001002 org:classification  <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/27955b23-50a0-527d-a474-cb929caaae1c>. # Feitelijke vereniging
+
+ns2:V0001004 org:classification  <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/27955b23-50a0-527d-a474-cb929caaae1c>. # Feitelijke vereniging
+
+ns2:V0001006 org:classification <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/491b5a8d-844c-51af-ae48-2a32fb77f147> . 
+
+ns2:V0001007 org:classification  <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/27955b23-50a0-527d-a474-cb929caaae1c>. # Feitelijke vereniging
