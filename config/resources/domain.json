@@ -586,6 +586,10 @@
       "name": "recognition",
       "class": "fv:Erkenning",
       "attributes": {
+        "status": {
+          "predicate": "adms:status",
+          "type": "uri"
+        },
         "date-document": {
           "predicate": "eli:dateDocument",
           "type": "date"
