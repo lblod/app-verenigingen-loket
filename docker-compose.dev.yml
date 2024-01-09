@@ -31,3 +31,4 @@ services:
       - 8888:80
     volumes:
       - ../download-service/:/app/
+    restart: "no"    

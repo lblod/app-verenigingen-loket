@@ -586,6 +586,10 @@
       "name": "recognition",
       "class": "fv:Erkenning",
       "attributes": {
+        "status": {
+          "predicate": "adms:status",
+          "type": "uri"
+        },
         "date-document": {
           "predicate": "eli:dateDocument",
           "type": "date"
@@ -613,7 +617,7 @@
           "inverse": true
         }
       },
-      "new-resource-base": "https://data.vlaanderen.be/ns/"
+      "new-resource-base": "http://data.lblod.info/id/erkenningen/"
     },
     "periods": {
       "name": "period",
