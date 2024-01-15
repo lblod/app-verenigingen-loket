@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 services:
   identifier:
     ports:
@@ -6,20 +6,3 @@ services:
     restart: "no"
   dispatcher:
     restart: "no"
-  database:
-    restart: "no"
-  virtuoso:
-    restart: "no"
-  migrations:
-    restart: "no"
-  cache:
-    restart: "no"
-  resource:
-    restart: "no"
-  login:
-    restart: "no"
-  mocklogin:
-    image: lblod/mock-login-service:latest
-    links:
-      - database:database
-    restart: "no"    
