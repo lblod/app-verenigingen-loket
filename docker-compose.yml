@@ -13,6 +13,13 @@ services:
       - identifier:backend 
     labels:
       - "logging=true"
+    environment:
+      EMBER_OAUTH_API_REDIRECT_URL: "https://verenigingen-loket.lblod.info/authorization/callback"
+      EMBER_OAUTH_API_KEY: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
+      EMBER_OAUTH_API_BASE_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/auth"
+      EMBER_OAUTH_API_LOGOUT_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/logout"
+      EMBER_OAUTH_API_SCOPE: "openid rrn profile vo abb_loketverenigingenapp"
+      EMBER_OAUTH_SWITCH_URL: "https://verenigingen-loket.lblod.info/switch-login"
     restart: always
     logging: *default-logging
   identifier:
