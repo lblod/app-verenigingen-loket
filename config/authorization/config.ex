@@ -80,7 +80,7 @@ defmodule Acl.UserGroups.Config do
         useage: [:read, :write, :read_for_write],
         # **Explanations on the chosen role**
         # - We reuse scopes firstly defined in Loket to handle worship data. Hence the LoketLB- prefix
-        access: access_by_role( "LoketVerenigingen-Gebruiker" ),
+        access: access_by_role( "LoketLB-VerenigingenOrganisatiegegevensGebruiker" ),
         graphs: [ %GraphSpec{
                     graph: "http://mu.semte.ch/graphs/organizations/",
                     constraint: %ResourceConstraint{

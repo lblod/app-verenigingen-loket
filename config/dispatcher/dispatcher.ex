@@ -11,6 +11,9 @@ defmodule Dispatcher do
 
   define_layers [ :api, :frontend, :not_found ]
 
+  @any %{}
+  @json %{ accept: %{ json: true } }
+  @html %{ accept: %{ html: true } }
 
   match "/organizations/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/organizations/"
@@ -57,7 +60,7 @@ defmodule Dispatcher do
   end
 
   match "/accounts/*path", %{ accept: [:json], layer: :api} do
-    Proxy.forward conn, path, "http://cache/accounts/"
+    Proxy.forward conn, path, "http://accountdetail/accounts/"
   end
 
   match "/administrative-units/*path", %{ accept: [:json], layer: :api} do
@@ -104,6 +107,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/postal-codes/"
   end
 
+  match "/sessions/*path" do
+    Proxy.forward conn, path, "http://login/sessions/"
+  end
+
   match "/assets/*path", %{ layer: :api } do
     Proxy.forward conn, path, "http://frontend/assets/"
   end
@@ -119,6 +126,11 @@ defmodule Dispatcher do
   match "/*_path", %{ layer: :frontend } do
     Proxy.forward conn, [], "http://frontend/index.html"
   end
+
+  match "/groups/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://resource/administrative-units/"
+  end
+
 
 
 

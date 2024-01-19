@@ -8,6 +8,7 @@
 @prefix ns7:	<http://data.vlaanderen.be/ns/besluit#> .
 @prefix mu:     <http://mu.semte.ch/vocabularies/core/> .
 @prefix org:    <http://www.w3.org/ns/org#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 
 <http://data.lblod.info/id/bestuurseenheden/3f1ec7f1afc4cc466bb3a7fe5bc43199bf600963ec3231e1480a23d103a438a7>
 	a <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid> ; skos:prefLabel	"Kuurne" ;
@@ -1285,6 +1286,7 @@ ns4:be278471a2a318edba32e7ac4294c0eafbe4c8077a34dcbb9c2e43211d4a78a6 mu:uuid "be
 
 <http://data.lblod.info/id/bestuurseenheden/974816591f269bb7d74aa1720922651529f3d3b2a787f5c60b73e5a0384950a4>
 	a <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid> ; skos:prefLabel	"Aalst" ;
+	dcterms:identifier "0207509031" ;
 	org:classification	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001> ;
 	ns7:werkingsgebied	ns5:e60532b5e10070b48664b998e12af31cd4e612a0b8d089804d0bbed3d4ecc969 .
 <http://data.lblod.info/id/bestuurseenheden/974816591f269bb7d74aa1720922651529f3d3b2a787f5c60b73e5a0384950a4> mu:uuid "974816591f269bb7d74aa1720922651529f3d3b2a787f5c60b73e5a0384950a4" .
@@ -1846,6 +1848,7 @@ ns4:dcacdef6115b1c15bbaf8559ad4fbc3b694a12af37c178ac54227a630d2ead34 mu:uuid "dc
 
 <http://data.lblod.info/id/bestuurseenheden/4411539b345d3b7ffa3f9ac54fce0fc381e579b999c46cb11c7d9af03aa04a79>
 	a <http://data.vlaanderen.be/ns/besluit#Bestuurseenheid> ; skos:prefLabel	"Temse" ;
+	dcterms:identifier "0207464588" ;
 	org:classification	<http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001> ;
 	ns7:werkingsgebied	<http://data.lblod.info/id/werkingsgebieden/31b63d953c84130d22cdac7258ab5845634078ca415e379322a4a045d3495bdc> . 
 <http://data.lblod.info/id/bestuurseenheden/4411539b345d3b7ffa3f9ac54fce0fc381e579b999c46cb11c7d9af03aa04a79> mu:uuid "4411539b345d3b7ffa3f9ac54fce0fc381e579b999c46cb11c7d9af03aa04a79" .
