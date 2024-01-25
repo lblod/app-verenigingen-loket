@@ -1058,10 +1058,10 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba
 # Address for Site 1 of Association 3
 <http://data.lblod.info/id/adressen/V0001003_1> a locn:Address ;
   mu:uuid 'a9ae2fb3-a2f7-4154-939b-a41e221bf633' ;
-  locn:fullAddress "Nationalestraat 3, 2000 Antwerpen, België" ;
+  locn:fullAddress "Nationalestraat 3, 9140 Antwerpen, België" ;
   locn:thoroughfare "Nationalestraat" ;
   adres:Adresvoorstelling.huisnummer "3" ;
-  locn:postCode "2000" ;
+  locn:postCode "9140" ;
   adres:gemeentenaam "Antwerpen"@nl ;
   adres:land "België" .
 
@@ -1088,10 +1088,10 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba
 # Address for Site 1 of Association 15
 <http://data.lblod.info/id/adressen/V0001015_1> a locn:Address ;
   mu:uuid 'a9ae2fb3-a2f7-4154-939b-a41e221bf635' ;
-  locn:fullAddress "Nationalestraat 15, 2000 Antwerpen, België" ;
+  locn:fullAddress "Nationalestraat 15, 9140 Antwerpen, België" ;
   locn:thoroughfare "Nationalestraat" ;
   adres:Adresvoorstelling.huisnummer "15" ;
-  locn:postCode "2000" ;
+  locn:postCode "9140" ;
   adres:gemeentenaam "Antwerpen"@nl ;
   adres:land "België" .
 

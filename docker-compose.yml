@@ -134,7 +134,7 @@ services:
     environment:
       MU_APPLICATION_AUTH_USERID_CLAIM: "vo_id"
       MU_APPLICATION_AUTH_ROLE_CLAIM: "abb_loketverenigingenapp_rol_3d"
-      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/public"
+      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/contacthub/accounts"
       MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op"
       MU_APPLICATION_AUTH_CLIENT_ID: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
       MU_APPLICATION_AUTH_REDIRECT_URI: "https://verenigingen-loket.lblod.info/authorization/callback"
@@ -155,3 +155,7 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  dev-migrations:
+    image: semtech/mu-migrations-service:0.8.0
+    links:
+      - virtuoso:database

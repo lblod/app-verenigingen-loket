@@ -71,7 +71,6 @@ async function onFinishInitialIngest(lib) {
   const transformedMainInsertTriples = await transformLandingZoneGraph(fetch, endpoint);
   console.log(`Transformed ${transformedMainInsertTriples.length} main triples`);
 
-  console.log({transformedMainInsertTriples});
 
   if (transformedMainInsertTriples.length > 0) {
     await batchedDbUpdate(
