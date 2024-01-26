@@ -23,7 +23,6 @@ DELETE {
         }
 }
 WHERE {
-        GRAPH <http://mu.semte.ch/graphs/verenigingen/accounts> {
         ?bestuurseenheid
                 mu:uuid ?adminUnitUuid;
                 org:classification/skos:prefLabel "Gemeente" ;
@@ -32,8 +31,6 @@ WHERE {
         ?werkingsgebied
                 ?p ?o .
 
-        }
-        GRAPH <http://mu.semte.ch/graphs/public> {
         ?postInfo
                 geo:sfWithin ?werkingsgebied;
                 ?p2 ?o2 ;
@@ -41,6 +38,7 @@ WHERE {
                 adres:postnaam ?name .
 
         ?association 
+                a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
                 ?x ?y ; 
                 org:hasPrimarySite ?primarySite .
 
@@ -49,8 +47,9 @@ WHERE {
 
         ?address 
                 locn:postCode ?code .
-        }
+        
 
         BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
 }
+
 
