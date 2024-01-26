@@ -43,8 +43,6 @@ async function dispatch(lib, data) {
          `${o.subject} ${o.predicate} ${o.object}.`)
     );
 
-    console.log({originalInsertTriples});
-
     if(originalInsertTriples.length > 0){
        await batchedDbUpdate(
       muAuthSudo.updateSudo,
@@ -73,6 +71,8 @@ async function onFinishInitialIngest(lib) {
 
 
   if (transformedMainInsertTriples.length > 0) {
+    console.log(`!! Transformed triggered !!`);
+
     await batchedDbUpdate(
       muAuthSudo.updateSudo,
       LANDING_ZONE_GRAPH,
@@ -85,8 +85,10 @@ async function onFinishInitialIngest(lib) {
       SLEEP_TIME_AFTER_FAILED_DB_OPERATION
     );
   }
+  console.log(`!! Move To public triggered !!`);
 
-  await moveToPublic(muAuthSudo.updateSudo, endpoint)
+  await moveToPublic(muAuthSudo.updateSudo, endpoint);
+  console.log("!!!!MoveToOrgGraphhh!!!!!");
   await moveToOrganizationsGraph(muAuthSudo.updateSudo, endpoint);
 }
 

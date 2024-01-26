@@ -33,7 +33,7 @@ services:
     labels:
       - "logging=true"
     environment:
-      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/public"
+      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
     links:
       - database:database
     restart: always
@@ -107,7 +107,7 @@ services:
     restart: always
     logging: *default-logging
   op-consumer:
-    image: lblod/delta-consumer:0.0.24
+    image: lblod/delta-consumer:latest
     environment:
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
       DCR_SERVICE_NAME: "op-consumer"
@@ -134,7 +134,7 @@ services:
     environment:
       MU_APPLICATION_AUTH_USERID_CLAIM: "vo_id"
       MU_APPLICATION_AUTH_ROLE_CLAIM: "abb_loketverenigingenapp_rol_3d"
-      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/contacthub/accounts"
+      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
       MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op"
       MU_APPLICATION_AUTH_CLIENT_ID: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
       MU_APPLICATION_AUTH_REDIRECT_URI: "https://verenigingen-loket.lblod.info/authorization/callback"

@@ -185,53 +185,53 @@ async function moveTypeToPublic(muUpdate, endpoint, type) {
 
 async function moveToOrganizationsGraph(muUpdate, endpoint) {
  
-  //Move identifiers
-  await muUpdate(`
-    ${prefixes}
-    INSERT {
-      GRAPH ?g {
-        ?identifier a adms:Identifier;
-        mu:uuid ?uuid;
-          skos:notation ?idName;
-          generiek:gestructureerdeIdentificator ?structuredId.
-      }
-    }
-    WHERE {
-      ?adminUnit adms:identifier ?identifier.
-      ?adminUnit mu:uuid ?adminUnitUuid.
-      ?identifier a adms:Identifier;
-        mu:uuid ?uuid;
-          skos:notation ?idName;
-          generiek:gestructureerdeIdentificator ?structuredId.
+  // //Move identifiers
+  // await muUpdate(`
+  //   ${prefixes}
+  //   INSERT {
+  //     GRAPH ?g {
+  //       ?identifier a adms:Identifier;
+  //       mu:uuid ?uuid;
+  //         skos:notation ?idName;
+  //         generiek:gestructureerdeIdentificator ?structuredId.
+  //     }
+  //   }
+  //   WHERE {
+  //     ?adminUnit adms:identifier ?identifier.
+  //     ?adminUnit mu:uuid ?adminUnitUuid.
+  //     ?identifier a adms:Identifier;
+  //       mu:uuid ?uuid;
+  //         skos:notation ?idName;
+  //         generiek:gestructureerdeIdentificator ?structuredId.
           
-      BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
-    }
-  `, undefined, endpoint)
+  //     BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
+  //   }
+  // `, undefined, endpoint)
 
-  //Move identifiers
-  await muUpdate(`
-    INSERT {
-      GRAPH ?g {
-        ?structuredId a generiek:GestructureerdeIdentificator;
-          mu:uuid ?structuredUuid;
-          generiek:lokaleIdentificator ?localId.
-      }
-    }
-    WHERE {
-      GRAPH ?g {
-        ?identifier generiek:gestructureerdeIdentificator ?structuredId.
-      }
-      ?structuredId a generiek:GestructureerdeIdentificator;
-        mu:uuid ?structuredUuid;
-        generiek:lokaleIdentificator ?localId.
-    }
-  `, undefined, endpoint)
+  // //Move identifiers
+  // await muUpdate(`
+  //   INSERT {
+  //     GRAPH ?g {
+  //       ?structuredId a generiek:GestructureerdeIdentificator;
+  //         mu:uuid ?structuredUuid;
+  //         generiek:lokaleIdentificator ?localId.
+  //     }
+  //   }
+  //   WHERE {
+  //     GRAPH ?g {
+  //       ?identifier generiek:gestructureerdeIdentificator ?structuredId.
+  //     }
+  //     ?structuredId a generiek:GestructureerdeIdentificator;
+  //       mu:uuid ?structuredUuid;
+  //       generiek:lokaleIdentificator ?localId.
+  //   }
+  // `, undefined, endpoint)
 
   //Move identifiers
   await muUpdate(`
     ${prefixes}
     INSERT {
-      GRAPH <http://mu.semte.ch/graphs/contacthub/accounts> {
+      GRAPH <http://mu.semte.ch/graphs/verenigingen/accounts> {
         ?bestuurseenheid a besluit:Bestuurseenheid;
         ?x ?y .
       }
@@ -249,7 +249,7 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
   
     ${prefixes}
     INSERT {
-      GRAPH <http://mu.semte.ch/graphs/contacthub/accounts> {
+      GRAPH <http://mu.semte.ch/graphs/verenigingen/accounts> {
         ?persoon a foaf:Person;
                 mu:uuid ?uuidPersoon;
                 foaf:firstName ?classificatie;
@@ -293,11 +293,15 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
 async function transformLandingZoneGraph(fetch, endpoint, mapping = 'main') {
   console.log(`Transforming landing zone graph: ${LANDING_ZONE_GRAPH}`);
 
+  try {
   const response = await fetch(`http://reasoner/reason/op2verenigingen/${mapping}?data=${encodeURIComponent(`${endpoint}?default-graph-uri=&query=CONSTRUCT+%7B%0D%0A%3Fs+%3Fp+%3Fo%0D%0A%7D+WHERE+%7B%0D%0A+GRAPH+<${LANDING_ZONE_GRAPH}>+%7B%0D%0A%3Fs+%3Fp+%3Fo%0D%0A%7D%0D%0A%7D&should-sponge=&format=text%2Fplain&timeout=0&run=+Run+Query`)}`);
   const text = await response.text();
   const statements = text.replace(/\n{2,}/g, '').split('\n');
 
   return statements;
+  } catch(e) {
+    console.log("ERROR:", e);
+  }
 }
 
 module.exports = {
