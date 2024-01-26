@@ -242,6 +242,11 @@
           "predicate": "org:classification",
           "cardinality": "one",
           "target": "concept"
+        },
+        "recognitions": {
+          "predicate": "fv:heeftErkenning",
+          "cardinality": "many",
+          "target": "recognition"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/verenigingen/"
