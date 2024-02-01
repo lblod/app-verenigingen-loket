@@ -100,6 +100,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/postal-codes/"
   end
 
+  match "/download/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://download/download/"
+  end
+
   # match "/assets/*path", %{ layer: :api } do
   #   Proxy.forward conn, path, "http://frontend/assets/"
   # end
