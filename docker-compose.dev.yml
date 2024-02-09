@@ -1,7 +1,6 @@
-version: '3.7'
+version: "3.7"
 services:
   identifier:
-
     restart: "no"
   dispatcher:
     restart: "no"
@@ -9,6 +8,8 @@ services:
     restart: "no"
   virtuoso:
     restart: "no"
+    ports:
+      - "8890:8890"
   migrations:
     restart: "no"
   cache:
@@ -21,4 +22,16 @@ services:
     image: lblod/mock-login-service:latest
     links:
       - database:database
-    restart: "no"    
+    restart: "no"
+  download:
+    image: semtech/mu-javascript-template
+    environment:
+      NODE_ENV: "development"
+    ports:
+      - 8888:80
+    volumes:
+      - ../download-service/:/app/
+    restart: "no"
+  dev-migrations:
+    volumes:
+      - ./config/dev-migrations:/data/migrations

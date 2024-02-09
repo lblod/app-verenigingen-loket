@@ -28,3 +28,52 @@
     mu:uuid "9eb5fab3220e4033a7fa0b7c1c845783" ;
     dct:date "2020-09-11"^^xsd:date ;
     org:resultingOrganization ns1:V0001002 .
+
+<http://data.lblod.info/id/veranderingsgebeurtenissen/9eb5fab3220e4033a7fa0b7c1c845781> a org:ChangeEvent ;
+    ns1:typeWijziging <http://lblod.data.gift/concepts/a61009aec1f7412685ecad01cefd7955> ;
+    ns3:veranderingsgebeurtenisResultaat <http://lblod.data.gift/concepts/f0e2706a-3b64-4464-ad9c-4e65dc976288> ;
+    mu:uuid "9eb5fab3220e4033a7fa0b7c1c845781" ;
+    dct:date "2010-09-07"^^xsd:date ;
+    org:resultingOrganization ns1:V0001010 .
+
+<http://data.lblod.info/id/veranderingsgebeurtenissen/9eb5fab3220e4033a7fa0b7c1c845784> a org:ChangeEvent ;
+    ns1:typeWijziging <http://lblod.data.gift/concepts/a61009aec1f7412685ecad01cefd7955> ;
+    ns3:veranderingsgebeurtenisResultaat <http://lblod.data.gift/concepts/f0e2706a-3b64-4464-ad9c-4e65dc976288> ;
+    mu:uuid "9eb5fab3220e4033a7fa0b7c1c845784" ;
+    dct:date "2010-09-08"^^xsd:date ;
+    org:resultingOrganization ns1:V0001011 .
+
+<http://data.lblod.info/id/veranderingsgebeurtenissen/9eb5fab3220e4033a7fa0b7c1c845785> a org:ChangeEvent ;
+    ns1:typeWijziging <http://lblod.data.gift/concepts/a61009aec1f7412685ecad01cefd7955> ;
+    ns3:veranderingsgebeurtenisResultaat <http://lblod.data.gift/concepts/f0e2706a-3b64-4464-ad9c-4e65dc976288> ;
+    mu:uuid "9eb5fab3220e4033a7fa0b7c1c845785" ;
+    dct:date "2010-09-09"^^xsd:date ;
+    org:resultingOrganization ns1:V0001012 .
+
+<http://data.lblod.info/id/veranderingsgebeurtenissen/9eb5fab3220e4033a7fa0b7c1c845786> a org:ChangeEvent ;
+    ns1:typeWijziging <http://lblod.data.gift/concepts/a61009aec1f7412685ecad01cefd7955> ;
+    ns3:veranderingsgebeurtenisResultaat <http://lblod.data.gift/concepts/f0e2706a-3b64-4464-ad9c-4e65dc976288> ;
+    mu:uuid "9eb5fab3220e4033a7fa0b7c1c845786" ;
+    dct:date "2020-09-09"^^xsd:date ;
+    org:resultingOrganization ns1:V0001013 .
+
+<http://data.lblod.info/id/veranderingsgebeurtenissen/9eb5fab3220e4033a7fa0b7c1c845787> a org:ChangeEvent ;
+    ns1:typeWijziging <http://lblod.data.gift/concepts/a61009aec1f7412685ecad01cefd7955> ;
+    ns3:veranderingsgebeurtenisResultaat <http://lblod.data.gift/concepts/f0e2706a-3b64-4464-ad9c-4e65dc976288> ;
+    mu:uuid "9eb5fab3220e4033a7fa0b7c1c845787" ;
+    dct:date "2021-09-12"^^xsd:date ;
+    org:resultingOrganization ns1:V0001004 .
+
+<http://data.lblod.info/id/veranderingsgebeurtenissen/9eb5fab3220e4033a7fa0b7c1c845788> a org:ChangeEvent ;
+    ns1:typeWijziging <http://lblod.data.gift/concepts/a61009aec1f7412685ecad01cefd7955> ;
+    ns3:veranderingsgebeurtenisResultaat <http://lblod.data.gift/concepts/f0e2706a-3b64-4464-ad9c-4e65dc976288> ;
+    mu:uuid "9eb5fab3220e4033a7fa0b7c1c845788" ;
+    dct:date "2021-09-13"^^xsd:date ;
+    org:resultingOrganization ns1:V0001006 .
+
+<http://data.lblod.info/id/veranderingsgebeurtenissen/9eb5fab3220e4033a7fa0b7c1c845789> a org:ChangeEvent ;
+    ns1:typeWijziging <http://lblod.data.gift/concepts/a61009aec1f7412685ecad01cefd7955> ;
+    ns3:veranderingsgebeurtenisResultaat <http://lblod.data.gift/concepts/f0e2706a-3b64-4464-ad9c-4e65dc976288> ;
+    mu:uuid "9eb5fab3220e4033a7fa0b7c1c845789" ;
+    dct:date "2019-09-14"^^xsd:date ;
+    org:resultingOrganization ns1:V0001006 .

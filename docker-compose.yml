@@ -7,18 +7,35 @@ x-logging: &default-logging
     max-file: "3"
 
 services:
-  frontend: 
+  frontend:
     image: lblod/frontend-verenigingen-loket:0.0.1
     links:
-      - identifier:backend 
+      - identifier:backend
     labels:
       - "logging=true"
+    environment:
+      EMBER_OAUTH_API_REDIRECT_URL: "https://verenigingen-loket.lblod.info/authorization/callback"
+      EMBER_OAUTH_API_KEY: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
+      EMBER_OAUTH_API_BASE_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/auth"
+      EMBER_OAUTH_API_LOGOUT_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/logout"
+      EMBER_OAUTH_API_SCOPE: "openid rrn profile vo abb_loketverenigingenapp"
+      EMBER_OAUTH_SWITCH_URL: "https://verenigingen-loket.lblod.info/switch-login"
     restart: always
     logging: *default-logging
   identifier:
     image: semtech/mu-identifier:1.10.1
     labels:
       - "logging=true"
+    restart: always
+    logging: *default-logging
+  accountdetail:
+    image: lblod/account-detail-service:0.1.0
+    labels:
+      - "logging=true"
+    environment:
+      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
+    links:
+      - database:database
     restart: always
     logging: *default-logging
   dispatcher:
@@ -47,6 +64,8 @@ services:
     logging: *default-logging
   virtuoso:
     image: tenforce/virtuoso:1.3.2-virtuoso7.2.5.1
+    ports:
+      - "8890:8890"
     environment:
       SPARQL_UPDATE: "true"
       DEFAULT_GRAPH: "http://mu.semte.ch/application"
@@ -87,25 +106,58 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  op-consumer:
+    image: lblod/delta-consumer:latest
+    environment:
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
+      DCR_SERVICE_NAME: "op-consumer"
+      DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
+      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump"
+      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
+      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
+      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
+      DCR_KEEP_DELTA_FILES: "true"
+      DCR_DELTA_FILE_FOLDER: "/consumer-files"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_ENABLE_DELTA_CONTEXT: "true"
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
+      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
+    volumes:
+      - ./config/consumer/op:/config/triples-dispatching/custom-dispatching
+      - ./data/files/consumer-files/op:/consumer-files/
+    links:
+      - virtuoso:database
+    restart: always
+    logging: *default-logging
   download:
     image: lblod/verenigingsloket-download-service:latest
   login:
     image: lblod/acmidm-login-service:0.9.2
     environment:
+      MU_APPLICATION_AUTH_USERID_CLAIM: "vo_id"
+      MU_APPLICATION_AUTH_ROLE_CLAIM: "abb_loketverenigingenapp_rol_3d"
+      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
       MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op"
-      MU_APPLICATION_AUTH_CLIENT_ID: "a2c0d6ea-01b4-4f68-920b-10834a943c27"
-      MU_APPLICATION_AUTH_REDIRECT_URI: "https://loket.lblod.info/authorization/callback"
+      MU_APPLICATION_AUTH_CLIENT_ID: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
+      MU_APPLICATION_AUTH_REDIRECT_URI: "https://verenigingen-loket.lblod.info/authorization/callback"
       MU_APPLICATION_AUTH_CLIENT_SECRET: "secret"
-      LOG_SINK_URL: "http://sink"
+  reasoner:
+    image: eyereasoner/reasoning-service:increased-stack-limit
+    volumes:
+      - ./config/reasoner:/config
+    restart: always
     labels:
       - "logging=true"
-    restart: always
     logging: *default-logging
+  download:
+    image: lblod/verenigingsloket-download-service:latest
   dbcleanup:
     image: lblod/db-cleanup-service:0.3.0
     labels:
       - "logging=true"
     restart: always
     logging: *default-logging
-  
-  
+  dev-migrations:
+    image: semtech/mu-migrations-service:0.8.0
+    links:
+      - virtuoso:database
