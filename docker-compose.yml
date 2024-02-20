@@ -13,13 +13,13 @@ services:
       - identifier:backend
     labels:
       - "logging=true"
-    environment:
-      EMBER_OAUTH_API_REDIRECT_URL: "https://verenigingen-loket.lblod.info/authorization/callback"
-      EMBER_OAUTH_API_KEY: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
-      EMBER_OAUTH_API_BASE_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/auth"
-      EMBER_OAUTH_API_LOGOUT_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/logout"
-      EMBER_OAUTH_API_SCOPE: "openid rrn profile vo abb_loketverenigingenapp"
-      EMBER_OAUTH_SWITCH_URL: "https://verenigingen-loket.lblod.info/switch-login"
+    # environment:
+    #   EMBER_OAUTH_API_REDIRECT_URL: "https://verenigingen-loket.lblod.info/authorization/callback"
+    #   EMBER_OAUTH_API_KEY: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
+    #   EMBER_OAUTH_API_BASE_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/auth"
+    #   EMBER_OAUTH_API_LOGOUT_URL: "https://authenticatie-ti.vlaanderen.be/op/v1/logout"
+    #   EMBER_OAUTH_API_SCOPE: "openid rrn profile vo abb_loketverenigingenapp"
+    #   EMBER_OAUTH_SWITCH_URL: "https://verenigingen-loket.lblod.info/switch-login"
     restart: always
     logging: *default-logging
   identifier:
@@ -64,8 +64,6 @@ services:
     logging: *default-logging
   virtuoso:
     image: tenforce/virtuoso:1.3.2-virtuoso7.2.5.1
-    ports:
-      - "8890:8890"
     environment:
       SPARQL_UPDATE: "true"
       DEFAULT_GRAPH: "http://mu.semte.ch/application"
@@ -148,14 +146,6 @@ services:
     restart: always
     labels:
       - "logging=true"
-    logging: *default-logging
-  download:
-    image: lblod/verenigingsloket-download-service:latest
-  dbcleanup:
-    image: lblod/db-cleanup-service:0.3.0
-    labels:
-      - "logging=true"
-    restart: always
     logging: *default-logging
   dev-migrations:
     image: semtech/mu-migrations-service:0.8.0

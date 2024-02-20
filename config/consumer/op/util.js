@@ -121,7 +121,7 @@ async function insertIntoSpecificGraphs(lib, statementsWithGraphs) {
       SLEEP_TIME_AFTER_FAILED_DB_OPERATION,
       'INSERT');
   }
-  
+
 }
 
 async function deleteFromPublicGraph(lib, statements) {
@@ -141,7 +141,7 @@ async function deleteFromPublicGraph(lib, statements) {
 }
 
 async function deleteFromSpecificGraphs(lib, statementsWithGraphs) {
-  
+
 
   for( let graph in statementsWithGraphs) {
     console.log(`Deleting ${statementsWithGraphs[graph].length} statements from ${graph} graph`);
@@ -157,7 +157,7 @@ async function deleteFromSpecificGraphs(lib, statementsWithGraphs) {
       SLEEP_TIME_AFTER_FAILED_DB_OPERATION,
       'DELETE');
   }
-  
+
 }
 
 async function moveToPublic(muUpdate, endpoint) {
@@ -184,7 +184,7 @@ async function moveTypeToPublic(muUpdate, endpoint, type) {
 
 
 async function moveToOrganizationsGraph(muUpdate, endpoint) {
- 
+
   // //Move identifiers
   // await muUpdate(`
   //   ${prefixes}
@@ -203,7 +203,7 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
   //       mu:uuid ?uuid;
   //         skos:notation ?idName;
   //         generiek:gestructureerdeIdentificator ?structuredId.
-          
+
   //     BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
   //   }
   // `, undefined, endpoint)
@@ -233,7 +233,9 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
     INSERT {
       GRAPH <http://mu.semte.ch/graphs/verenigingen/accounts> {
         ?bestuurseenheid a besluit:Bestuurseenheid;
-        ?x ?y .
+        ?x ?y ;
+        org:classification ?cl .
+        ?cl skos:prefLabel "Gemeente" .
       }
     }
     WHERE {
@@ -246,7 +248,7 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
 
   //Create mock users
   await muUpdate(`
-  
+
     ${prefixes}
     INSERT {
       GRAPH <http://mu.semte.ch/graphs/verenigingen/accounts> {
@@ -259,7 +261,7 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
         ?account a foaf:OnlineAccount;
                 mu:uuid ?uuidAccount;
                 foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
-                ext:sessionRole "LoketVerenigingen-Gebruiker" . 
+                ext:sessionRole "LoketLB-verenigingenGebruiker" .
       }
       GRAPH ?g {
         ?persoon a foaf:Person;
@@ -271,7 +273,7 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
         ?account a foaf:OnlineAccount;
                 mu:uuid ?uuidAccount;
                 foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
-                ext:sessionRole "LoketVerenigingen-Gebruiker" . 
+                ext:sessionRole "LoketLB-verenigingenGebruiker" .
       }
     }
     WHERE {
