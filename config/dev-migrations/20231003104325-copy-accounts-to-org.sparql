@@ -15,7 +15,7 @@ GRAPH ?g {
   ?account a foaf:OnlineAccount;
           mu:uuid ?uuidAccount;
           foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
-          ext:sessionRole "LoketLB-verenigingenGebruiker".
+          ext:sessionRole "LoketLB-verenigingenGebruiker". 
 }
 }
 WHERE {

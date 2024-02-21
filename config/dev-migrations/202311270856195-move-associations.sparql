@@ -38,7 +38,7 @@ WHERE {
                 adres:postnaam ?name .
 
         ?association 
-                a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+                a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>  ;
                 ?x ?y ; 
                 org:hasPrimarySite ?primarySite .
 
