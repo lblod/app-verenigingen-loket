@@ -240,6 +240,7 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
           skos:prefLabel ?naam;
           mu:uuid ?adminUnitUuid;
           org:classification/skos:prefLabel ?classificatie.
+          FILTER(?classificatie = "Gemeente")
         BIND(CONCAT(?classificatie, " ", ?naam) as ?volledigeNaam)
         BIND(MD5(?adminUnitUuid) as ?uuidPersoon)
         BIND(MD5(CONCAT(?adminUnitUuid,"ACCOUNT")) as ?uuidAccount)
