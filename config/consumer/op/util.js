@@ -296,7 +296,7 @@ async function transformLandingZoneGraph(fetch, endpoint, mapping = 'main') {
   }
 }
 
-async function moveToTestGraph(muUpdate, endpoint){
+async function moveToOrgGraph(muUpdate, endpoint){
   await muUpdate(`
   ${prefixes}
   DELETE {
@@ -393,5 +393,5 @@ module.exports = {
   insertIntoSpecificGraphs,
   deleteFromSpecificGraphs,
   transformLandingZoneGraph,
-  moveToTestGraph
+  moveToOrgGraph
 };

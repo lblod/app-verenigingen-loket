@@ -1,4 +1,4 @@
-const { batchedDbUpdate, moveToOrganizationsGraph, moveToPublic, moveToTestGraph } = require('./util');
+const { batchedDbUpdate, moveToOrganizationsGraph, moveToPublic, moveToOrgGraph } = require('./util');
 const {
   BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES,
   DIRECT_DATABASE_ENDPOINT,
@@ -90,7 +90,7 @@ async function onFinishInitialIngest(lib) {
   await moveToPublic(muAuthSudo.updateSudo, endpoint);
   console.log("!!!!MoveToOrgGraphhh!!!!!");
   await moveToOrganizationsGraph(muAuthSudo.updateSudo, endpoint);
-  await moveToTestGraph(muAuthSudo.updateSudo, endpoint)
+  await moveToOrgGraph(muAuthSudo.updateSudo, endpoint)
 }
 
 module.exports = {
