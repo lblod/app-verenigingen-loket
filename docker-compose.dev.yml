@@ -1,4 +1,4 @@
-version: '3.7'
+version: "3.7"
 services:
   identifier:
     restart: "no"
@@ -30,6 +30,6 @@ services:
     volumes:
       - ../download-service/:/app/
     restart: "no"
-  dev-migrations:
-    volumes:
-      - ./config/dev-migrations:/data/migrations
+  # dev-migrations:
+  #   volumes:
+  #     - ./config/dev-migrations:/data/migrations

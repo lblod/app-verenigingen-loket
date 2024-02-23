@@ -118,6 +118,13 @@ defmodule Dispatcher do
   match "/sessions/*path" do
     Proxy.forward conn, path, "http://login/sessions/"
   end
+  match "/download/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://download/download/"
+  end
+
+  # match "/assets/*path", %{ layer: :api } do
+  #   Proxy.forward conn, path, "http://frontend/assets/"
+  # end
 
   match "/assets/*path", %{ layer: :api } do
     Proxy.forward conn, path, "http://frontend/assets/"
