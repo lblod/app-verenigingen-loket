@@ -303,11 +303,6 @@ async function moveToTestGraph(muUpdate, endpoint){
   GRAPH  <http://mu.semte.ch/graphs/public> {
             ?association
                         ?x ?y .
-            
-            ?postInfo a adres:Postinfo ;
-                      geo:sfWithin ?werkingsgebied ;
-                      adres:postcode ?code ;
-                      adres:postnaam ?name . 
   }
   } INSERT {
         GRAPH ?g {
@@ -316,10 +311,6 @@ async function moveToTestGraph(muUpdate, endpoint){
 
                 ?werkingsgebied
                         ?p ?o .
-
-                ?postInfo
-                        geo:sfWithin ?werkingsgebied;
-                        ?p2 ?o2.
         }
   }
   WHERE {
@@ -352,6 +343,45 @@ async function moveToTestGraph(muUpdate, endpoint){
         BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
   }
 `, undefined, endpoint)
+
+await muUpdate(`
+${prefixes}
+DELETE {
+  GRAPH  <http://mu.semte.ch/graphs/public> {
+             ?postInfo
+                 a adres:Postinfo ;
+                 geo:sfWithin ?werkingsgebied ;
+                 adres:postcode ?code ;
+                adres:postnaam ?name . 
+  }
+} INSERT {
+        GRAPH ?g {
+                ?werkingsgebied
+                        ?p ?o .
+
+                ?postInfo
+                        geo:sfWithin ?werkingsgebied;
+                        ?p2 ?o2.
+        }
+}
+WHERE {
+        ?bestuurseenheid
+                mu:uuid ?adminUnitUuid;
+                org:classification/skos:prefLabel "Gemeente" ;
+                besluit:werkingsgebied ?werkingsgebied .
+
+        ?werkingsgebied
+                ?p ?o .
+
+        ?postInfo
+                geo:sfWithin ?werkingsgebied;
+                ?p2 ?o2 ;
+                adres:postcode ?code ;
+                adres:postnaam ?name .
+
+        BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
+}
+`)
 }
 
 module.exports = {
