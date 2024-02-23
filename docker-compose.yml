@@ -147,7 +147,7 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
-  dev-migrations:
-    image: semtech/mu-migrations-service:0.8.0
-    links:
-      - virtuoso:database
+  # dev-migrations:
+  #   image: semtech/mu-migrations-service:0.8.0
+  #   links:
+  #     - virtuoso:database

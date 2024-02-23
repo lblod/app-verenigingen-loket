@@ -24,7 +24,8 @@ PREFIX locn: <http://www.w3.org/ns/locn#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX ext:<http://mu.semte.ch/vocabularies/ext/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
 `
 
 async function batchedDbUpdate(
@@ -184,74 +185,32 @@ async function moveTypeToPublic(muUpdate, endpoint, type) {
 
 
 async function moveToOrganizationsGraph(muUpdate, endpoint) {
-
-  // //Move identifiers
-  // await muUpdate(`
-  //   ${prefixes}
-  //   INSERT {
-  //     GRAPH ?g {
-  //       ?identifier a adms:Identifier;
-  //       mu:uuid ?uuid;
-  //         skos:notation ?idName;
-  //         generiek:gestructureerdeIdentificator ?structuredId.
-  //     }
-  //   }
-  //   WHERE {
-  //     ?adminUnit adms:identifier ?identifier.
-  //     ?adminUnit mu:uuid ?adminUnitUuid.
-  //     ?identifier a adms:Identifier;
-  //       mu:uuid ?uuid;
-  //         skos:notation ?idName;
-  //         generiek:gestructureerdeIdentificator ?structuredId.
-
-  //     BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
-  //   }
-  // `, undefined, endpoint)
-
-  // //Move identifiers
-  // await muUpdate(`
-  //   INSERT {
-  //     GRAPH ?g {
-  //       ?structuredId a generiek:GestructureerdeIdentificator;
-  //         mu:uuid ?structuredUuid;
-  //         generiek:lokaleIdentificator ?localId.
-  //     }
-  //   }
-  //   WHERE {
-  //     GRAPH ?g {
-  //       ?identifier generiek:gestructureerdeIdentificator ?structuredId.
-  //     }
-  //     ?structuredId a generiek:GestructureerdeIdentificator;
-  //       mu:uuid ?structuredUuid;
-  //       generiek:lokaleIdentificator ?localId.
-  //   }
-  // `, undefined, endpoint)
-
   //Move identifiers
   await muUpdate(`
     ${prefixes}
     INSERT {
-      GRAPH <http://mu.semte.ch/graphs/verenigingen/accounts> {
+      GRAPH <http://mu.semte.ch/graphs/public> {
         ?bestuurseenheid a besluit:Bestuurseenheid;
         ?x ?y ;
         org:classification ?cl .
-        ?cl skos:prefLabel "Gemeente" .
+        ?cl skos:prefLabel "Gemeente" ;
+        a <http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode> .
       }
     }
     WHERE {
         ?bestuurseenheid a besluit:Bestuurseenheid;
         ?x ?y ;
         org:classification ?cl .
-        ?cl skos:prefLabel "Gemeente" .
+        ?cl skos:prefLabel "Gemeente" ;
+        a <http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode> .
     }
   `, undefined, endpoint)
 
   //Create mock users
   await muUpdate(`
-
     ${prefixes}
     INSERT {
-      GRAPH <http://mu.semte.ch/graphs/verenigingen/accounts> {
+      GRAPH  <http://mu.semte.ch/graphs/public> {
         ?persoon a foaf:Person;
                 mu:uuid ?uuidPersoon;
                 foaf:firstName ?classificatie;
@@ -286,10 +245,41 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
         BIND(MD5(CONCAT(?adminUnitUuid,"ACCOUNT")) as ?uuidAccount)
         BIND(IRI(CONCAT("http://data.lblod.info/id/persoon/", ?uuidPersoon)) AS ?persoon)
         BIND(IRI(CONCAT("http://data.lblod.info/id/account/", ?uuidAccount)) AS ?account)
-        BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
     }
   `, undefined, endpoint)
 
+  //Create mock users
+  await muUpdate(`
+    ${prefixes}
+  INSERT {
+    GRAPH ?g {
+      ?persoon a foaf:Person;
+              mu:uuid ?uuidPersoon;
+              foaf:firstName ?classificatie;
+              foaf:familyName ?naam;
+              foaf:member ?bestuurseenheid;
+              foaf:account ?account.
+      ?account a foaf:OnlineAccount;
+              mu:uuid ?uuidAccount;
+              foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
+              ext:sessionRole "LoketLB-verenigingenGebruiker".
+    }
+    }
+    WHERE {
+    ?bestuurseenheid mu:uuid ?adminUnitUuid.
+    ?persoon a foaf:Person;
+              mu:uuid ?uuidPersoon;
+              foaf:firstName ?classificatie;
+              foaf:familyName ?naam;
+              foaf:member ?bestuurseenheid;
+              foaf:account ?account.
+      ?account a foaf:OnlineAccount;
+              mu:uuid ?uuidAccount;
+              foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
+              ext:sessionRole "LoketLB-verenigingenGebruiker" .
+    BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
+    }
+    `, undefined, endpoint)
 }
 
 async function transformLandingZoneGraph(fetch, endpoint, mapping = 'main') {
@@ -306,6 +296,64 @@ async function transformLandingZoneGraph(fetch, endpoint, mapping = 'main') {
   }
 }
 
+async function moveToTestGraph(muUpdate, endpoint){
+  await muUpdate(`
+  ${prefixes}
+  DELETE {
+  GRAPH  <http://mu.semte.ch/graphs/public> {
+            ?association
+                        ?x ?y .
+            
+            ?postInfo a adres:Postinfo ;
+                      geo:sfWithin ?werkingsgebied ;
+                      adres:postcode ?code ;
+                      adres:postnaam ?name . 
+  }
+  } INSERT {
+        GRAPH ?g {
+                ?association
+                        ?x ?y .
+
+                ?werkingsgebied
+                        ?p ?o .
+
+                ?postInfo
+                        geo:sfWithin ?werkingsgebied;
+                        ?p2 ?o2.
+        }
+  }
+  WHERE {
+        ?bestuurseenheid
+                mu:uuid ?adminUnitUuid;
+                org:classification/skos:prefLabel "Gemeente" ;
+                besluit:werkingsgebied ?werkingsgebied .
+
+        ?werkingsgebied
+                ?p ?o .
+
+        ?postInfo
+                geo:sfWithin ?werkingsgebied;
+                ?p2 ?o2 ;
+                adres:postcode ?code ;
+                adres:postnaam ?name .
+
+        ?association
+                a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>  ;
+                ?x ?y ;
+                org:hasPrimarySite ?primarySite .
+
+        ?primarySite
+                organisatie:bestaatUit ?address .
+
+        ?address
+                locn:postCode ?code .
+
+
+        BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
+  }
+`, undefined, endpoint)
+}
+
 module.exports = {
   batchedDbUpdate,
   moveToOrganizationsGraph,
@@ -314,5 +362,6 @@ module.exports = {
   deleteFromPublicGraph,
   insertIntoSpecificGraphs,
   deleteFromSpecificGraphs,
-  transformLandingZoneGraph
+  transformLandingZoneGraph,
+  moveToTestGraph
 };

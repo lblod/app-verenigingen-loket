@@ -30,6 +30,6 @@ services:
     volumes:
       - ../download-service/:/app/
     restart: "no"
-  dev-migrations:
-    volumes:
-      - ./config/dev-migrations:/data/migrations
+  # dev-migrations:
+  #   volumes:
+  #     - ./config/dev-migrations:/data/migrations
