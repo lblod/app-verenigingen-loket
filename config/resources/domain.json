@@ -3,6 +3,7 @@
   "prefixes": {
     "org": "http://www.w3.org/ns/org#",
     "locn": "http://www.w3.org/ns/locn#",
+    "bestuurcode": "http://lblod.data.gift/vocabularies/organisatie/",
     "schema": "http://schema.org/",
     "regorg": "http://www.w3.org/ns/regorg#",
     "person": "http://www.w3.org/ns/person#",
@@ -336,7 +337,7 @@
     },
     "administrative-unit-classification-codes": {
       "name": "administrative-unit-classification-code",
-      "class": "code:BestuurseenheidClassificatieCode",
+      "class": "bestuurcode:BestuurseenheidClassificatieCode",
       "attributes": {
         "label": {
           "type": "string",
