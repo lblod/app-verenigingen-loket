@@ -66,29 +66,7 @@ async function onFinishInitialIngest(lib) {
 
   console.log(`!! On-finish triggered !!`);
 
-  // const transformedMainInsertTriples = await transformLandingZoneGraph(fetch, endpoint);
-  // console.log(`Transformed ${transformedMainInsertTriples.length} main triples`);
-
-
-  // if (transformedMainInsertTriples.length > 0) {
-  //   console.log(`!! Transformed triggered !!`);
-
-  //   await batchedDbUpdate(
-  //     muAuthSudo.updateSudo,
-  //     LANDING_ZONE_GRAPH,
-  //     transformedMainInsertTriples,
-  //     { 'mu-call-scope-id': MU_CALL_SCOPE_ID_INITIAL_SYNC },
-  //     endpoint,
-  //     BATCH_SIZE,
-  //     MAX_DB_RETRY_ATTEMPTS,
-  //     SLEEP_BETWEEN_BATCHES,
-  //     SLEEP_TIME_AFTER_FAILED_DB_OPERATION
-  //   );
-  // }
-  // console.log(`!! Move To public triggered !!`);
-
   await moveToPublic(muAuthSudo.updateSudo, endpoint);
-  console.log("!!!!MoveToOrgGraphhh!!!!!");
   await moveToOrganizationsGraph(muAuthSudo.updateSudo, endpoint);
   await moveToOrgGraph(muAuthSudo.updateSudo, endpoint)
 }
