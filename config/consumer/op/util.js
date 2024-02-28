@@ -50,11 +50,11 @@ async function batchedDbUpdate(
 
     const insertCall = async () => {
       await muUpdate(`
-${operation} DATA {
-GRAPH <${graph}> {
-${batch}
-}
-}
+      ${operation} DATA {
+      GRAPH <${graph}> {
+      ${batch}
+      }
+      }
 `, extraHeaders, endpoint);
     };
 

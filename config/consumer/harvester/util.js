@@ -51,29 +51,28 @@ async function batchedUpdate(
 
 
 async function moveToOrgGraph(muUpdate, endpoint){
-  console.log('UPDATING GRAPPHHHHHHH<https://data.vlaanderen.be/ns/V0001069>')
   await muUpdate(`
   
-PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
-PREFIX adms:  <http://www.w3.org/ns/adms#>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX lblodgeneriek: <https://data.lblod.info/vocabularies/generiek/>
-PREFIX org: <http://www.w3.org/ns/org#>
-PREFIX code: <http://lblod.data.gift/vocabularies/organisatie/>
-PREFIX adms: <http://www.w3.org/ns/adms#>
-PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
-PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
-PREFIX organisatie: <https://data.vlaanderen.be/ns/organisatie#>
-PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
-PREFIX euvoc: <http://publications.europa.eu/ontology/euvoc#>
-PREFIX prov: <http://www.w3.org/ns/prov#>
-PREFIX schema: <http://schema.org/>
-PREFIX locn: <http://www.w3.org/ns/locn#>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX ext:<http://mu.semte.ch/vocabularies/ext/>
-PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX geo: <http://www.opengis.net/ont/geosparql#>
-PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
+  PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+  PREFIX adms:  <http://www.w3.org/ns/adms#>
+  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+  PREFIX lblodgeneriek: <https://data.lblod.info/vocabularies/generiek/>
+  PREFIX org: <http://www.w3.org/ns/org#>
+  PREFIX code: <http://lblod.data.gift/vocabularies/organisatie/>
+  PREFIX adms: <http://www.w3.org/ns/adms#>
+  PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
+  PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+  PREFIX organisatie: <https://data.vlaanderen.be/ns/organisatie#>
+  PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+  PREFIX euvoc: <http://publications.europa.eu/ontology/euvoc#>
+  PREFIX prov: <http://www.w3.org/ns/prov#>
+  PREFIX schema: <http://schema.org/>
+  PREFIX locn: <http://www.w3.org/ns/locn#>
+  PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+  PREFIX ext:<http://mu.semte.ch/vocabularies/ext/>
+  PREFIX dcterms: <http://purl.org/dc/terms/>
+  PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+  PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
 
   DELETE {
   GRAPH  <http://mu.semte.ch/graphs/public> {
