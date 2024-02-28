@@ -1,4 +1,5 @@
-const { batchedUpdate } = require('./utils');
+const { batchedUpdate, moveToOrgGraph } = require('./util');
+
 
 const {
   BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES,
@@ -46,18 +47,12 @@ async function dispatch(lib, data) {
   );
 }
 
-/**
- * A callback you can override to do extra manipulations
- *   after initial ingest.
- * @param { mu, muAuthSudo, fech } lib - The provided libraries from the host service.
- * @return {void} Nothing
- */
 async function onFinishInitialIngest(lib) {
-  console.log(`
-    onFinishInitialIngest was called!
-    Current implementation does nothing, no worries.
-    You can overrule it for extra manipulations after initial ingest.
-  `);
+  const { muAuthSudo } = lib;
+
+  console.log(`!! On-finish triggered !!`);
+
+  await moveToOrgGraph(muAuthSudo.updateSudo, endpoint)
 }
 
 module.exports = {

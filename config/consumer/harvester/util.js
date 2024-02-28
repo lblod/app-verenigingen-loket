@@ -1,6 +1,6 @@
 
 
-export async function batchedUpdate(
+async function batchedUpdate(
   lib,
   nTriples,
   targetGraph,
@@ -49,6 +49,80 @@ export async function batchedUpdate(
   }
 }
 
+
+async function moveToOrgGraph(muUpdate, endpoint){
+  console.log('UPDATING GRAPPHHHHHHH<https://data.vlaanderen.be/ns/V0001069>')
+  await muUpdate(`
+  
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX adms:  <http://www.w3.org/ns/adms#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX lblodgeneriek: <https://data.lblod.info/vocabularies/generiek/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX code: <http://lblod.data.gift/vocabularies/organisatie/>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
+PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
+PREFIX organisatie: <https://data.vlaanderen.be/ns/organisatie#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX euvoc: <http://publications.europa.eu/ontology/euvoc#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX schema: <http://schema.org/>
+PREFIX locn: <http://www.w3.org/ns/locn#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX ext:<http://mu.semte.ch/vocabularies/ext/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
+
+  DELETE {
+  GRAPH  <http://mu.semte.ch/graphs/public> {
+            ?association
+                        ?x ?y .
+  }
+  } INSERT {
+        GRAPH ?g {
+                ?association
+                        ?x ?y .
+
+                ?werkingsgebied
+                        ?p ?o .
+        }
+  }
+  WHERE {
+            ?bestuurseenheid
+                mu:uuid ?adminUnitUuid;
+                org:classification/skos:prefLabel "Gemeente" ;
+                besluit:werkingsgebied ?werkingsgebied .
+
+        ?werkingsgebied
+                ?p ?o .
+
+        ?postInfo
+                geo:sfWithin ?werkingsgebied;
+                ?p2 ?o2 ;
+                adres:postcode ?code ;
+                adres:postnaam ?name .
+
+        ?association
+                a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>  ;
+                ?x ?y ;
+                org:hasPrimarySite ?primarySite .
+
+        ?primarySite
+                organisatie:bestaatUit ?address .
+
+        ?address
+                locn:postCode ?code .
+
+
+        BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
+  }
+`, undefined, endpoint)
+}
+
+
 module.exports = {
-  batchedUpdate
+  batchedUpdate, 
+  moveToOrgGraph
 };
