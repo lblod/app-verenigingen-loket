@@ -8,6 +8,7 @@ const {
 
 const prefixes = `
 PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX adms:  <http://www.w3.org/ns/adms#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX lblodgeneriek: <https://data.lblod.info/vocabularies/generiek/>
 PREFIX org: <http://www.w3.org/ns/org#>
@@ -49,11 +50,11 @@ async function batchedDbUpdate(
 
     const insertCall = async () => {
       await muUpdate(`
-${operation} DATA {
-GRAPH <${graph}> {
-${batch}
-}
-}
+      ${operation} DATA {
+      GRAPH <${graph}> {
+      ${batch}
+      }
+      }
 `, extraHeaders, endpoint);
     };
 
@@ -189,21 +190,29 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
   await muUpdate(`
     ${prefixes}
     INSERT {
-      GRAPH <http://mu.semte.ch/graphs/public> {
+      GRAPH <http://mu.semte.ch/graphs/verenigingen/accounts> {
         ?bestuurseenheid a besluit:Bestuurseenheid;
         ?x ?y ;
+        dcterms:identifier ?kboNummer;
         org:classification ?cl .
         ?cl skos:prefLabel "Gemeente" ;
         a <http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode> .
       }
     }
-    WHERE {
-        ?bestuurseenheid a besluit:Bestuurseenheid;
-        ?x ?y ;
-        org:classification ?cl .
-        ?cl skos:prefLabel "Gemeente" ;
-        a <http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode> .
-    }
+    WHERE { GRAPH <http://mu.semte.ch/graphs/landing-zone/op> {
+      ?bestuurseenheid a besluit:Bestuurseenheid;
+      ?x ?y ;
+      org:classification ?cl ;
+      adms:identifier ?identifier .
+
+      ?identifier skos:notation "KBO nummer";
+      generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator.
+
+      ?gestructureerdeIdentificator generiek:lokaleIdentificator ?kboNummer.
+
+      ?cl skos:prefLabel "Gemeente" ;
+      a <http://lblod.data.gift/vocabularies/organisatie/BestuurseenheidClassificatieCode> .
+    }}
   `, undefined, endpoint)
 
   //Create mock users
@@ -235,7 +244,7 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
                 ext:sessionRole "LoketLB-verenigingenGebruiker" .
       }
     }
-    WHERE {
+    WHERE { GRAPH <http://mu.semte.ch/graphs/verenigingen/accounts> {
         ?bestuurseenheid a besluit:Bestuurseenheid;
           skos:prefLabel ?naam;
           mu:uuid ?adminUnitUuid;
@@ -246,7 +255,7 @@ async function moveToOrganizationsGraph(muUpdate, endpoint) {
         BIND(MD5(CONCAT(?adminUnitUuid,"ACCOUNT")) as ?uuidAccount)
         BIND(IRI(CONCAT("http://data.lblod.info/id/persoon/", ?uuidPersoon)) AS ?persoon)
         BIND(IRI(CONCAT("http://data.lblod.info/id/account/", ?uuidAccount)) AS ?account)
-    }
+    }}
   `, undefined, endpoint)
 
   //Create mock users
@@ -314,8 +323,8 @@ async function moveToOrgGraph(muUpdate, endpoint){
                         ?p ?o .
         }
   }
-  WHERE {
-        ?bestuurseenheid
+  WHERE { GRAPH <http://mu.semte.ch/graphs/public> {
+            ?bestuurseenheid
                 mu:uuid ?adminUnitUuid;
                 org:classification/skos:prefLabel "Gemeente" ;
                 besluit:werkingsgebied ?werkingsgebied .
@@ -342,7 +351,7 @@ async function moveToOrgGraph(muUpdate, endpoint){
 
 
         BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
-  }
+  }}
 `, undefined, endpoint)
 
 await muUpdate(`
@@ -353,7 +362,7 @@ DELETE {
                  a adres:Postinfo ;
                  geo:sfWithin ?werkingsgebied ;
                  adres:postcode ?code ;
-                adres:postnaam ?name . 
+                adres:postnaam ?name .
   }
 } INSERT {
         GRAPH ?g {
@@ -365,8 +374,8 @@ DELETE {
                         ?p2 ?o2.
         }
 }
-WHERE {
-        ?bestuurseenheid
+WHERE { GRAPH <http://mu.semte.ch/graphs/public> {
+          ?bestuurseenheid
                 mu:uuid ?adminUnitUuid;
                 org:classification/skos:prefLabel "Gemeente" ;
                 besluit:werkingsgebied ?werkingsgebied .
@@ -381,7 +390,7 @@ WHERE {
                 adres:postnaam ?name .
 
         BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
-}
+}}
 `)
 }
 
@@ -396,3 +405,5 @@ module.exports = {
   transformLandingZoneGraph,
   moveToOrgGraph
 };
+
+
