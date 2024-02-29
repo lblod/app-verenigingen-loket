@@ -171,3 +171,17 @@ services:
   #   image: semtech/mu-migrations-service:0.8.0
   #   links:
   #     - virtuoso:database
+  search:
+    image: semtech/mu-search:0.9.1
+    links:
+      - virtuoso:database
+    restart: always
+    volumes:
+      - ./config/search:/config
+  elasticsearch:
+    image: semtech/mu-search-elastic-backend:1.0.1
+    volumes:
+      - ./data/elasticsearch/:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+    restart: always

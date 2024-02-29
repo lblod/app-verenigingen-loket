@@ -15,6 +15,11 @@ defmodule Dispatcher do
   @json %{ accept: %{ json: true } }
   @html %{ accept: %{ html: true } }
 
+  match "/search/*path", @json do
+    Proxy.forward conn, path, "http://search/"
+  end
+
+
   match "/organizations/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/organizations/"
   end
@@ -145,6 +150,7 @@ defmodule Dispatcher do
   match "/groups/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://resource/administrative-units/"
   end
+
 
 
 

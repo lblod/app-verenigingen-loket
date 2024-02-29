@@ -1,0 +1,46 @@
+{
+    "persist_indexes": true,
+    "eager_indexing_groups": [
+        [
+            {
+                "name": "clean",
+                "variables": []
+            }
+        ],
+        [
+            {
+                "name": "public",
+                "variables": []
+            }
+        ],
+        [
+            {
+                "name": "readers",
+                "variables": []
+            }
+        ],
+        [
+            {
+                "name": "editors",
+                "variables": []
+            }
+        ],
+        [
+            {
+                "name": "users",
+                "variables": []
+            }
+        ]
+    ],
+    "types": [
+        {
+            "type": "user",
+            "on_path": "users",
+            "rdf_type": "http://xmlns.com/foaf/0.1/Person",
+            "properties": {
+                "first_name": "http://xmlns.com/foaf/0.1/firstName",
+                "family_name": "http://xmlns.com/foaf/0.1/familyName"
+            }
+        }
+    ]
+}
