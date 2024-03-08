@@ -7,6 +7,9 @@
 !/data/db/toLoad
 !/data/db/toLoad/*
 /data/files/*
+data/
+data_*
+.vscode/
 .DS_Store
 *~
 

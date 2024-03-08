@@ -104,22 +104,22 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-    op-consumer:
-      image: lblod/delta-consumer:latest
-      environment:
-        DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
-        DCR_SERVICE_NAME: "op-consumer"
-        DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
-        DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump"
-        DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
-        DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
-        DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
-        DCR_KEEP_DELTA_FILES: "true"
-        DCR_DELTA_FILE_FOLDER: "/consumer-files"
-        DCR_DISABLE_DELTA_INGEST: "false"
-        DCR_ENABLE_DELTA_CONTEXT: "true"
-        BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
-        INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
+  op-consumer:
+    image: lblod/delta-consumer:latest
+    environment:
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
+      DCR_SERVICE_NAME: "op-consumer"
+      DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
+      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump"
+      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
+      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
+      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
+      DCR_KEEP_DELTA_FILES: "true"
+      DCR_DELTA_FILE_FOLDER: "/consumer-files"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_ENABLE_DELTA_CONTEXT: "true"
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
+      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
     volumes:
       - ./config/consumer/op:/config/triples-dispatching/custom-dispatching
       - ./data/files/consumer-files/op:/consumer-files/
