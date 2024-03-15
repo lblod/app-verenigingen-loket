@@ -1,0 +1,784 @@
+@prefix ns1: <https://data.vlaanderen.be/ns/> .
+@prefix organisatie: <https://data.vlaanderen.be/ns/organisatie#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix generiek: <https://data.vlaanderen.be/ns/generiek#> .
+@prefix adres: <https://data.vlaanderen.be/ns/adres#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ere: <http://data.lblod.info/vocabularies/erediensten/> .
+@prefix code: <http://data.vlaanderen.be/id/concept/> .
+@prefix schema: <http://schema.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix regorg: <http://www.w3.org/ns/regorg#> .
+@prefix act: <http://data.lblod.info/id/concept/activiteit/> .
+@prefix pav: <http://purl.org/pav/> .
+
+
+ns1:V0001030
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Tech Innovators" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_30';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001031
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Green Advocates" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_31';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001032
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Harmony Society" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_32';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001033
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Stellar Creations" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_33';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001034
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Quantum Ventures" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_34';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001035
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Nature Guardians" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_35';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001036
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Visionary Minds" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_36';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001037
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Infinity Solutions" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_37';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001038
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Wise Wizards" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_38';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+
+ns1:V0001039
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Ocean Explorers" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_39';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001040
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Dream Builders" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_40';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001041
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Serenity Foundation" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_41';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001042
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Pinnacle Ventures" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_41';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001043
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Phoenix Innovations" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_43';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001044
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Unity Creators" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_44';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001045
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Quantum Harmony" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_45';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001046
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Frontier Visionaries" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_46';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001047
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Timeless Explorers" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_47';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001048
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Cosmic Catalysts" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_48';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+
+ns1:V0001049
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Ethereal Nexus" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_49';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001050
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Radiant Innovations" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_50';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+
+
+ns1:V0001051
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Celestial Seekers" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_51';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001052
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Wisdom Pioneers" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_52';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001053
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Elemental Creations" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_53';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001054
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Evergreen Initiatives" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_54';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001055
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Astral Architects" ;
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_55';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001056
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Horizon Envoys";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_56';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001057
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Enigma Enterprises";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_57';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001058
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Techno Dreamers";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_58';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001059
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Elysian Innovations";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_59';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001060
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Ethos Ventures";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_60';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+
+ns1:V0001061
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Virtuoso Creators";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_61';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001062
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Epoch Explorations";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_62';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001063
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Nebula Nexus";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_63';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+
+ns1:V0001064
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Harmony Trailblazers";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_64';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001065
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Quantum Quest";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_65';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001066
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Empyrean Creations";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_66';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001067
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Tranquil Visions";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_67';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001068
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Pulsar Innovations";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_68';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001069
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Radiant Explorers";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_69';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001070
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Wisdom Catalysts";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_70';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+
+ns1:V0001071
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Serendipity Ventures";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_71';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+
+ns1:V0001072
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Phoenix Innovators";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_72';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001073
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Quantum Creations";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_73';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001074
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Ethereal Pioneers";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_74';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+
+
+ns1:V0001075
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Ethereal Pioneers";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_75';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001076
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Infinite Horizons";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_76';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001077
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Celestial Catalysts";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_77';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001078
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Enigma Explorers";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_78';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001079
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Ethos Initiatives";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_79';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001080
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Harmony Haven";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_80';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+ns1:V0001081
+  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
+  pav:lastUpdateOn "2023-04-15T10:30:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Epoch Endeavors";
+  dc:description "Fostering Technological Advancements" ;
+  org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
+  mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5_81';
+  schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
+    <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
+  org:memberOf ns1:org ;
+  org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
