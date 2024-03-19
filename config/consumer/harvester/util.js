@@ -68,8 +68,7 @@ async function batchedUpdate (
 
 async function moveToOrgGraph (muUpdate, endpoint) {
   await muUpdate(
-    `
-    PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+    `PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
     PREFIX adms:  <http://www.w3.org/ns/adms#>
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     PREFIX reorg: <http://www.w3.org/ns/regorg#>
@@ -95,6 +94,8 @@ async function moveToOrgGraph (muUpdate, endpoint) {
     PREFIX rdfs:	<http://www.w3.org/2000/01/rdf-schema#> 
     PREFIX fv: <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/>
     PREFIX ns: <https://data.lblod.info/ns/>
+    PREFIX verenigingen_ext: <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/>
+
     
    INSERT {
           GRAPH ?g {
@@ -107,10 +108,22 @@ async function moveToOrgGraph (muUpdate, endpoint) {
                   adms:identifier ?aidentifier ;
                   reorg:orgStatus ?astatus ;
                   reorg:orgActivity ?activity ;
-                  fv:doelgroep ?adoelgroep ;
                   ns:korteNaam ?aKorteNaam ;
+                  adms:identifier ?identifier ;
+                  org:classification ?classificatie ;
+                  verenigingen_ext:doelgroep ?doelgroep ;
                   org:hasSite ?site ;
                   org:hasPrimarySite ?primarySite .
+
+          ?activity a skos:Concept ;
+                  mu:uuid ?activityUuid ;
+                  skos:notation ?activityNotation ;
+                  skos:prefLabel ?activityLabel .
+
+           ?doelgroep a verenigingen_ext:Doelgroep ;
+                  mu:uuid ?doelgroepUuid ;
+                  verenigingen_ext:minimumleeftijd ?minimum ;
+                  verenigingen_ext:maximumleeftijd ?maximum .
             
            ?primarySite
                  a org:Site ;
@@ -143,6 +156,15 @@ async function moveToOrgGraph (muUpdate, endpoint) {
                  adres:land ?sadLand ;
                  locn:fullAddress ?sadFullAddress ;
                  adres:gemeentenaam ?sadGemeente .
+
+            ?identifier a adms:Identifier;
+                       skos:notation ?identifierNotation;
+                       mu:uuid ?identifierUuid;
+                       generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator . 
+
+           ?gestructureerdeIdentificator a generiek:GestructureerdeIdentificator;
+                       mu:uuid ?gestructureerdeUuid ;
+                       generiek:lokaleIdentificator ?lokaleIdentificator. 
             
              
           }
@@ -172,17 +194,29 @@ async function moveToOrgGraph (muUpdate, endpoint) {
     
     { graph  <http://mu.semte.ch/graphs/ingest> {
           ?association
-                  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVerenigingen>  ;
                   mu:uuid ?Auuid ;
                   skos:prefLabel ?alabel ;
                   dcterms:description ?adescription ;
                   adms:identifier ?aidentifier ;
                   reorg:orgStatus ?astatus ;
                   reorg:orgActivity ?activity ;
-                  fv:doelgroep ?adoelgroep ;
                   ns:korteNaam ?aKorteNaam ;
                   org:hasSite ?site ;
+                  verenigingen_ext:doelgroep ?doelgroep ;
+                  adms:identifier ?identifier ;
+                  org:classification ?classificatie ;
                   org:hasPrimarySite ?primarySite .
+
+          ?activity a skos:Concept ;
+                  mu:uuid ?activityUuid ;
+                  skos:notation ?activityNotation ;
+                  skos:prefLabel ?activityLabel .
+
+
+           ?doelgroep a verenigingen_ext:Doelgroep ;
+                  mu:uuid ?doelgroepUuid ;
+                  verenigingen_ext:minimumleeftijd ?minimum ;
+                  verenigingen_ext:maximumleeftijd ?maximum .
     
           ?primarySite
                  organisatie:bestaatUit ?adres ;
@@ -216,11 +250,20 @@ async function moveToOrgGraph (muUpdate, endpoint) {
 
         BIND(CONCAT(?sadStraatnaam, " ", ?sadHuisnummer, " ", ?sadBusnummer, ", ", ?sadPostcode," ", ?sadGemeente, ", ", ?sadLand) AS ?sadFullAddress)
             
-   
+           ?identifier a adms:Identifier;
+                       skos:notation ?identifierNotation;
+                       mu:uuid ?identifierUuid;
+                       generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator . 
+
+           ?gestructureerdeIdentificator a generiek:GestructureerdeIdentificator;
+                       mu:uuid ?gestructureerdeUuid ;
+                       generiek:lokaleIdentificator ?lokaleIdentificator. 
     }}
     
           BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
-    } `,
+
+    }
+     `,
     undefined,
     endpoint
   )
