@@ -107,6 +107,7 @@ services:
   op-consumer:
     image: lblod/delta-consumer:latest
     environment:
+      BATCH_SIZE: 1000
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
       DCR_SERVICE_NAME: "op-consumer"
       DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
