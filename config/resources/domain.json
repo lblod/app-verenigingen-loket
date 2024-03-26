@@ -225,6 +225,10 @@
         "description": {
           "type": "string",
           "predicate": "dct:description"
+        },
+        "created-on": {
+          "type": "date",
+          "predicate": "pav:createdOn"
         }
       },
       "relationships": {
