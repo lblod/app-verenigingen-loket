@@ -66,9 +66,8 @@ async function batchedUpdate (
   }
 }
 
-async function moveToOrgGraph (muUpdate, endpoint) {
-  await muUpdate(
-    `PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+const PREFIXES = `
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
     PREFIX adms:  <http://www.w3.org/ns/adms#>
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     PREFIX reorg: <http://www.w3.org/ns/regorg#>
@@ -96,9 +95,12 @@ async function moveToOrgGraph (muUpdate, endpoint) {
     PREFIX ns: <https://data.lblod.info/ns/>
     PREFIX verenigingen_ext: <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/>
     PREFIX pav: <http://purl.org/pav/>
+    PREFIX code: <http://data.vlaanderen.be/id/concept/>
+`
 
-
-    
+async function moveToOrgGraph (muUpdate, endpoint) {
+  await muUpdate(
+    `${PREFIXES}
    INSERT {
           GRAPH ?g {
 
@@ -116,17 +118,35 @@ async function moveToOrgGraph (muUpdate, endpoint) {
                   verenigingen_ext:doelgroep ?doelgroep ;
                   pav:createdOn ?createdOn .
 
+              ?association schema:contactPoint ?contactPointPhone .
+              ?contactPointPhone a schema:ContactPoint ;
+                    mu:uuid ?contactPointPhoneUuid ;
+                    schema:telephone ?contactPhone .
+
+              ?association schema:contactPoint ?contactPointEmail .
+              ?contactPointEmail a schema:ContactPoint ;
+                   mu:uuid ?contactPointEmailUuid ;
+                  schema:email ?contactEmail .
+
+              ?association schema:contactPoint ?contactPointWebsite .
+              ?contactPointWebsite a schema:ContactPoint ;
+                        mu:uuid ?contactPointWebsiteUuid ;
+                        foaf:name ?contactName ;
+                        foaf:page ?contactPage .
+
           ?activity a skos:Concept ;
                   mu:uuid ?activityUuid ;
                   skos:notation ?activityNotation ;
                   skos:prefLabel ?activityLabel .
 
-           ?doelgroep a verenigingen_ext:Doelgroep ;
+         
+          ?doelgroep a verenigingen_ext:Doelgroep ;
                   mu:uuid ?doelgroepUuid ;
                   verenigingen_ext:minimumleeftijd ?minimum ;
                   verenigingen_ext:maximumleeftijd ?maximum .
-            
 
+                 
+                  
             ?identifier a adms:Identifier;
                        skos:notation ?identifierNotation;
                        mu:uuid ?identifierUuid;
@@ -178,6 +198,26 @@ async function moveToOrgGraph (muUpdate, endpoint) {
                   pav:createdOn ?createdOn ;
                   org:hasPrimarySite ?primarySite .
 
+                  OPTIONAL {
+                    ?association schema:contactPoint ?contactPointPhone .
+                    ?contactPointPhone a schema:ContactPoint ;
+                                       mu:uuid ?contactPointPhoneUuid ;
+                                       schema:telephone ?contactPhone .
+                  }
+                  OPTIONAL {
+                    ?association schema:contactPoint ?contactPointEmail .
+                    ?contactPointEmail a schema:ContactPoint ;
+                                       mu:uuid ?contactPointEmailUuid ;
+                                       schema:email ?contactEmail .
+                  }
+                  OPTIONAL {
+                    ?association schema:contactPoint ?contactPointWebsite .
+                    ?contactPointWebsite a schema:ContactPoint ;
+                                         mu:uuid ?contactPointWebsiteUuid ;
+                                         foaf:name ?contactName ;
+                                         foaf:page ?contactPage .
+                  }
+
           ?activity a skos:Concept ;
                   mu:uuid ?activityUuid ;
                   skos:notation ?activityNotation ;
@@ -192,8 +232,6 @@ async function moveToOrgGraph (muUpdate, endpoint) {
           ?primarySite
                  organisatie:bestaatUit ?adres .
                  
-       
-          
           ?adres a <http://www.w3.org/ns/locn#Address> ;
                  locn:postCode ?code .
 
@@ -216,145 +254,136 @@ async function moveToOrgGraph (muUpdate, endpoint) {
   )
 
   await muUpdate(
-    `PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
-    PREFIX adms:  <http://www.w3.org/ns/adms#>
-    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-    PREFIX reorg: <http://www.w3.org/ns/regorg#>
-    PREFIX lblodgeneriek: <https://data.lblod.info/vocabularies/generiek/>
-    PREFIX org: <http://www.w3.org/ns/org#>
-    PREFIX code: <http://lblod.data.gift/vocabularies/organisatie/>
-    PREFIX adms: <http://www.w3.org/ns/adms#>
-    PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
-    PREFIX ere: <http://data.lblod.info/vocabularies/erediensten/>
-    PREFIX organisatie: <https://data.vlaanderen.be/ns/organisatie#>
-    PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
-    PREFIX euvoc: <http://publications.europa.eu/ontology/euvoc#>
-    PREFIX prov: <http://www.w3.org/ns/prov#>
-    PREFIX schema: <http://schema.org/>
-    PREFIX locn: <http://www.w3.org/ns/locn#>
-    PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-    PREFIX ext:<http://mu.semte.ch/vocabularies/ext/>
-    PREFIX dcterms: <http://purl.org/dc/terms/>
-    PREFIX geo: <http://www.opengis.net/ont/geosparql#>
-    PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
-    PREFIX ns1:	<http://www.w3.org/ns/prov#> 
-    PREFIX ns3:	<http://mu.semte.ch/vocabularies/ext/> 
-    PREFIX rdfs:	<http://www.w3.org/2000/01/rdf-schema#> 
-    PREFIX fv: <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/>
-    PREFIX ns: <https://data.lblod.info/ns/>
-    PREFIX verenigingen_ext: <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/>
-    PREFIX pav: <http://purl.org/pav/>
+    `
+${PREFIXES} 
+INSERT {
+  GRAPH ?g {
 
+    ?association
+          a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>  ;
+          org:hasSite ?site ;
+          org:hasPrimarySite ?primarySite .
 
     
-   INSERT {
-          GRAPH ?g {
+   ?primarySite
+         a org:Site ;
+         organisatie:bestaatUit ?adres ;
+         dcterms:description ?pDes ;
+         ere:vestigingstype ?pSiteType ;
+         mu:uuid ?Puuid .
 
-            ?association
-                  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>  ;
-                  org:hasSite ?site ;
-                  org:hasPrimarySite ?primarySite .
+  ?pSiteType a code:TypeVestiging ;
+             mu:uuid ?pSiteTypeUuid ;
+             skos:prefLabel ?pSiteTypeName .
+         
+  ?site
+         a org:Site ;
+         organisatie:bestaatUit ?sadres ;
+         dcterms:description ?sDes ;
+         ere:vestigingstype ?sSiteType ;
+         mu:uuid ?Suuid .
 
-            
-           ?primarySite
-                 a org:Site ;
-                 organisatie:bestaatUit ?adres ;
-                 dcterms:description ?pDes ;
-                 mu:uuid ?Puuid .
-                 
-          ?site
-                 a org:Site ;
-                 organisatie:bestaatUit ?sadres ;
-                 dcterms:description ?sDes ;
-                 mu:uuid ?Suuid .
-          
-          ?adres a <http://www.w3.org/ns/locn#Address> ;
-                 mu:uuid ?adUuid ;
-                 locn:postCode ?code ;
-                 locn:thoroughfare ?adStraatnaam ;
-                 adres:Adresvoorstelling.busnummer ?adBusnummer ;
-                 adres:Adresvoorstelling.huisnummer ?adHuisnummer ;
-                 adres:land ?adLand ;
-                 locn:fullAddress ?fullAddress ;
-                 adres:gemeentenaam ?adGemeente .
+  ?sSiteType a code:TypeVestiging ;
+         mu:uuid ?sSiteTypeUuid ;
+         skos:prefLabel ?sSiteTypeName .
+  
+  ?adres a <http://www.w3.org/ns/locn#Address> ;
+         mu:uuid ?adUuid ;
+         locn:postCode ?code ;
+         locn:thoroughfare ?adStraatnaam ;
+         adres:Adresvoorstelling.busnummer ?adBusnummer ;
+         adres:Adresvoorstelling.huisnummer ?adHuisnummer ;
+         adres:land ?adLand ;
+         locn:fullAddress ?fullAddress ;
+         adres:gemeentenaam ?adGemeente .
 
-          ?sadres a <http://www.w3.org/ns/locn#Address> ;
-                 mu:uuid ?sadUuid ;
-                 locn:postCode ?sadPostcode ;
-                 locn:thoroughfare ?sadStraatnaam ;
-                 adres:Adresvoorstelling.busnummer ?sadBusnummer ;
-                 adres:Adresvoorstelling.huisnummer ?sadHuisnummer ;
-                 adres:land ?sadLand ;
-                 locn:fullAddress ?sadFullAddress ;
-                 adres:gemeentenaam ?sadGemeente .
-          }
-    }
-    
-    
-    WHERE {
-    
-        {graph <http://mu.semte.ch/graphs/public> {
-              ?bestuurseenheid
-                  mu:uuid ?adminUnitUuid;
-                  org:classification/skos:prefLabel "Gemeente" ;
-                  besluit:werkingsgebied ?werkingsgebied .
-    
-          ?werkingsgebied
-            rdf:type	ns1:Location ;
-	          rdfs:label	?label ;
-	          ns3:werkingsgebiedNiveau ?gemeente .
-    
-    }}
-    
-          ?postInfo
-                  geo:sfWithin ?werkingsgebied;
-                  a adres:Postinfo ;
-                  adres:postcode ?code ;
-                  adres:postnaam ?name .
-    
-    { graph  <http://mu.semte.ch/graphs/ingest> {
-          ?association
-                  org:hasSite ?site ;
-                  org:hasPrimarySite ?primarySite .
+  ?sadres a <http://www.w3.org/ns/locn#Address> ;
+         mu:uuid ?sadUuid ;
+         locn:postCode ?sadPostcode ;
+         locn:thoroughfare ?sadStraatnaam ;
+         adres:Adresvoorstelling.busnummer ?sadBusnummer ;
+         adres:Adresvoorstelling.huisnummer ?sadHuisnummer ;
+         adres:land ?sadLand ;
+         locn:fullAddress ?sadFullAddress ;
+         adres:gemeentenaam ?sadGemeente .
+  }
+}
 
+
+WHERE {
+
+{graph <http://mu.semte.ch/graphs/public> {
+      ?bestuurseenheid
+          mu:uuid ?adminUnitUuid;
+          org:classification/skos:prefLabel "Gemeente" ;
+          besluit:werkingsgebied ?werkingsgebied .
+
+  ?werkingsgebied
+    rdf:type	ns1:Location ;
+    rdfs:label	?label ;
+    ns3:werkingsgebiedNiveau ?gemeente .
+
+}}
+
+  ?postInfo
+          geo:sfWithin ?werkingsgebied;
+          a adres:Postinfo ;
+          adres:postcode ?code ;
+          adres:postnaam ?name .
+
+{ graph  <http://mu.semte.ch/graphs/ingest> {
+  ?association
+          org:hasSite ?site ;
+          org:hasPrimarySite ?primarySite .
+
+
+  ?primarySite
+         organisatie:bestaatUit ?adres ;
+         ns:description ?pDes ;
+         ere:vestigingstype ?pSiteType ;
+         mu:uuid ?Puuid .
+
+  ?pSiteType a code:TypeVestiging ;
+         mu:uuid ?pSiteTypeUuid ;
+         skos:prefLabel ?pSiteTypeName .
+         
+  ?site
+         organisatie:bestaatUit ?sadres ;
+         ns:description ?sDes ;
+         ere:vestigingstype ?sSiteType ;
+         mu:uuid ?Suuid .
+
+  ?sSiteType a code:TypeVestiging ;
+         mu:uuid ?sSiteTypeUuid ;
+         skos:prefLabel ?sSiteTypeName .
+  
+  ?adres a <http://www.w3.org/ns/locn#Address> ;
+         mu:uuid ?adUuid ;
+         locn:postCode ?code ;
+         locn:thoroughfare ?adStraatnaam ;
+         adres:Adresvoorstelling.busnummer ?adBusnummer ;
+         adres:Adresvoorstelling.huisnummer ?adHuisnummer ;
+         adres:land ?adLand ;
+         adres:gemeentenaam ?adGemeente .
+
+  BIND(CONCAT(?adStraatnaam, " ", ?adHuisnummer, " ", ?adBusnummer, ", ", ?code," ", ?adGemeente, ", ", ?adLand) AS ?fullAddress)
+
+  ?sadres a <http://www.w3.org/ns/locn#Address> ;
+         mu:uuid ?sadUuid ;
+         locn:postCode ?sadPostcode ;
+         locn:thoroughfare ?sadStraatnaam ;
+         adres:Adresvoorstelling.busnummer ?sadBusnummer ;
+         adres:Adresvoorstelling.huisnummer ?sadHuisnummer ;
+         adres:land ?sadLand ;
+         adres:gemeentenaam ?sadGemeente .
+
+BIND(CONCAT(?sadStraatnaam, " ", ?sadHuisnummer, " ", ?sadBusnummer, ", ", ?sadPostcode," ", ?sadGemeente, ", ", ?sadLand) AS ?sadFullAddress)
     
-          ?primarySite
-                 organisatie:bestaatUit ?adres ;
-                 ns:description ?pDes ;
-                 mu:uuid ?Puuid .
-                 
-          ?site
-                 organisatie:bestaatUit ?sadres ;
-                 ns:description ?sDes ;
-                 mu:uuid ?Suuid .
-          
-          ?adres a <http://www.w3.org/ns/locn#Address> ;
-                 mu:uuid ?adUuid ;
-                 locn:postCode ?code ;
-                 ns:straatnaam ?adStraatnaam ;
-                 ns:busnummer ?adBusnummer ;
-                 ns:huisnummer ?adHuisnummer ;
-                 ns:land ?adLand ;
-                 adres:gemeentenaam ?adGemeente .
+}}
 
-          BIND(CONCAT(?adStraatnaam, " ", ?adHuisnummer, " ", ?adBusnummer, ", ", ?code," ", ?adGemeente, ", ", ?adLand) AS ?fullAddress)
+  BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
 
-          ?sadres a <http://www.w3.org/ns/locn#Address> ;
-                 mu:uuid ?sadUuid ;
-                 locn:postCode ?sadPostcode ;
-                 ns:straatnaam ?sadStraatnaam ;
-                 ns:busnummer ?sadBusnummer ;
-                 ns:huisnummer ?sadHuisnummer ;
-                 ns:land ?sadLand ;
-                 adres:gemeentenaam ?sadGemeente .
-
-        BIND(CONCAT(?sadStraatnaam, " ", ?sadHuisnummer, " ", ?sadBusnummer, ", ", ?sadPostcode," ", ?sadGemeente, ", ", ?sadLand) AS ?sadFullAddress)
-            
-    }}
-    
-          BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
-
-    }
+}
      `,
     undefined,
     endpoint
