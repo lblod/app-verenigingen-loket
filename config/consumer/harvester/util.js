@@ -1,73 +1,6 @@
-async function batchedUpdate (
-  lib,
-  nTriples,
-  targetGraph,
-  sleep,
-  batch,
-  extraHeaders,
-  endpoint,
-  operation
-) {
-  const { muAuthSudo, chunk, sparqlEscapeUri } = lib
-  console.log('size of store: ', nTriples?.length)
-  const chunkedArray = chunk(nTriples, batch)
-  let chunkCounter = 0
-  for (const chunkedTriple of chunkedArray) {
-    console.log(
-      `Processing chunk number ${chunkCounter} of ${chunkedArray.length} chunks.`
-    )
-    console.log(`using endpoint from utils ${endpoint}`)
-    try {
-      const updateQuery = `
-        ${operation} DATA {
-           GRAPH ${sparqlEscapeUri(targetGraph)} {
-             ${chunkedTriple.join('')}
-           }
-        }
-      `
-      console.log(
-        `Hitting database ${endpoint} with batched query \n ${updateQuery}`
-      )
-      const connectOptions = { sparqlEndpoint: endpoint, mayRetry: true }
-      console.log(
-        'connectOptions: ',
-        connectOptions,
-        'Extra headers: ',
-        extraHeaders
-      )
-      await muAuthSudo.updateSudo(updateQuery, extraHeaders, connectOptions)
-      console.log(`Sleeping before next query execution: ${sleep}`)
-      await new Promise(r => setTimeout(r, sleep))
-    } catch (err) {
-      // Binary backoff recovery.
-      console.log('ERROR: ', err)
-      console.log(
-        `Inserting the chunk failed for chunk size ${batch} and ${nTriples.length} triples`
-      )
-      const smallerBatch = Math.floor(batch / 2)
-      if (smallerBatch === 0) {
-        console.log('the triples that fails: ', nTriples)
-        throw new Error(`Backoff mechanism stops in batched update,
-          we can't work with chunks the size of ${smallerBatch}`)
-      }
-      console.log(`Let's try to ingest wiht chunk size of ${smallerBatch}`)
-      await batchedUpdate(
-        lib,
-        chunkedTriple,
-        targetGraph,
-        sleep,
-        smallerBatch,
-        extraHeaders,
-        endpoint,
-        operation
-      )
-    }
-    ++chunkCounter
-  }
-}
 
 const PREFIXES = `
-PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+    PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
     PREFIX adms:  <http://www.w3.org/ns/adms#>
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
     PREFIX reorg: <http://www.w3.org/ns/regorg#>
@@ -88,15 +21,82 @@ PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
     PREFIX dcterms: <http://purl.org/dc/terms/>
     PREFIX geo: <http://www.opengis.net/ont/geosparql#>
     PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
-    PREFIX ns1:	<http://www.w3.org/ns/prov#> 
-    PREFIX ns3:	<http://mu.semte.ch/vocabularies/ext/> 
-    PREFIX rdfs:	<http://www.w3.org/2000/01/rdf-schema#> 
+    PREFIX ns1:	<http://www.w3.org/ns/prov#>
+    PREFIX ns3:	<http://mu.semte.ch/vocabularies/ext/>
+    PREFIX rdfs:	<http://www.w3.org/2000/01/rdf-schema#>
     PREFIX fv: <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/>
     PREFIX ns: <https://data.lblod.info/ns/>
     PREFIX verenigingen_ext: <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/>
     PREFIX pav: <http://purl.org/pav/>
     PREFIX code: <http://data.vlaanderen.be/id/concept/>
+    PREFIX person: <http://www.w3.org/ns/person#>
 `
+async function batchedDbUpdate(
+  muUpdate,
+  graph,
+  triples,
+  extraHeaders,
+  endpoint,
+  batchSize,
+  maxAttempts,
+  sleepBetweenBatches = 1000,
+  sleepTimeOnFail = 1000,
+  operation = 'INSERT'
+) {
+  for (let i = 0; i < triples.length; i += batchSize) {
+    console.log(`Inserting triples in batch: ${i}-${i + batchSize}`);
+
+    const batch = triples.slice(i, i + batchSize).join('\n');
+
+    console.log({batch, triples});
+
+    const insertCall = async () => {
+      await muUpdate(`
+      ${operation} DATA {
+      GRAPH <${graph}> {
+      ${batch}
+      }
+      }
+`, extraHeaders, endpoint);
+    };
+
+    await operationWithRetry(insertCall, 0, maxAttempts, sleepTimeOnFail);
+
+    console.log(`Sleeping before next query execution: ${sleepBetweenBatches}`);
+    await new Promise(r => setTimeout(r, sleepBetweenBatches));
+  }
+}
+
+
+
+
+async function operationWithRetry(callback,
+  attempt,
+  maxAttempts,
+  sleepTimeOnFail) {
+  try {
+    if (typeof callback === "function")
+      return await callback();
+    else // Catch error from promise - not how I would do it normally, but allows re use of existing code.
+      return await callback;
+  }
+  catch (e) {
+    console.log(`Operation failed for ${callback.toString()}, attempt: ${attempt} of ${maxAttempts}`);
+    console.log(`Error: ${e}`);
+    console.log(`Sleeping ${sleepTimeOnFail} ms`);
+
+    if (attempt >= maxAttempts) {
+      console.log(`Max attempts reached for ${callback.toString()}, giving up`);
+      throw e;
+    }
+
+    await new Promise(r => setTimeout(r, sleepTimeOnFail));
+    return operationWithRetry(callback, ++attempt, maxAttempts, sleepTimeOnFail);
+  }
+}
+
+
+
 
 async function moveToOrgGraph (muUpdate, endpoint) {
   await muUpdate(
@@ -116,8 +116,10 @@ async function moveToOrgGraph (muUpdate, endpoint) {
                   adms:identifier ?identifier ;
                   org:classification ?classificatie ;
                   verenigingen_ext:doelgroep ?doelgroep ;
-                  pav:createdOn ?createdOn .
+                  pav:createdOn ?createdOn ;
+                  org:hasMembership ?membership .
 
+#CONTACTPOINT
               ?association schema:contactPoint ?contactPointPhone .
               ?contactPointPhone a schema:ContactPoint ;
                     mu:uuid ?contactPointPhoneUuid ;
@@ -133,55 +135,79 @@ async function moveToOrgGraph (muUpdate, endpoint) {
                         mu:uuid ?contactPointWebsiteUuid ;
                         foaf:name ?contactName ;
                         foaf:page ?contactPage .
-
+#ACTIVITY
           ?activity a skos:Concept ;
                   mu:uuid ?activityUuid ;
                   skos:notation ?activityNotation ;
                   skos:prefLabel ?activityLabel .
 
-         
+#DOELGROEP
           ?doelgroep a verenigingen_ext:Doelgroep ;
                   mu:uuid ?doelgroepUuid ;
                   verenigingen_ext:minimumleeftijd ?minimum ;
                   verenigingen_ext:maximumleeftijd ?maximum .
 
-                 
-                  
+
+#IDENTIFIER
             ?identifier a adms:Identifier;
                        skos:notation ?identifierNotation;
                        mu:uuid ?identifierUuid;
-                       generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator . 
+                       generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator .
 
            ?gestructureerdeIdentificator a generiek:GestructureerdeIdentificator;
                        mu:uuid ?gestructureerdeUuid ;
-                       generiek:lokaleIdentificator ?lokaleIdentificator. 
-            
-             
+                       generiek:lokaleIdentificator ?lokaleIdentificator.
+
+
+#MEMBERSHIP
+          ?membership a org:Membership;
+          mu:uuid ?membershipUuid;
+          org:member ?person.
+
+          ?person a person:Person;
+          mu:uuid ?personUuid;
+          foaf:givenName ?personGivenName;
+          foaf:familyName ?personFamilyName.
+
+          ?person schema:contactPoint ?contactMemberPhone.
+          ?contactMemberPhone a schema:ContactPoint ;
+              mu:uuid ?contactMemberPhoneUuid ;
+              schema:telephone ?contactMemberTelephone .
+
+          ?person schema:contactPoint ?contactMemberEmail .
+          ?contactMemberEmail a schema:ContactPoint ;
+              mu:uuid ?contactMemberEmailUuid ;
+              schema:email ?contactMemberEmails .
+
+          ?person schema:contactPoint ?contactMemberSocialMedia .
+          ?contactMemberSocialMedia a schema:ContactPoint ;
+              mu:uuid ?contactMemberSocialMediaUuid ;
+              foaf:page ?contactMemberPage .
           }
     }
-    
-    
+
+
     WHERE {
-    
+
         {graph <http://mu.semte.ch/graphs/public> {
               ?bestuurseenheid
                   mu:uuid ?adminUnitUuid;
                   org:classification/skos:prefLabel "Gemeente" ;
                   besluit:werkingsgebied ?werkingsgebied .
-    
+
           ?werkingsgebied
             rdf:type	ns1:Location ;
 	          rdfs:label	?label ;
 	          ns3:werkingsgebiedNiveau ?gemeente .
-    
+
     }}
-    
+
           ?postInfo
                   geo:sfWithin ?werkingsgebied;
                   a adres:Postinfo ;
                   adres:postcode ?code ;
                   adres:postnaam ?name .
-    
+
     { graph  <http://mu.semte.ch/graphs/ingest> {
           ?association
                   mu:uuid ?Auuid ;
@@ -196,7 +222,8 @@ async function moveToOrgGraph (muUpdate, endpoint) {
                   adms:identifier ?identifier ;
                   org:classification ?classificatie ;
                   pav:createdOn ?createdOn ;
-                  org:hasPrimarySite ?primarySite .
+                  org:hasPrimarySite ?primarySite;
+                  org:hasMembership ?membership .
 
                   OPTIONAL {
                     ?association schema:contactPoint ?contactPointPhone .
@@ -217,34 +244,68 @@ async function moveToOrgGraph (muUpdate, endpoint) {
                                          foaf:name ?contactName ;
                                          foaf:page ?contactPage .
                   }
-
-          ?activity a skos:Concept ;
-                  mu:uuid ?activityUuid ;
-                  skos:notation ?activityNotation ;
-                  skos:prefLabel ?activityLabel .
-
-
-           ?doelgroep a verenigingen_ext:Doelgroep ;
-                  mu:uuid ?doelgroepUuid ;
-                  verenigingen_ext:minimumleeftijd ?minimum ;
-                  verenigingen_ext:maximumleeftijd ?maximum .
-    
+                  OPTIONAL {
+                  ?activity a skos:Concept ;
+                    mu:uuid ?activityUuid ;
+                    skos:notation ?activityNotation ;
+                    skos:prefLabel ?activityLabel .
+                  }
+                  OPTIONAL {
+                  ?doelgroep a verenigingen_ext:Doelgroep ;
+                    mu:uuid ?doelgroepUuid ;
+                    verenigingen_ext:minimumleeftijd ?minimum ;
+                    verenigingen_ext:maximumleeftijd ?maximum .
+                  }
           ?primarySite
                  organisatie:bestaatUit ?adres .
-                 
+
           ?adres a <http://www.w3.org/ns/locn#Address> ;
                  locn:postCode ?code .
 
-           ?identifier a adms:Identifier;
-                       skos:notation ?identifierNotation;
-                       mu:uuid ?identifierUuid;
-                       generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator . 
+          OPTIONAL {
+            ?identifier a adms:Identifier;
+            skos:notation ?identifierNotation;
+            mu:uuid ?identifierUuid;
+            generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator .
+          }
+          OPTIONAL {
+            ?gestructureerdeIdentificator a generiek:GestructureerdeIdentificator;
+            mu:uuid ?gestructureerdeUuid ;
+            generiek:lokaleIdentificator ?lokaleIdentificator.
+          }
 
-           ?gestructureerdeIdentificator a generiek:GestructureerdeIdentificator;
-                       mu:uuid ?gestructureerdeUuid ;
-                       generiek:lokaleIdentificator ?lokaleIdentificator. 
+          OPTIONAL {
+            ?membership a org:Membership;
+            mu:uuid ?membershipUuid;
+            org:member ?person.
+            OPTIONAL {
+              ?person a person:Person;
+              mu:uuid ?personUuid;
+              foaf:givenName ?personGivenName;
+              foaf:familyName ?personFamilyName.
+            }
+            OPTIONAL {
+              ?person schema:contactPoint ?contactMemberPhone.
+              ?contactMemberPhone a schema:ContactPoint ;
+                  mu:uuid ?contactMemberPhoneUuid ;
+                  schema:telephone ?contactMemberTelephone .
+            }
+            OPTIONAL {
+              ?person schema:contactPoint ?contactMemberEmail .
+              ?contactMemberEmail a schema:ContactPoint ;
+                  mu:uuid ?contactMemberEmailUuid ;
+                  schema:email ?contactMemberEmails .
+            }
+            OPTIONAL {
+              ?person schema:contactPoint ?contactMemberSocialMedia .
+              ?contactMemberSocialMedia a schema:ContactPoint ;
+                  mu:uuid ?contactMemberSocialMediaUuid ;
+                  foaf:page ?contactMemberPage .
+            }
+          }
+
     }}
-    
+
           BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
 
     }
@@ -255,7 +316,7 @@ async function moveToOrgGraph (muUpdate, endpoint) {
 
   await muUpdate(
     `
-${PREFIXES} 
+${PREFIXES}
 INSERT {
   GRAPH ?g {
 
@@ -264,7 +325,7 @@ INSERT {
           org:hasSite ?site ;
           org:hasPrimarySite ?primarySite .
 
-    
+
    ?primarySite
          a org:Site ;
          organisatie:bestaatUit ?adres ;
@@ -275,7 +336,7 @@ INSERT {
   ?pSiteType a code:TypeVestiging ;
              mu:uuid ?pSiteTypeUuid ;
              skos:prefLabel ?pSiteTypeName .
-         
+
   ?site
          a org:Site ;
          organisatie:bestaatUit ?sadres ;
@@ -286,7 +347,7 @@ INSERT {
   ?sSiteType a code:TypeVestiging ;
          mu:uuid ?sSiteTypeUuid ;
          skos:prefLabel ?sSiteTypeName .
-  
+
   ?adres a <http://www.w3.org/ns/locn#Address> ;
          mu:uuid ?adUuid ;
          locn:postCode ?code ;
@@ -338,33 +399,40 @@ WHERE {
 
 
   ?primarySite
-         organisatie:bestaatUit ?adres ;
-         ns:description ?pDes ;
-         ere:vestigingstype ?pSiteType ;
-         mu:uuid ?Puuid .
+        organisatie:bestaatUit ?adres ;
+        mu:uuid ?Puuid .
+        OPTIONAL { ?primarySite dcterms:description ?pDes }
+        OPTIONAL { ?primarySite ere:vestigingstype ?pSiteType }
 
+  OPTIONAL {
   ?pSiteType a code:TypeVestiging ;
          mu:uuid ?pSiteTypeUuid ;
          skos:prefLabel ?pSiteTypeName .
-         
+  }
   ?site
-         organisatie:bestaatUit ?sadres ;
-         ns:description ?sDes ;
-         ere:vestigingstype ?sSiteType ;
-         mu:uuid ?Suuid .
-
+        organisatie:bestaatUit ?sadres ;
+        mu:uuid ?Suuid .
+        OPTIONAL { ?primarySite dcterms:description ?sDes }
+        OPTIONAL { ?primarySite ere:vestigingstype ?sSiteType }
+  OPTIONAL {
   ?sSiteType a code:TypeVestiging ;
          mu:uuid ?sSiteTypeUuid ;
          skos:prefLabel ?sSiteTypeName .
-  
+  }
   ?adres a <http://www.w3.org/ns/locn#Address> ;
-         mu:uuid ?adUuid ;
-         locn:postCode ?code ;
-         locn:thoroughfare ?adStraatnaam ;
-         adres:Adresvoorstelling.busnummer ?adBusnummer ;
-         adres:Adresvoorstelling.huisnummer ?adHuisnummer ;
-         adres:land ?adLand ;
-         adres:gemeentenaam ?adGemeente .
+        mu:uuid ?adUuid ;
+        locn:postCode ?code ;
+        locn:thoroughfare ?adStraatnaam ;
+        adres:land ?adLand ;
+        adres:gemeentenaam ?adGemeente .
+        OPTIONAL {
+        ?adres a <http://www.w3.org/ns/locn#Address> ;
+        adres:Adresvoorstelling.busnummer ?adBusnummer .
+        }
+                OPTIONAL {
+        ?adres a <http://www.w3.org/ns/locn#Address> ;
+        adres:Adresvoorstelling.huisnummer ?adHuisnummer .
+        }
 
   BIND(CONCAT(?adStraatnaam, " ", ?adHuisnummer, " ", ?adBusnummer, ", ", ?code," ", ?adGemeente, ", ", ?adLand) AS ?fullAddress)
 
@@ -372,13 +440,19 @@ WHERE {
          mu:uuid ?sadUuid ;
          locn:postCode ?sadPostcode ;
          locn:thoroughfare ?sadStraatnaam ;
-         adres:Adresvoorstelling.busnummer ?sadBusnummer ;
-         adres:Adresvoorstelling.huisnummer ?sadHuisnummer ;
          adres:land ?sadLand ;
          adres:gemeentenaam ?sadGemeente .
+         OPTIONAL {
+          ?sadres a <http://www.w3.org/ns/locn#Address> ;
+          adres:Adresvoorstelling.busnummer ?sadBusnummer .
+          }
+                  OPTIONAL {
+          ?sadres a <http://www.w3.org/ns/locn#Address> ;
+          adres:Adresvoorstelling.huisnummer ?sadHuisnummer .
+          }
 
 BIND(CONCAT(?sadStraatnaam, " ", ?sadHuisnummer, " ", ?sadBusnummer, ", ", ?sadPostcode," ", ?sadGemeente, ", ", ?sadLand) AS ?sadFullAddress)
-    
+
 }}
 
   BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
@@ -391,6 +465,6 @@ BIND(CONCAT(?sadStraatnaam, " ", ?sadHuisnummer, " ", ?sadBusnummer, ", ", ?sadP
 }
 
 module.exports = {
-  batchedUpdate,
+  batchedDbUpdate,
   moveToOrgGraph
 }

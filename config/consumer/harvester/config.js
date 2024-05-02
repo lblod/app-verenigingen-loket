@@ -16,6 +16,8 @@ const SLEEP_TIME_AFTER_FAILED_DB_OPERATION = parseInt(
 const INGEST_GRAPH =
   process.env.INGEST_GRAPH || `http://mu.semte.ch/graphs/public`
 
+const MU_SPARQL_ENDPOINT = process.env.MU_SPARQL_ENDPOINT || "http://database:8890/sparql"
+
 module.exports = {
   BATCH_SIZE,
   MU_CALL_SCOPE_ID_INITIAL_SYNC,
@@ -24,5 +26,6 @@ module.exports = {
   MAX_DB_RETRY_ATTEMPTS,
   SLEEP_BETWEEN_BATCHES,
   SLEEP_TIME_AFTER_FAILED_DB_OPERATION,
-  INGEST_GRAPH
+  INGEST_GRAPH,
+  MU_SPARQL_ENDPOINT
 }

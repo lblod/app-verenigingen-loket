@@ -196,10 +196,9 @@
           "cardinality": "many"
         },
         "members": {
-          "predicate": "org:organization",
+          "predicate": "org:hasMembership",
           "target": "membership",
-          "cardinality": "many",
-          "inverse": true
+          "cardinality": "many"
         },
         "change-events": {
           "predicate": "org:resultingOrganization",
@@ -274,6 +273,11 @@
           "predicate": "org:basedAt",
           "target": "site",
           "cardinality": "one"
+        },
+        "contact-points": {
+          "predicate": "schema:contactPoint",
+          "target": "contact-point",
+          "cardinality": "many"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/personen/"
