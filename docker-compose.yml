@@ -176,6 +176,7 @@ services:
     image: associations-graph-dispatcher-service:latest
     environment:
       LOGLEVEL: "info"
+      SUDO_QUERY_RETRY: "true"
     labels:
       - "logging=true"
     restart: always
