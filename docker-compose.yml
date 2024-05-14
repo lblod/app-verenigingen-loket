@@ -172,14 +172,14 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
-  dispatcher-associations:
-    image: associations-graph-dispatcher-service:latest
-    environment:
-      LOGLEVEL: "info"
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
+  # dispatcher-associations:
+  #   image: associations-graph-dispatcher-service:latest
+  #   environment:
+  #     LOGLEVEL: "info"
+  #   labels:
+  #     - "logging=true"
+  #   restart: always
+  #   logging: *default-logging
   delta-notifier:
     image: semtech/mu-delta-notifier:0.2.0
     volumes:
