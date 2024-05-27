@@ -174,7 +174,7 @@ services:
   search:
     image: semtech/mu-search:0.9.1
     links:
-      - virtuoso:database
+      - database:database
     restart: always
     volumes:
       - ./config/search:/config

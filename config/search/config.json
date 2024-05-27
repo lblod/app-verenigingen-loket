@@ -5,35 +5,52 @@
     "eager_indexing_groups": [
         [
             {
-                "name": "clean",
-                "variables": []
-            }
-        ],
-        [
+                "variables": [],
+                "name": "verenigen-loket-beheerder"
+            },
             {
-                "name": "public",
-                "variables": []
-            }
-        ],
-        [
+                "variables": [],
+                "name": "clean"
+            },
             {
-                "name": "readers",
-                "variables": []
-            }
-        ],
-        [
-            {
-                "name": "editors",
-                "variables": []
-            }
-        ],
-        [
-            {
-                "name": "users",
-                "variables": []
+                "variables": [],
+                "name": "public"
             }
         ]
     ],
+    "default_settings": {
+        "analysis": {
+            "normalizer": {
+                "custom_sort_normalizer": {
+                    "type": "custom",
+                    "char_filter": [],
+                    "filter": [
+                        "lowercase",
+                        "trim",
+                        "asciifolding"
+                    ]
+                },
+                "identifier_normalizer": {
+                    "type": "custom",
+                    "char_filter": [
+                        "identifier_alphanumeric_filter"
+                    ],
+                    "filter": [
+                        "lowercase",
+                        "trim",
+                        "asciifolding"
+                    ]
+                }
+            },
+            "char_filter": {
+                "identifier_alphanumeric_filter": {
+                    "type": "pattern_replace",
+                    "pattern": "[^a-zA-Z0-9]",
+                    "replacement": ""
+                }
+            }
+        }
+    },
     "types": [
         {
             "type": "user",
@@ -42,6 +59,124 @@
             "properties": {
                 "first_name": "http://xmlns.com/foaf/0.1/firstName",
                 "family_name": "http://xmlns.com/foaf/0.1/familyName"
+            }
+        },
+        {
+            "type": "association",
+            "on_path": "associations",
+            "rdf_type": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging",
+            "properties": {
+                "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
+                "name": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                "description": "http://www.w3.org/2004/02/skos/core#notation",
+                "primarySite": {
+                    "via": "http://www.w3.org/ns/org#hasPrimarySite",
+                    "rdf_type": "http://www.w3.org/ns/org#Site",
+                    "properties": {
+                        "description": "http://purl.org/dc/terms/description",
+                        "address": {
+                            "via": "https://data.vlaanderen.be/ns/organisatie#bestaatUit",
+                            "rdf_type": "http://www.w3.org/ns/locn#Address",
+                            "properties": {
+                                "huisnummer": "https://data.vlaanderen.be/ns/adres#Adresvoorstelling.huisnummer",
+                                "busnummer": "https://data.vlaanderen.be/ns/adres#Adresvoorstelling.busnummer",
+                                "thoroughfare": "http://www.w3.org/ns/locn#thoroughfare",
+                                "postcode": "http://www.w3.org/ns/locn#postCode",
+                                "municipality": "http://www.w3.org/ns/locn#municipality",
+                                "province": "http://www.w3.org/ns/locn#province",
+                                "land": "http://www.w3.org/ns/locn#land",
+                                "gemeentenaam": "http://www.w3.org/ns/locn#gemeentenaam",
+                                "adminUnitL2": "http://www.w3.org/ns/locn#adminUnitL2",
+                                "fullAddress": "http://www.w3.org/ns/locn#fullAddress",
+                                "verwijstNaar": "https://data.vlaanderen.be/ns/adres#verwijstNaar"
+                            }
+                        }
+                    }
+                },
+                "sites": {
+                    "via": "http://www.w3.org/ns/org#hasSite",
+                    "rdf_type": "http://www.w3.org/ns/org#Site",
+                    "properties": {
+                        "description": "http://purl.org/dc/terms/description",
+                        "address": {
+                            "via": "https://data.vlaanderen.be/ns/organisatie#bestaatUit",
+                            "rdf_type": "http://www.w3.org/ns/locn#Address",
+                            "properties": {
+                                "huisnummer": "https://data.vlaanderen.be/ns/adres#Adresvoorstelling.huisnummer",
+                                "busnummer": "https://data.vlaanderen.be/ns/adres#Adresvoorstelling.busnummer",
+                                "thoroughfare": "http://www.w3.org/ns/locn#thoroughfare",
+                                "postcode": "http://www.w3.org/ns/locn#postCode",
+                                "municipality": "http://www.w3.org/ns/locn#municipality",
+                                "province": "http://www.w3.org/ns/locn#province",
+                                "land": "http://www.w3.org/ns/locn#land",
+                                "gemeentenaam": "http://www.w3.org/ns/locn#gemeentenaam",
+                                "adminUnitL2": "http://www.w3.org/ns/locn#adminUnitL2",
+                                "fullAddress": "http://www.w3.org/ns/locn#fullAddress",
+                                "verwijstNaar": "https://data.vlaanderen.be/ns/adres#verwijstNaar"
+                            }
+                        }
+                    }
+                },
+                "activities": {
+                    "via": "http://www.w3.org/ns/regorg#orgActivity",
+                    "rdf_type": "http://www.w3.org/2004/02/skos/core#Concept",
+                    "properties": {
+                        "label": "http://www.w3.org/2004/02/skos/core#prefLabel"
+                    }
+                },
+                "identifiers": {
+                    "via": "http://www.w3.org/ns/adms#identifier",
+                    "rdf_type": "http://www.w3.org/ns/adms#Identifier",
+                    "properties": {
+                        "idName": "http://www.w3.org/2004/02/skos/core#notation",
+                        "structuredIdentifier": {
+                            "via": "https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator",
+                            "rdf_type": "https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator",
+                            "properties": {
+                                "localId": "https://data.vlaanderen.be/ns/generiek#lokaleIdentificator"
+                            }
+                        }
+                    }
+                },
+                "targetAudience": {
+                    "via": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/doelgroep",
+                    "rdf_type": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/Doelgroep",
+                    "properties": {
+                        "minimumLeeftijd": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/minimumleeftijd",
+                        "maximumLeeftijd": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/maximumleeftijd"
+                    }
+                },
+                "recognitions": {
+                    "via": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#heeftErkenning",
+                    "rdf_type": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Erkenning",
+                    "properties": {
+                        "status": "http://www.w3.org/ns/adms#status",
+                        "dateDocument": "http://data.europa.eu/eli/ontology#dateDocument",
+                        "legalResource": "http://data.europa.eu/eli/ontology#hasLegalResource",
+                        "validityPeriod": {
+                            "via": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#geldigheidsperiode",
+                            "rdf_type": "http://data.europa.eu/m8g/PeriodOfTime",
+                            "properties": {
+                                "startTime": "http://data.europa.eu/m8g/startTime",
+                                "endTime": "http://data.europa.eu/m8g/endTime"
+                            }
+                        },
+                        "awardedBy": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#toegekendDoor",
+                        "association": "^https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#heeftErkenning"
+                    }
+                },
+                "classification": {
+                    "via": "http://www.w3.org/ns/org#classification",
+                    "rdf_type": "http://www.w3.org/2004/02/skos/core#Concept",
+                    "properties": {
+                        "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                        "notation": "http://www.w3.org/2004/02/skos/core#notation",
+                        "modified": "http://purl.org/dc/terms/modified",
+                        "conceptScheme": "http://www.w3.org/2004/02/skos/core#inScheme",
+                        "broader": "http://www.w3.org/2004/02/skos/core#broader",
+                        "top-concept-of": "http://www.w3.org/2004/02/skos/core#hasTopConcept"
+                    }
+                }
             }
         }
     ]
