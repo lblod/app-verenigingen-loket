@@ -1,16 +1,20 @@
-const { batchedUpdate, moveToOrgGraph } = require('./util');
-
+const {  moveToOrgGraph, batchedDbUpdate } = require('./util')
 
 const {
   BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES,
   DIRECT_DATABASE_ENDPOINT,
   MU_CALL_SCOPE_ID_INITIAL_SYNC,
   BATCH_SIZE,
+  MAX_DB_RETRY_ATTEMPTS,
   SLEEP_BETWEEN_BATCHES,
+  SLEEP_TIME_AFTER_FAILED_DB_OPERATION,
   INGEST_GRAPH
-}  = require('./config');
+} = require('./config')
 
-const endpoint = BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES ? DIRECT_DATABASE_ENDPOINT : process.env.MU_SPARQL_ENDPOINT;
+
+const endpoint = BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES
+  ? DIRECT_DATABASE_ENDPOINT
+  : process.env.MU_SPARQL_ENDPOINT
 
 /**
  * Dispatch the fetched information to a target graph.
@@ -25,32 +29,35 @@ const endpoint = BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES ? DIRECT_DATABASE_ENDPOINT
  *         ]
  * @return {void} Nothing
  */
-async function dispatch(lib, data) {
-  const { mu, } = lib;
+async function dispatch (lib, data) {
+  const { mu,muAuthSudo } = lib
 
-  const triples = data.termObjects.map(o => `${o.subject} ${o.predicate} ${o.object}.`);
+  const triples = data.termObjects.map(
+    o => `${o.subject} ${o.predicate} ${o.object}.`
+  )
 
   if (BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES) {
-    console.warn(`Service configured to skip MU_AUTH!`);
+    console.warn(`Service configured to skip MU_AUTH!`)
   }
-  console.log(`Using ${endpoint} to insert triples`);
+  console.log(`Using ${endpoint} to insert initial triples`)
 
-  await batchedUpdate(
-    lib,
-    triples,
+  await batchedDbUpdate(
+    muAuthSudo.updateSudo,
     INGEST_GRAPH,
-    SLEEP_BETWEEN_BATCHES,
-    BATCH_SIZE,
+    triples,
     { 'mu-call-scope-id': MU_CALL_SCOPE_ID_INITIAL_SYNC },
     endpoint,
-    'INSERT'
-  );
+    BATCH_SIZE,
+    MAX_DB_RETRY_ATTEMPTS,
+    SLEEP_BETWEEN_BATCHES,
+    SLEEP_TIME_AFTER_FAILED_DB_OPERATION
+  )
 }
 
-async function onFinishInitialIngest(lib) {
-  const { muAuthSudo } = lib;
+async function onFinishInitialIngest (lib) {
+  const { muAuthSudo } = lib
 
-  console.log(`!! On-finish triggered !!`);
+  console.log(`!! On-finish triggered !!`)
 
   await moveToOrgGraph(muAuthSudo.updateSudo, endpoint)
 }
@@ -58,4 +65,4 @@ async function onFinishInitialIngest(lib) {
 module.exports = {
   dispatch,
   onFinishInitialIngest
-};
+}

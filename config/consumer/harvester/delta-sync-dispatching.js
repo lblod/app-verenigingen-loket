@@ -1,12 +1,14 @@
-const { BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES,
+const {
+  BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES,
   DIRECT_DATABASE_ENDPOINT,
   BATCH_SIZE,
   SLEEP_BETWEEN_BATCHES,
-  INGEST_GRAPH
-} = require('./config');
-const { batchedUpdate } = require('./utils');
-const endpoint = BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES ? DIRECT_DATABASE_ENDPOINT : process.env.MU_SPARQL_ENDPOINT; //Defaults to mu-auth
-
+  INGEST_GRAPH,
+  MAX_DB_RETRY_ATTEMPTS,
+  SLEEP_TIME_AFTER_FAILED_DB_OPERATION,
+  MU_SPARQL_ENDPOINT
+} = require('./config')
+const { batchedDbUpdate } = require('./util')
 
 /**
  * Dispatch the fetched information to a target graph.
@@ -21,44 +23,44 @@ const endpoint = BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES ? DIRECT_DATABASE_ENDPOINT
  *         ]
  * @return {void} Nothing
  */
-async function dispatch(lib, data) {
-  const { mu, } = lib;
-  const { termObjectChangeSets } = data;
-
+async function dispatch (lib, data) {
+  const { mu,muAuthSudo } = lib
+  const { termObjectChangeSets } = data
   for (let { deletes, inserts } of termObjectChangeSets) {
+    console.log(`Using ${MU_SPARQL_ENDPOINT} to insert delta triples`)
 
-    if (BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES) {
-      console.warn(`Service configured to skip MU_AUTH!`);
-    }
-    console.log(`Using ${endpoint} to insert triples`);
-
-    const deleteStatements = deletes.map(o => `${o.subject} ${o.predicate} ${o.object}.`);
-    await batchedUpdate(
-      lib,
+    const deleteStatements = deletes.map(
+      o => `${o.subject} ${o.predicate} ${o.object}.`
+    )
+    await batchedDbUpdate(
+      muAuthSudo.updateSudo,
+      `${INGEST_GRAPH}-deletes`,
       deleteStatements,
-      INGEST_GRAPH,
-      SLEEP_BETWEEN_BATCHES,
+      { 'mu-call-scope-id': "" },
+      MU_SPARQL_ENDPOINT,
       BATCH_SIZE,
-      {},
-      endpoint,
-      "DELETE"
-    );
+      MAX_DB_RETRY_ATTEMPTS,
+      SLEEP_BETWEEN_BATCHES,
+      SLEEP_TIME_AFTER_FAILED_DB_OPERATION
+    )
 
-    const insertStatements = inserts.map(o => `${o.subject} ${o.predicate} ${o.object}.`);
-    await batchedUpdate(
-      lib,
+    const insertStatements = inserts.map(
+      o => `${o.subject} ${o.predicate} ${o.object}.`
+    )
+    await batchedDbUpdate(
+      muAuthSudo.updateSudo,
+      `${INGEST_GRAPH}-inserts`,
       insertStatements,
-      INGEST_GRAPH,
-      SLEEP_BETWEEN_BATCHES,
+      { 'mu-call-scope-id': "" },
+      MU_SPARQL_ENDPOINT,
       BATCH_SIZE,
-      {},
-      endpoint,
-      "INSERT"
-    );
-
+      MAX_DB_RETRY_ATTEMPTS,
+      SLEEP_BETWEEN_BATCHES,
+      SLEEP_TIME_AFTER_FAILED_DB_OPERATION
+    )
   }
 }
 
 module.exports = {
   dispatch
-};
+}
