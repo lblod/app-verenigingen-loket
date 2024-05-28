@@ -13,5 +13,17 @@ export default [
       ignoreFromSelf: true
     }
   },
+  {
+    match: {},
+    callback: {
+      url: 'http://search/update',
+      method: 'POST'
+    },
+    options: {
+      resourceFormat: "v0.0.1",
+      gracePeriod: 10000,
+      ignoreFromSelf: true
+    }
+  },
   ...dispatcherAssociations,
 ];

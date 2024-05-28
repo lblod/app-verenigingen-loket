@@ -189,10 +189,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  # dev-migrations:
-  #   image: semtech/mu-migrations-service:0.8.0
-  #   links:
-  #     - virtuoso:database
   search:
     image: semtech/mu-search:0.9.1
     links:

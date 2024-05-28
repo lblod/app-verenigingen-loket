@@ -69,6 +69,7 @@
                 "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                 "name": "http://www.w3.org/2004/02/skos/core#prefLabel",
                 "description": "http://www.w3.org/2004/02/skos/core#notation",
+                "lastUpdated": "http://purl.org/pav/lastUpdateOn",
                 "primarySite": {
                     "via": "http://www.w3.org/ns/org#hasPrimarySite",
                     "rdf_type": "http://www.w3.org/ns/org#Site",
@@ -175,6 +176,58 @@
                         "conceptScheme": "http://www.w3.org/2004/02/skos/core#inScheme",
                         "broader": "http://www.w3.org/2004/02/skos/core#broader",
                         "top-concept-of": "http://www.w3.org/2004/02/skos/core#hasTopConcept"
+                    }
+                }
+            },
+            "mappings": {
+                "properties": {
+                    "name": {
+                        "type": "text",
+                        "fields": {
+                            "field": {
+                                "type": "keyword",
+                                "normalizer": "custom_sort_normalizer"
+                            }
+                        }
+                    },
+                    "date": {
+                        "type": "date"
+                    },
+                    "primarySite.address.postcode": {
+                        "type": "text",
+                        "fields": {
+                            "field": {
+                                "type": "keyword",
+                                "normalizer": "custom_sort_normalizer"
+                            }
+                        }
+                    },
+                    "identifiers.structuredIdentifier.localId": {
+                        "type": "text",
+                        "fields": {
+                            "field": {
+                                "type": "keyword",
+                                "normalizer": "custom_sort_normalizer"
+                            }
+                        }
+                    },
+                    "targetAudience.minimumLeeftijd": {
+                        "type": "text",
+                        "fields": {
+                            "field": {
+                                "type": "keyword",
+                                "normalizer": "custom_sort_normalizer"
+                            }
+                        }
+                    },
+                    "targetAudience.maximumLeeftijd": {
+                        "type": "text",
+                        "fields": {
+                            "field": {
+                                "type": "keyword",
+                                "normalizer": "custom_sort_normalizer"
+                            }
+                        }
                     }
                 }
             }
