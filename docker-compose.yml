@@ -104,22 +104,23 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-    op-consumer:
-      image: lblod/delta-consumer:latest
-      environment:
-        DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
-        DCR_SERVICE_NAME: "op-consumer"
-        DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
-        DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump"
-        DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
-        DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
-        DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
-        DCR_KEEP_DELTA_FILES: "true"
-        DCR_DELTA_FILE_FOLDER: "/consumer-files"
-        DCR_DISABLE_DELTA_INGEST: "false"
-        DCR_ENABLE_DELTA_CONTEXT: "true"
-        BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
-        INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
+  op-consumer:
+    image: lblod/delta-consumer:latest
+    environment:
+      BATCH_SIZE: 1000
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
+      DCR_SERVICE_NAME: "op-consumer"
+      DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
+      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump"
+      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
+      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
+      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
+      DCR_KEEP_DELTA_FILES: "true"
+      DCR_DELTA_FILE_FOLDER: "/consumer-files"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_ENABLE_DELTA_CONTEXT: "true"
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
+      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
     volumes:
       - ./config/consumer/op:/config/triples-dispatching/custom-dispatching
       - ./data/files/consumer-files/op:/consumer-files/
@@ -130,15 +131,19 @@ services:
   harvester-consumer:
     image: lblod/delta-consumer:latest
     environment:
-      DCR_SYNC_BASE_URL: "https://harvester.oscart-dev.s.redhost.be"
+      DCR_SYNC_BASE_URL: "https://harvester.andres-dev.s.redhost.be"
       DCR_SERVICE_NAME: "harvester-consumer"
       DCR_SYNC_FILES_PATH: "/sync/verenigingen/files"
       DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/lblod-harvester/VerenigingenCacheGraphDump"
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/verenigingen"
       DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/verenigingenDeltaFileSyncing"
       DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/verenigingen-consumer"
-      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
+      DCR_KEEP_DELTA_FILES: "true"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_ENABLE_DELTA_CONTEXT: "true"
       DCR_DELTA_FILE_FOLDER: "/consumer-files"
+      DCR_DISABLE_INITIAL_SYNC: "true"
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
       INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
     volumes:
       - ./config/consumer/harvester:/config/triples-dispatching/custom-dispatching
@@ -167,7 +172,20 @@ services:
     labels:
       - "logging=true"
     logging: *default-logging
-  # dev-migrations:
-  #   image: semtech/mu-migrations-service:0.8.0
-  #   links:
-  #     - virtuoso:database
+  dispatcher-associations:
+    image: associations-graph-dispatcher-service:latest
+    environment:
+      LOGLEVEL: "info"
+      SUDO_QUERY_RETRY: "true"
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
+  delta-notifier:
+    image: semtech/mu-delta-notifier:0.2.0
+    volumes:
+      - ./config/delta:/config
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
