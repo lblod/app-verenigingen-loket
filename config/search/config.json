@@ -1,6 +1,7 @@
 {
     "automatic_index_updates": true,
     "persist_indexes": true,
+    "update_wait_interval_minutes": 0,
     "number_of_threads": 8,
     "eager_indexing_groups": [
         [
@@ -181,6 +182,12 @@
             },
             "mappings": {
                 "properties": {
+                    "recognitions.validityPeriod.startTime": {
+                        "type": "date"
+                    },
+                    "recognitions.validityPeriod.endTime": {
+                        "type": "date"
+                    },
                     "name": {
                         "type": "text",
                         "fields": {
