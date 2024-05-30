@@ -122,6 +122,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://download/download/"
   end
 
+  match "/groups/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://resource/administrative-units/"
+  end
+
   # match "/assets/*path", %{ layer: :api } do
   #   Proxy.forward conn, path, "http://frontend/assets/"
   # end
@@ -142,9 +146,7 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://controle-frontend/index.html"
   end
 
-  match "/groups/*path", %{ accept: [:json], layer: :api} do
-    Proxy.forward conn, path, "http://resource/administrative-units/"
-  end
+
 
 
 
