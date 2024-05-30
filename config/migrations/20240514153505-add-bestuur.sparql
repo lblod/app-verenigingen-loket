@@ -1,0 +1,18 @@
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://data.lblod.info/id/bestuurseenheden/3183ade3-7ee8-409c-8394-296b1fbfe478> a besluit:Bestuurseenheid ;
+       mu:uuid "3183ade3-7ee8-409c-8394-296b1fbfe478" ;
+       skos:prefLabel "Agentschap Binnenlands Bestuur" ;
+       <http://www.w3.org/ns/org#classification> <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001>;
+
+       dcterms:identifier "OVO001835" .
+
+
+
+  }
+}

@@ -173,7 +173,7 @@ services:
       - "logging=true"
     logging: *default-logging
   dispatcher-associations:
-    image: associations-graph-dispatcher-service:latest
+    image: lblod/associations-graph-dispatcher-service:latest
     environment:
       LOGLEVEL: "info"
       SUDO_QUERY_RETRY: "true"
