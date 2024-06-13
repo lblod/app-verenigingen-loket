@@ -71,6 +71,7 @@
                 "name": "http://www.w3.org/2004/02/skos/core#prefLabel",
                 "description": "http://www.w3.org/2004/02/skos/core#notation",
                 "lastUpdated": "http://purl.org/pav/lastUpdateOn",
+                "createdOn": "http://purl.org/pav/createdOn",
                 "primarySite": {
                     "via": "http://www.w3.org/ns/org#hasPrimarySite",
                     "rdf_type": "http://www.w3.org/ns/org#Site",
@@ -199,6 +200,15 @@
                     },
                     "date": {
                         "type": "date"
+                    },
+                    "createdOn": {
+                        "type": "text",
+                        "fields": {
+                            "field": {
+                                "type": "keyword",
+                                "normalizer": "custom_sort_normalizer"
+                            }
+                        }
                     },
                     "primarySite.address.postcode": {
                         "type": "text",
