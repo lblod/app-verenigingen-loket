@@ -435,7 +435,6 @@ WHERE {
       }
     }
   }
-  BIND (IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
 }
      `,
     undefined,
