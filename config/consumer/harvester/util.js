@@ -101,240 +101,208 @@ async function operationWithRetry(callback,
 async function moveToOrgGraph (muUpdate, endpoint) {
   await muUpdate(
     `${PREFIXES}
-   INSERT {
-          GRAPH ?g {
-
-            ?association
-                  a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>  ;
-                  mu:uuid ?Auuid ;
-                  skos:prefLabel ?alabel ;
-                  dcterms:description ?adescription ;
-                  adms:identifier ?aidentifier ;
-                  reorg:orgStatus ?astatus ;
-                  reorg:orgActivity ?activity ;
-                  ns:korteNaam ?aKorteNaam ;
-                  adms:identifier ?identifier ;
-                  org:classification ?classificatie ;
-                  verenigingen_ext:doelgroep ?doelgroep ;
-                  pav:createdOn ?createdOn ;
-                  org:hasMembership ?membership .
-
+INSERT {
+  GRAPH ?g {
+    ?association a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> ;
+                 mu:uuid ?Auuid ;
+                 skos:prefLabel ?alabel ;
+                 dcterms:description ?adescription ;
+                 adms:identifier ?aidentifier ;
+                 reorg:orgStatus ?astatus ;
+                 reorg:orgActivity ?activity ;
+                 ns:korteNaam ?aKorteNaam ;
+                 adms:identifier ?identifier ;
+                 org:classification ?classificatie ;
+                 verenigingen_ext:doelgroep ?doelgroep ;
+                 pav:createdOn ?createdOn ;
+                 org:hasMembership ?membership .
 #CONTACTPOINT
-              ?association schema:contactPoint ?contactPointPhone .
-              ?contactPointPhone a schema:ContactPoint ;
-                    mu:uuid ?contactPointPhoneUuid ;
-                    schema:telephone ?contactPhone .
-
-              ?association schema:contactPoint ?contactPointEmail .
-              ?contactPointEmail a schema:ContactPoint ;
-                   mu:uuid ?contactPointEmailUuid ;
-                  schema:email ?contactEmail .
-
-              ?association schema:contactPoint ?contactPointWebsite .
-              ?contactPointWebsite a schema:ContactPoint ;
-                        mu:uuid ?contactPointWebsiteUuid ;
-                        foaf:name ?contactName ;
-                        foaf:page ?contactPage .
+    ?association schema:contactPoint ?contactPointPhone .
+    ?contactPointPhone a schema:ContactPoint ;
+                       mu:uuid ?contactPointPhoneUuid ;
+                       schema:telephone ?contactPhone .
+    ?association schema:contactPoint ?contactPointEmail .
+    ?contactPointEmail a schema:ContactPoint ;
+                       mu:uuid ?contactPointEmailUuid ;
+                       schema:email ?contactEmail .
+    ?association schema:contactPoint ?contactPointWebsite .
+    ?contactPointWebsite a schema:ContactPoint ;
+                         mu:uuid ?contactPointWebsiteUuid ;
+                         foaf:name ?contactName ;
+                         foaf:page ?contactPage .
 #ACTIVITY
-          ?activity a skos:Concept ;
+    ?activity a skos:Concept ;
+              mu:uuid ?activityUuid ;
+              skos:notation ?activityNotation ;
+              skos:prefLabel ?activityLabel .
+#DOELGROEP
+    ?doelgroep a verenigingen_ext:Doelgroep ;
+               mu:uuid ?doelgroepUuid ;
+               verenigingen_ext:minimumleeftijd ?minimum ;
+               verenigingen_ext:maximumleeftijd ?maximum .
+#IDENTIFIER
+    ?identifier a adms:Identifier ;
+                skos:notation ?identifierNotation ;
+                mu:uuid ?identifierUuid ;
+                generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator .
+    ?gestructureerdeIdentificator a generiek:GestructureerdeIdentificator ;
+                                  mu:uuid ?gestructureerdeUuid ;
+                                  generiek:lokaleIdentificator ?lokaleIdentificator .
+#MEMBERSHIP
+    ?membership a org:Membership ;
+                mu:uuid ?membershipUuid ;
+                org:member ?person .
+    ?person a person:Person ;
+            mu:uuid ?personUuid ;
+            foaf:givenName ?personGivenName ;
+            foaf:familyName ?personFamilyName .
+    ?person schema:contactPoint ?contactMemberPhone .
+    ?contactMemberPhone a schema:ContactPoint ;
+                        mu:uuid ?contactMemberPhoneUuid ;
+                        schema:telephone ?contactMemberTelephone .
+    ?person schema:contactPoint ?contactMemberEmail .
+    ?contactMemberEmail a schema:ContactPoint ;
+                        mu:uuid ?contactMemberEmailUuid ;
+                        schema:email ?contactMemberEmails .
+    ?person schema:contactPoint ?contactMemberSocialMedia .
+    ?contactMemberSocialMedia a schema:ContactPoint ;
+                              mu:uuid ?contactMemberSocialMediaUuid ;
+                              foaf:page ?contactMemberPage .
+  }
+}
+WHERE {
+  {
+    GRAPH <http://mu.semte.ch/graphs/public> {
+      ?bestuurseenheid mu:uuid ?adminUnitUuid ;
+                       org:classification/skos:prefLabel "Gemeente" ;
+                       besluit:werkingsgebied ?werkingsgebied .
+      ?werkingsgebied rdf:type ns1:Location ;
+                      rdfs:label ?label ;
+                      ns3:werkingsgebiedNiveau ?gemeente .
+      ?postInfo geo:sfWithin ?werkingsgebied ;
+                a adres:Postinfo ;
+                adres:postcode ?code ;
+                adres:postnaam ?name .
+      BIND (IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
+    }
+  }
+  {
+    GRAPH <http://mu.semte.ch/graphs/ingest> {
+      ?association mu:uuid ?Auuid ;
+                   org:hasPrimarySite ?primarySite .
+      OPTIONAL {
+        ?association skos:prefLabel ?alabel .
+      }
+      OPTIONAL {
+        ?association dcterms:description ?adescription .
+      }
+      OPTIONAL {
+        ?association adms:identifier ?aidentifier .
+      }
+      OPTIONAL {
+        ?association reorg:orgStatus ?astatus .
+      }
+      OPTIONAL {
+        ?association reorg:orgActivity ?activity .
+      }
+      OPTIONAL {
+        ?association ns:korteNaam ?aKorteNaam .
+      }
+      OPTIONAL {
+        ?association org:hasSite ?site .
+      }
+      OPTIONAL {
+        ?association verenigingen_ext:doelgroep ?doelgroep .
+      }
+      OPTIONAL {
+        ?association adms:identifier ?identifier .
+      }
+      OPTIONAL {
+        ?association org:classification ?classificatie .
+      }
+      OPTIONAL {
+        ?association pav:createdOn ?createdOn .
+      }
+      OPTIONAL {
+        ?association org:hasMembership ?membership .
+      }
+      OPTIONAL {
+        ?association schema:contactPoint ?contactPointPhone .
+        ?contactPointPhone a schema:ContactPoint ;
+                           mu:uuid ?contactPointPhoneUuid ;
+                           schema:telephone ?contactPhone .
+      }
+      OPTIONAL {
+        ?association schema:contactPoint ?contactPointEmail .
+        ?contactPointEmail a schema:ContactPoint ;
+                           mu:uuid ?contactPointEmailUuid ;
+                           schema:email ?contactEmail .
+      }
+      OPTIONAL {
+        ?association schema:contactPoint ?contactPointWebsite .
+        ?contactPointWebsite a schema:ContactPoint ;
+                             mu:uuid ?contactPointWebsiteUuid ;
+                             foaf:name ?contactName ;
+                             foaf:page ?contactPage .
+      }
+      OPTIONAL {
+        ?activity a skos:Concept ;
                   mu:uuid ?activityUuid ;
                   skos:notation ?activityNotation ;
                   skos:prefLabel ?activityLabel .
-
-#DOELGROEP
-          ?doelgroep a verenigingen_ext:Doelgroep ;
-                  mu:uuid ?doelgroepUuid ;
-                  verenigingen_ext:minimumleeftijd ?minimum ;
-                  verenigingen_ext:maximumleeftijd ?maximum .
-
-
-#IDENTIFIER
-            ?identifier a adms:Identifier;
-                       skos:notation ?identifierNotation;
-                       mu:uuid ?identifierUuid;
-                       generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator .
-
-           ?gestructureerdeIdentificator a generiek:GestructureerdeIdentificator;
-                       mu:uuid ?gestructureerdeUuid ;
-                       generiek:lokaleIdentificator ?lokaleIdentificator.
-
-
-#MEMBERSHIP
-          ?membership a org:Membership;
-          mu:uuid ?membershipUuid;
-          org:member ?person.
-
-          ?person a person:Person;
-          mu:uuid ?personUuid;
-          foaf:givenName ?personGivenName;
-          foaf:familyName ?personFamilyName.
-
-          ?person schema:contactPoint ?contactMemberPhone.
+      }
+      OPTIONAL {
+        ?doelgroep a verenigingen_ext:Doelgroep ;
+                   mu:uuid ?doelgroepUuid ;
+                   verenigingen_ext:minimumleeftijd ?minimum ;
+                   verenigingen_ext:maximumleeftijd ?maximum .
+      }
+      ?primarySite organisatie:bestaatUit ?adres .
+      ?adres a <http://www.w3.org/ns/locn#Address> ;
+             locn:postCode ?code .
+      OPTIONAL {
+        ?identifier a adms:Identifier ;
+                    skos:notation ?identifierNotation ;
+                    mu:uuid ?identifierUuid ;
+                    generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator .
+      }
+      OPTIONAL {
+        ?gestructureerdeIdentificator a generiek:GestructureerdeIdentificator ;
+                                      mu:uuid ?gestructureerdeUuid ;
+                                      generiek:lokaleIdentificator ?lokaleIdentificator .
+      }
+      OPTIONAL {
+        ?membership a org:Membership ;
+                    mu:uuid ?membershipUuid ;
+                    org:member ?person .
+        OPTIONAL {
+          ?person a person:Person ;
+                  mu:uuid ?personUuid ;
+                  foaf:givenName ?personGivenName ;
+                  foaf:familyName ?personFamilyName .
+        }
+        OPTIONAL {
+          ?person schema:contactPoint ?contactMemberPhone .
           ?contactMemberPhone a schema:ContactPoint ;
-              mu:uuid ?contactMemberPhoneUuid ;
-              schema:telephone ?contactMemberTelephone .
-
+                              mu:uuid ?contactMemberPhoneUuid ;
+                              schema:telephone ?contactMemberTelephone .
+        }
+        OPTIONAL {
           ?person schema:contactPoint ?contactMemberEmail .
           ?contactMemberEmail a schema:ContactPoint ;
-              mu:uuid ?contactMemberEmailUuid ;
-              schema:email ?contactMemberEmails .
-
+                              mu:uuid ?contactMemberEmailUuid ;
+                              schema:email ?contactMemberEmails .
+        }
+        OPTIONAL {
           ?person schema:contactPoint ?contactMemberSocialMedia .
           ?contactMemberSocialMedia a schema:ContactPoint ;
-              mu:uuid ?contactMemberSocialMediaUuid ;
-              foaf:page ?contactMemberPage .
-          }
+                                    mu:uuid ?contactMemberSocialMediaUuid ;
+                                    foaf:page ?contactMemberPage .
+        }
+      }
     }
-
-
-    WHERE {
-
-        {graph <http://mu.semte.ch/graphs/public> {
-              ?bestuurseenheid
-                  mu:uuid ?adminUnitUuid;
-                  org:classification/skos:prefLabel "Gemeente" ;
-                  besluit:werkingsgebied ?werkingsgebied .
-
-          ?werkingsgebied
-            rdf:type	ns1:Location ;
-	          rdfs:label	?label ;
-	          ns3:werkingsgebiedNiveau ?gemeente .
-
-    }}
-
-          ?postInfo
-                  geo:sfWithin ?werkingsgebied;
-                  a adres:Postinfo ;
-                  adres:postcode ?code ;
-                  adres:postnaam ?name .
-
-    { graph  <http://mu.semte.ch/graphs/ingest> {
-
-    ?association mu:uuid ?Auuid ;
-       org:hasPrimarySite ?primarySite .
-
-    OPTIONAL {
-      ?association skos:prefLabel ?alabel .
-    }
-    OPTIONAL {
-      ?association dcterms:description ?adescription .
-    }
-    OPTIONAL {
-      ?association adms:identifier ?aidentifier .
-    }
-    OPTIONAL {
-      ?association reorg:orgStatus ?astatus .
-    }
-    OPTIONAL {
-      ?association reorg:orgActivity ?activity .
-    }
-    OPTIONAL {
-      ?association ns:korteNaam ?aKorteNaam .
-    }
-    OPTIONAL {
-      ?association org:hasSite ?site .
-    }
-    OPTIONAL {
-      ?association verenigingen_ext:doelgroep ?doelgroep .
-    }
-    OPTIONAL {
-      ?association adms:identifier ?identifier .
-    }
-    OPTIONAL {
-      ?association org:classification ?classificatie .
-    }
-    OPTIONAL {
-      ?association pav:createdOn ?createdOn .
-    }
-
-    OPTIONAL {
-      ?association org:hasMembership ?membership .
-    }
-
-                  OPTIONAL {
-                    ?association schema:contactPoint ?contactPointPhone .
-                    ?contactPointPhone a schema:ContactPoint ;
-                                       mu:uuid ?contactPointPhoneUuid ;
-                                       schema:telephone ?contactPhone .
-                  }
-                  OPTIONAL {
-                    ?association schema:contactPoint ?contactPointEmail .
-                    ?contactPointEmail a schema:ContactPoint ;
-                                       mu:uuid ?contactPointEmailUuid ;
-                                       schema:email ?contactEmail .
-                  }
-                  OPTIONAL {
-                    ?association schema:contactPoint ?contactPointWebsite .
-                    ?contactPointWebsite a schema:ContactPoint ;
-                                         mu:uuid ?contactPointWebsiteUuid ;
-                                         foaf:name ?contactName ;
-                                         foaf:page ?contactPage .
-                  }
-                  OPTIONAL {
-                  ?activity a skos:Concept ;
-                    mu:uuid ?activityUuid ;
-                    skos:notation ?activityNotation ;
-                    skos:prefLabel ?activityLabel .
-                  }
-                  OPTIONAL {
-                  ?doelgroep a verenigingen_ext:Doelgroep ;
-                    mu:uuid ?doelgroepUuid ;
-                    verenigingen_ext:minimumleeftijd ?minimum ;
-                    verenigingen_ext:maximumleeftijd ?maximum .
-                  }
-          ?primarySite
-                 organisatie:bestaatUit ?adres .
-
-          ?adres a <http://www.w3.org/ns/locn#Address> ;
-                 locn:postCode ?code .
-
-          OPTIONAL {
-            ?identifier a adms:Identifier;
-            skos:notation ?identifierNotation;
-            mu:uuid ?identifierUuid;
-            generiek:gestructureerdeIdentificator ?gestructureerdeIdentificator .
-          }
-          OPTIONAL {
-            ?gestructureerdeIdentificator a generiek:GestructureerdeIdentificator;
-            mu:uuid ?gestructureerdeUuid ;
-            generiek:lokaleIdentificator ?lokaleIdentificator.
-          }
-
-          OPTIONAL {
-            ?membership a org:Membership;
-            mu:uuid ?membershipUuid;
-            org:member ?person.
-            OPTIONAL {
-              ?person a person:Person;
-              mu:uuid ?personUuid;
-              foaf:givenName ?personGivenName;
-              foaf:familyName ?personFamilyName.
-            }
-            OPTIONAL {
-              ?person schema:contactPoint ?contactMemberPhone.
-              ?contactMemberPhone a schema:ContactPoint ;
-                  mu:uuid ?contactMemberPhoneUuid ;
-                  schema:telephone ?contactMemberTelephone .
-            }
-            OPTIONAL {
-              ?person schema:contactPoint ?contactMemberEmail .
-              ?contactMemberEmail a schema:ContactPoint ;
-                  mu:uuid ?contactMemberEmailUuid ;
-                  schema:email ?contactMemberEmails .
-            }
-            OPTIONAL {
-              ?person schema:contactPoint ?contactMemberSocialMedia .
-              ?contactMemberSocialMedia a schema:ContactPoint ;
-                  mu:uuid ?contactMemberSocialMediaUuid ;
-                  foaf:page ?contactMemberPage .
-            }
-          }
-
-    }}
-
-          BIND(IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
-
-    }
+  }
+}
      `,
     undefined,
     endpoint
@@ -393,12 +361,13 @@ WHERE {
       ?werkingsgebied rdf:type ns1:Location ;
                       rdfs:label ?label ;
                       ns3:werkingsgebiedNiveau ?gemeente .
+      ?postInfo geo:sfWithin ?werkingsgebied ;
+                a adres:Postinfo ;
+                adres:postcode ?code ;
+                adres:postnaam ?name .
+      BIND (IRI(CONCAT("http://mu.semte.ch/graphs/organizations/", ?adminUnitUuid)) AS ?g)
     }
   }
-  ?postInfo geo:sfWithin ?werkingsgebied ;
-            a adres:Postinfo ;
-            adres:postcode ?code ;
-            adres:postnaam ?name .
   {
     GRAPH <http://mu.semte.ch/graphs/ingest> {
       ?association a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> .
