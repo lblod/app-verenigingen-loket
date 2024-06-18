@@ -356,7 +356,15 @@ async function moveToOrgGraph(muUpdate, endpoint){
 
 await muUpdate(`
 ${prefixes}
-INSERT {
+DELETE {
+  GRAPH  <http://mu.semte.ch/graphs/public> {
+             ?postInfo
+                 a adres:Postinfo ;
+                 geo:sfWithin ?werkingsgebied ;
+                 adres:postcode ?code ;
+                adres:postnaam ?name .
+  }
+} INSERT {
         GRAPH ?g {
                 ?werkingsgebied
                         ?p ?o .
