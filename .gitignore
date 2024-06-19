@@ -15,9 +15,11 @@ data_*
 *~
 
 !/tmp/
+tmp/*
 
 docker-compose.override.yml
 .htpasswd
 .env
 .vscode
 .vscode/*
+checkUsage.sh
