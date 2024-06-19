@@ -11,6 +11,10 @@
             },
             {
                 "variables": [],
+                "name": "verenigen-loket-lezer"
+            },
+            {
+                "variables": [],
                 "name": "clean"
             },
             {
@@ -202,24 +206,6 @@
                         "type": "date"
                     },
                     "createdOn": {
-                        "type": "text",
-                        "fields": {
-                            "field": {
-                                "type": "keyword",
-                                "normalizer": "custom_sort_normalizer"
-                            }
-                        }
-                    },
-                    "recognitions.validityPeriod.startTime": {
-                        "type": "text",
-                        "fields": {
-                            "field": {
-                                "type": "keyword",
-                                "normalizer": "custom_sort_normalizer"
-                            }
-                        }
-                    },
-                    "recognitions.validityPeriod.endTime": {
                         "type": "text",
                         "fields": {
                             "field": {
