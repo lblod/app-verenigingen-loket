@@ -128,7 +128,10 @@
                     "via": "http://www.w3.org/ns/regorg#orgActivity",
                     "rdf_type": "http://www.w3.org/2004/02/skos/core#Concept",
                     "properties": {
-                        "label": "http://www.w3.org/2004/02/skos/core#prefLabel"
+                        "prefLabel": "http://www.w3.org/2004/02/skos/core#prefLabel",
+                        "notation": "http://www.w3.org/2004/02/skos/core#notation",
+                        "conceptScheme": "http://www.w3.org/2004/02/skos/core#inScheme",
+                        "top-concept-of": "http://www.w3.org/2004/02/skos/core#hasTopConcept"
                     }
                 },
                 "identifiers": {

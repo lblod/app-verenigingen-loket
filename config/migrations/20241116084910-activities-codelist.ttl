@@ -1,0 +1,8 @@
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+<http://data.vlaanderen.be/id/conceptscheme/VerenigingActiviteitenCode/6c10d98a-9089-4fe8-ba81-3ed136db0265>
+    a skos:ConceptScheme ;
+    mu:uuid "6c10d98a-9089-4fe8-ba81-3ed136db0265" ;
+    skos:definition "Activtiteiten zoals gedefinieerd in het verenigingsregister" ;
+    skos:prefLabel "Vereniging activities" .

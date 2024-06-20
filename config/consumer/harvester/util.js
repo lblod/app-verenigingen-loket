@@ -3,6 +3,7 @@ const {ASSOCIATION_QUERY} = require("./query/association");
 const {MEMBERSHIP_QUERY} = require("./query/membership");
 const {CONTACTPOINT_QUERY} = require("./query/contactpoint");
 const {SITE_QUERY} = require("./query/site");
+const {ACTIVITIES_QUERY} = require("./query/activities");
 
 
 async function batchedDbUpdate(
@@ -105,6 +106,15 @@ ${SITE_QUERY}
      undefined,
      endpoint
   )
+// ACTIVITIES
+  await muUpdate(
+    `
+${PREFIXES}
+${ACTIVITIES_QUERY}
+   `,
+    undefined,
+    endpoint
+ )
 }
 
 module.exports = {

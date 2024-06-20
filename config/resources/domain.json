@@ -470,9 +470,13 @@
       "name": "activity",
       "class": "skos:Concept",
       "attributes": {
-        "label": {
+        "pref-label": {
           "type": "string",
           "predicate": "skos:prefLabel"
+        },
+        "notation": {
+          "type": "string",
+          "predicate": "skos:notation"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/identificatoren/"
