@@ -10,7 +10,8 @@ const ASSOCIATION_QUERY = `INSERT {
                  adms:identifier ?identifier ;
                  org:classification ?classificatie ;
                  verenigingen_ext:doelgroep ?doelgroep ;
-                 pav:createdOn ?createdOn .
+                 pav:createdOn ?createdOn ;
+                 pav:lastUpdateOn ?lastUpdateOn.
 #ACTIVITY
     ?activity a skos:Concept ;
               mu:uuid ?activityUuid ;
@@ -106,6 +107,9 @@ WHERE {
       }
       OPTIONAL {
         ?association pav:createdOn ?createdOn .
+      }
+      OPTIONAL {
+        ?association pav:lastUpdateOn ?lastUpdateOn .
       }
     }
   }

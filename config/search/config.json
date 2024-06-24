@@ -217,6 +217,15 @@
                             }
                         }
                     },
+                    "lastUpdateOn": {
+                        "type": "text",
+                        "fields": {
+                            "field": {
+                                "type": "keyword",
+                                "normalizer": "custom_sort_normalizer"
+                            }
+                        }
+                    },
                     "primarySite.address.postcode": {
                         "type": "text",
                         "fields": {
