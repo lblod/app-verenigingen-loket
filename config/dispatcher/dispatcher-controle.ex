@@ -126,9 +126,18 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/administrative-units/"
   end
 
-  # match "/assets/*path", %{ layer: :api } do
-  #   Proxy.forward conn, path, "http://frontend/assets/"
-  # end
+  ###############################################################
+  # SEARCH
+  ###############################################################
+
+
+  get "/search/*path", @json do
+    Proxy.forward conn, path, "http://search/"
+  end
+
+  ###############################################################
+  #   FRONTEND
+  ###############################################################
 
   match "/assets/*path", %{ layer: :api } do
     Proxy.forward conn, path, "http://controle-frontend/assets/"
