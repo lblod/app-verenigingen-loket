@@ -21,12 +21,3 @@ services:
     links:
       - database:database
     restart: "no"
-  download:
-    image: semtech/mu-javascript-template
-    environment:
-      NODE_ENV: "development"
-    ports:
-      - 8888:80
-    volumes:
-      - ../download-service/:/app/
-    restart: "no"
