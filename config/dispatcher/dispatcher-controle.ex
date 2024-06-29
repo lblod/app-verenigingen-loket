@@ -15,9 +15,6 @@ defmodule Dispatcher do
   @json %{ accept: %{ json: true } }
   @html %{ accept: %{ html: true } }
 
-
-
-
   match "/organizations/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/organizations/"
   end
@@ -74,12 +71,8 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/administrative-units/"
   end
 
-  match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
-    Proxy.forward conn, path, "http://mocklogin/sessions/"
-  end
-
   match "/users/*path" do
-    Proxy.forward conn, path, "http://cache/users/"
+    forward conn, path, "http://cache/users/"
   end
 
   match "/associations/*path", %{ accept: [:json], layer: :api} do
@@ -92,6 +85,9 @@ defmodule Dispatcher do
 
   match "/download/*path", %{ layer: :api } do
     Proxy.forward conn, path, "http://download/download/"
+  end
+  match "/storeData/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://download/storeData/"
   end
 
   match "/json-ld/*path", %{ layer: :api } do
@@ -118,14 +114,19 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/postal-codes/"
   end
 
+  match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://controle-login-proxied/sessions/"
+
+   end
   match "/sessions/*path" do
-    Proxy.forward conn, path, "http://login/sessions/"
+    Proxy.forward conn, path, "http://controle-login/sessions/"
   end
   match "/download/*path", %{ accept: [:any], layer: :api} do
     Proxy.forward conn, path, "http://download/download/"
   end
-  match "/storeData/*path", %{ accept: [:any], layer: :api} do
-    Proxy.forward conn, path, "http://download/storeData/"
+
+  match "/groups/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://resource/administrative-units/"
   end
 
   ###############################################################
@@ -141,30 +142,22 @@ defmodule Dispatcher do
   #   FRONTEND
   ###############################################################
 
-
   match "/assets/*path", %{ layer: :api } do
-    Proxy.forward conn, path, "http://frontend/assets/"
-  end
-
-  match "/assets/*path", %{ layer: :api } do
-    Proxy.forward conn, path, "http://frontend/assets/"
+    Proxy.forward conn, path, "http://controle-frontend/assets/"
   end
 
   match "/@appuniversum/*path", %{ layer: :api } do
-    Proxy.forward conn, path, "http://frontend/@appuniversum/"
+    Proxy.forward conn, path, "http://controle-frontend/@appuniversum/"
   end
 
   match "/*path", %{ accept: [:html], layer: :api } do
-    Proxy.forward conn, [], "http://frontend/index.html"
+    Proxy.forward conn, [], "http://controle-frontend/index.html"
   end
 
   match "/*_path", %{ layer: :frontend } do
-    Proxy.forward conn, [], "http://frontend/index.html"
+    Proxy.forward conn, [], "http://controle-frontend/index.html"
   end
 
-  match "/groups/*path", %{ accept: [:json], layer: :api} do
-    Proxy.forward conn, path, "http://resource/administrative-units/"
-  end
 
 
 

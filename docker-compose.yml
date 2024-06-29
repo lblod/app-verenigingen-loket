@@ -7,10 +7,10 @@ x-logging: &default-logging
     max-file: "3"
 
 services:
-  frontend: 
-    image: lblod/frontend-verenigingen-loket:0.0.1
+  frontend:
+    image: lblod/frontend-verenigingen-loket:1.0.0
     links:
-      - identifier:backend 
+      - identifier:backend
     labels:
       - "logging=true"
     restart: always
@@ -19,6 +19,16 @@ services:
     image: semtech/mu-identifier:1.10.1
     labels:
       - "logging=true"
+    restart: always
+    logging: *default-logging
+  accountdetail:
+    image: lblod/account-detail-service:0.1.0
+    labels:
+      - "logging=true"
+    environment:
+      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
+    links:
+      - database:database
     restart: always
     logging: *default-logging
   dispatcher:
@@ -87,23 +97,101 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  op-consumer:
+    image: lblod/delta-consumer:latest
+    environment:
+      BATCH_SIZE: 1000
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
+      DCR_SERVICE_NAME: "op-consumer"
+      DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
+      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump"
+      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
+      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
+      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
+      DCR_KEEP_DELTA_FILES: "true"
+      DCR_DELTA_FILE_FOLDER: "/consumer-files"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_ENABLE_DELTA_CONTEXT: "true"
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
+      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
+    volumes:
+      - ./config/consumer/op:/config/triples-dispatching/custom-dispatching
+      - ./data/files/consumer-files/op:/consumer-files/
+    links:
+      - virtuoso:database
+    restart: always
+    logging: *default-logging
+  harvester-consumer:
+    image: lblod/delta-consumer:latest
+    environment:
+      DCR_SERVICE_NAME: "harvester-consumer"
+      DCR_SYNC_FILES_PATH: "/sync/verenigingen/files"
+      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/lblod-harvester/VerenigingenCacheGraphDump"
+      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/verenigingen"
+      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/verenigingenDeltaFileSyncing"
+      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/verenigingen-consumer"
+      DCR_KEEP_DELTA_FILES: "true"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_ENABLE_DELTA_CONTEXT: "true"
+      DCR_DELTA_FILE_FOLDER: "/consumer-files"
+      DCR_DISABLE_INITIAL_SYNC: "true"
+      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
+      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
+    volumes:
+      - ./config/consumer/harvester:/config/triples-dispatching/custom-dispatching
+      - ./data/files/consumer-files/verenigingen:/consumer-files/
+    links:
+      - virtuoso:database
+    restart: always
+    logging: *default-logging
+  download:
+    image: lblod/verenigingsloket-download-service:1.0.0
   login:
     image: lblod/acmidm-login-service:0.9.2
     environment:
+      MU_APPLICATION_AUTH_USERID_CLAIM: "vo_id"
+      MU_APPLICATION_AUTH_ROLE_CLAIM: "abb_loketverenigingenapp_rol_3d"
+      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
       MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op"
-      MU_APPLICATION_AUTH_CLIENT_ID: "a2c0d6ea-01b4-4f68-920b-10834a943c27"
-      MU_APPLICATION_AUTH_REDIRECT_URI: "https://loket.lblod.info/authorization/callback"
+      MU_APPLICATION_AUTH_CLIENT_ID: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
+      MU_APPLICATION_AUTH_REDIRECT_URI: "https://verenigingen-loket.lblod.info/authorization/callback"
       MU_APPLICATION_AUTH_CLIENT_SECRET: "secret"
-      LOG_SINK_URL: "http://sink"
+  reasoner:
+    image: eyereasoner/reasoning-service:increased-stack-limit
+    volumes:
+      - ./config/reasoner:/config
+    restart: always
+    labels:
+      - "logging=true"
+    logging: *default-logging
+  dispatcher-associations:
+    image: lblod/verenigingen-graph-dispatcher-service:latest
+    environment:
+      LOGLEVEL: "info"
+      SUDO_QUERY_RETRY: "true"
     labels:
       - "logging=true"
     restart: always
     logging: *default-logging
-  dbcleanup:
-    image: lblod/db-cleanup-service:0.3.0
+  delta-notifier:
+    image: semtech/mu-delta-notifier:0.2.0
+    volumes:
+      - ./config/delta:/config
     labels:
       - "logging=true"
     restart: always
     logging: *default-logging
-  
-  
+  search:
+    image: semtech/mu-search:0.9.1
+    links:
+      - database:database
+    restart: always
+    volumes:
+      - ./config/search:/config
+  elasticsearch:
+    image: semtech/mu-search-elastic-backend:1.0.1
+    volumes:
+      - ./data/elasticsearch/:/usr/share/elasticsearch/data
+    environment:
+      - discovery.type=single-node
+    restart: always

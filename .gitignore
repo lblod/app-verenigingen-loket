@@ -1,17 +1,25 @@
 # Virtuoso files /data/db
 /data/publication-triplestore/*
 /data/db/*
+/data/*
 /data/exports/*
 /data/toezicht-reports/*
 /data/db/virtuoso.ini
 !/data/db/toLoad
 !/data/db/toLoad/*
 /data/files/*
+data/
+data_*
+.vscode/
 .DS_Store
 *~
 
 !/tmp/
+tmp/*
 
 docker-compose.override.yml
 .htpasswd
 .env
+.vscode
+.vscode/*
+checkUsage.sh

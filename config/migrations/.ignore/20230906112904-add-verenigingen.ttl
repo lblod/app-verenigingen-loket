@@ -8,13 +8,14 @@
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix generiek: <https://data.vlaanderen.be/ns/generiek#> .
 @prefix adres: <https://data.vlaanderen.be/ns/adres#> .
-@prefix mu: <http://mu.semte.ch/vocabularies/core/> . 
-@prefix ere: <http://data.lblod.info/vocabularies/erediensten/> . 
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ere: <http://data.lblod.info/vocabularies/erediensten/> .
 @prefix code: <http://data.vlaanderen.be/id/concept/> .
 @prefix schema: <http://schema.org/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix regorg: <http://www.w3.org/ns/regorg#> .
 @prefix act: <http://data.lblod.info/id/concept/activiteit/> .
+@prefix pav: <http://purl.org/pav/> .
 
 ns1:org a org:Organization ;
   skos:prefLabel "Vereniging der verenigingen" ;
@@ -23,28 +24,29 @@ ns1:org a org:Organization ;
 
 ns1:V0001001
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
-  skos:prefLabel "Random Association 1" ;
-  dc:description "Beschrijving van de Feitelijke vereniging" ;
+  pav:lastUpdateOn "2023-03-26T14:49:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Voorkom de ringweg" ;
+  dc:description "Wij willen geen ringweg" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001001_3> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e5';
   schema:contactPoint <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a8c86635fdd1>,
     <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617290>,
     <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292>,
     <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617291> ;
-  org:memberOf ns1:org ; 
+  org:memberOf ns1:org ;
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001001_1>, <http://data.lblod.info/id/vestigingen/V0001001_2> .
 
 <http://data.lblod.info/id/vestigingen/V0001001_1> a org:Site ;
   mu:uuid "fa968d12-12b4-46ce-84dd-578eecdc75e8";
   ere:vestigingstype <http://lblod.data.gift/concepts/f1381723dec42c0b6ba6492e41d6f5dd> ; # Maatschappelijke zetel. cf onderaan (export OP)
-  dc:description "Kantine"; 
+  dc:description "Kantine";
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_1> ;
   org:siteAddress <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617289>.
 
 <http://data.lblod.info/id/vestigingen/V0001001_2> a org:Site ;
   mu:uuid "fa968d12-12b4-46ce-84dd-578eecdc75e0";
   ere:vestigingstype  <http://lblod.data.gift/concepts/fbec5e94aba343b0a7361aca8a0c7d79> ;
-  dc:description "Feestzaal"; 
+  dc:description "Feestzaal";
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_2> ;
   org:siteAddress <http://data.lblod.info/id/contact-punten/fcb8d6a1a7d3409d9339a7c86635fdd1>.
 
@@ -52,7 +54,7 @@ ns1:V0001001
 <http://data.lblod.info/id/vestigingen/V0001001_3> a org:Site ;
   mu:uuid 'fa968d12-12b4-46ce-897f-578eecdc75e6';
   ere:vestigingstype  <http://lblod.data.gift/concepts/fbec5e94aba343b0a7361aca8a0c7d79> ;
-  dc:description "Kantoor"; 
+  dc:description "Kantoor";
   organisatie:bestaatUit <http://data.lblod.info/id/adressen/V0001001_3> ;
   org:siteAddress <http://data.lblod.info/id/contact-punten/a0717ed507fc476ab2ca16bd7e617292> .
 
@@ -139,8 +141,9 @@ ns1:V0001001 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba
 
   ns1:V0001002
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> , org:Organization ;
-  skos:prefLabel "Random Association 2" ;
-  dc:description "Beschrijving van de Feitelijke vereniging" ;
+      pav:lastUpdateOn "2023-04-23T14:49:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Ballonendag" ;
+  dc:description "Samen een ballon oplaten" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001002_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e6';
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001002_2> .
@@ -202,6 +205,7 @@ ns1:V0001002 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 3
 ns1:V0001003
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
+  pav:lastUpdateOn "2023-10-26T14:49:00+01:00"^^xsd:dateTime ;
   skos:prefLabel "Random Association 3" ;
   dc:description "Description of Association 3" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001003_1> ;
@@ -234,8 +238,9 @@ ns1:V0001003 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 4
 ns1:V0001004
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
-  skos:prefLabel "Random Association 4" ;
-  dc:description "Description of Association 4" ;
+  skos:prefLabel "Meer bomen in onze wijk" ;
+  dc:description "Wij willen meer bomen in onze wijk!" ;
+  pav:lastUpdateOn "2022-11-26T14:49:00+01:00"^^xsd:dateTime ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001004_1> ;
   mu:uuid 'fa968d12-12b4-46ce-8vad-578eecdc75e8';
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001004_3> ,<http://data.lblod.info/id/vestigingen/V0001004_2> .
@@ -266,9 +271,9 @@ ns1:V0001004 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 6
 ns1:V0001006
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
-  skos:prefLabel "Random Association 6" ;
-  
-  dc:description "Description of Association 6" ;
+  skos:prefLabel "Hoogbouw" ;
+  pav:lastUpdateOn "2023-08-02T14:49:00+01:00"^^xsd:dateTime ;
+  dc:description "Bescherm de modernistische hoogbouw" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001006_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75e9';
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001006_3> ,<http://data.lblod.info/id/vestigingen/V0001006_2> .
@@ -299,8 +304,9 @@ ns1:V0001006 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 7
 ns1:V0001007
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
-  skos:prefLabel "Random Association 7" ;
-  dc:description "Description of Association 7" ;
+  pav:lastUpdateOn "2023-06-13T14:49:00+01:00"^^xsd:dateTime ;
+  skos:prefLabel "Kinderdagverblijf in verzorgingstehuis" ;
+  dc:description "Laat kinderen rennen in het verzorgingstehuis" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001007_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75ea';
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001007_3> ,<http://data.lblod.info/id/vestigingen/V0001007_2> .
@@ -331,6 +337,7 @@ ns1:V0001007 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 8
 ns1:V0001008
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
+  pav:lastUpdateOn "2023-03-11T14:49:00+01:00"^^xsd:dateTime ;
   skos:prefLabel "Random Association 8" ;
   dc:description "Description of Association 8" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001008_1> ;
@@ -395,8 +402,8 @@ ns1:V0001009 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 10
 ns1:V0001010
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
-  skos:prefLabel "Random Association 10" ;
-  dc:description "Description of Association 10" ;
+  skos:prefLabel "Samen sporten" ;
+  dc:description "Sport samen" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001010_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75ed';
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001010_3> ,<http://data.lblod.info/id/vestigingen/V0001010_2> .
@@ -427,8 +434,8 @@ ns1:V0001010 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 11
 ns1:V0001011
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
-  skos:prefLabel "Random Association 11" ;
-  dc:description "Description of Association 11" ;
+  skos:prefLabel "Samen sporten op leeftijd" ;
+  dc:description "Sport houdt jong" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001011_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75ee';
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001011_3> ,<http://data.lblod.info/id/vestigingen/V0001011_2> .
@@ -459,8 +466,8 @@ ns1:V0001011 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 12
 ns1:V0001012
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
-  skos:prefLabel "Random Association 12" ;
-  dc:description "Description of Association 12" ;
+  skos:prefLabel "Samen sporten is leuk" ;
+  dc:description "Jong geleerd, oud gedaan" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001012_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75ef';
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001012_3> ,<http://data.lblod.info/id/vestigingen/V0001012_2> .
@@ -491,8 +498,8 @@ ns1:V0001012 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
 # Association 13
 ns1:V0001013
   a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>, org:Organization ;
-  skos:prefLabel "Random Association 13" ;
-  dc:description "Description of Association 13" ;
+  skos:prefLabel "Circulaire economie in onze buurt" ;
+  dc:description "Circulaire economie? Begin in je buurt!" ;
   org:hasPrimarySite <http://data.lblod.info/id/vestigingen/V0001013_1> ;
   mu:uuid 'fa968d12-12b4-46ce-84dd-578eecdc75f0';
   org:hasSite <http://data.lblod.info/id/vestigingen/V0001013_3> ,<http://data.lblod.info/id/vestigingen/V0001013_2> .
@@ -590,7 +597,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 1, City 1, Country 1" ;
   locn:thoroughfare "Street 1";
   adres:Adresvoorstelling.huisnummer "1";
-  locn:postCode "1000" ;
+  locn:postCode "9320" ;
   adres:gemeentenaam "City 1"@nl ;
   adres:land "Country 1".
 
@@ -646,7 +653,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 7, City 7, Country 7" ;
   locn:thoroughfare "Street 7";
   adres:Adresvoorstelling.huisnummer "7";
-  locn:postCode "7000" ;
+  locn:postCode "9300" ;
   adres:gemeentenaam "City 7"@nl ;
   adres:land "Country 7".
 
@@ -851,7 +858,7 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/ff82c6f8
   locn:fullAddress "Street 29, City 29, Country 29" ;
   locn:thoroughfare "Street 29";
   adres:Adresvoorstelling.huisnummer "29";
-  locn:postCode "1000" ;
+  locn:postCode "9320" ;
   adres:gemeentenaam "City 29"@nl ;
   adres:land "Country 29".
 
@@ -1051,10 +1058,10 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba
 # Address for Site 1 of Association 3
 <http://data.lblod.info/id/adressen/V0001003_1> a locn:Address ;
   mu:uuid 'a9ae2fb3-a2f7-4154-939b-a41e221bf633' ;
-  locn:fullAddress "Nationalestraat 3, 2000 Antwerpen, België" ;
+  locn:fullAddress "Nationalestraat 3, 9140 Antwerpen, België" ;
   locn:thoroughfare "Nationalestraat" ;
   adres:Adresvoorstelling.huisnummer "3" ;
-  locn:postCode "2000" ;
+  locn:postCode "9140" ;
   adres:gemeentenaam "Antwerpen"@nl ;
   adres:land "België" .
 
@@ -1081,10 +1088,10 @@ ns1:V0001015 adms:identifier <http://data.lblod.info/id/identificatoren/c0ed06ba
 # Address for Site 1 of Association 15
 <http://data.lblod.info/id/adressen/V0001015_1> a locn:Address ;
   mu:uuid 'a9ae2fb3-a2f7-4154-939b-a41e221bf635' ;
-  locn:fullAddress "Nationalestraat 15, 2000 Antwerpen, België" ;
+  locn:fullAddress "Nationalestraat 15, 9140 Antwerpen, België" ;
   locn:thoroughfare "Nationalestraat" ;
   adres:Adresvoorstelling.huisnummer "15" ;
-  locn:postCode "2000" ;
+  locn:postCode "9140" ;
   adres:gemeentenaam "Antwerpen"@nl ;
   adres:land "België" .
 

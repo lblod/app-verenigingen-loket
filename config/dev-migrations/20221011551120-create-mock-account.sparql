@@ -5,7 +5,7 @@ PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
 PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
 PREFIX org: <http://www.w3.org/ns/org#>
 
-WITH <http://mu.semte.ch/graphs/public> 
+WITH <http://mu.semte.ch/graphs/public>
 INSERT {
   GRAPH <http://mu.semte.ch/graphs/public> {
   ?persoon a foaf:Person;
@@ -17,7 +17,7 @@ INSERT {
   ?account a foaf:OnlineAccount;
           mu:uuid ?uuidAccount;
           foaf:accountServiceHomepage <https://github.com/lblod/mock-login-service>;
-          ext:sessionRole "LoketVerenigingen-Gebruiker". 
+          ext:sessionRole "LoketLB-verenigingenGebruiker".
   }
 }
 WHERE {

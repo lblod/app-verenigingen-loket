@@ -8,7 +8,12 @@ alias Acl.GroupSpec.GraphCleanup, as: GraphCleanup
 
 defmodule Acl.UserGroups.Config do
   @protected_resource_type [
-    "https://data.vlaanderen.be/ns/adres#Postinfo"
+    "https://data.vlaanderen.be/ns/adres#Postinfo",
+    "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Erkenning",
+    "http://data.europa.eu/m8g/PeriodOfTime",
+    "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging",
+    "http://data.vlaanderen.be/ns/besluit#Bestuurseenheid",
+    "http://www.w3.org/ns/org#Organization",
   ]
 
   @public_type [
@@ -74,8 +79,19 @@ defmodule Acl.UserGroups.Config do
         name: "verenigen-loket-beheerder",
         useage: [:read, :write, :read_for_write],
         # **Explanations on the chosen role**
-        # - We reuse scopes firstly defined in Loket to handle worship data. Hence the LoketLB- prefix
-        access: access_by_role( "LoketVerenigingen-Gebruiker" ),
+        # - We reuse scopes firstly defined in Loket to handle verenigingen data. Hence the LoketLB- prefix
+        access: access_by_role( "LoketLB-verenigingenGebruiker" ),
+        graphs: [ %GraphSpec{
+                    graph: "http://mu.semte.ch/graphs/organizations/",
+                    constraint: %ResourceConstraint{
+                      resource_types: @protected_resource_type
+                    } } ] },
+         %GroupSpec{
+        name: "verenigen-loket-lezer",
+        useage: [:read, :write, :read_for_write],
+        # **Explanations on the chosen role**
+        # - We reuse scopes firstly defined in Loket to handle verenigingen data. Hence the LoketLB- prefix
+        access: access_by_role( "LoketLB-verenigingenLezer" ),
         graphs: [ %GraphSpec{
                     graph: "http://mu.semte.ch/graphs/organizations/",
                     constraint: %ResourceConstraint{

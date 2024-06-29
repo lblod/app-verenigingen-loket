@@ -3,13 +3,14 @@
   "prefixes": {
     "org": "http://www.w3.org/ns/org#",
     "locn": "http://www.w3.org/ns/locn#",
+    "bestuurcode": "http://lblod.data.gift/vocabularies/organisatie/",
     "schema": "http://schema.org/",
     "regorg": "http://www.w3.org/ns/regorg#",
     "person": "http://www.w3.org/ns/person#",
     "vcard": "http://www.w3.org/2006/vcard/ns#",
     "dbpedia": "http://dbpedia.org/ontology/",
     "adms": "http://www.w3.org/ns/adms#",
-    "euro": "http://data.europa.eu/m8g/",
+    "m8g": "http://data.europa.eu/m8g/",
     "prov": "http://www.w3.org/ns/prov#",
     "organisatie": "https://data.vlaanderen.be/ns/organisatie#",
     "persoon": "https://data.vlaanderen.be/ns/persoon#",
@@ -32,7 +33,10 @@
     "dct": "http://purl.org/dc/terms/",
     "vereniging": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#",
     "orga": "http://lblod.data.gift/vocabularies/organisatie/",
-    "ver": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/"
+    "ver": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/",
+    "pav": "http://purl.org/pav/",
+    "fv": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#",
+    "eli": "http://data.europa.eu/eli/ontology#"
   },
   "resources": {
     "addresses": {
@@ -151,6 +155,10 @@
           "type": "date",
           "predicate": "lblodgeneriek:geplandeEindDatum"
         },
+        "last-updated": {
+          "type": "datetime",
+          "predicate": "pav:lastUpdateOn"
+        },
         "purpose": {
           "type": "string",
           "predicate": "org:purpose"
@@ -188,10 +196,9 @@
           "cardinality": "many"
         },
         "members": {
-          "predicate": "org:organization",
+          "predicate": "org:hasMembership",
           "target": "membership",
-          "cardinality": "many",
-          "inverse": true
+          "cardinality": "many"
         },
         "change-events": {
           "predicate": "org:resultingOrganization",
@@ -210,11 +217,17 @@
     "associations": {
       "name": "association",
       "class": "vereniging:FeitelijkeVereniging",
-      "super": ["organization"],
+      "super": [
+        "organization"
+      ],
       "attributes": {
         "description": {
           "type": "string",
           "predicate": "dct:description"
+        },
+        "created-on": {
+          "type": "date",
+          "predicate": "pav:createdOn"
         }
       },
       "relationships": {
@@ -233,6 +246,11 @@
           "predicate": "org:classification",
           "cardinality": "one",
           "target": "concept"
+        },
+        "recognitions": {
+          "predicate": "fv:heeftErkenning",
+          "cardinality": "many",
+          "target": "recognition"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/verenigingen/"
@@ -255,6 +273,11 @@
           "predicate": "org:basedAt",
           "target": "site",
           "cardinality": "one"
+        },
+        "contact-points": {
+          "predicate": "schema:contactPoint",
+          "target": "contact-point",
+          "cardinality": "many"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/personen/"
@@ -279,7 +302,9 @@
     "administrative-units": {
       "name": "administrative-unit",
       "class": "besluit:Bestuurseenheid",
-      "super": ["organization"],
+      "super": [
+        "organization"
+      ],
       "relationships": {
         "classification": {
           "predicate": "org:classification",
@@ -320,7 +345,7 @@
     },
     "administrative-unit-classification-codes": {
       "name": "administrative-unit-classification-code",
-      "class": "code:BestuurseenheidClassificatieCode",
+      "class": "bestuurcode:BestuurseenheidClassificatieCode",
       "attributes": {
         "label": {
           "type": "string",
@@ -338,7 +363,9 @@
           "predicate": "skos:prefLabel"
         }
       },
-      "features": ["include-uri"],
+      "features": [
+        "include-uri"
+      ],
       "new-resource-base": "http://lblod.data.gift/concepts/"
     },
     "sites": {
@@ -424,7 +451,7 @@
       },
       "new-resource-base": "http://lblod.data.gift/concepts/"
     },
-    "postalCodes": {
+    "postal-codes": {
       "name": "postalCode",
       "class": "adres:Postinfo",
       "attributes": {
@@ -432,7 +459,6 @@
           "type": "string",
           "predicate": "adres:postcode"
         },
-
         "postal-name": {
           "type": "string",
           "predicate": "adres:postnaam"
@@ -444,9 +470,13 @@
       "name": "activity",
       "class": "skos:Concept",
       "attributes": {
-        "label": {
+        "pref-label": {
           "type": "string",
           "predicate": "skos:prefLabel"
+        },
+        "notation": {
+          "type": "string",
+          "predicate": "skos:notation"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/identificatoren/"
@@ -569,6 +599,58 @@
         }
       },
       "new-resource-base": "http://awesome-poc.com/target/"
+    },
+    "recognitions": {
+      "name": "recognition",
+      "class": "fv:Erkenning",
+      "attributes": {
+        "status": {
+          "predicate": "adms:status",
+          "type": "uri"
+        },
+        "date-document": {
+          "predicate": "eli:dateDocument",
+          "type": "date"
+        },
+        "legal-resource": {
+          "predicate": "eli:hasLegalResource",
+          "type": "string"
+        }
+      },
+      "relationships": {
+        "validity-period": {
+          "predicate": "fv:geldigheidsperiode",
+          "target": "period",
+          "cardinality": "one"
+        },
+        "awarded-by": {
+          "predicate": "fv:toegekendDoor",
+          "target": "administrative-unit",
+          "cardinality": "one"
+        },
+        "association": {
+          "target": "association",
+          "predicate": "fv:heeftErkenning",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/erkenningen/"
+    },
+    "periods": {
+      "name": "period",
+      "class": "m8g:PeriodOfTime",
+      "attributes": {
+        "start-time": {
+          "predicate": "m8g:startTime",
+          "type": "datetime"
+        },
+        "end-time": {
+          "predicate": "m8g:endTime",
+          "type": "datetime"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/periodes/"
     }
   }
 }
