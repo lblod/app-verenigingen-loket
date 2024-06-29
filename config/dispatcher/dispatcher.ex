@@ -124,6 +124,9 @@ defmodule Dispatcher do
   match "/download/*path", %{ accept: [:any], layer: :api} do
     Proxy.forward conn, path, "http://download/download/"
   end
+  match "/storeData/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://download/storeData/"
+  end
 
   ###############################################################
   # SEARCH
