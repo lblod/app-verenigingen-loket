@@ -146,6 +146,7 @@ services:
     logging: *default-logging
   download:
     image: lblod/verenigingsloket-download-service:1.0.0
+    restart: always
   login:
     image: lblod/acmidm-login-service:0.9.2
     environment:
@@ -156,6 +157,7 @@ services:
       MU_APPLICATION_AUTH_CLIENT_ID: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
       MU_APPLICATION_AUTH_REDIRECT_URI: "https://verenigingen-loket.lblod.info/authorization/callback"
       MU_APPLICATION_AUTH_CLIENT_SECRET: "secret"
+    restart: always
   reasoner:
     image: eyereasoner/reasoning-service:increased-stack-limit
     volumes:
