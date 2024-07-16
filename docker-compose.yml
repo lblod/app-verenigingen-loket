@@ -159,7 +159,7 @@ services:
       - "logging=true"
     logging: *default-logging
   dispatcher-associations:
-    image: lblod/verenigingen-graph-dispatcher-service:1.0.1
+    image: lblod/verenigingen-graph-dispatcher:1.0.1
     environment:
       LOGLEVEL: "info"
       SUDO_QUERY_RETRY: "true"
