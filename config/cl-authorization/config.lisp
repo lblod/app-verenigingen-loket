@@ -9,11 +9,11 @@
 ;;;;;;;;;;;;;;;;;
 ;;; configuration
 (in-package :client)
-(setf *log-sparql-query-roundtrip* t)
+(setf *log-sparql-query-roundtrip* nil)
 (setf *backend* "http://virtuoso:8890/sparql")
 
 (in-package :server)
-(setf *log-incoming-requests-p* t)
+(setf *log-incoming-requests-p* nil)
 
 ;;;;;;;;;;;;;;;;;
 ;;; access rights
