@@ -48,7 +48,8 @@
   :foaf "http://xmlns.com/foaf/0.1/"
   :m8g "http://data.europa.eu/m8g/"
   :org "http://www.w3.org/ns/org#"
-  :organisatie "http://lblod.data.gift/vocabularies/organisatie/")
+  :organisatie "http://lblod.data.gift/vocabularies/organisatie/"
+  :nfo "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#")
 
 ;;;;;;;;;;;;;;;;;
 ;; access queries
@@ -83,6 +84,7 @@
 (define-graph verenigingen-loket ("http://mu.semte.ch/graphs/organizations/")
   ;; This is scoped by session_group and role when suppling access rights
   ;; TODO: should this be scoped only on session_group?
+  ("nfo:FileDataObject" -> _)
   ("adres:Postinfo" -> _)
   ("feitelijkeverenigingen:Erkenning" -> _)
   ("m8g:PeriodOfTime" -> _)
@@ -91,6 +93,7 @@
   ("org:Organization" -> _))
 
 (define-graph organization ("http://mu.semte.ch/graphs/organizations/")
+  ("nfo:FileDataObject" -> _)
   ("foaf:Person" -> _)
   ("foaf:OnlineAccount" -> _)
   ("adms:Identifier" -> _))

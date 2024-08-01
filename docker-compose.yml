@@ -189,3 +189,9 @@ services:
     environment:
       - discovery.type=single-node
     restart: always
+  file:
+    image: semtech/mu-file-service:3.4.0
+    links:
+      - database:database
+    volumes:
+      - ./data/files:/share

@@ -1,6 +1,9 @@
 {
   "version": "0.1",
   "prefixes": {
+    "nfo": "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#",
+    "nie": "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#",
+    "resource": "http://dbpedia.org/resource/",
     "org": "http://www.w3.org/ns/org#",
     "locn": "http://www.w3.org/ns/locn#",
     "bestuurcode": "http://lblod.data.gift/vocabularies/organisatie/",
@@ -39,6 +42,44 @@
     "eli": "http://data.europa.eu/eli/ontology#"
   },
   "resources": {
+    "files": {
+      "name": "file",
+      "class": "nfo:FileDataObject",
+      "attributes": {
+        "name": {
+          "type": "string",
+          "predicate": "nfo:fileName"
+        },
+        "format": {
+          "type": "string",
+          "predicate": "dct:format"
+        },
+        "size": {
+          "type": "integer",
+          "predicate": "nfo:fileSize"
+        },
+        "extension": {
+          "type": "string",
+          "predicate": "resource:fileExtension"
+        },
+        "created": {
+          "type": "datetime",
+          "predicate": "dct:created"
+        }
+      },
+      "relationships": {
+        "download": {
+          "predicate": "nie:dataSource",
+          "target": "file",
+          "cardinality": "one",
+          "inverse": true
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/files/",
+      "features": [
+        "include-uri"
+      ]
+    },
     "addresses": {
       "name": "address",
       "class": "locn:Address",

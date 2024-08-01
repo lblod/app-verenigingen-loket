@@ -18,6 +18,22 @@ defmodule Dispatcher do
 
 
 
+  post "/files/*path" do
+    Proxy.forward conn, path, "http://file/files/"
+  end
+
+  get "/files/:id/download", %{ layer: :api } do
+    Proxy.forward conn, [], "http://file/files/" <> id <> "/download"
+  end
+
+  delete "/files/*path", %{ accept: [ :json ], layer: :api } do
+    Proxy.forward conn, path, "http://file/files/"
+  end
+
+  get "/files/*path", %{layer: :api, accept: %{any: true}} do
+    Proxy.forward(conn, path, "http://resource/files/")
+  end
+
   match "/organizations/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/organizations/"
   end
