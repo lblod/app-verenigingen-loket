@@ -191,6 +191,8 @@ services:
     restart: always
   file:
     image: semtech/mu-file-service:3.4.0
+    environment:
+      MU_APPLICATION_FILE_STORAGE_PATH: recognitions
     links:
       - database:database
     volumes:
