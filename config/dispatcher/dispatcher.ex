@@ -30,7 +30,7 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://file/files/"
   end
 
-  get "/files/*path", %{layer: :api, accept: %{any: true}} do
+  get "/files/*path", %{layer: :api, accept: [ :json ]} do
     Proxy.forward(conn, path, "http://resource/files/")
   end
 
