@@ -1,6 +1,7 @@
 {
   "version": "0.1",
   "prefixes": {
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
     "nfo": "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#",
     "nie": "http://www.semanticdesktop.org/ontologies/2007/01/19/nie#",
     "resource": "http://dbpedia.org/resource/",
@@ -674,6 +675,11 @@
           "predicate": "fv:heeftErkenning",
           "cardinality": "one",
           "inverse": true
+        },
+        "file": {
+          "target": "file",
+          "predicate": "rdfs:seeAlso",
+          "cardinality": "one"
         }
       },
       "new-resource-base": "http://data.lblod.info/id/erkenningen/"
