@@ -258,7 +258,7 @@
     },
     "associations": {
       "name": "association",
-      "class": "vereniging:FeitelijkeVereniging",
+      "class": "vereniging:Vereniging",
       "super": [
         "organization"
       ],

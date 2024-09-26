@@ -1,6 +1,6 @@
 const ASSOCIATION_QUERY = `INSERT {
   GRAPH ?g {
-    ?association a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> ;
+    ?association a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging> ;
                  mu:uuid ?Auuid ;
                  skos:prefLabel ?alabel ;
                  dcterms:description ?adescription ;

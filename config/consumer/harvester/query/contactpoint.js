@@ -1,6 +1,6 @@
 const CONTACTPOINT_QUERY = `INSERT {
   GRAPH ?g {
-    ?association a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> .
+    ?association a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging> .
     ?association schema:contactPoint ?contactPointPhone .
     ?contactPointPhone a schema:ContactPoint ;
                        mu:uuid ?contactPointPhoneUuid ;
