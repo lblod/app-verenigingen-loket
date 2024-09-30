@@ -1,0 +1,17 @@
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+DELETE {
+  GRAPH ?g {
+    ?association rdf:type <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> .
+  }
+}
+INSERT {
+  GRAPH ?g {
+    ?association rdf:type <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging> .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?association rdf:type <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> .
+  }
+}

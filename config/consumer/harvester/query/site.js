@@ -1,6 +1,6 @@
 const SITE_QUERY = `INSERT {
   GRAPH ?g {
-    ?association a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> ;
+    ?association a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging> ;
                  org:hasSite ?site ;
                  org:hasPrimarySite ?primarySite .
     ?primarySite a org:Site ;

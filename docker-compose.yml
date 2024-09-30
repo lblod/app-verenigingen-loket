@@ -137,7 +137,8 @@ services:
     restart: always
     logging: *default-logging
   download:
-    image: lblod/verenigingsloket-download-service:1.1.1
+    # image: lblod/verenigingsloket-download-service:1.1.1
+    image: wolfderechter/verenigingsloket-download-service:latest
     restart: always
   login:
     image: lblod/acmidm-login-service:0.9.2
@@ -159,7 +160,8 @@ services:
       - "logging=true"
     logging: *default-logging
   dispatcher-associations:
-    image: lblod/verenigingen-graph-dispatcher:1.0.1
+    # image: lblod/verenigingen-graph-dispatcher:1.0.1
+    image: wolfderechter/verenigingen-graph-dispatcher:latest
     environment:
       LOGLEVEL: "info"
       SUDO_QUERY_RETRY: "true"
