@@ -2546,6 +2546,18 @@ INSERT DATA {
       adres:postnaam "Sinaai-Waas" .
   <https://data.vlaanderen.be/id/postinfo/9112> mu:uuid "24bcee78-4852-4b66-bcd3-6d6ba8fc19ae" .
 
+  <https://data.vlaanderen.be/id/postinfo/9120> a adres:Postinfo ;
+      geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/40e6ed8a858ceca76bf9bdf1fefcfc989cf48c5251c814ff728521ef798d75b3> ;
+      adres:postcode "9120" ;
+      adres:postnaam "Beveren-Waas" .
+  <https://data.vlaanderen.be/id/postinfo/9120> mu:uuid "e962524b-3014-4c9f-bfda-4f3bec20817f" .
+
+  <https://data.vlaanderen.be/id/postinfo/9130> a adres:Postinfo ;
+      geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/40e6ed8a858ceca76bf9bdf1fefcfc989cf48c5251c814ff728521ef798d75b3> ;
+      adres:postcode "9130" ;
+      adres:postnaam "Beveren-Waas" .
+  <https://data.vlaanderen.be/id/postinfo/9130> mu:uuid "ff05e3a9-b7e7-4802-affb-ae00b78e1882" .
+
   <https://data.vlaanderen.be/id/postinfo/9140> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/31b63d953c84130d22cdac7258ab5845634078ca415e379322a4a045d3495bdc> ;
       adres:postcode "9140" ;
@@ -2569,6 +2581,12 @@ INSERT DATA {
       adres:postcode "9170" ;
       adres:postnaam "Sint-Gillis-Waas" .
   <https://data.vlaanderen.be/id/postinfo/9170> mu:uuid "74337d35-4257-4660-9d4c-2b1353831739" .
+
+  <https://data.vlaanderen.be/id/postinfo/9180> a adres:Postinfo ;
+      geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/8df0e3a74165897b6e91087715eff512f627a17aa99b4e067d707b69be843085> ;
+      adres:postcode "9180" ;
+      adres:postnaam "Moerbeke-Waas" .
+  <https://data.vlaanderen.be/id/postinfo/9180> mu:uuid "0ee384b9-c809-4939-a9f9-e02fee55a128" .
 
   <https://data.vlaanderen.be/id/postinfo/9185> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/d729c9ffa1cc9818bd3982da0c1b358dc1de013ac453c5778ee7ba6b133d0912> ;
