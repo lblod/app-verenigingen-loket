@@ -29,8 +29,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/1540> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/449aa5890bffcdf4f412f52df20ab60a4a1994d69a2485735c27f1d0966bfe3b> ;
       adres:postcode "1540" ;
-      adres:postnaam "Herfelingen",
-          "Herne" .
+      adres:postnaam "Herne" .
   <https://data.vlaanderen.be/id/postinfo/1540> mu:uuid "bf583636-76ce-473f-bb69-be49ee179a61" .
 
   <https://data.vlaanderen.be/id/postinfo/1541> a adres:Postinfo ;
@@ -54,17 +53,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/1570> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/35565086f9052b928018dea9132aec3abb33dea291e7800fa549f77ea14394ee> ;
       adres:postcode "1570" ;
-      adres:postnaam "Galmaarden",
-          "Tollembeek",
-          "Vollezele" .
+      adres:postnaam "Galmaarden" .
   <https://data.vlaanderen.be/id/postinfo/1570> mu:uuid "97b80fb7-019a-4aca-a44a-ed578e2bac68" .
 
   <https://data.vlaanderen.be/id/postinfo/1600> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/b2210a5a4c983d3d816810c7505a6d88044f339410fd4c5e99840caecf3c56aa> ;
       adres:postcode "1600" ;
-      adres:postnaam "Oudenaken",
-          "Sint-Laureins-Berchem",
-          "Sint-Pieters-Leeuw" .
+      adres:postnaam "Sint-Pieters-Leeuw" .
   <https://data.vlaanderen.be/id/postinfo/1600> mu:uuid "b689e66f-f907-4f2b-b970-5a993544992b" .
 
   <https://data.vlaanderen.be/id/postinfo/1601> a adres:Postinfo ;
@@ -130,9 +125,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/1670> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/280d8c8518eb5a4f7504e8e16887568b28070e3ad8001dc4b7a59db198bad05a> ;
       adres:postcode "1670" ;
-      adres:postnaam "Bogaarden",
-          "Heikruis",
-          "Pepingen" .
+      adres:postnaam "Pepingen" .
   <https://data.vlaanderen.be/id/postinfo/1670> mu:uuid "540885e3-3cd3-44cf-b3ec-4c9e768eb3e4" .
 
   <https://data.vlaanderen.be/id/postinfo/1671> a adres:Postinfo ;
@@ -156,9 +149,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/1700> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/ccc9a56fc9b4aac3251ed5246f30adac67f0485de608d8938f70fd0a9a623e4d> ;
       adres:postcode "1700" ;
-      adres:postnaam "Dilbeek",
-          "Sint-Martens-Bodegem",
-          "Sint-Ulriks-Kapelle" .
+      adres:postnaam "Dilbeek" .
   <https://data.vlaanderen.be/id/postinfo/1700> mu:uuid "d9942ea5-8014-4b5a-829e-2c0034da00a9" .
 
   <https://data.vlaanderen.be/id/postinfo/1701> a adres:Postinfo ;
@@ -182,17 +173,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/1730> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/21fbaf7a66f1dc7852c2ba12a55c02ff0ecdbbb45ad2e92ad09f833588440ea8> ;
       adres:postcode "1730" ;
-      adres:postnaam "Asse",
-          "Bekkerzeel",
-          "Kobbegem",
-          "Mollem" .
+      adres:postnaam "Asse" .
   <https://data.vlaanderen.be/id/postinfo/1730> mu:uuid "756de51f-e49c-4de6-bdff-3ac51b97eefd" .
 
   <https://data.vlaanderen.be/id/postinfo/1731> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/21fbaf7a66f1dc7852c2ba12a55c02ff0ecdbbb45ad2e92ad09f833588440ea8> ;
       adres:postcode "1731" ;
-      adres:postnaam "Relegem",
-          "Zellik" .
+      adres:postnaam "Asse" .
   <https://data.vlaanderen.be/id/postinfo/1731> mu:uuid "d5d358ec-670b-4ade-8ed1-fa8987e6e85a" .
 
   <https://data.vlaanderen.be/id/postinfo/1740> a adres:Postinfo ;
@@ -216,34 +203,25 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/1745> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/cb88ad5637546b3555148dd0f3ed4f310a959b8f01212239e8bc37b790fcd4b3> ;
       adres:postcode "1745" ;
-      adres:postnaam "Mazenzele",
-          "Opwijk" .
+      adres:postnaam "Opwijk" .
   <https://data.vlaanderen.be/id/postinfo/1745> mu:uuid "9ca25742-0578-48cb-8392-eb86f2b80ae3" .
 
   <https://data.vlaanderen.be/id/postinfo/1750> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/26d221de43b68536cfedc7e740a15b11740c45969af49ce56f9bb73b0dd99627> ;
       adres:postcode "1750" ;
-      adres:postnaam "Gaasbeek",
-          "Sint-Kwintens-Lennik",
-          "Sint-Martens-Lennik" .
+      adres:postnaam "Lennik" .
   <https://data.vlaanderen.be/id/postinfo/1750> mu:uuid "6a47206c-f6cc-427c-8672-27ef92e7379e" .
 
   <https://data.vlaanderen.be/id/postinfo/1755> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f2de66512b7a6f1c3fa08ff935f161ee67d50c46a6fee98ce5ace4b21ef8c5b8> ;
       adres:postcode "1755" ;
-      adres:postnaam "Gooik",
-          "Kester",
-          "Leerbeek",
-          "Oetingen" .
+      adres:postnaam "Gooik" .
   <https://data.vlaanderen.be/id/postinfo/1755> mu:uuid "81f59ee2-c126-4c7a-a4af-bf68b117f7d2" .
 
   <https://data.vlaanderen.be/id/postinfo/1760> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/a59c6e6278a2221605da7ff3653655c9f9d49f1e829fc7164b5c310a3e27a82d> ;
       adres:postcode "1760" ;
-      adres:postnaam "Onze-Lieve-Vrouw-Lombeek",
-          "Pamel",
-          "Roosdaal",
-          "Strijtem" .
+      adres:postnaam "Roosdaal" .
   <https://data.vlaanderen.be/id/postinfo/1760> mu:uuid "f5131738-5b1f-4925-906a-512f9d41fa83" .
 
   <https://data.vlaanderen.be/id/postinfo/1761> a adres:Postinfo ;
@@ -267,33 +245,25 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/1785> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/1d0b2c6223ffa35e8fb23a88d1e8120d3f88bcacde800a75ad467e6c83f8ddf3> ;
       adres:postcode "1785" ;
-      adres:postnaam "Brussegem",
-          "Hamme",
-          "Merchtem" .
+      adres:postnaam "Merchtem" .
   <https://data.vlaanderen.be/id/postinfo/1785> mu:uuid "77759cca-7f58-49d1-9154-6e1e0ff6e860" .
 
   <https://data.vlaanderen.be/id/postinfo/1790> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/2c678dfde333c868587ced580e8079b9446ca2a55baeb6b79f7f75a6019ee45c> ;
       adres:postcode "1790" ;
-      adres:postnaam "Affligem",
-          "Essene",
-          "Hekelgem",
-          "Teralfene" .
+      adres:postnaam "Affligem" .
   <https://data.vlaanderen.be/id/postinfo/1790> mu:uuid "8bd6617d-7288-415a-961d-742b58d3a9d5" .
 
   <https://data.vlaanderen.be/id/postinfo/1800> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/1f31500c62ad5117b572c6f33a2131a6ae2e7231e31a6d97df5ab712719075fe> ;
       adres:postcode "1800" ;
-      adres:postnaam "Peutie",
-          "Vilvoorde" .
+      adres:postnaam "Vilvoorde" .
   <https://data.vlaanderen.be/id/postinfo/1800> mu:uuid "e39b0f13-52cc-426e-8559-1f804da3d01a" .
 
   <https://data.vlaanderen.be/id/postinfo/1820> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/3c11bce237675eed0ee6aa10a511cb12fe08dec308ec07405256ef3540a1635f> ;
       adres:postcode "1820" ;
-      adres:postnaam "Melsbroek",
-          "Perk",
-          "Steenokkerzeel" .
+      adres:postnaam "Steenokkerzeel" .
   <https://data.vlaanderen.be/id/postinfo/1820> mu:uuid "c7057b65-6883-49a6-819d-650c64cc0aff" .
 
   <https://data.vlaanderen.be/id/postinfo/1830> a adres:Postinfo ;
@@ -311,9 +281,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/1840> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f4bdf63a4757496b73b66b1616e85b547744ca69e357429fa5c2332680aea47e> ;
       adres:postcode "1840" ;
-      adres:postnaam "Londerzeel",
-          "Malderen",
-          "Steenhuffel" .
+      adres:postnaam "Londerzeel" .
   <https://data.vlaanderen.be/id/postinfo/1840> mu:uuid "d8546907-db3b-4e51-b328-9f8eb235b51c" .
 
   <https://data.vlaanderen.be/id/postinfo/1850> a adres:Postinfo ;
@@ -355,25 +323,19 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/1880> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/6f97978b3429bca3e0a888375953921913fe9c5bededb69994e41a6f71ef2af9> ;
       adres:postcode "1880" ;
-      adres:postnaam "Kapelle-op-den-Bos",
-          "Nieuwenrode",
-          "Ramsdonk" .
+      adres:postnaam "Kapelle-op-den-Bos" .
   <https://data.vlaanderen.be/id/postinfo/1880> mu:uuid "0afc901c-5f8f-4dc5-a9a1-11158e04e475" .
 
   <https://data.vlaanderen.be/id/postinfo/1910> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/6ffb777253a9aaf29c1c1d553dc15b918416936da1fc553dab382ea460434ac1> ;
       adres:postcode "1910" ;
-      adres:postnaam "Berg",
-          "Buken",
-          "Kampenhout",
-          "Nederokkerzeel" .
+      adres:postnaam "Kampenhout" .
   <https://data.vlaanderen.be/id/postinfo/1910> mu:uuid "ab942530-db74-40d8-9675-610c984be6d2" .
 
   <https://data.vlaanderen.be/id/postinfo/1930> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/270ad4bb9f35ae189346b664c1287183890e2825dea5f5fd4489349992b9cf9f> ;
       adres:postcode "1930" ;
-      adres:postnaam "Nossegem",
-          "Zaventem" .
+      adres:postnaam "Zaventem" .
   <https://data.vlaanderen.be/id/postinfo/1930> mu:uuid "1ecbbb8f-2b94-41da-8974-c320e3a187ec" .
 
   <https://data.vlaanderen.be/id/postinfo/1932> a adres:Postinfo ;
@@ -403,8 +365,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/1980> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/7945d2bbbcf5ff531c1f4107a47f96c62a9d00b39091f87a060659e9d212d434> ;
       adres:postcode "1980" ;
-      adres:postnaam "Eppegem",
-          "Zemst" .
+      adres:postnaam "Zemst" .
   <https://data.vlaanderen.be/id/postinfo/1980> mu:uuid "99646106-44f9-40f5-ae68-08c2c60536c5" .
 
   <https://data.vlaanderen.be/id/postinfo/1981> a adres:Postinfo ;
@@ -416,8 +377,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/1982> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/7945d2bbbcf5ff531c1f4107a47f96c62a9d00b39091f87a060659e9d212d434> ;
       adres:postcode "1982" ;
-      adres:postnaam "Elewijt",
-          "Weerde" .
+      adres:postnaam "Zemst" .
   <https://data.vlaanderen.be/id/postinfo/1982> mu:uuid "342dfa36-cb2a-48a5-905b-6d179b940df3" .
 
   <https://data.vlaanderen.be/id/postinfo/2000> a adres:Postinfo ;
@@ -447,10 +407,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2040> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/3a9b09cbccb798c8f9d5bad3fce1476bce1ee014165ba243488b0af690d0f464> ;
       adres:postcode "2040" ;
-      adres:postnaam "Antwerpen",
-          "Berendrecht",
-          "Lillo",
-          "Zandvliet" .
+      adres:postnaam "Antwerpen" .
   <https://data.vlaanderen.be/id/postinfo/2040> mu:uuid "3f61a5c9-8147-422a-a97f-dbff3afcb20f" .
 
   <https://data.vlaanderen.be/id/postinfo/2050> a adres:Postinfo ;
@@ -468,8 +425,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2070> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/245c7249341fa053902cf672f54c3d0a311c402dce9c943d6763ada403d02e94> ;
       adres:postcode "2070" ;
-      adres:postnaam "Burcht",
-          "Zwijndrecht" .
+      adres:postnaam "Zwijndrecht" .
   <https://data.vlaanderen.be/id/postinfo/2070> mu:uuid "3685db3e-c8ff-47cd-a85e-5906a4b3e839" .
 
   <https://data.vlaanderen.be/id/postinfo/2100> a adres:Postinfo ;
@@ -517,16 +473,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2200> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/59a7060971f22902f07b3bb3f1f3d18556d1969a330ed95341bf9b85f4fa89e9> ;
       adres:postcode "2200" ;
-      adres:postnaam "Herentals",
-          "Morkhoven",
-          "Noorderwijk" .
+      adres:postnaam "Herentals" .
   <https://data.vlaanderen.be/id/postinfo/2200> mu:uuid "933f0d56-33f9-410f-9634-5c48ef3c780f" .
 
   <https://data.vlaanderen.be/id/postinfo/2220> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/99937d077273c7dc90a57c475c5c5465edb3d792e024a0be0be37baa0e1b5938> ;
       adres:postcode "2220" ;
-      adres:postnaam "Hallaar",
-          "Heist-op-den-Berg" .
+      adres:postnaam "Heist-op-den-Berg" .
   <https://data.vlaanderen.be/id/postinfo/2220> mu:uuid "30ac6985-86e0-46a4-8dd4-4a59f728be60" .
 
   <https://data.vlaanderen.be/id/postinfo/2221> a adres:Postinfo ;
@@ -538,8 +491,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2222> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/99937d077273c7dc90a57c475c5c5465edb3d792e024a0be0be37baa0e1b5938> ;
       adres:postcode "2222" ;
-      adres:postnaam "Itegem",
-          "Wiekevorst" .
+      adres:postnaam "Heist-op-den-Berg" .
   <https://data.vlaanderen.be/id/postinfo/2222> mu:uuid "9078aa5e-bab3-4946-addb-2e01ff857ea3" .
 
   <https://data.vlaanderen.be/id/postinfo/2223> a adres:Postinfo ;
@@ -551,24 +503,19 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2230> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/4ab26eac24facd55fe3bba1c717493857b703fa9c37efe9d389ce5d8587e2f14> ;
       adres:postcode "2230" ;
-      adres:postnaam "Herselt",
-          "Ramsel" .
+      adres:postnaam "Herselt" .
   <https://data.vlaanderen.be/id/postinfo/2230> mu:uuid "33277553-fa18-40f4-a386-be6fb9f39889" .
 
   <https://data.vlaanderen.be/id/postinfo/2235> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/2103a531e5e171f019a2f6a1c010d16d4cf7d5bdeee397b3ac8d35dd1b7bc38f> ;
       adres:postcode "2235" ;
-      adres:postnaam "Houtvenne",
-          "Hulshout",
-          "Westmeerbeek" .
+      adres:postnaam "Hulshout" .
   <https://data.vlaanderen.be/id/postinfo/2235> mu:uuid "cc144283-cb40-4aab-bfb6-0d1fd47ef073" .
 
   <https://data.vlaanderen.be/id/postinfo/2240> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/85cb5630742aa25671f7dd1658af7e0aada91b73a20121e0c0d38168ff800aff> ;
       adres:postcode "2240" ;
-      adres:postnaam "Massenhoven",
-          "Viersel",
-          "Zandhoven" .
+      adres:postnaam "Zandhoven" .
   <https://data.vlaanderen.be/id/postinfo/2240> mu:uuid "20934258-6f02-49db-a964-2016cd981f78" .
 
   <https://data.vlaanderen.be/id/postinfo/2242> a adres:Postinfo ;
@@ -592,10 +539,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2260> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/371990685b936608933d6191b52de30effe86fdbaf0175568eee8977647ef8db> ;
       adres:postcode "2260" ;
-      adres:postnaam "Oevel",
-          "Tongerlo",
-          "Westerlo",
-          "Zoerle-Parwijs" .
+      adres:postnaam "Westerlo" .
   <https://data.vlaanderen.be/id/postinfo/2260> mu:uuid "aaf03e1c-58be-4843-8667-3297d66212e4" .
 
   <https://data.vlaanderen.be/id/postinfo/2270> a adres:Postinfo ;
@@ -607,10 +551,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2275> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f4f6f58533523cd39b03626bcdfce16676e52e6892d2fd1968dc67f0df4b1431> ;
       adres:postcode "2275" ;
-      adres:postnaam "Gierle",
-          "Lille",
-          "Poederlee",
-          "Wechelderzande" .
+      adres:postnaam "Lille" .
   <https://data.vlaanderen.be/id/postinfo/2275> mu:uuid "092b1be9-22de-43cf-916f-83175975d9b9" .
 
   <https://data.vlaanderen.be/id/postinfo/2280> a adres:Postinfo ;
@@ -682,8 +623,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2340> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/49b48421e7e6e0bea35c2133cb86520e7ca115a5def61a57ae2756536be979a9> ;
       adres:postcode "2340" ;
-      adres:postnaam "Beerse",
-          "Vlimmeren" .
+      adres:postnaam "Beerse" .
   <https://data.vlaanderen.be/id/postinfo/2340> mu:uuid "0d93660a-8fcb-4c28-a008-01cc11704012" .
 
   <https://data.vlaanderen.be/id/postinfo/2350> a adres:Postinfo ;
@@ -731,9 +671,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2390> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/abd8d39ad072daad4bf4d43ba296ef6deef58e5f3c62905404bcbbc7f745aa16> ;
       adres:postcode "2390" ;
-      adres:postnaam "Malle",
-          "Oostmalle",
-          "Westmalle" .
+      adres:postnaam "Malle" .
   <https://data.vlaanderen.be/id/postinfo/2390> mu:uuid "d571f508-71f6-4c3a-b94b-28ff4ff65aff" .
 
   <https://data.vlaanderen.be/id/postinfo/2400> a adres:Postinfo ;
@@ -745,15 +683,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2430> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/54eb0cb464ec6d93433ed978937dd56d1dd58dc37882b71c2a32e4797968a00b> ;
       adres:postcode "2430" ;
-      adres:postnaam "Eindhout",
-          "Vorst" .
+      adres:postnaam "Laakdal" .
   <https://data.vlaanderen.be/id/postinfo/2430> mu:uuid "40f442ae-e676-4b1d-8588-343efb3e55de" .
 
   <https://data.vlaanderen.be/id/postinfo/2431> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/54eb0cb464ec6d93433ed978937dd56d1dd58dc37882b71c2a32e4797968a00b> ;
       adres:postcode "2431" ;
-      adres:postnaam "Varendonk",
-          "Veerle" .
+      adres:postnaam "Laakdal" .
   <https://data.vlaanderen.be/id/postinfo/2431> mu:uuid "7824b3da-2261-4fec-80ae-52516c39bb88" .
 
   <https://data.vlaanderen.be/id/postinfo/2440> a adres:Postinfo ;
@@ -771,9 +707,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2460> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/6eeaf1e3efd628a278693cc4d72164a4714b470615934e535dec64ee17bf6c04> ;
       adres:postcode "2460" ;
-      adres:postnaam "Kasterlee",
-          "Lichtaart",
-          "Tielen" .
+      adres:postnaam "Kasterlee" .
   <https://data.vlaanderen.be/id/postinfo/2460> mu:uuid "6af042f3-ad8a-4495-aec3-6ff89ae5b371" .
 
   <https://data.vlaanderen.be/id/postinfo/2470> a adres:Postinfo ;
@@ -803,17 +737,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2500> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/14ba7b137855a27dd8f54d7080e6646a5934b0132795989726a2831105b7df1c> ;
       adres:postcode "2500" ;
-      adres:postnaam "Koningshooikt",
-          "Lier" .
+      adres:postnaam "Lier" .
   <https://data.vlaanderen.be/id/postinfo/2500> mu:uuid "c499aac5-76ff-426a-afbe-5ae0b538eebd" .
 
   <https://data.vlaanderen.be/id/postinfo/2520> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/93e8fcd373e23525395f98ac3a17883e39098380534f0b3fd5530380f1e174d6> ;
       adres:postcode "2520" ;
-      adres:postnaam "Broechem",
-          "Emblem",
-          "Oelegem",
-          "Ranst" .
+      adres:postnaam "Ranst" .
   <https://data.vlaanderen.be/id/postinfo/2520> mu:uuid "977bd60e-4876-4ddf-9e6e-876604eced0d" .
 
   <https://data.vlaanderen.be/id/postinfo/2530> a adres:Postinfo ;
@@ -843,16 +773,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2550> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/9f0147f600f0b87305ec93987df604110f3de8035b8dc1cd4659f16d45da954a> ;
       adres:postcode "2550" ;
-      adres:postnaam "Kontich",
-          "Waarloos" .
+      adres:postnaam "Kontich" .
   <https://data.vlaanderen.be/id/postinfo/2550> mu:uuid "4abe74bd-00c1-42ad-991a-513ae69c9226" .
 
   <https://data.vlaanderen.be/id/postinfo/2560> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/4793e369790b69344cfdd031d34bef7a3244c956e6f87e554061aca167f2c693> ;
       adres:postcode "2560" ;
-      adres:postnaam "Bevel",
-          "Kessel",
-          "Nijlen" .
+      adres:postnaam "Nijlen" .
   <https://data.vlaanderen.be/id/postinfo/2560> mu:uuid "df7cb90e-c929-40b7-b646-66f1d1e58fbf" .
 
   <https://data.vlaanderen.be/id/postinfo/2570> a adres:Postinfo ;
@@ -864,15 +791,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2580> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/ddd06e8b7da4c313151395ff7ba02bbb40c4115c986b3872e3b9479961721f65> ;
       adres:postcode "2580" ;
-      adres:postnaam "Beerzel",
-          "Putte" .
+      adres:postnaam "Putte" .
   <https://data.vlaanderen.be/id/postinfo/2580> mu:uuid "02202815-f375-42b4-a989-c860be4d8c26" .
 
   <https://data.vlaanderen.be/id/postinfo/2590> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/4bd8337aa40880e343b7f0ca8495ef4460e4e79d9e697495b179a93f41aba153> ;
       adres:postcode "2590" ;
-      adres:postnaam "Berlaar",
-          "Gestel" .
+      adres:postnaam "Berlaar" .
   <https://data.vlaanderen.be/id/postinfo/2590> mu:uuid "2f710f3c-42f9-4705-b1cd-f3abc1f392dd" .
 
   <https://data.vlaanderen.be/id/postinfo/2600> a adres:Postinfo ;
@@ -926,8 +851,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2800> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/141d487fe849fa900cb12f1e5904cc4c54e4c5af27c42fe1a216efec295e8254> ;
       adres:postcode "2800" ;
-      adres:postnaam "Mechelen",
-          "Walem" .
+      adres:postnaam "Mechelen" .
   <https://data.vlaanderen.be/id/postinfo/2800> mu:uuid "3ac82b63-2826-4d4a-bd33-ade0646c0e45" .
 
   <https://data.vlaanderen.be/id/postinfo/2801> a adres:Postinfo ;
@@ -939,8 +863,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2811> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/141d487fe849fa900cb12f1e5904cc4c54e4c5af27c42fe1a216efec295e8254> ;
       adres:postcode "2811" ;
-      adres:postnaam "Hombeek",
-          "Leest" .
+      adres:postnaam "Mechelen" .
   <https://data.vlaanderen.be/id/postinfo/2811> mu:uuid "375bb3bb-c57c-4be1-afd4-2991972c1390" .
 
   <https://data.vlaanderen.be/id/postinfo/2812> a adres:Postinfo ;
@@ -952,25 +875,19 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2820> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/d19348bbd892201b65d78c756106846032ecc7ca413949ab193f4010c3c76385> ;
       adres:postcode "2820" ;
-      adres:postnaam "Bonheiden",
-          "Rijmenam" .
+      adres:postnaam "Bonheiden" .
   <https://data.vlaanderen.be/id/postinfo/2820> mu:uuid "2e4ccd3e-f83a-4c9e-a67e-8ec9094dbe7a" .
 
   <https://data.vlaanderen.be/id/postinfo/2830> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/57f8de48c686aafc2b259ce47b84c3af41dd1b536a740a49e2c3cf69213f51aa> ;
       adres:postcode "2830" ;
-      adres:postnaam "Blaasveld",
-          "Heindonk",
-          "Tisselt",
-          "Willebroek" .
+      adres:postnaam "Willebroek" .
   <https://data.vlaanderen.be/id/postinfo/2830> mu:uuid "c0f592d9-b3c4-497b-8292-4357f04eb211" .
 
   <https://data.vlaanderen.be/id/postinfo/2840> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f9ee9f0cfd1ad4c28251f563c752cd65f59992dbec878a2451fcd9a965671e07> ;
       adres:postcode "2840" ;
-      adres:postnaam "Reet",
-          "Rumst",
-          "Terhagen" .
+      adres:postnaam "Rumst" .
   <https://data.vlaanderen.be/id/postinfo/2840> mu:uuid "9669789f-7187-42d6-ae74-e6ae15c8d571" .
 
   <https://data.vlaanderen.be/id/postinfo/2845> a adres:Postinfo ;
@@ -1000,27 +917,19 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2870> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/bestuurseenheden/81a6c688-9d4e-4905-b5af-c8b2386516e5> ;
       adres:postcode "2870" ;
-      adres:postnaam "Breendonk",
-          "Liezele",
-          "Puurs",
-          "Ruisbroek" .
+      adres:postnaam "Puurs-Sint-Amands" .
   <https://data.vlaanderen.be/id/postinfo/2870> mu:uuid "2d545a3b-f67a-4fcc-8276-f3cfb467f612" .
 
   <https://data.vlaanderen.be/id/postinfo/2880> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/6832070f358a61e023fb5555be338e3f2eaa38f57ae9dd054f97e5490fdbcda2> ;
       adres:postcode "2880" ;
-      adres:postnaam "Bornem",
-          "Hingene",
-          "Mariekerke",
-          "Weert" .
+      adres:postnaam "Bornem" .
   <https://data.vlaanderen.be/id/postinfo/2880> mu:uuid "47ddc6fd-3f24-461a-85cb-b74788bed2ac" .
 
   <https://data.vlaanderen.be/id/postinfo/2890> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/bestuurseenheden/81a6c688-9d4e-4905-b5af-c8b2386516e5> ;
       adres:postcode "2890" ;
-      adres:postnaam "Lippelo",
-          "Oppuurs",
-          "Sint-Amands" .
+      adres:postnaam "Puurs-Sint-Amands" .
   <https://data.vlaanderen.be/id/postinfo/2890> mu:uuid "451b58a4-0695-4192-ae48-58a7dd3c005a" .
 
   <https://data.vlaanderen.be/id/postinfo/2900> a adres:Postinfo ;
@@ -1050,8 +959,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2940> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/501f481535b0dec04f08e6232b78468dcbe9d5d81c0663643d8ff0fb98b8e099> ;
       adres:postcode "2940" ;
-      adres:postnaam "Hoevenen",
-          "Stabroek" .
+      adres:postnaam "Stabroek" .
   <https://data.vlaanderen.be/id/postinfo/2940> mu:uuid "645bde79-693e-4d3e-b48c-f8c61bd7bf01" .
 
   <https://data.vlaanderen.be/id/postinfo/2950> a adres:Postinfo ;
@@ -1063,30 +971,25 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/2960> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/d3148db6aba1fdfaf3ed5062ffaab7e072e6450a0c589022d9161043fd5962a3> ;
       adres:postcode "2960" ;
-      adres:postnaam "Brecht",
-          "Sint-Job-in-'t-Goor",
-          "Sint-Lenaarts" .
+      adres:postnaam "Brecht" .
   <https://data.vlaanderen.be/id/postinfo/2960> mu:uuid "4c057c16-4670-48d9-8eef-726c193813b0" .
 
   <https://data.vlaanderen.be/id/postinfo/2970> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/38ebae958ad280baa6dc99a4a35dfee1b6fec94b257d9a1629e52ce6977576e4> ;
       adres:postcode "2970" ;
-      adres:postnaam "'s Gravenwezel",
-          "Schilde" .
+      adres:postnaam "Schilde" .
   <https://data.vlaanderen.be/id/postinfo/2970> mu:uuid "35f93003-be7c-4092-a960-307c1870a2a1" .
 
   <https://data.vlaanderen.be/id/postinfo/2980> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/1a3d1a5d201d2f566840c9098d02ebd4e35cf770949360707624bec4044f3427> ;
       adres:postcode "2980" ;
-      adres:postnaam "Halle",
-          "Zoersel" .
+      adres:postnaam "Zoersel" .
   <https://data.vlaanderen.be/id/postinfo/2980> mu:uuid "0a50be3a-d390-404b-a174-05a568db96c7" .
 
   <https://data.vlaanderen.be/id/postinfo/2990> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/86c14b403189cb87f6381dbfbe3eb9a11da90a6b1e5d366871a146e65767925c> ;
       adres:postcode "2990" ;
-      adres:postnaam "Loenhout",
-          "Wuustwezel" .
+      adres:postnaam "Wuustwezel" .
   <https://data.vlaanderen.be/id/postinfo/2990> mu:uuid "03a19bd9-0d22-4d3c-88be-85d38864591b" .
 
   <https://data.vlaanderen.be/id/postinfo/3000> a adres:Postinfo ;
@@ -1122,19 +1025,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3020> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/c2725b57f1c328061bc8dcfd5fc204d247f7bb8d4956bf941f85c47a5fd391f0> ;
       adres:postcode "3020" ;
-      adres:postnaam "Herent",
-          "Veltem-Beisem",
-          "Winksele" .
+      adres:postnaam "Herent" .
   <https://data.vlaanderen.be/id/postinfo/3020> mu:uuid "8870292a-1215-4ffd-a6d4-6d9bc5222a88" .
 
   <https://data.vlaanderen.be/id/postinfo/3040> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/2038a8b1074703f29320b37f089c5fdf8523a51c2b6af06929ed1c2403be275e> ;
       adres:postcode "3040" ;
-      adres:postnaam "Huldenberg",
-          "Loonbeek",
-          "Neerijse",
-          "Ottenburg",
-          "Sint-Agatha-Rode" .
+      adres:postnaam "Huldenberg" .
   <https://data.vlaanderen.be/id/postinfo/3040> mu:uuid "0ac0fd86-b079-4a1b-a0c3-0cf8de4a3b07" .
 
   <https://data.vlaanderen.be/id/postinfo/3050> a adres:Postinfo ;
@@ -1170,8 +1067,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3060> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/53103d0d6eb95314353d40a69c1a68c11ac853d83bd0241226008b5680f9dc6c> ;
       adres:postcode "3060" ;
-      adres:postnaam "Bertem",
-          "Korbeek-Dijle" .
+      adres:postnaam "Bertem" .
   <https://data.vlaanderen.be/id/postinfo/3060> mu:uuid "6a849bb4-50cb-4514-8293-921c21c71ee7" .
 
   <https://data.vlaanderen.be/id/postinfo/3061> a adres:Postinfo ;
@@ -1195,16 +1091,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3078> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/0d89527de8beb0b0799fb935e1f2a7c42ef4df4d9c064b709a1ddfca823b3d97> ;
       adres:postcode "3078" ;
-      adres:postnaam "Everberg",
-          "Meerbeek" .
+      adres:postnaam "Kortenberg" .
   <https://data.vlaanderen.be/id/postinfo/3078> mu:uuid "972a6789-b15b-4b3c-9d25-e866d8dfab8d" .
 
   <https://data.vlaanderen.be/id/postinfo/3080> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/79f91b113626756412f89b63aabf065fd6ea3e01b3363be0b67a14db33306f1d> ;
       adres:postcode "3080" ;
-      adres:postnaam "Duisburg",
-          "Tervuren",
-          "Vossem" .
+      adres:postnaam "Tervuren" .
   <https://data.vlaanderen.be/id/postinfo/3080> mu:uuid "023e4ce1-6727-4e9b-8461-8e36a908709c" .
 
   <https://data.vlaanderen.be/id/postinfo/3090> a adres:Postinfo ;
@@ -1246,8 +1139,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3130> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/eb3e02c9eb61333c221c86d98fdff245947a8d2b9f2057284c85345d55320d1a> ;
       adres:postcode "3130" ;
-      adres:postnaam "Begijnendijk",
-          "Betekom" .
+      adres:postnaam "Begijnendijk" .
   <https://data.vlaanderen.be/id/postinfo/3130> mu:uuid "546fe58c-91b4-4933-9730-e6632f3adf93" .
 
   <https://data.vlaanderen.be/id/postinfo/3140> a adres:Postinfo ;
@@ -1259,9 +1151,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3150> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/2028f38176827d9881aad439be9b2ef6eb43be101235db302b7178133857cdc1> ;
       adres:postcode "3150" ;
-      adres:postnaam "Haacht",
-          "Tildonk",
-          "Wespelaar" .
+      adres:postnaam "Haacht" .
   <https://data.vlaanderen.be/id/postinfo/3150> mu:uuid "115bcfb8-18a5-4ff2-89ae-e4a45f3857d0" .
 
   <https://data.vlaanderen.be/id/postinfo/3190> a adres:Postinfo ;
@@ -1279,8 +1169,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3200> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/08e4f8d10ee80e97517fbb11d725054e22e6417045e93f071849042e143f86b1> ;
       adres:postcode "3200" ;
-      adres:postnaam "Aarschot",
-          "Gelrode" .
+      adres:postnaam "Aarschot" .
   <https://data.vlaanderen.be/id/postinfo/3200> mu:uuid "44e56d05-32dc-4b99-809a-3b8d407ea6b6" .
 
   <https://data.vlaanderen.be/id/postinfo/3201> a adres:Postinfo ;
@@ -1298,8 +1187,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3210> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/6bc83ffdb2f695736e65a59b48f285ce7d1d3ee004271d83221255493b4a36b5> ;
       adres:postcode "3210" ;
-      adres:postnaam "Linden",
-          "Lubbeek" .
+      adres:postnaam "Lubbeek" .
   <https://data.vlaanderen.be/id/postinfo/3210> mu:uuid "08508a3b-4d3f-465b-8e0a-d1b4ce797368" .
 
   <https://data.vlaanderen.be/id/postinfo/3211> a adres:Postinfo ;
@@ -1317,9 +1205,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3220> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/fc376b347fe6b02225ca821102a72a8eb087913c92896812772ee0c438680a96> ;
       adres:postcode "3220" ;
-      adres:postnaam "Holsbeek",
-          "Kortrijk-Dutsel",
-          "Sint-Pieters-Rode" .
+      adres:postnaam "Holsbeek" .
   <https://data.vlaanderen.be/id/postinfo/3220> mu:uuid "179ae970-2cf4-4e6f-b334-74aa39a5be32" .
 
   <https://data.vlaanderen.be/id/postinfo/3221> a adres:Postinfo ;
@@ -1337,24 +1223,19 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3271> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/fc1b6b71dc82032b58d53d49fdf9b1e3f579cd2791038f0baa43e221f78bab23> ;
       adres:postcode "3271" ;
-      adres:postnaam "Averbode",
-          "Zichem" .
+      adres:postnaam "Scherpenheuvel-Zichem" .
   <https://data.vlaanderen.be/id/postinfo/3271> mu:uuid "6d5aa170-dffe-4bdf-976c-0d46b629756b" .
 
   <https://data.vlaanderen.be/id/postinfo/3272> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/fc1b6b71dc82032b58d53d49fdf9b1e3f579cd2791038f0baa43e221f78bab23> ;
       adres:postcode "3272" ;
-      adres:postnaam "Messelbroek",
-          "Testelt" .
+      adres:postnaam "Scherpenheuvel-Zichem" .
   <https://data.vlaanderen.be/id/postinfo/3272> mu:uuid "7a73b718-81a7-4ca1-b881-07ce410a9290" .
 
   <https://data.vlaanderen.be/id/postinfo/3290> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/48ca0cc7425c0f396c0faa671bdf6fcdc87f036e380d12da433390965ba1cd2e> ;
       adres:postcode "3290" ;
-      adres:postnaam "Deurne",
-          "Diest",
-          "Schaffen",
-          "Webbekom" .
+      adres:postnaam "Diest" .
   <https://data.vlaanderen.be/id/postinfo/3290> mu:uuid "e619f911-811b-4fa8-ba79-f9d103cf249d" .
 
   <https://data.vlaanderen.be/id/postinfo/3293> a adres:Postinfo ;
@@ -1372,22 +1253,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3300> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e717f80fd9f828c1e2c972e0bd12bf1ef3c1ec6b896f7a60dc9de9fe9d59ef2e> ;
       adres:postcode "3300" ;
-      adres:postnaam "Bost",
-          "Goetsenhoven",
-          "Hakendover",
-          "Kumtich",
-          "Oorbeek",
-          "Oplinter",
-          "Sint-Margriete-Houtem",
-          "Tienen",
-          "Vissenaken" .
+      adres:postnaam "Tienen" .
   <https://data.vlaanderen.be/id/postinfo/3300> mu:uuid "cbbffdaf-8c43-4f3e-aee8-cd4372f5f01b" .
 
   <https://data.vlaanderen.be/id/postinfo/3320> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/de7260ac6e96b2db35cd0c5f60933bf135afb8ebd5aaa8d8553683796aa7b7e7> ;
       adres:postcode "3320" ;
-      adres:postnaam "Hoegaarden",
-          "Meldert" .
+      adres:postnaam "Hoegaarden" .
   <https://data.vlaanderen.be/id/postinfo/3320> mu:uuid "e642056a-d935-4ff2-b7a2-287d9aa15ef6" .
 
   <https://data.vlaanderen.be/id/postinfo/3321> a adres:Postinfo ;
@@ -1399,41 +1271,25 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3350> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/d1b45fee10ed593d5137115a6b13cae3291a1aa0de27fc80577dc1bf36c0006b> ;
       adres:postcode "3350" ;
-      adres:postnaam "Drieslinter",
-          "Linter",
-          "Melkwezer",
-          "Neerhespen",
-          "Neerlinter",
-          "Orsmaal-Gussenhoven",
-          "Overhespen",
-          "Wommersom" .
+      adres:postnaam "Linter" .
   <https://data.vlaanderen.be/id/postinfo/3350> mu:uuid "4efa8b52-4db0-4e50-95fe-79a037bd9291" .
 
   <https://data.vlaanderen.be/id/postinfo/3360> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/64366af84ecf25802d625af3eaee162fee03f99a2707fd70620bf66858f17c27> ;
       adres:postcode "3360" ;
-      adres:postnaam "Bierbeek",
-          "Korbeek-Lo",
-          "Lovenjoel",
-          "Opvelp" .
+      adres:postnaam "Bierbeek" .
   <https://data.vlaanderen.be/id/postinfo/3360> mu:uuid "768f1a7d-b47d-4d9a-8ffa-bf48079d0d1e" .
 
   <https://data.vlaanderen.be/id/postinfo/3370> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/6ef8ea77485f489e0b07cb91db6adcfdb883eb5af32b7f0d52cff0e4af3e8f24> ;
       adres:postcode "3370" ;
-      adres:postnaam "Boutersem",
-          "Kerkom",
-          "Neervelp",
-          "Roosbeek",
-          "Vertrijk",
-          "Willebringen" .
+      adres:postnaam "Boutersem" .
   <https://data.vlaanderen.be/id/postinfo/3370> mu:uuid "e3684f1f-fc88-496f-9c65-f5db7cfc728c" .
 
   <https://data.vlaanderen.be/id/postinfo/3380> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/4ca728fc5804b7b7a906e4c70554439408625ffb96c006d55dea004ff75ffae0> ;
       adres:postcode "3380" ;
-      adres:postnaam "Bunsbeek",
-          "Glabbeek" .
+      adres:postnaam "Glabbeek" .
   <https://data.vlaanderen.be/id/postinfo/3380> mu:uuid "36c6ac4c-610e-4037-9ab7-9ca8fa6d14e2" .
 
   <https://data.vlaanderen.be/id/postinfo/3381> a adres:Postinfo ;
@@ -1451,9 +1307,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3390> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f38d063ac788ceaca886ffe68b8f72105f33c96241f1478c3496c34dadfa2b12> ;
       adres:postcode "3390" ;
-      adres:postnaam "Houwaart",
-          "Sint-Joris-Winge",
-          "Tielt" .
+      adres:postnaam "Tielt-Winge" .
   <https://data.vlaanderen.be/id/postinfo/3390> mu:uuid "19e4b0ec-8ad6-4796-bd8e-51bfdf1190b4" .
 
   <https://data.vlaanderen.be/id/postinfo/3391> a adres:Postinfo ;
@@ -1465,47 +1319,31 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3400> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/448b184030cf157ca412cb7b15b84134739ce2565d1547ea99756bc6caaeee48> ;
       adres:postcode "3400" ;
-      adres:postnaam "Eliksem",
-          "Ezemaal",
-          "Laar",
-          "Landen",
-          "Neerwinden",
-          "Overwinden",
-          "Rumsdorp",
-          "Wange" .
+      adres:postnaam "Landen" .
   <https://data.vlaanderen.be/id/postinfo/3400> mu:uuid "37d70ca4-64ea-4bb3-98bd-58a2c46f075c" .
 
   <https://data.vlaanderen.be/id/postinfo/3401> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/448b184030cf157ca412cb7b15b84134739ce2565d1547ea99756bc6caaeee48> ;
       adres:postcode "3401" ;
-      adres:postnaam "Waasmont",
-          "Walsbets",
-          "Walshoutem",
-          "Wezeren" .
+      adres:postnaam "Landen" .
   <https://data.vlaanderen.be/id/postinfo/3401> mu:uuid "0e225136-6a2f-4c10-b3c0-8d465457528a" .
 
   <https://data.vlaanderen.be/id/postinfo/3404> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/448b184030cf157ca412cb7b15b84134739ce2565d1547ea99756bc6caaeee48> ;
       adres:postcode "3404" ;
-      adres:postnaam "Attenhoven",
-          "Neerlanden" .
+      adres:postnaam "Landen" .
   <https://data.vlaanderen.be/id/postinfo/3404> mu:uuid "3d42e8dd-2a50-4969-93db-66db4374f3cb" .
 
   <https://data.vlaanderen.be/id/postinfo/3440> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/77933137fb71b8341075d86080df32c5af25c41a26d843cf5329d502db58cbfe> ;
       adres:postcode "3440" ;
-      adres:postnaam "Budingen",
-          "Dormaal",
-          "Halle-Booienhoven",
-          "Helen-Bos",
-          "Zoutleeuw" .
+      adres:postnaam "Zoutleeuw" .
   <https://data.vlaanderen.be/id/postinfo/3440> mu:uuid "5491b43c-efd7-4448-bc2b-55df97de07c4" .
 
   <https://data.vlaanderen.be/id/postinfo/3450> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e37e494b13e3889c1f5411981e2373ef32ec144ff82298ae4f4d258cc95a9160> ;
       adres:postcode "3450" ;
-      adres:postnaam "Geetbets",
-          "Grazen" .
+      adres:postnaam "Geetbets" .
   <https://data.vlaanderen.be/id/postinfo/3450> mu:uuid "add0d889-1e9f-499c-b443-bdf4c8f610f0" .
 
   <https://data.vlaanderen.be/id/postinfo/3454> a adres:Postinfo ;
@@ -1517,8 +1355,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3460> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/be4d69df184362e4bd3fcf9d91f9a67682216675f47d8919c5221457592ae8cf> ;
       adres:postcode "3460" ;
-      adres:postnaam "Assent",
-          "Bekkevoort" .
+      adres:postnaam "Bekkevoort" .
   <https://data.vlaanderen.be/id/postinfo/3460> mu:uuid "a8022281-2615-46a2-83a2-7ef6da6fdf17" .
 
   <https://data.vlaanderen.be/id/postinfo/3461> a adres:Postinfo ;
@@ -1530,9 +1367,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3470> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/bf2944d7eaef05ef721e9ec6958b925d96b9582256837acb4ab424ba7e67e33e> ;
       adres:postcode "3470" ;
-      adres:postnaam "Kortenaken",
-          "Ransberg",
-          "Sint-Margriete-Houtem" .
+      adres:postnaam "Kortenaken" .
   <https://data.vlaanderen.be/id/postinfo/3470> mu:uuid "8f796da9-212c-496c-b981-82938216cbaf" .
 
   <https://data.vlaanderen.be/id/postinfo/3471> a adres:Postinfo ;
@@ -1556,8 +1391,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3500> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e55336a3ecbae33f21e595458ba93eeeb0fa4390626622884d4d32523d0e0033> ;
       adres:postcode "3500" ;
-      adres:postnaam "Hasselt",
-          "Sint-Lambrechts-Herk" .
+      adres:postnaam "Hasselt" .
   <https://data.vlaanderen.be/id/postinfo/3500> mu:uuid "cce48201-f2d4-4e28-9ea5-c2f8475aa3ce" .
 
   <https://data.vlaanderen.be/id/postinfo/3501> a adres:Postinfo ;
@@ -1569,15 +1403,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3510> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e55336a3ecbae33f21e595458ba93eeeb0fa4390626622884d4d32523d0e0033> ;
       adres:postcode "3510" ;
-      adres:postnaam "Kermt",
-          "Spalbeek" .
+      adres:postnaam "Hasselt" .
   <https://data.vlaanderen.be/id/postinfo/3510> mu:uuid "b01fdeff-468d-452f-9612-7f972575b609" .
 
   <https://data.vlaanderen.be/id/postinfo/3511> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e55336a3ecbae33f21e595458ba93eeeb0fa4390626622884d4d32523d0e0033> ;
       adres:postcode "3511" ;
-      adres:postnaam "Kuringen",
-          "Stokrooie" .
+      adres:postnaam "Hasselt" .
   <https://data.vlaanderen.be/id/postinfo/3511> mu:uuid "213905c9-4197-492a-aa54-a8e86ba154ae" .
 
   <https://data.vlaanderen.be/id/postinfo/3512> a adres:Postinfo ;
@@ -1595,41 +1427,31 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3530> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/05200c01bb94f80297204fa643dcdb5534283b9662ef46877662b4e6c0557e3f> ;
       adres:postcode "3530" ;
-      adres:postnaam "Helchteren",
-          "Houthalen" .
+      adres:postnaam "Houthalen-Helchteren" .
   <https://data.vlaanderen.be/id/postinfo/3530> mu:uuid "561ce834-e07c-4c88-9884-769724a27dfb" .
 
   <https://data.vlaanderen.be/id/postinfo/3540> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/35d77dbd06c8d621f6a74ce951bcf09b72588cfa4648b34ad9c9e874fc996812> ;
       adres:postcode "3540" ;
-      adres:postnaam "Berbroek",
-          "Donk",
-          "Herk-de-Stad",
-          "Schulen" .
+      adres:postnaam "Herk-de-Stad" .
   <https://data.vlaanderen.be/id/postinfo/3540> mu:uuid "af830285-1f2e-4fd2-be88-176f2ffbae67" .
 
   <https://data.vlaanderen.be/id/postinfo/3545> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/66c34d46d216b1b50962e6db4bb3e0b726393ee388d63fa0c2a5cc222dd308f1> ;
       adres:postcode "3545" ;
-      adres:postnaam "Halen",
-          "Loksbergen",
-          "Zelem" .
+      adres:postnaam "Halen" .
   <https://data.vlaanderen.be/id/postinfo/3545> mu:uuid "75d95fbd-87f5-461a-8471-e81b1cbedbfc" .
 
   <https://data.vlaanderen.be/id/postinfo/3550> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/b68c9161edefe461fe3e61a3fd5fbca3a543e35a3f17f9a0364e28acc6f6cc51> ;
       adres:postcode "3550" ;
-      adres:postnaam "Heusden",
-          "Heusden-Zolder",
-          "Zolder" .
+      adres:postnaam "Heusden-Zolder" .
   <https://data.vlaanderen.be/id/postinfo/3550> mu:uuid "d6f5271c-4eab-4ba1-a286-f30fc50e28dd" .
 
   <https://data.vlaanderen.be/id/postinfo/3560> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/cdd1e408e7c574e9dd7be6fc53e7d29d3b933d7046c7d47cdb145f0dcd64257b> ;
       adres:postcode "3560" ;
-      adres:postnaam "Linkhout",
-          "Lummen",
-          "Meldert" .
+      adres:postnaam "Lummen" .
   <https://data.vlaanderen.be/id/postinfo/3560> mu:uuid "0f3bf6d0-6e89-4bb2-affb-9562dbad40ff" .
 
   <https://data.vlaanderen.be/id/postinfo/3570> a adres:Postinfo ;
@@ -1677,10 +1499,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3620> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/56355d5c34866f4c065034f738d405dbb0ad05bd453f58654f1ba0bb1321cd0c> ;
       adres:postcode "3620" ;
-      adres:postnaam "Gellik",
-          "Lanaken",
-          "Neerharen",
-          "Veldwezelt" .
+      adres:postnaam "Lanaken" .
   <https://data.vlaanderen.be/id/postinfo/3620> mu:uuid "d34bbeb1-262c-4949-8c2c-1274f7bff57a" .
 
   <https://data.vlaanderen.be/id/postinfo/3621> a adres:Postinfo ;
@@ -1692,40 +1511,25 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3630> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/adb881199e615daa2f40a6f85d3104c9049a11f33586c9206e96c640b645bc9e> ;
       adres:postcode "3630" ;
-      adres:postnaam "Eisden",
-          "Leut",
-          "Maasmechelen",
-          "Mechelen-aan-de-Maas",
-          "Meeswijk",
-          "Opgrimbie",
-          "Vucht" .
+      adres:postnaam "Maasmechelen" .
   <https://data.vlaanderen.be/id/postinfo/3630> mu:uuid "6ce8242d-5342-410c-b2c1-87ad806743df" .
 
   <https://data.vlaanderen.be/id/postinfo/3631> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/adb881199e615daa2f40a6f85d3104c9049a11f33586c9206e96c640b645bc9e> ;
       adres:postcode "3631" ;
-      adres:postnaam "Boorsem",
-          "Uikhoven" .
+      adres:postnaam "Maasmechelen" .
   <https://data.vlaanderen.be/id/postinfo/3631> mu:uuid "d23f1b11-0c1f-40b3-bdd7-210fe816688b" .
 
   <https://data.vlaanderen.be/id/postinfo/3640> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/dab52aeb22e1fba35b09597da9c56d92a7100da2179f851816261f35b0f10578> ;
       adres:postcode "3640" ;
-      adres:postnaam "Kessenich",
-          "Kinrooi",
-          "Molenbeersel",
-          "Ophoven" .
+      adres:postnaam "Kinrooi" .
   <https://data.vlaanderen.be/id/postinfo/3640> mu:uuid "cc128c04-cae1-47e3-a705-ec8b2fb20311" .
 
   <https://data.vlaanderen.be/id/postinfo/3650> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/a0f4c192f87b91a63a04fbb88bd8da635aadfee6dd810c26aef638c40ebdc677> ;
       adres:postcode "3650" ;
-      adres:postnaam "Dilsen",
-          "Dilsen-Stokkem",
-          "Elen",
-          "Lanklaar",
-          "Rotem",
-          "Stokkem" .
+      adres:postnaam "Dilsen-Stokkem" .
   <https://data.vlaanderen.be/id/postinfo/3650> mu:uuid "efcb2e8d-e20e-415b-b3a5-3b557a185537" .
 
   <https://data.vlaanderen.be/id/postinfo/3660> a adres:Postinfo ;
@@ -1749,19 +1553,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3670> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/bestuurseenheden/e19a0f48-14cf-4e67-adda-dfbe2a70d5d7> ;
       adres:postcode "3670" ;
-      adres:postnaam "Ellikom",
-          "Gruitrode",
-          "Meeuwen",
-          "Neerglabbeek",
-          "Wijshagen" .
+      adres:postnaam "Oudsbergen" .
   <https://data.vlaanderen.be/id/postinfo/3670> mu:uuid "20a89793-d367-4acf-8cbc-fa290c6ab781" .
 
   <https://data.vlaanderen.be/id/postinfo/3680> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/b5d8f815a248193c5aa332f5a5c21120cbe618065b02c1f78a560803b1973beb> ;
       adres:postcode "3680" ;
-      adres:postnaam "Maaseik",
-          "Neeroeteren",
-          "Opoeteren" .
+      adres:postnaam "Maaseik" .
   <https://data.vlaanderen.be/id/postinfo/3680> mu:uuid "90173f72-f225-47b8-85df-b0ccf8ecba1f" .
 
   <https://data.vlaanderen.be/id/postinfo/3690> a adres:Postinfo ;
@@ -1773,25 +1571,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3700> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/fabec9e745fc9efa32afadd8b7268938805b9679dcf3b032c9b9a9a3530d6b59> ;
       adres:postcode "3700" ;
-      adres:postnaam "'s Herenelderen",
-          "Berg",
-          "Diets-Heur",
-          "Haren",
-          "Henis",
-          "Kolmont",
-          "Koninksem",
-          "Lauw",
-          "Mal",
-          "Neerrepen",
-          "Nerem",
-          "Overrepen",
-          "Piringen",
-          "Riksingen",
-          "Rutten",
-          "Sluizen",
-          "Tongeren",
-          "Vreren",
-          "Widooie" .
+      adres:postnaam "Tongeren" .
   <https://data.vlaanderen.be/id/postinfo/3700> mu:uuid "9ebe1942-eb1b-415f-8a5e-6fc586a021c0" .
 
   <https://data.vlaanderen.be/id/postinfo/3717> a adres:Postinfo ;
@@ -1833,10 +1613,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3730> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/ca78471edc6177372d61280f95fb14f50be4b77bc36650aeffb62b6c96a7cd2c> ;
       adres:postcode "3730" ;
-      adres:postnaam "Hoeselt",
-          "Romershoven",
-          "Sint-Huibrechts-Hern",
-          "Werm" .
+      adres:postnaam "Hoeselt" .
   <https://data.vlaanderen.be/id/postinfo/3730> mu:uuid "dafee450-66f7-4cfa-8899-5974e27a0ec0" .
 
   <https://data.vlaanderen.be/id/postinfo/3732> a adres:Postinfo ;
@@ -1848,17 +1625,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3740> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/1f5dd7043ad54d07751da8689d5b47ad9ae0e52dccce8f00cc8debab35f8e2b2> ;
       adres:postcode "3740" ;
-      adres:postnaam "Beverst",
-          "Bilzen",
-          "Eigenbilzen",
-          "Grote-Spouwen",
-          "Hees",
-          "Kleine-Spouwen",
-          "Mopertingen",
-          "Munsterbilzen",
-          "Rijkhoven",
-          "Rosmeer",
-          "Waltwilder" .
+      adres:postnaam "Bilzen" .
   <https://data.vlaanderen.be/id/postinfo/3740> mu:uuid "d54090ce-4256-4bd7-bb54-3da0e7a38d41" .
 
   <https://data.vlaanderen.be/id/postinfo/3742> a adres:Postinfo ;
@@ -1876,23 +1643,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3770> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f012ca1427f70fa29400ebd52de3000f239c91a6cc09d2ba2846e7e128295f46> ;
       adres:postcode "3770" ;
-      adres:postnaam "Genoelselderen",
-          "Herderen",
-          "Kanne",
-          "Membruggen",
-          "Millen",
-          "Riemst",
-          "Val-Meer",
-          "Vlijtingen",
-          "Vroenhoven",
-          "Zichen-Zussen-Bolder" .
+      adres:postnaam "Riemst" .
   <https://data.vlaanderen.be/id/postinfo/3770> mu:uuid "4062ec70-2965-465d-8aea-542446915f64" .
 
   <https://data.vlaanderen.be/id/postinfo/3790> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/22658498f757ed03025abf548124246f8a02276dec24911bea7fb90da0280b59> ;
       adres:postcode "3790" ;
-      adres:postnaam "Moelingen",
-          "Sint-Martens-Voeren" .
+      adres:postnaam "Voeren" .
   <https://data.vlaanderen.be/id/postinfo/3790> mu:uuid "46854a37-3c8c-4638-a406-c24bb180d2c5" .
 
   <https://data.vlaanderen.be/id/postinfo/3791> a adres:Postinfo ;
@@ -1922,25 +1679,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3800> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/6f382bd7c8e0bd81ffb83f0d13048dfd35525bde9fc0677a4a7a5780cc8e2614> ;
       adres:postcode "3800" ;
-      adres:postnaam "Aalst",
-          "Brustem",
-          "Engelmanshoven",
-          "Gelinden",
-          "Groot-Gelmen",
-          "Halmaal",
-          "Kerkom-bij-Sint-Truiden",
-          "Ordingen",
-          "Sint-Truiden",
-          "Zepperen" .
+      adres:postnaam "Sint-Truiden" .
   <https://data.vlaanderen.be/id/postinfo/3800> mu:uuid "2e54df3a-6062-4397-b5c6-49ea00690425" .
 
   <https://data.vlaanderen.be/id/postinfo/3803> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/6f382bd7c8e0bd81ffb83f0d13048dfd35525bde9fc0677a4a7a5780cc8e2614> ;
       adres:postcode "3803" ;
-      adres:postnaam "Duras",
-          "Gorsem",
-          "Runkelen",
-          "Wilderen" .
+      adres:postnaam "Sint-Truiden" .
   <https://data.vlaanderen.be/id/postinfo/3803> mu:uuid "8389d709-ff79-4213-ac40-31c28607d9f8" .
 
   <https://data.vlaanderen.be/id/postinfo/3806> a adres:Postinfo ;
@@ -1952,8 +1697,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3830> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f4d658e7c299f26fc3d7e4679dd06f18e7ca596db58982106b438856754a9987> ;
       adres:postcode "3830" ;
-      adres:postnaam "Berlingen",
-          "Wellen" .
+      adres:postnaam "Wellen" .
   <https://data.vlaanderen.be/id/postinfo/3830> mu:uuid "388ec758-22ca-40bd-9b97-ae0ac0acd8b1" .
 
   <https://data.vlaanderen.be/id/postinfo/3831> a adres:Postinfo ;
@@ -1971,69 +1715,31 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3840> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/befb7a34c7553277713e2163ec4f523e8e8892f69bcfcff9de9b4f8071abdfaa> ;
       adres:postcode "3840" ;
-      adres:postnaam "Bommershoven",
-          "Borgloon",
-          "Broekom",
-          "Gors-Opleeuw",
-          "Gotem",
-          "Groot-Loon",
-          "Haren",
-          "Hendrieken",
-          "Hoepertingen",
-          "Jesseren",
-          "Kerniel",
-          "Kolmont",
-          "Kuttekoven",
-          "Rijkel",
-          "Voort" .
+      adres:postnaam "Borgloon" .
   <https://data.vlaanderen.be/id/postinfo/3840> mu:uuid "78ce6364-f552-4f40-8e39-5ec5ac3fcbcb" .
 
   <https://data.vlaanderen.be/id/postinfo/3850> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/fb2b90482cec910e80eee8cad6afd99b0a61d2f3c2470ab8526ff1c7dfbb7ba6> ;
       adres:postcode "3850" ;
-      adres:postnaam "Binderveld",
-          "Kozen",
-          "Nieuwerkerken",
-          "Wijer" .
+      adres:postnaam "Nieuwerkerken" .
   <https://data.vlaanderen.be/id/postinfo/3850> mu:uuid "5756e745-a2b4-4a23-ac98-6f677f733f86" .
 
   <https://data.vlaanderen.be/id/postinfo/3870> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/cdaec7b58ee494d5ca1ac3227b9c818ebff6efae679f8b4930ef3b986b18340a> ;
       adres:postcode "3870" ;
-      adres:postnaam "Batsheers",
-          "Bovelingen",
-          "Gutshoven",
-          "Heers",
-          "Heks",
-          "Horpmaal",
-          "Klein-Gelmen",
-          "Mechelen-Bovelingen",
-          "Mettekoven",
-          "Opheers",
-          "Rukkelingen-Loon",
-          "Vechmaal",
-          "Veulen" .
+      adres:postnaam "Heers" .
   <https://data.vlaanderen.be/id/postinfo/3870> mu:uuid "f3c7c484-e5bd-44aa-a126-fc43a4c19301" .
 
   <https://data.vlaanderen.be/id/postinfo/3890> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/23bb3da4d00621137171dbca1f75234c7a6a0099a76a16d31d5ed8c5d6dd7252> ;
       adres:postcode "3890" ;
-      adres:postnaam "Boekhout",
-          "Gingelom",
-          "Jeuk",
-          "Kortijs",
-          "Montenaken",
-          "Niel-bij-Sint-Truiden",
-          "Vorsen" .
+      adres:postnaam "Gingelom" .
   <https://data.vlaanderen.be/id/postinfo/3890> mu:uuid "ba7cfeef-744e-4b2f-892d-e7dc2ac391f2" .
 
   <https://data.vlaanderen.be/id/postinfo/3891> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/23bb3da4d00621137171dbca1f75234c7a6a0099a76a16d31d5ed8c5d6dd7252> ;
       adres:postcode "3891" ;
-      adres:postnaam "Borlo",
-          "Buvingen",
-          "Mielen-boven-Aalst",
-          "Muizen" .
+      adres:postnaam "Gingelom" .
   <https://data.vlaanderen.be/id/postinfo/3891> mu:uuid "00a02841-ed05-4535-b09a-020c7d4c7068" .
 
   <https://data.vlaanderen.be/id/postinfo/3900> a adres:Postinfo ;
@@ -2045,8 +1751,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3910> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/bestuurseenheden/facc1fbb-e84c-40a7-9daa-2699fb0104ea> ;
       adres:postcode "3910" ;
-      adres:postnaam "Neerpelt",
-          "Sint-Huibrechts-Lille" .
+      adres:postnaam "Pelt" .
   <https://data.vlaanderen.be/id/postinfo/3910> mu:uuid "84bfcdde-41e0-4c46-b06c-67ca91cec4c6" .
 
   <https://data.vlaanderen.be/id/postinfo/3920> a adres:Postinfo ;
@@ -2058,8 +1763,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3930> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/821976fdc1522c40cc1b62111907d9cb3b6373e33d9096048e8d563c6ca8cb74> ;
       adres:postcode "3930" ;
-      adres:postnaam "Achel",
-          "Hamont" .
+      adres:postnaam "Hamont-Achel" .
   <https://data.vlaanderen.be/id/postinfo/3930> mu:uuid "49c804a0-63a2-4d6a-a2e5-b07bc7f18561" .
 
   <https://data.vlaanderen.be/id/postinfo/3940> a adres:Postinfo ;
@@ -2077,26 +1781,19 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3945> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/fc34bb0a1dbf157ac5e5f8e657dd774210f03d2efa21370dd3b9a6342906c7ab> ;
       adres:postcode "3945" ;
-      adres:postnaam "Kwaadmechelen",
-          "Oostham" .
+      adres:postnaam "Ham" .
   <https://data.vlaanderen.be/id/postinfo/3945> mu:uuid "018c5e24-22d1-45c1-bdae-fad2ddb11b2e" .
 
   <https://data.vlaanderen.be/id/postinfo/3950> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/6f948b94515bad767f6b8136887edb86c706c00a82fbf8c582fae2903c50cba0> ;
       adres:postcode "3950" ;
-      adres:postnaam "Bocholt",
-          "Kaulille",
-          "Reppel" .
+      adres:postnaam "Bocholt" .
   <https://data.vlaanderen.be/id/postinfo/3950> mu:uuid "189fe740-faa6-4fa2-9088-46ecb752fbf9" .
 
   <https://data.vlaanderen.be/id/postinfo/3960> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/996c13b9d331c9880ec94652b629857aa178c1ce3dcd84db2f5539ed0ecfc081> ;
       adres:postcode "3960" ;
-      adres:postnaam "Beek",
-          "Bree",
-          "Gerdingen",
-          "Opitter",
-          "Tongerlo" .
+      adres:postnaam "Bree" .
   <https://data.vlaanderen.be/id/postinfo/3960> mu:uuid "0d3a4d8f-7825-491b-82f3-204adfe904e2" .
 
   <https://data.vlaanderen.be/id/postinfo/3970> a adres:Postinfo ;
@@ -2120,41 +1817,31 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/3990> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/a43dcb9e994c0ceb96539c6539125f434da99151006ba95c21da3b272e0e1b97> ;
       adres:postcode "3990" ;
-      adres:postnaam "Grote-Brogel",
-          "Kleine-Brogel",
-          "Peer",
-          "Wijchmaal" .
+      adres:postnaam "Peer" .
   <https://data.vlaanderen.be/id/postinfo/3990> mu:uuid "bc389c81-e971-4c37-b35e-439090cdad9c" .
 
   <https://data.vlaanderen.be/id/postinfo/8000> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e1a7aa197d1fa117ad5fdc30dee57cf95974c149ed0f319237bb8fb1355d911e> ;
       adres:postcode "8000" ;
-      adres:postnaam "Brugge",
-          "Koolkerke" .
+      adres:postnaam "Brugge" .
   <https://data.vlaanderen.be/id/postinfo/8000> mu:uuid "2bbca7e5-8552-4357-af89-a26b11eaa1aa" .
 
   <https://data.vlaanderen.be/id/postinfo/8020> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/707d70a62dda1df7068108dfa1807ff4de9cda8b2a9da775dc1fd2e37edc4a5b> ;
       adres:postcode "8020" ;
-      adres:postnaam "Hertsberge",
-          "Oostkamp",
-          "Ruddervoorde",
-          "Waardamme" .
+      adres:postnaam "Oostkamp" .
   <https://data.vlaanderen.be/id/postinfo/8020> mu:uuid "92455463-2a0e-4cc4-b85a-0901bc50dc61" .
 
   <https://data.vlaanderen.be/id/postinfo/8200> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e1a7aa197d1fa117ad5fdc30dee57cf95974c149ed0f319237bb8fb1355d911e> ;
       adres:postcode "8200" ;
-      adres:postnaam "Sint-Andries",
-          "Sint-Michiels" .
+      adres:postnaam "Brugge" .
   <https://data.vlaanderen.be/id/postinfo/8200> mu:uuid "ffdaa162-7add-456f-b198-ac33b1c76f95" .
 
   <https://data.vlaanderen.be/id/postinfo/8210> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/91ec0a60897bd7fb10329d9e1664470843ea2db72153742f2fd21db30a435b05> ;
       adres:postcode "8210" ;
-      adres:postnaam "Loppem",
-          "Veldegem",
-          "Zedelgem" .
+      adres:postnaam "Zedelgem" .
   <https://data.vlaanderen.be/id/postinfo/8210> mu:uuid "1299a95c-7125-49b4-a7c3-0b17d74c4c58" .
 
   <https://data.vlaanderen.be/id/postinfo/8211> a adres:Postinfo ;
@@ -2166,73 +1853,55 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8300> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/76b98b973dad10a9df16433743f7721607dac9ea569fa43d1cc3e285ce54ef10> ;
       adres:postcode "8300" ;
-      adres:postnaam "Knokke",
-          "Westkapelle" .
+      adres:postnaam "Knokke-Heist" .
   <https://data.vlaanderen.be/id/postinfo/8300> mu:uuid "15e2972d-35c5-413a-851f-453834373f03" .
 
   <https://data.vlaanderen.be/id/postinfo/8301> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/76b98b973dad10a9df16433743f7721607dac9ea569fa43d1cc3e285ce54ef10> ;
       adres:postcode "8301" ;
-      adres:postnaam "Heist-aan-Zee",
-          "Ramskapelle" .
+      adres:postnaam "Knokke-Heist" .
   <https://data.vlaanderen.be/id/postinfo/8301> mu:uuid "07c135b3-b775-43ec-9f7c-481e4d409ad4" .
 
   <https://data.vlaanderen.be/id/postinfo/8310> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e1a7aa197d1fa117ad5fdc30dee57cf95974c149ed0f319237bb8fb1355d911e> ;
       adres:postcode "8310" ;
-      adres:postnaam "Assebroek",
-          "Sint-Kruis" .
+      adres:postnaam "Brugge" .
   <https://data.vlaanderen.be/id/postinfo/8310> mu:uuid "f6bd5836-4be9-40a0-819d-061ad92c37a5" .
 
   <https://data.vlaanderen.be/id/postinfo/8340> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/814996a1984d3c12a5c4e5078e1edfa110150cb679f2c9e10d0045c720e96788> ;
       adres:postcode "8340" ;
-      adres:postnaam "Damme",
-          "Hoeke",
-          "Lapscheure",
-          "Moerkerke",
-          "Oostkerke",
-          "Sijsele" .
+      adres:postnaam "Damme" .
   <https://data.vlaanderen.be/id/postinfo/8340> mu:uuid "9fddbe9b-1e62-47dc-833a-d0c21db09917" .
 
   <https://data.vlaanderen.be/id/postinfo/8370> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/9e379e7409cd814bb38a23edc5eb67e97bc05845c32f330f125fd6700ba366e4> ;
       adres:postcode "8370" ;
-      adres:postnaam "Blankenberge",
-          "Uitkerke" .
+      adres:postnaam "Blankenberge" .
   <https://data.vlaanderen.be/id/postinfo/8370> mu:uuid "fc48c72e-852e-42e7-a1d4-6bfc1a98adf0" .
 
   <https://data.vlaanderen.be/id/postinfo/8377> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/da53d591588ff50ff06f48966c253fe6dc5d0354af52b5416ef383a5c8c3d87c> ;
       adres:postcode "8377" ;
-      adres:postnaam "Houtave",
-          "Meetkerke",
-          "Nieuwmunster",
-          "Zuienkerke" .
+      adres:postnaam "Zuienkerke" .
   <https://data.vlaanderen.be/id/postinfo/8377> mu:uuid "3c9c71ab-a613-4e7f-ac89-b56a74d05345" .
 
   <https://data.vlaanderen.be/id/postinfo/8380> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e1a7aa197d1fa117ad5fdc30dee57cf95974c149ed0f319237bb8fb1355d911e> ;
       adres:postcode "8380" ;
-      adres:postnaam "Dudzele",
-          "Lissewege",
-          "Zeebrugge" .
+      adres:postnaam "Brugge" .
   <https://data.vlaanderen.be/id/postinfo/8380> mu:uuid "b13ace3b-60a7-4824-a310-c2a703e3b73a" .
 
   <https://data.vlaanderen.be/id/postinfo/8400> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/39173049fa95c468999d3862c3e6d22184c604d0864d6e56d1660886e17ca3c7> ;
       adres:postcode "8400" ;
-      adres:postnaam "Oostende",
-          "Stene",
-          "Zandvoorde" .
+      adres:postnaam "Oostende" .
   <https://data.vlaanderen.be/id/postinfo/8400> mu:uuid "ff28b8ff-186a-48de-8bcc-0e529320d3a3" .
 
   <https://data.vlaanderen.be/id/postinfo/8420> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/22f258486e4c8af9e207a2e83127f82e6bb4e580d365fe9d57b4192ea4b38aea> ;
       adres:postcode "8420" ;
-      adres:postnaam "De Haan",
-          "Klemskerke",
-          "Wenduine" .
+      adres:postnaam "De Haan" .
   <https://data.vlaanderen.be/id/postinfo/8420> mu:uuid "c0375ca4-7a91-4240-85d0-5a1967fe773c" .
 
   <https://data.vlaanderen.be/id/postinfo/8421> a adres:Postinfo ;
@@ -2262,17 +1931,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8433> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/ab773e757bd152b8ab6ab450a4ec78fc5a86126bba1a99e545523241030aa822> ;
       adres:postcode "8433" ;
-      adres:postnaam "Mannekensvere",
-          "Schore",
-          "Sint-Pieters-Kapelle",
-          "Slijpe" .
+      adres:postnaam "Middelkerke" .
   <https://data.vlaanderen.be/id/postinfo/8433> mu:uuid "1f69333b-1729-4198-bc3b-1dde6d8e50b0" .
 
   <https://data.vlaanderen.be/id/postinfo/8434> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/ab773e757bd152b8ab6ab450a4ec78fc5a86126bba1a99e545523241030aa822> ;
       adres:postcode "8434" ;
-      adres:postnaam "Lombardsijde",
-          "Westende" .
+      adres:postnaam "Middelkerke" .
   <https://data.vlaanderen.be/id/postinfo/8434> mu:uuid "8dd2eb4d-591f-419c-8c84-833c6f961604" .
 
   <https://data.vlaanderen.be/id/postinfo/8450> a adres:Postinfo ;
@@ -2284,37 +1949,25 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8460> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/4f560c6393c8e2615107948dd3f1078bca80bfe0b80394a2aaaf906047f5bccd> ;
       adres:postcode "8460" ;
-      adres:postnaam "Ettelgem",
-          "Oudenburg",
-          "Roksem",
-          "Westkerke" .
+      adres:postnaam "Oudenburg" .
   <https://data.vlaanderen.be/id/postinfo/8460> mu:uuid "0e959ecc-6ec3-4142-ab51-97fb11d3f7a4" .
 
   <https://data.vlaanderen.be/id/postinfo/8470> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/3f9f83589183414455b2c6e7fd88a5339712801003f5208730429fb6cc9a6252> ;
       adres:postcode "8470" ;
-      adres:postnaam "Gistel",
-          "Moere",
-          "Snaaskerke",
-          "Zevekote" .
+      adres:postnaam "Gistel" .
   <https://data.vlaanderen.be/id/postinfo/8470> mu:uuid "faaa256f-90be-42fe-96b9-19c7d5d56057" .
 
   <https://data.vlaanderen.be/id/postinfo/8480> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/a95f87c94af0e2e7651a573c13e3e65d2de055c17fa9dc968bcd25a8094431f9> ;
       adres:postcode "8480" ;
-      adres:postnaam "Bekegem",
-          "Eernegem",
-          "Ichtegem" .
+      adres:postnaam "Ichtegem" .
   <https://data.vlaanderen.be/id/postinfo/8480> mu:uuid "80effd8b-a6f5-425d-8a61-aef0ce3e8bc9" .
 
   <https://data.vlaanderen.be/id/postinfo/8490> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/836c02d754ff813c48afd42a2ddac05a66dbb63f8990e8f2f3168c8e44dcc534> ;
       adres:postcode "8490" ;
-      adres:postnaam "Jabbeke",
-          "Snellegem",
-          "Stalhille",
-          "Varsenare",
-          "Zerkegem" .
+      adres:postnaam "Jabbeke" .
   <https://data.vlaanderen.be/id/postinfo/8490> mu:uuid "c3743b1e-9eef-4201-8ace-bce3f031ab60" .
 
   <https://data.vlaanderen.be/id/postinfo/8500> a adres:Postinfo ;
@@ -2326,17 +1979,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8501> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/30a21235603aac6952844d75d0b00686ee1900825d3d92737d706388618f58a0> ;
       adres:postcode "8501" ;
-      adres:postnaam "Bissegem",
-          "Heule" .
+      adres:postnaam "Kortrijk" .
   <https://data.vlaanderen.be/id/postinfo/8501> mu:uuid "22508afa-e5a0-433b-ba28-0e0213ca4f5f" .
 
   <https://data.vlaanderen.be/id/postinfo/8510> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/30a21235603aac6952844d75d0b00686ee1900825d3d92737d706388618f58a0> ;
       adres:postcode "8510" ;
-      adres:postnaam "Bellegem",
-          "Kooigem",
-          "Marke",
-          "Rollegem" .
+      adres:postnaam "Kortrijk" .
   <https://data.vlaanderen.be/id/postinfo/8510> mu:uuid "ad0bfb8a-822d-4544-b908-ef5a414fb821" .
 
   <https://data.vlaanderen.be/id/postinfo/8511> a adres:Postinfo ;
@@ -2360,8 +2009,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8531> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/d74618571b5d5b6406f37dbd2be19bfa0becfa3dfffc2d887ebbcd550870192d> ;
       adres:postcode "8531" ;
-      adres:postnaam "Bavikhove",
-          "Hulste" .
+      adres:postnaam "Harelbeke" .
   <https://data.vlaanderen.be/id/postinfo/8531> mu:uuid "407dd164-b726-44f8-a508-6da88a969f3b" .
 
   <https://data.vlaanderen.be/id/postinfo/8540> a adres:Postinfo ;
@@ -2403,18 +2051,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8560> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/df43d3c887b24672918bd3f034b9ee9a0856ff5d6bf4dd2e03d646e5c335f775> ;
       adres:postcode "8560" ;
-      adres:postnaam "Gullegem",
-          "Moorsele",
-          "Wevelgem" .
+      adres:postnaam "Wevelgem" .
   <https://data.vlaanderen.be/id/postinfo/8560> mu:uuid "845d4787-b4ed-498f-82fb-1ac2c7c71be1" .
 
   <https://data.vlaanderen.be/id/postinfo/8570> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/c0c2fd3ed1a5bc55e44a2cef4fd8f4ae0ba2a694a942dec5ac4252994ad52a48> ;
       adres:postcode "8570" ;
-      adres:postnaam "Anzegem",
-          "Gijzelbrechtegem",
-          "Ingooigem",
-          "Vichte" .
+      adres:postnaam "Anzegem" .
   <https://data.vlaanderen.be/id/postinfo/8570> mu:uuid "b3cafe14-0cb6-497d-84da-69e7e524f641" .
 
   <https://data.vlaanderen.be/id/postinfo/8572> a adres:Postinfo ;
@@ -2438,8 +2081,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8581> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e9fe62376b94be37c0f111f5da438e5411417a8edf6899c4fede89f354ea17d6> ;
       adres:postcode "8581" ;
-      adres:postnaam "Kerkhove",
-          "Waarmaarde" .
+      adres:postnaam "Avelgem" .
   <https://data.vlaanderen.be/id/postinfo/8581> mu:uuid "bc29cf00-32f5-4b9b-aa9e-da79e76a97b9" .
 
   <https://data.vlaanderen.be/id/postinfo/8582> a adres:Postinfo ;
@@ -2457,177 +2099,115 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8587> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/1c030efe00477f9f9b79a5a22ad9dbfd021fe796ad59d704f130fb8ea1203547> ;
       adres:postcode "8587" ;
-      adres:postnaam "Helkijn",
-          "Spiere" .
+      adres:postnaam "Spiere-Helkijn" .
   <https://data.vlaanderen.be/id/postinfo/8587> mu:uuid "acedb2df-0372-42fa-888d-c4c654857791" .
 
   <https://data.vlaanderen.be/id/postinfo/8600> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/295b5a17da38b4b57e0e2582949fbc66eb03c246c2180d638b944835c29c195f> ;
       adres:postcode "8600" ;
-      adres:postnaam "Beerst",
-          "Diksmuide",
-          "Driekapellen",
-          "Esen",
-          "Kaaskerke",
-          "Keiem",
-          "Lampernisse",
-          "Leke",
-          "Nieuwkapelle",
-          "Oostkerke",
-          "Oudekapelle",
-          "Pervijze",
-          "Sint-Jacobs-Kapelle",
-          "Stuivekenskerke",
-          "Vladslo",
-          "Woumen" .
+      adres:postnaam "Diksmuide" .
   <https://data.vlaanderen.be/id/postinfo/8600> mu:uuid "0d016e5e-e858-43df-a9f2-bf2dafe27c2c" .
 
   <https://data.vlaanderen.be/id/postinfo/8610> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/4f547b85189a1e7ecaf1d3d1de09afeba3b638ce87ce75f8b51ff93bb6a70764> ;
       adres:postcode "8610" ;
-      adres:postnaam "Handzame",
-          "Kortemark",
-          "Werken",
-          "Zarren" .
+      adres:postnaam "Kortemark" .
   <https://data.vlaanderen.be/id/postinfo/8610> mu:uuid "fc19ed1d-91b7-4379-bdb8-b4ffd5793765" .
 
   <https://data.vlaanderen.be/id/postinfo/8620> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/143757221ab1dee9043a7a6f50c635442d338f958eedcc55f24da366cb0fa213> ;
       adres:postcode "8620" ;
-      adres:postnaam "Nieuwpoort",
-          "Ramskapelle",
-          "Sint-Joris" .
+      adres:postnaam "Nieuwpoort" .
   <https://data.vlaanderen.be/id/postinfo/8620> mu:uuid "09b1473d-5ac0-49c7-acfa-017c10d518c6" .
 
   <https://data.vlaanderen.be/id/postinfo/8630> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/530946fce485f5069c992c78567d99ba2d13354a455302f727049b55637cb2a1> ;
       adres:postcode "8630" ;
-      adres:postnaam "Avekapelle",
-          "Booitshoeke",
-          "Bulskamp",
-          "De Moeren",
-          "Eggewaartskapelle",
-          "Houtem",
-          "Steenkerke",
-          "Veurne",
-          "Vinkem",
-          "Wulveringem",
-          "Zoutenaaie" .
+      adres:postnaam "Veurne" .
   <https://data.vlaanderen.be/id/postinfo/8630> mu:uuid "5fa4c120-584e-410d-bddb-4938ec2dbc71" .
 
   <https://data.vlaanderen.be/id/postinfo/8640> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/389d82f431965b1c3e5c73eb36a10fc839f860807d8ace83b3df692b18b310ce> ;
       adres:postcode "8640" ;
-      adres:postnaam "Oostvleteren",
-          "Westvleteren",
-          "Woesten" .
+      adres:postnaam "Vleteren" .
   <https://data.vlaanderen.be/id/postinfo/8640> mu:uuid "7dff715e-86fe-4829-b026-a597256ba831" .
 
   <https://data.vlaanderen.be/id/postinfo/8647> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/95fdbead4f43688b0e1dc6f67d53e7485ac1eaa34a4b298498c75c9e4216ca65> ;
       adres:postcode "8647" ;
-      adres:postnaam "Lo",
-          "Noordschote",
-          "Pollinkhove",
-          "Reninge" .
+      adres:postnaam "Lo-Reninge" .
   <https://data.vlaanderen.be/id/postinfo/8647> mu:uuid "dac5d3e4-6be3-4999-a3a5-b4b5e6a3182c" .
 
   <https://data.vlaanderen.be/id/postinfo/8650> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/43665c8e579073250d7bd447a938ea0dbacd75566ec57ad8c2431e9235534c8c> ;
       adres:postcode "8650" ;
-      adres:postnaam "Houthulst",
-          "Klerken",
-          "Merkem" .
+      adres:postnaam "Houthulst" .
   <https://data.vlaanderen.be/id/postinfo/8650> mu:uuid "7ef2b33e-8591-4a7f-98d3-c0e0344727ac" .
 
   <https://data.vlaanderen.be/id/postinfo/8660> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/8d78ddeb53d45682a825e1afa02751130c4afbd95ff35fa32d59e9d803d12a87> ;
       adres:postcode "8660" ;
-      adres:postnaam "Adinkerke",
-          "De Panne" .
+      adres:postnaam "De Panne" .
   <https://data.vlaanderen.be/id/postinfo/8660> mu:uuid "9f2b3275-7d3c-4476-9e28-c82b2c7bd0d6" .
 
   <https://data.vlaanderen.be/id/postinfo/8670> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/52794a4ca5c83c1de70516f02f2a9a75d5e7ba3063f015dbc914c6227150c55c> ;
       adres:postcode "8670" ;
-      adres:postnaam "Koksijde",
-          "Oostduinkerke",
-          "Wulpen" .
+      adres:postnaam "Koksijde" .
   <https://data.vlaanderen.be/id/postinfo/8670> mu:uuid "7ff4302d-540e-4f72-babc-7207e1727a0a" .
 
   <https://data.vlaanderen.be/id/postinfo/8680> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/76df7f42033d8e6ec1bfc19ee2e52ae11dd9c42d1ff5069a6b53952926b591e7> ;
       adres:postcode "8680" ;
-      adres:postnaam "Bovekerke",
-          "Koekelare",
-          "Zande" .
+      adres:postnaam "Koekelare" .
   <https://data.vlaanderen.be/id/postinfo/8680> mu:uuid "abe75e6e-c2d0-47bf-916b-2dd537f18409" .
 
   <https://data.vlaanderen.be/id/postinfo/8690> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/783e6540b434bff0a24bf5c7c3ae4e10f2a82762516433eaaeadd18d094d3ad5> ;
       adres:postcode "8690" ;
-      adres:postnaam "Alveringem",
-          "Hoogstade",
-          "Oeren",
-          "Sint-Rijkers" .
+      adres:postnaam "Alveringem" .
   <https://data.vlaanderen.be/id/postinfo/8690> mu:uuid "25d03e0e-c4b7-434f-89e6-03fc53b85b99" .
 
   <https://data.vlaanderen.be/id/postinfo/8691> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/783e6540b434bff0a24bf5c7c3ae4e10f2a82762516433eaaeadd18d094d3ad5> ;
       adres:postcode "8691" ;
-      adres:postnaam "Beveren-aan-de-IJzer",
-          "Gijverinkhove",
-          "Izenberge",
-          "Leisele",
-          "Stavele" .
+      adres:postnaam "Alveringem" .
   <https://data.vlaanderen.be/id/postinfo/8691> mu:uuid "b12cf338-432d-44f0-b59d-9d4e2758990b" .
 
   <https://data.vlaanderen.be/id/postinfo/8700> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/1fb92312354f3d900670e2b9cfbd80148910f1227e321f2c377f92957b071cb1> ;
       adres:postcode "8700" ;
-      adres:postnaam "Aarsele",
-          "Kanegem",
-          "Schuiferskapelle",
-          "Tielt" .
+      adres:postnaam "Tielt" .
   <https://data.vlaanderen.be/id/postinfo/8700> mu:uuid "2a662e0e-977d-4e9f-903f-bb7ef887271a" .
 
   <https://data.vlaanderen.be/id/postinfo/8710> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/78eff0771f4f748e0b71d77319e0e8b023eb9d87e0c1d9ffc928a3e8f5ed2d14> ;
       adres:postcode "8710" ;
-      adres:postnaam "Ooigem",
-          "Sint-Baafs-Vijve",
-          "Wielsbeke" .
+      adres:postnaam "Wielsbeke" .
   <https://data.vlaanderen.be/id/postinfo/8710> mu:uuid "3711f4fe-3774-497d-9cc5-db4bc98db75c" .
 
   <https://data.vlaanderen.be/id/postinfo/8720> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/8673373223c26028c5922fda412e83eb0adb9bdfd900ede9b857608f963add22> ;
       adres:postcode "8720" ;
-      adres:postnaam "Dentergem",
-          "Markegem",
-          "Oeselgem",
-          "Wakken" .
+      adres:postnaam "Dentergem" .
   <https://data.vlaanderen.be/id/postinfo/8720> mu:uuid "64afaec0-8635-4fb3-8690-01d382eec924" .
 
   <https://data.vlaanderen.be/id/postinfo/8730> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f20d6e9e45e41c791f67d491d3bad2709b44bc98f4ea46482539dd42ed7d1c80> ;
       adres:postcode "8730" ;
-      adres:postnaam "Beernem",
-          "Oedelem",
-          "Sint-Joris" .
+      adres:postnaam "Beernem" .
   <https://data.vlaanderen.be/id/postinfo/8730> mu:uuid "7abc3eb8-ee88-45dc-82eb-61c46bc1f23a" .
 
   <https://data.vlaanderen.be/id/postinfo/8740> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/4fb74ac91a748f21cbb8e993971bfc98f57dd9b260da5e95c95c34efd89ca9e6> ;
       adres:postcode "8740" ;
-      adres:postnaam "Egem",
-          "Pittem" .
+      adres:postnaam "Pittem" .
   <https://data.vlaanderen.be/id/postinfo/8740> mu:uuid "6b3fc4eb-3e77-4c86-886f-d1c3a7fa5dec" .
 
   <https://data.vlaanderen.be/id/postinfo/8750> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/21034a361da5b5c45424cbbef38a89029ca025e32aa1b132fcceca1d13149ee6> ;
       adres:postcode "8750" ;
-      adres:postnaam "Wingene",
-          "Zwevezele" .
+      adres:postnaam "Wingene" .
   <https://data.vlaanderen.be/id/postinfo/8750> mu:uuid "c70f37fd-d0be-4840-a9ed-b5dceae46ffb" .
 
   <https://data.vlaanderen.be/id/postinfo/8755> a adres:Postinfo ;
@@ -2681,10 +2261,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8800> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/3a763f4d473ad2803f9299a1854130eca8351f1923074ee9e8f18fe5ed9d14ef> ;
       adres:postcode "8800" ;
-      adres:postnaam "Beveren",
-          "Oekene",
-          "Roeselare",
-          "Rumbeke" .
+      adres:postnaam "Roeselare" .
   <https://data.vlaanderen.be/id/postinfo/8800> mu:uuid "800e2bb5-5dfa-4c51-84ad-86abd66b37e7" .
 
   <https://data.vlaanderen.be/id/postinfo/8810> a adres:Postinfo ;
@@ -2702,16 +2279,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8830> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/24cfd36fedfdcbf2a4ef5b12b2d3410e24c3a123885ee56d508e56853e788611> ;
       adres:postcode "8830" ;
-      adres:postnaam "Gits",
-          "Hooglede" .
+      adres:postnaam "Hooglede" .
   <https://data.vlaanderen.be/id/postinfo/8830> mu:uuid "6541a17a-5c43-4ed1-8f3e-f63c1f3b3da9" .
 
   <https://data.vlaanderen.be/id/postinfo/8840> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/2d9d8a0983114cb15e7da43204901fdc53e00c4766f2ad093b7b2a83d81e555f> ;
       adres:postcode "8840" ;
-      adres:postnaam "Oostnieuwkerke",
-          "Staden",
-          "Westrozebeke" .
+      adres:postnaam "Staden" .
   <https://data.vlaanderen.be/id/postinfo/8840> mu:uuid "187012f4-141a-4ee9-8949-e8a09380363c" .
 
   <https://data.vlaanderen.be/id/postinfo/8850> a adres:Postinfo ;
@@ -2735,48 +2309,37 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8870> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/60b70f3b49cc098224ba560fa597f0c0e9efa4d0e5a32eacd8e81ee89cef173e> ;
       adres:postcode "8870" ;
-      adres:postnaam "Emelgem",
-          "Izegem",
-          "Kachtem" .
+      adres:postnaam "Izegem" .
   <https://data.vlaanderen.be/id/postinfo/8870> mu:uuid "bd8b7fa8-2bf5-4f86-a69d-7d063f94ea50" .
 
   <https://data.vlaanderen.be/id/postinfo/8880> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/64a6cf9e9ee44916c00af5b3b56c80e2516f9705ee6c0c9175fcce7b7bc53c3d> ;
       adres:postcode "8880" ;
-      adres:postnaam "Ledegem",
-          "Rollegem-Kapelle",
-          "Sint-Eloois-Winkel" .
+      adres:postnaam "Ledegem" .
   <https://data.vlaanderen.be/id/postinfo/8880> mu:uuid "d3fa9e1c-0790-4b61-8829-d9eebd71c551" .
 
   <https://data.vlaanderen.be/id/postinfo/8890> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f7e3e1b81b6dd837682e2aa2972ee12ff8a21b65493b719ff3d0ec2c67839bb0> ;
       adres:postcode "8890" ;
-      adres:postnaam "Dadizele",
-          "Moorslede" .
+      adres:postnaam "Moorslede" .
   <https://data.vlaanderen.be/id/postinfo/8890> mu:uuid "f7c5dab2-9c08-480a-93a4-515b719168d2" .
 
   <https://data.vlaanderen.be/id/postinfo/8900> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/a8040e566e7a22dfc6a83a7176d105abc68ab1bf1a89e94a1333c8f049131837> ;
       adres:postcode "8900" ;
-      adres:postnaam "Brielen",
-          "Dikkebus",
-          "Ieper",
-          "Sint-Jan" .
+      adres:postnaam "Ieper" .
   <https://data.vlaanderen.be/id/postinfo/8900> mu:uuid "d8ea2cd3-30ab-4c22-b0b7-03ed8b8a50e7" .
 
   <https://data.vlaanderen.be/id/postinfo/8902> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/a8040e566e7a22dfc6a83a7176d105abc68ab1bf1a89e94a1333c8f049131837> ;
       adres:postcode "8902" ;
-      adres:postnaam "Hollebeke",
-          "Voormezele",
-          "Zillebeke" .
+      adres:postnaam "Ieper" .
   <https://data.vlaanderen.be/id/postinfo/8902> mu:uuid "5d35276f-a1de-46e1-a768-034bdbc9a99e" .
 
   <https://data.vlaanderen.be/id/postinfo/8904> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/a8040e566e7a22dfc6a83a7176d105abc68ab1bf1a89e94a1333c8f049131837> ;
       adres:postcode "8904" ;
-      adres:postnaam "Boezinge",
-          "Zuidschote" .
+      adres:postnaam "Ieper" .
   <https://data.vlaanderen.be/id/postinfo/8904> mu:uuid "d2b62528-fe8d-45fa-88a6-ba137fd9f40b" .
 
   <https://data.vlaanderen.be/id/postinfo/8906> a adres:Postinfo ;
@@ -2794,24 +2357,19 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8920> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/099ec780594cfcc8f1d42282322a18a5ab653d1437269007fea22ef5a40ac12d> ;
       adres:postcode "8920" ;
-      adres:postnaam "Bikschote",
-          "Langemark",
-          "Poelkapelle" .
+      adres:postnaam "Langemark-Poelkapelle" .
   <https://data.vlaanderen.be/id/postinfo/8920> mu:uuid "c71d17aa-55c8-4acc-b128-d312de1d8a9f" .
 
   <https://data.vlaanderen.be/id/postinfo/8930> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/1d2172d165cab32d601fb6bdae80cb394a6b13142e3afb7e322b813922f9e2b2> ;
       adres:postcode "8930" ;
-      adres:postnaam "Lauwe",
-          "Menen",
-          "Rekkem" .
+      adres:postnaam "Menen" .
   <https://data.vlaanderen.be/id/postinfo/8930> mu:uuid "2eaec3d5-48e6-4eb7-b125-1f89e0f216d3" .
 
   <https://data.vlaanderen.be/id/postinfo/8940> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/91b5a93c37280c2436914d51e60baef7bb96a4621466a6037584946c0d491609> ;
       adres:postcode "8940" ;
-      adres:postnaam "Geluwe",
-          "Wervik" .
+      adres:postnaam "Wervik" .
   <https://data.vlaanderen.be/id/postinfo/8940> mu:uuid "4425b1de-5d52-4011-a35e-66159acbae76" .
 
   <https://data.vlaanderen.be/id/postinfo/8950> a adres:Postinfo ;
@@ -2865,16 +2423,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8970> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/850ac9122214304ed5aaaa70dfd8bdf7bf0d3d495b0668640a6e086a1b10a30a> ;
       adres:postcode "8970" ;
-      adres:postnaam "Poperinge",
-          "Reningelst" .
+      adres:postnaam "Poperinge" .
   <https://data.vlaanderen.be/id/postinfo/8970> mu:uuid "b332e7c0-7735-4d37-bdbb-ff9611a227aa" .
 
   <https://data.vlaanderen.be/id/postinfo/8972> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/850ac9122214304ed5aaaa70dfd8bdf7bf0d3d495b0668640a6e086a1b10a30a> ;
       adres:postcode "8972" ;
-      adres:postnaam "Krombeke",
-          "Proven",
-          "Roesbrugge-Haringe" .
+      adres:postnaam "Poperinge" .
   <https://data.vlaanderen.be/id/postinfo/8972> mu:uuid "a8592240-db03-4068-aeb9-6bfdd2e6f1a6" .
 
   <https://data.vlaanderen.be/id/postinfo/8978> a adres:Postinfo ;
@@ -2886,11 +2441,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/8980> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/1304249e2e98a91b876f5222cb289b8e8cfaf84e130948795f918e93f9167bc1> ;
       adres:postcode "8980" ;
-      adres:postnaam "Beselare",
-          "Geluveld",
-          "Passendale",
-          "Zandvoorde",
-          "Zonnebeke" .
+      adres:postnaam "Zonnebeke" .
   <https://data.vlaanderen.be/id/postinfo/8980> mu:uuid "76c62c47-6ccb-41d7-9cee-8d832368d695" .
 
   <https://data.vlaanderen.be/id/postinfo/9000> a adres:Postinfo ;
@@ -2932,23 +2483,19 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9042> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/ce94eeae827cdc5c00f3f2f4276ff628580edefb3aa5861e4669b0c5d93adc57> ;
       adres:postcode "9042" ;
-      adres:postnaam "Desteldonk",
-          "Mendonk",
-          "Sint-Kruis-Winkel" .
+      adres:postnaam "Gent" .
   <https://data.vlaanderen.be/id/postinfo/9042> mu:uuid "ce89c74e-069b-4238-8807-772d2a566a21" .
 
   <https://data.vlaanderen.be/id/postinfo/9050> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/ce94eeae827cdc5c00f3f2f4276ff628580edefb3aa5861e4669b0c5d93adc57> ;
       adres:postcode "9050" ;
-      adres:postnaam "Gentbrugge",
-          "Ledeberg" .
+      adres:postnaam "Gent" .
   <https://data.vlaanderen.be/id/postinfo/9050> mu:uuid "4b700bf4-8cc9-4edf-aaf8-6c301277a293" .
 
   <https://data.vlaanderen.be/id/postinfo/9051> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/ce94eeae827cdc5c00f3f2f4276ff628580edefb3aa5861e4669b0c5d93adc57> ;
       adres:postcode "9051" ;
-      adres:postnaam "Afsnee",
-          "Sint-Denijs-Westrem" .
+      adres:postnaam "Gent" .
   <https://data.vlaanderen.be/id/postinfo/9051> mu:uuid "0c4b3916-6cdb-4103-8173-77f4e8c094f1" .
 
   <https://data.vlaanderen.be/id/postinfo/9052> a adres:Postinfo ;
@@ -2966,31 +2513,25 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9070> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/c390151b9698fd323a7c021f36085f0e2e2ce84fd2aee26a70ed5553bb98c032> ;
       adres:postcode "9070" ;
-      adres:postnaam "Destelbergen",
-          "Heusden" .
+      adres:postnaam "Destelbergen" .
   <https://data.vlaanderen.be/id/postinfo/9070> mu:uuid "72f0e805-8747-4fa1-915d-27240a077967" .
 
   <https://data.vlaanderen.be/id/postinfo/9080> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f1552be4471af0742d8ea03cd8596900c634a66f67e1fbc130d79f655de0240e> ;
       adres:postcode "9080" ;
-      adres:postnaam "Beervelde",
-          "Lochristi",
-          "Zaffelare",
-          "Zeveneken" .
+      adres:postnaam "Lochristi" .
   <https://data.vlaanderen.be/id/postinfo/9080> mu:uuid "0e51a124-7cfb-4fac-9b8e-bc4da7d5ee9d" .
 
   <https://data.vlaanderen.be/id/postinfo/9090> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/72b7b5aabad11c6b9d247e3c714b07145acac1c86084ec7bf0f4b0d8dbebd03e> ;
       adres:postcode "9090" ;
-      adres:postnaam "Gontrode",
-          "Melle" .
+      adres:postnaam "Melle" .
   <https://data.vlaanderen.be/id/postinfo/9090> mu:uuid "ea192cf5-7608-4fc1-8b5f-b310934b5967" .
 
   <https://data.vlaanderen.be/id/postinfo/9100> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/d627c2dfdfc539a95a791916b85b5de4d2cc3ecf5c8dfa44e7c9bad8a7c69824> ;
       adres:postcode "9100" ;
-      adres:postnaam "Nieuwkerken-Waas",
-          "Sint-Niklaas" .
+      adres:postnaam "Sint-Niklaas" .
   <https://data.vlaanderen.be/id/postinfo/9100> mu:uuid "ba5a55f5-fcfc-4fe6-b7ff-eef470c812dd" .
 
   <https://data.vlaanderen.be/id/postinfo/9111> a adres:Postinfo ;
@@ -3008,35 +2549,25 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9140> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/31b63d953c84130d22cdac7258ab5845634078ca415e379322a4a045d3495bdc> ;
       adres:postcode "9140" ;
-      adres:postnaam "Elversele",
-          "Steendorp",
-          "Temse",
-          "Tielrode" .
+      adres:postnaam "Temse" .
   <https://data.vlaanderen.be/id/postinfo/9140> mu:uuid "fb585a7f-3c25-4958-870c-5012a4e6e154" .
 
   <https://data.vlaanderen.be/id/postinfo/9150> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/4257b4b87f9bc4b6ee50ddb606d473cbdf274eed9c5e3e4edb43d3cf5fffd68c> ;
       adres:postcode "9150" ;
-      adres:postnaam "Bazel",
-          "Kruibeke",
-          "Rupelmonde" .
+      adres:postnaam "Kruibeke" .
   <https://data.vlaanderen.be/id/postinfo/9150> mu:uuid "c985ac9e-a655-424d-9d91-95643d54dc85" .
 
   <https://data.vlaanderen.be/id/postinfo/9160> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/4afbdfef4de7314c2637a9f950b13bb9b0b4eaaf3413c0bd5d0600852a9d7cb3> ;
       adres:postcode "9160" ;
-      adres:postnaam "Daknam",
-          "Eksaarde",
-          "Lokeren" .
+      adres:postnaam "Lokeren" .
   <https://data.vlaanderen.be/id/postinfo/9160> mu:uuid "19052bf1-d3b7-49bd-9f96-8f29ccc0af10" .
 
   <https://data.vlaanderen.be/id/postinfo/9170> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/7bbd72efc5f83ea1e22c75f707d613b2b4cca1617f9a7a9da42a2ab56ef7dfe4> ;
       adres:postcode "9170" ;
-      adres:postnaam "De Klinge",
-          "Meerdonk",
-          "Sint-Gillis-Waas",
-          "Sint-Pauwels" .
+      adres:postnaam "Sint-Gillis-Waas" .
   <https://data.vlaanderen.be/id/postinfo/9170> mu:uuid "74337d35-4257-4660-9d4c-2b1353831739" .
 
   <https://data.vlaanderen.be/id/postinfo/9185> a adres:Postinfo ;
@@ -3048,36 +2579,25 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9190> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/a0cc5b5e5fa2ff41dfe70066f4e4e579b39c8876c6772e81e0ddfd407d236f16> ;
       adres:postcode "9190" ;
-      adres:postnaam "Kemzeke",
-          "Stekene" .
+      adres:postnaam "Stekene" .
   <https://data.vlaanderen.be/id/postinfo/9190> mu:uuid "5db4e275-fe5a-4e45-a8fb-8c6c0af498c8" .
 
   <https://data.vlaanderen.be/id/postinfo/9200> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/ac8f96b85d9764b461769832b8e3d2d1d788e08b36bc336e7097ef75f547e8a6> ;
       adres:postcode "9200" ;
-      adres:postnaam "Appels",
-          "Baasrode",
-          "Dendermonde",
-          "Grembergen",
-          "Mespelare",
-          "Oudegem",
-          "Schoonaarde",
-          "Sint-Gillis-Dendermonde" .
+      adres:postnaam "Dendermonde" .
   <https://data.vlaanderen.be/id/postinfo/9200> mu:uuid "5516b7e6-27fe-405c-9a10-8e6b478ed073" .
 
   <https://data.vlaanderen.be/id/postinfo/9220> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/998374783068b461f8b601836c160d02d8d38763dbb3443be3c997fc2c511211> ;
       adres:postcode "9220" ;
-      adres:postnaam "Hamme",
-          "Moerzeke" .
+      adres:postnaam "Hamme" .
   <https://data.vlaanderen.be/id/postinfo/9220> mu:uuid "b9faa63e-6c4d-4df9-abb5-b60899482fc8" .
 
   <https://data.vlaanderen.be/id/postinfo/9230> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/04b960ebb408067f39b6d50a5906784041a7d5faf7a94d2f78e25b00a9485fe3> ;
       adres:postcode "9230" ;
-      adres:postnaam "Massemen",
-          "Westrem",
-          "Wetteren" .
+      adres:postnaam "Wetteren" .
   <https://data.vlaanderen.be/id/postinfo/9230> mu:uuid "294f09a9-7e13-407d-a69d-26d90f33074c" .
 
   <https://data.vlaanderen.be/id/postinfo/9240> a adres:Postinfo ;
@@ -3095,39 +2615,31 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9255> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/6c6dcdc5ea2a8eb3d951b9149e7979afa4c7f86143a7576ce9c480e33f26cd7d> ;
       adres:postcode "9255" ;
-      adres:postnaam "Buggenhout",
-          "Opdorp" .
+      adres:postnaam "Buggenhout" .
   <https://data.vlaanderen.be/id/postinfo/9255> mu:uuid "482bc72b-0218-4580-85b7-b71cfcee1d2b" .
 
   <https://data.vlaanderen.be/id/postinfo/9260> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/1f543ee991d187aea8795cc18caa7cf21f937db76a0dbb46323439ef22515638> ;
       adres:postcode "9260" ;
-      adres:postnaam "Schellebelle",
-          "Serskamp",
-          "Wichelen" .
+      adres:postnaam "Wichelen" .
   <https://data.vlaanderen.be/id/postinfo/9260> mu:uuid "a65453a8-239e-426d-afcb-a1ed781467f5" .
 
   <https://data.vlaanderen.be/id/postinfo/9270> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/12e9d5279d133da429acd93351354027544fd0e911e5e0b547922dac1ae5b712> ;
       adres:postcode "9270" ;
-      adres:postnaam "Kalken",
-          "Laarne" .
+      adres:postnaam "Laarne" .
   <https://data.vlaanderen.be/id/postinfo/9270> mu:uuid "bf273e7b-4f05-4d7e-b240-aa16bb7b2cdd" .
 
   <https://data.vlaanderen.be/id/postinfo/9280> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f0c436f912e82844077f466ea4f67832bea65fdaf362d01fe6c13b0694fbdbbd> ;
       adres:postcode "9280" ;
-      adres:postnaam "Denderbelle",
-          "Lebbeke",
-          "Wieze" .
+      adres:postnaam "Lebbeke" .
   <https://data.vlaanderen.be/id/postinfo/9280> mu:uuid "eb51b8b3-e505-4853-bd86-c8fad821c055" .
 
   <https://data.vlaanderen.be/id/postinfo/9290> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/0951c9f94b18dbdefe8cc0113840dad069d5ad9515abafbc0580ec61049fd40f> ;
       adres:postcode "9290" ;
-      adres:postnaam "Berlare",
-          "Overmere",
-          "Uitbergen" .
+      adres:postnaam "Berlare" .
   <https://data.vlaanderen.be/id/postinfo/9290> mu:uuid "b4b637a8-78df-4b37-a8fa-c9b842ac90dc" .
 
   <https://data.vlaanderen.be/id/postinfo/9300> a adres:Postinfo ;
@@ -3139,46 +2651,31 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9308> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e60532b5e10070b48664b998e12af31cd4e612a0b8d089804d0bbed3d4ecc969> ;
       adres:postcode "9308" ;
-      adres:postnaam "Gijzegem",
-          "Hofstade" .
+      adres:postnaam "Aalst" .
   <https://data.vlaanderen.be/id/postinfo/9308> mu:uuid "21368049-48a2-4afd-9ce4-a8efab24f290" .
 
   <https://data.vlaanderen.be/id/postinfo/9310> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e60532b5e10070b48664b998e12af31cd4e612a0b8d089804d0bbed3d4ecc969> ;
       adres:postcode "9310" ;
-      adres:postnaam "Baardegem",
-          "Herdersem",
-          "Meldert",
-          "Moorsel" .
+      adres:postnaam "Aalst" .
   <https://data.vlaanderen.be/id/postinfo/9310> mu:uuid "9591789f-df5f-42b5-82b2-e8cec3a88d98" .
 
   <https://data.vlaanderen.be/id/postinfo/9320> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e60532b5e10070b48664b998e12af31cd4e612a0b8d089804d0bbed3d4ecc969> ;
       adres:postcode "9320" ;
-      adres:postnaam "Erembodegem",
-          "Nieuwerkerken" .
+      adres:postnaam "Aalst" .
   <https://data.vlaanderen.be/id/postinfo/9320> mu:uuid "9ee38b50-ea27-43e2-bd08-ccd3ebca61bf" .
 
   <https://data.vlaanderen.be/id/postinfo/9340> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/c0e2c8b4fb6d754f6a8ea4739266f8d45e5b399eb1ed2844d8033105c84b0a3f> ;
       adres:postcode "9340" ;
-      adres:postnaam "Impe",
-          "Lede",
-          "Oordegem",
-          "Smetlede",
-          "Wanzele" .
+      adres:postnaam "Lede" .
   <https://data.vlaanderen.be/id/postinfo/9340> mu:uuid "1ca5c678-33ab-4163-983c-a74f8c0385c4" .
 
   <https://data.vlaanderen.be/id/postinfo/9400> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/3a98b84c7f0d534580e7cd3b9ffe5358c17481887c48a1403890b4c654929108> ;
       adres:postcode "9400" ;
-      adres:postnaam "Appelterre-Eichem",
-          "Denderwindeke",
-          "Lieferinge",
-          "Nederhasselt",
-          "Ninove",
-          "Okegem",
-          "Voorde" .
+      adres:postnaam "Ninove" .
   <https://data.vlaanderen.be/id/postinfo/9400> mu:uuid "9155a9ab-2204-462d-b8b5-3022b7fe1d76" .
 
   <https://data.vlaanderen.be/id/postinfo/9401> a adres:Postinfo ;
@@ -3214,22 +2711,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9420> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e3f558b8d07b85068af0b90ca67b172a6e012cffe9cf5a6126f11fc69f2cee63> ;
       adres:postcode "9420" ;
-      adres:postnaam "Aaigem",
-          "Bambrugge",
-          "Burst",
-          "Erondegem",
-          "Erpe",
-          "Mere",
-          "Ottergem",
-          "Vlekkem" .
+      adres:postnaam "Erpe-Mere".
   <https://data.vlaanderen.be/id/postinfo/9420> mu:uuid "0f140dd5-3ba2-480f-a7f1-a7d067f4b8ed" .
 
   <https://data.vlaanderen.be/id/postinfo/9450> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/462b480175bf5940e2c30b9eaf8ab67a3a122cbd78ae9b738eff67e285320111> ;
       adres:postcode "9450" ;
-      adres:postnaam "Denderhoutem",
-          "Haaltert",
-          "Heldergem" .
+      adres:postnaam "Haaltert" .
   <https://data.vlaanderen.be/id/postinfo/9450> mu:uuid "020a0ee6-7035-465c-9194-5250670e878d" .
 
   <https://data.vlaanderen.be/id/postinfo/9451> a adres:Postinfo ;
@@ -3259,37 +2747,19 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9500> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/5514a2266e30ce16b55f64fbe774f07d1469e50a1296ea2e0b856f27df05a29d> ;
       adres:postcode "9500" ;
-      adres:postnaam "Geraardsbergen",
-          "Goeferdinge",
-          "Moerbeke",
-          "Nederboelare",
-          "Onkerzele",
-          "Ophasselt",
-          "Overboelare",
-          "Viane",
-          "Zarlardinge" .
+      adres:postnaam "Geraardsbergen" .
   <https://data.vlaanderen.be/id/postinfo/9500> mu:uuid "f2957406-45a3-4070-83a2-7e36734b9ff7" .
 
   <https://data.vlaanderen.be/id/postinfo/9506> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/5514a2266e30ce16b55f64fbe774f07d1469e50a1296ea2e0b856f27df05a29d> ;
       adres:postcode "9506" ;
-      adres:postnaam "Grimminge",
-          "Idegem",
-          "Nieuwenhove",
-          "Schendelbeke",
-          "Smeerebbe-Vloerzegem",
-          "Waarbeke",
-          "Zandbergen" .
+      adres:postnaam "Geraardsbergen" .
   <https://data.vlaanderen.be/id/postinfo/9506> mu:uuid "2a991819-2d60-4c35-b14b-77a80d28da10" .
 
   <https://data.vlaanderen.be/id/postinfo/9520> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f93b1a11f1c41e5290fffe85d397298e24b6b6eb9fa19826a818e4fe77a1c2e0> ;
       adres:postcode "9520" ;
-      adres:postnaam "Bavegem",
-          "Oombergen",
-          "Sint-Lievens-Houtem",
-          "Vlierzele",
-          "Zonnegem" .
+      adres:postnaam "Sint-Lievens-Houtem" .
   <https://data.vlaanderen.be/id/postinfo/9520> mu:uuid "23c70b91-ce45-4e2f-8e5a-70debc3c6790" .
 
   <https://data.vlaanderen.be/id/postinfo/9521> a adres:Postinfo ;
@@ -3301,12 +2771,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9550> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/62176b3a93e1d8e274770a1c02a8736ab7c4df55ffbf916aea8b18ce28022ea4> ;
       adres:postcode "9550" ;
-      adres:postnaam "Herzele",
-          "Hillegem",
-          "Sint-Antelinks",
-          "Sint-Lievens-Esse",
-          "Steenhuize-Wijnhuize",
-          "Woubrechtegem" .
+      adres:postnaam "Herzele" .
   <https://data.vlaanderen.be/id/postinfo/9550> mu:uuid "49574913-73db-4fdb-a262-5bd9c89bde87" .
 
   <https://data.vlaanderen.be/id/postinfo/9551> a adres:Postinfo ;
@@ -3324,8 +2789,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9570> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/cb716478f219cdddd70485ded094ab9537eff1b83d48614d278600c622e6093c> ;
       adres:postcode "9570" ;
-      adres:postnaam "Deftinge",
-          "Sint-Maria-Lierde" .
+      adres:postnaam "Lierde" .
   <https://data.vlaanderen.be/id/postinfo/9570> mu:uuid "84e232f9-6108-448e-828e-870d1bef0bee" .
 
   <https://data.vlaanderen.be/id/postinfo/9571> a adres:Postinfo ;
@@ -3349,33 +2813,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9620> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/5c642b6c11a6d93da01eb3d791c8d4cd3d5af0b3f05fe30994fed5b881d9928d> ;
       adres:postcode "9620" ;
-      adres:postnaam "Elene",
-          "Erwetegem",
-          "Godveerdegem",
-          "Grotenberge",
-          "Leeuwergem",
-          "Oombergen",
-          "Sint-Goriks-Oudenhove",
-          "Sint-Maria-Oudenhove",
-          "Strijpen",
-          "Velzeke-Ruddershove",
-          "Zottegem" .
+      adres:postnaam "Zottegem" .
   <https://data.vlaanderen.be/id/postinfo/9620> mu:uuid "f45cc63a-3421-4ce9-bca2-2f140c90b259" .
 
   <https://data.vlaanderen.be/id/postinfo/9630> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/dc5470b0f5b2517dd3ce70dc84c05ed2c46d4bd5c2cb342fd3da7e07a0548659> ;
       adres:postcode "9630" ;
-      adres:postnaam "Beerlegem",
-          "Dikkele",
-          "Hundelgem",
-          "Meilegem",
-          "Munkzwalm",
-          "Paulatem",
-          "Roborst",
-          "Rozebeke",
-          "Sint-Blasius-Boekel",
-          "Sint-Denijs-Boekel",
-          "Sint-Maria-Latem" .
+      adres:postnaam "Zwalm" .
   <https://data.vlaanderen.be/id/postinfo/9630> mu:uuid "9d095864-803a-4981-b12f-98ef15fff4f8" .
 
   <https://data.vlaanderen.be/id/postinfo/9636> a adres:Postinfo ;
@@ -3387,14 +2831,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9660> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/4b55855dc112b7fa4c37e0b39326fbca2661320ddd964bb8e0d2674394698997> ;
       adres:postcode "9660" ;
-      adres:postnaam "Brakel",
-          "Elst",
-          "Everbeek",
-          "Michelbeke",
-          "Nederbrakel",
-          "Opbrakel",
-          "Sint-Maria-Oudenhove",
-          "Zegelsem" .
+      adres:postnaam "Brakel" .
   <https://data.vlaanderen.be/id/postinfo/9660> mu:uuid "67413ed7-297c-4ba3-9913-2e00e6bfb206" .
 
   <https://data.vlaanderen.be/id/postinfo/9661> a adres:Postinfo ;
@@ -3406,15 +2843,13 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9667> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/dffb8658fde78a0b1dfad647365ceffc4e0eaeda245c1c585cb921490bfc08f0> ;
       adres:postcode "9667" ;
-      adres:postnaam "Sint-Kornelis-Horebeke",
-          "Sint-Maria-Horebeke" .
+      adres:postnaam "Horebeke" .
   <https://data.vlaanderen.be/id/postinfo/9667> mu:uuid "a8011008-b203-4b16-9acf-1c1d1f199c1d" .
 
   <https://data.vlaanderen.be/id/postinfo/9680> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/e63ea5b7c0c91bfd7d3a8aafce138897db494adb189439a7429c673ac0b8bc1b> ;
       adres:postcode "9680" ;
-      adres:postnaam "Etikhove",
-          "Maarke-Kerkem" .
+      adres:postnaam "Maarkedal" .
   <https://data.vlaanderen.be/id/postinfo/9680> mu:uuid "02f754cd-cd22-4737-8d8d-2b6beb971231" .
 
   <https://data.vlaanderen.be/id/postinfo/9681> a adres:Postinfo ;
@@ -3432,37 +2867,19 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9690> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/b6e009a9be36452403c865707617ed1d121f2e28d2ea25fd828c8f7d32dcb3be> ;
       adres:postcode "9690" ;
-      adres:postnaam "Berchem",
-          "Kwaremont",
-          "Ruien",
-          "Zulzeke" .
+      adres:postnaam "Kluisbergen" .
   <https://data.vlaanderen.be/id/postinfo/9690> mu:uuid "9ca4c7bc-461c-4ba5-ba27-2df47520a812" .
 
   <https://data.vlaanderen.be/id/postinfo/9700> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/94a2edbd38ede2a3385e46ec2d6b05e7b020782e435f4f761705142dd08e2978> ;
       adres:postcode "9700" ;
-      adres:postnaam "Bevere",
-          "Edelare",
-          "Eine",
-          "Ename",
-          "Heurne",
-          "Leupegem",
-          "Mater",
-          "Melden",
-          "Mullem",
-          "Nederename",
-          "Ooike",
-          "Oudenaarde",
-          "Volkegem",
-          "Welden" .
+      adres:postnaam "Oudenaarde" .
   <https://data.vlaanderen.be/id/postinfo/9700> mu:uuid "b8ed892e-1e6e-43d5-b3f5-a0f6891001ee" .
 
   <https://data.vlaanderen.be/id/postinfo/9750> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/bestuurseenheden/4feed9de-8b89-4803-83c4-c1eaa69d7369> ;
       adres:postcode "9750" ;
-      adres:postnaam "Huise",
-          "Ouwegem",
-          "Zingem" .
+      adres:postnaam "Kruisem" .
   <https://data.vlaanderen.be/id/postinfo/9750> mu:uuid "681d48f4-a9d5-4cb5-b33a-2e06bf57b1a7" .
 
   <https://data.vlaanderen.be/id/postinfo/9770> a adres:Postinfo ;
@@ -3486,45 +2903,25 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9790> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/0fa91578b713516d090ad3ae3f5a0c43ca291f5f7e451926302ad2b8348881df> ;
       adres:postcode "9790" ;
-      adres:postnaam "Elsegem",
-          "Moregem",
-          "Ooike",
-          "Petegem-aan-de-Schelde",
-          "Wortegem" .
+      adres:postnaam "Wortegem-Petegem" .
   <https://data.vlaanderen.be/id/postinfo/9790> mu:uuid "72b05a63-076a-4e2d-bb96-225b2024aad4" .
 
   <https://data.vlaanderen.be/id/postinfo/9800> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/56e8ec85-e03f-4168-b062-737f9704cd2a> ;
       adres:postcode "9800" ;
-      adres:postnaam "Astene",
-          "Bachte-Maria-Leerne",
-          "Deinze",
-          "Gottem",
-          "Grammene",
-          "Meigem",
-          "Petegem-aan-de-Leie",
-          "Sint-Martens-Leerne",
-          "Vinkt",
-          "Wontergem",
-          "Zeveren" .
+      adres:postnaam "Deinze" .
   <https://data.vlaanderen.be/id/postinfo/9800> mu:uuid "a4edbf8c-05a1-46ae-90d5-5228ad4bb459" .
 
   <https://data.vlaanderen.be/id/postinfo/9810> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/f5e6249a32bfdb673e1a79b5575d8a8cf2831083051d5e5137a49e48966369d4> ;
       adres:postcode "9810" ;
-      adres:postnaam "Eke",
-          "Nazareth" .
+      adres:postnaam "Nazareth" .
   <https://data.vlaanderen.be/id/postinfo/9810> mu:uuid "92f91c33-995b-4fa0-af47-6591642b4163" .
 
   <https://data.vlaanderen.be/id/postinfo/9820> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/38f8bb87f2a0c0f4ac1e39c846ba15f559843c81ecadddd0d0efbcb70334cef5> ;
       adres:postcode "9820" ;
-      adres:postnaam "Bottelare",
-          "Lemberge",
-          "Melsen",
-          "Merelbeke",
-          "Munte",
-          "Schelderode" .
+      adres:postnaam "Merelbeke" .
   <https://data.vlaanderen.be/id/postinfo/9820> mu:uuid "e731f58d-da90-409a-adf9-665926daac2a" .
 
   <https://data.vlaanderen.be/id/postinfo/9830> a adres:Postinfo ;
@@ -3542,46 +2939,31 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9840> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/acfaca9156320d6ba6f5959e31c8a27d8ea52da0a3294dc2ead6db718ecee7c0> ;
       adres:postcode "9840" ;
-      adres:postnaam "De Pinte",
-          "Zevergem" .
+      adres:postnaam "De Pinte" .
   <https://data.vlaanderen.be/id/postinfo/9840> mu:uuid "13b768d9-931e-4d08-8bdd-31f5f6293bcd" .
 
   <https://data.vlaanderen.be/id/postinfo/9850> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/56e8ec85-e03f-4168-b062-737f9704cd2a> ;
       adres:postcode "9850" ;
-      adres:postnaam "Hansbeke",
-          "Landegem",
-          "Merendree",
-          "Nevele",
-          "Poesele",
-          "Vosselare" .
+      adres:postnaam "Deinze" .
   <https://data.vlaanderen.be/id/postinfo/9850> mu:uuid "bbfa5b77-574a-46d4-98dc-2f43a915fc51" .
 
   <https://data.vlaanderen.be/id/postinfo/9860> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/50d273c8b3b662005892a2cc5867d644929c1d5937c9b0dbab37e187c9e22fd6> ;
       adres:postcode "9860" ;
-      adres:postnaam "Balegem",
-          "Gijzenzele",
-          "Landskouter",
-          "Moortsele",
-          "Oosterzele",
-          "Scheldewindeke" .
+      adres:postnaam "Oosterzele" .
   <https://data.vlaanderen.be/id/postinfo/9860> mu:uuid "44a11354-3a6f-4781-99be-221886872448" .
 
   <https://data.vlaanderen.be/id/postinfo/9870> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/2a115be95e03a6a5fe7592b8f65bca19016f4ccebce7f1ab2570c7bff86941fa> ;
       adres:postcode "9870" ;
-      adres:postnaam "Machelen",
-          "Olsene",
-          "Zulte" .
+      adres:postnaam "Zulte" .
   <https://data.vlaanderen.be/id/postinfo/9870> mu:uuid "a5acd62b-2755-4a60-b8e0-c24b880b230b" .
 
   <https://data.vlaanderen.be/id/postinfo/9880> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/a0e4508a-a20b-42e5-a40d-4d919d045fdd> ;
       adres:postcode "9880" ;
-      adres:postnaam "Aalter",
-          "Lotenhulle",
-          "Poeke" .
+      adres:postnaam "Aalter" .
   <https://data.vlaanderen.be/id/postinfo/9880> mu:uuid "96f78a6c-1cb6-4ec1-b4ea-c62add5ed310" .
 
   <https://data.vlaanderen.be/id/postinfo/9881> a adres:Postinfo ;
@@ -3593,12 +2975,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9890> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/3ae076ccf5d1a28e46528608842a54ad04a150c7835e3a85e6a8c7f07e8442a7> ;
       adres:postcode "9890" ;
-      adres:postnaam "Asper",
-          "Baaigem",
-          "Dikkelvenne",
-          "Gavere",
-          "Semmerzake",
-          "Vurste" .
+      adres:postnaam "Gavere" .
   <https://data.vlaanderen.be/id/postinfo/9890> mu:uuid "c2fbd141-30bc-425f-9082-5488f0153e31" .
 
   <https://data.vlaanderen.be/id/postinfo/9900> a adres:Postinfo ;
@@ -3610,8 +2987,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9910> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/a0e4508a-a20b-42e5-a40d-4d919d045fdd> ;
       adres:postcode "9910" ;
-      adres:postnaam "Knesselare",
-          "Ursel" .
+      adres:postnaam "Aalter" .
   <https://data.vlaanderen.be/id/postinfo/9910> mu:uuid "530f967e-2470-41cc-9af0-3351aa226916" .
 
   <https://data.vlaanderen.be/id/postinfo/9920> a adres:Postinfo ;
@@ -3647,10 +3023,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9940> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/77ffc3aeeb71012615f3d6fc9823c50bd8328b0776fe7c6081a8100b6adeb17a> ;
       adres:postcode "9940" ;
-      adres:postnaam "Ertvelde",
-          "Evergem",
-          "Kluizen",
-          "Sleidinge" .
+      adres:postnaam "Evergem" .
   <https://data.vlaanderen.be/id/postinfo/9940> mu:uuid "8af36e02-82fd-4b2c-91cc-db8fe6ebd5a0" .
 
   <https://data.vlaanderen.be/id/postinfo/9950> a adres:Postinfo ;
@@ -3674,8 +3047,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9968> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/564b447d1b57e671612f60ef8fd380e9d01397d598a40f37947bd5e7eb4f7266> ;
       adres:postcode "9968" ;
-      adres:postnaam "Bassevelde",
-          "Oosteeklo" .
+      adres:postnaam "Assenede" .
   <https://data.vlaanderen.be/id/postinfo/9968> mu:uuid "fb3f15dd-d67d-46c0-b69f-bf7bfe812df4" .
 
   <https://data.vlaanderen.be/id/postinfo/9970> a adres:Postinfo ;
@@ -3711,8 +3083,7 @@ INSERT DATA {
   <https://data.vlaanderen.be/id/postinfo/9988> a adres:Postinfo ;
       geo:sfWithin <http://data.lblod.info/id/werkingsgebieden/41b3bbc2707be32488ac52b8697b68b6004bd1947b0ffa09e3c143a6bd671722> ;
       adres:postcode "9988" ;
-      adres:postnaam "Waterland-Oudeman",
-          "Watervliet" .
+      adres:postnaam "Sint-Laureins" .
   <https://data.vlaanderen.be/id/postinfo/9988> mu:uuid "861bbb09-7894-4419-ab03-aa9e0f2b1a44" .
 
   <https://data.vlaanderen.be/id/postinfo/9990> a adres:Postinfo ;
