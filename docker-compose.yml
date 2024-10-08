@@ -27,8 +27,6 @@ services:
       - "logging=true"
     environment:
       MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
-    links:
-      - database:database
     restart: always
     logging: *default-logging
   dispatcher:
@@ -90,7 +88,7 @@ services:
     restart: always
     logging: *default-logging
   op-consumer:
-    image: lblod/delta-consumer:latest
+    image: lblod/delta-consumer:0.0.24
     environment:
       BATCH_SIZE: 1000
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
@@ -106,15 +104,17 @@ services:
       DCR_ENABLE_DELTA_CONTEXT: "true"
       BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
       INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
+      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
+      SUDO_QUERY_RETRY: "true"
     volumes:
       - ./config/consumer/op:/config/triples-dispatching/custom-dispatching
       - ./data/files/consumer-files/op:/consumer-files/
-    links:
-      - virtuoso:database
+    labels:
+      - "logging=true"
     restart: always
     logging: *default-logging
   harvester-consumer:
-    image: lblod/delta-consumer:latest
+    image: lblod/delta-consumer:0.0.24
     environment:
       DCR_SERVICE_NAME: "harvester-consumer"
       DCR_SYNC_FILES_PATH: "/sync/verenigingen/files"
@@ -129,16 +129,21 @@ services:
       DCR_DISABLE_INITIAL_SYNC: "true"
       BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
       INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
+      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
+      SUDO_QUERY_RETRY: "true"
     volumes:
       - ./config/consumer/harvester:/config/triples-dispatching/custom-dispatching
       - ./data/files/consumer-files/verenigingen:/consumer-files/
-    links:
-      - virtuoso:database
+    labels:
+      - "logging=true"
     restart: always
     logging: *default-logging
   download:
     image: lblod/verenigingsloket-download-service:1.0.0
+    labels:
+      - "logging=true"
     restart: always
+    logging: *default-logging
   login:
     image: lblod/acmidm-login-service:0.9.2
     environment:
@@ -149,14 +154,17 @@ services:
       MU_APPLICATION_AUTH_CLIENT_ID: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
       MU_APPLICATION_AUTH_REDIRECT_URI: "https://verenigingen-loket.lblod.info/authorization/callback"
       MU_APPLICATION_AUTH_CLIENT_SECRET: "secret"
+    labels:
+      - "logging=true"
     restart: always
+    logging: *default-logging
   reasoner:
     image: eyereasoner/reasoning-service:increased-stack-limit
     volumes:
       - ./config/reasoner:/config
-    restart: always
     labels:
       - "logging=true"
+    restart: always
     logging: *default-logging
   dispatcher-associations:
     image: lblod/verenigingen-graph-dispatcher:1.0.1
@@ -177,23 +185,29 @@ services:
     logging: *default-logging
   search:
     image: semtech/mu-search:0.9.1
-    links:
-      - database:database
-    restart: always
     volumes:
       - ./config/search:/config
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
   elasticsearch:
     image: semtech/mu-search-elastic-backend:1.0.1
     volumes:
       - ./data/elasticsearch/:/usr/share/elasticsearch/data
     environment:
       - discovery.type=single-node
+    labels:
+      - "logging=true"
     restart: always
+    logging: *default-logging
   file:
     image: semtech/mu-file-service:3.4.0
     environment:
       MU_APPLICATION_FILE_STORAGE_PATH: recognitions
-    links:
-      - database:database
     volumes:
       - ./data/files:/share
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging

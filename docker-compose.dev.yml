@@ -1,12 +1,20 @@
 version: "3.7"
 services:
+  frontend:
+    restart: "no"
   identifier:
+    ports:
+      - "80:80"
+    restart: "no"
+  accountdetail:
     restart: "no"
   dispatcher:
     restart: "no"
   database:
     restart: "no"
   virtuoso:
+    ports:
+      - "8890:8890"
     restart: "no"
   migrations:
     restart: "no"
@@ -14,10 +22,26 @@ services:
     restart: "no"
   resource:
     restart: "no"
+  op-consumer:
+    restart: "no"
+  harvester-consumer:
+    restart: "no"
+  download:
+    restart: "no"
   login:
     restart: "no"
   mocklogin:
     image: lblod/mock-login-service:latest
-    links:
-      - database:database
+    restart: "no"
+  reasoner:
+    restart: "no"
+  dispatcher-associations:
+    restart: "no"
+  delta-notifier:
+    restart: "no"
+  search:
+    restart: "no"
+  elasticsearch:
+    restart: "no"
+  file:
     restart: "no"
