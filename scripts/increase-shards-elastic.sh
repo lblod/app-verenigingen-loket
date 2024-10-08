@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 ELASTICSEARCH_ENDPOINT="localhost:9200"
 CLUSTER_SETTINGS='{
   "persistent": {

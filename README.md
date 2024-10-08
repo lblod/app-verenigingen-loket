@@ -6,7 +6,7 @@ This repository harvest two setups. The base of these setups resides in the stan
 
 - _docker-compose.yml_ This provides you with the backend components. There is a frontend application included which you can publish using a separate proxy (we tend to put a letsencrypt proxy in front).
 - _docker-compose.dev.yml_ Provides changes for a good frontend development setup.
-  - publishes the database instance on port 8890 so you can easily see what content is stored in the base triplestore
+  - publishes the virtuoso instance on port 8890 so you can easily see what content is stored in the base triplestore
   - provides a mock-login backend service so you don't need the ACM/IDM integration.
 
 ## Running and maintaining
@@ -65,7 +65,6 @@ HTTP/WebDAV server online at 8890
 Server online at 1111 (pid 1)
 ```
 
-Stop the service, usually `ctrl+c`
 Then run the migrations
 
 ```
