@@ -12018,7 +12018,7 @@
         {
             "type": "association",
             "on_path": "associations",
-            "rdf_type": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging",
+            "rdf_type": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging",
             "properties": {
                 "type": "http://www.w3.org/1999/02/22-rdf-syntax-ns#type",
                 "name": "http://www.w3.org/2004/02/skos/core#prefLabel",

@@ -339,7 +339,7 @@ async function moveToOrgGraph(muUpdate, endpoint){
                 adres:postnaam ?name .
 
         ?association
-                a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging>  ;
+                a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging>  ;
                 ?x ?y ;
                 org:hasPrimarySite ?primarySite .
 

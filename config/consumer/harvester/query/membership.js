@@ -1,6 +1,6 @@
 const MEMBERSHIP_QUERY = `INSERT {
   GRAPH ?g {
-    ?association a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> ;
+    ?association a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging> ;
                  org:hasMembership ?membership .
     ?membership a org:Membership ;
                 mu:uuid ?membershipUuid ;
