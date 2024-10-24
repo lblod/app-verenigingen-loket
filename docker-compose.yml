@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-verenigingen-loket:1.1.0
+    image: lblod/frontend-verenigingen-loket:1.2.1
     links:
       - identifier:backend
     labels:
@@ -139,7 +139,7 @@ services:
     restart: always
     logging: *default-logging
   download:
-    image: lblod/verenigingsloket-download-service:1.0.0
+    image: lblod/verenigingsloket-download-service:1.1.1
     labels:
       - "logging=true"
     restart: always
