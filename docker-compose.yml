@@ -139,7 +139,7 @@ services:
     restart: always
     logging: *default-logging
   download:
-    image: lblod/verenigingsloket-download-service:1.1.1
+    image: lblod/verenigingsloket-download-service:1.1.2
     labels:
       - "logging=true"
     restart: always
@@ -167,7 +167,7 @@ services:
     restart: always
     logging: *default-logging
   dispatcher-associations:
-    image: lblod/verenigingen-graph-dispatcher:1.0.1
+    image: lblod/verenigingen-graph-dispatcher:1.0.2
     environment:
       LOGLEVEL: "info"
       SUDO_QUERY_RETRY: "true"
