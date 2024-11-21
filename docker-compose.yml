@@ -23,10 +23,10 @@ services:
     logging: *default-logging
   accountdetail:
     image: lblod/account-detail-service:0.1.0
+    #environment:
+    #  MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
     labels:
       - "logging=true"
-    environment:
-      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
     restart: always
     logging: *default-logging
   dispatcher:
@@ -38,9 +38,10 @@ services:
     restart: always
     logging: *default-logging
   database:
-    image: semtech/sparql-parser:0.0.6
+    image: semtech/sparql-parser:0.0.11
     volumes:
       - ./config/cl-authorization:/config
+      - ./data/cl-authorization:/data/
     labels:
       - "logging=true"
     restart: always
@@ -87,8 +88,16 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  update-bestuurseenheid-mock-login:
+    image: lblod/update-bestuurseenheid-mock-login-service:0.3.2
+    volumes:
+      - ./config/mock-login:/config
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
   op-consumer:
-    image: lblod/delta-consumer:0.0.24
+    image: lblod/delta-consumer:0.0.26
     environment:
       BATCH_SIZE: 1000
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
@@ -98,16 +107,18 @@ services:
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
       DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
       DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
-      DCR_KEEP_DELTA_FILES: "true"
       DCR_DELTA_FILE_FOLDER: "/consumer-files"
-      DCR_DISABLE_DELTA_INGEST: "false"
-      DCR_ENABLE_DELTA_CONTEXT: "true"
-      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
-      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
+      DCR_DISABLE_INITIAL_SYNC: "true"
+      DCR_KEEP_DELTA_FILES: "true"
+      DCR_DELTA_JOBS_RETENTION_PERIOD: "30"
+      DCR_ENABLE_TRIPLE_REMAPPING: "true"
+      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/op-consumer"
+      DCR_REMAPPING_GRAPH: "http://mu.semte.ch/graphs/public"
+      DCR_BATCH_SIZE: 1000
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
       SUDO_QUERY_RETRY: "true"
     volumes:
-      - ./config/consumer/op:/config/triples-dispatching/custom-dispatching
+      - ./config/consumer/op/mapping:/config/mapping
       - ./data/files/consumer-files/op:/consumer-files/
     labels:
       - "logging=true"
@@ -149,19 +160,11 @@ services:
     environment:
       MU_APPLICATION_AUTH_USERID_CLAIM: "vo_id"
       MU_APPLICATION_AUTH_ROLE_CLAIM: "abb_loketverenigingenapp_rol_3d"
-      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
+      #MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
       MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op"
       MU_APPLICATION_AUTH_CLIENT_ID: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
       MU_APPLICATION_AUTH_REDIRECT_URI: "https://verenigingen-loket.lblod.info/authorization/callback"
       MU_APPLICATION_AUTH_CLIENT_SECRET: "secret"
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  reasoner:
-    image: eyereasoner/reasoning-service:increased-stack-limit
-    volumes:
-      - ./config/reasoner:/config
     labels:
       - "logging=true"
     restart: always
