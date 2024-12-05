@@ -22,6 +22,8 @@ services:
     restart: "no"
   resource:
     restart: "no"
+  update-bestuurseenheid-mock-login:
+    restart: "no"
   op-consumer:
     restart: "no"
   harvester-consumer:
@@ -32,8 +34,6 @@ services:
     restart: "no"
   mocklogin:
     image: lblod/mock-login-service:latest
-    restart: "no"
-  reasoner:
     restart: "no"
   dispatcher-associations:
     restart: "no"
