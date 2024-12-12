@@ -1,9 +1,9 @@
-const {PREFIXES} = require("./query/prefix");
-const {ASSOCIATION_QUERY} = require("./query/association");
-const {MEMBERSHIP_QUERY} = require("./query/membership");
-const {CONTACTPOINT_QUERY} = require("./query/contactpoint");
-const {SITE_QUERY} = require("./query/site");
-const {ACTIVITIES_QUERY} = require("./query/activities");
+const { PREFIXES } = require("./query/prefix");
+const { ASSOCIATION_QUERY } = require("./query/association");
+const { MEMBERSHIP_QUERY } = require("./query/membership");
+const { CONTACTPOINT_QUERY } = require("./query/contactpoint");
+const { SITE_QUERY } = require("./query/site");
+const { ACTIVITIES_QUERY } = require("./query/activities");
 
 
 async function batchedDbUpdate(
@@ -23,7 +23,7 @@ async function batchedDbUpdate(
 
     const batch = triples.slice(i, i + batchSize).join('\n');
 
-    console.log({batch, triples});
+    console.log({ batch, triples });
 
     const insertCall = async () => {
       await muUpdate(`
@@ -32,7 +32,7 @@ async function batchedDbUpdate(
       ${batch}
       }
       }
-`, extraHeaders, endpoint);
+`, extraHeaders, { sparqlEndpoint: endpoint });
     };
 
     await operationWithRetry(insertCall, 0, maxAttempts, sleepTimeOnFail);
@@ -73,48 +73,48 @@ async function operationWithRetry(callback,
 
 
 
-async function moveToOrgGraph(muUpdate, endpoint) {
+async function moveToOrgGraph(muUpdate, extraHeaders, endpoint) {
   await muUpdate(
-     `${PREFIXES}
+    `${PREFIXES}
      ${ASSOCIATION_QUERY}
     `,
-     undefined,
-     endpoint
+    extraHeaders,
+    { sparqlEndpoint: endpoint }
   )
   // MEMBERSHIP
   await muUpdate(
-     `${PREFIXES}
+    `${PREFIXES}
        ${MEMBERSHIP_QUERY}
       `,
-     undefined,
-     endpoint
+    extraHeaders,
+    { sparqlEndpoint: endpoint }
   )
   // CONTACTPOINT
   await muUpdate(
-     `${PREFIXES}
+    `${PREFIXES}
      ${CONTACTPOINT_QUERY}
     `,
-     undefined,
-     endpoint
+    extraHeaders,
+    { sparqlEndpoint: endpoint }
   )
   // SITES
   await muUpdate(
-     `
+    `
 ${PREFIXES}
 ${SITE_QUERY}
     `,
-     undefined,
-     endpoint
+    extraHeaders,
+    { sparqlEndpoint: endpoint }
   )
-// ACTIVITIES
+  // ACTIVITIES
   await muUpdate(
     `
 ${PREFIXES}
 ${ACTIVITIES_QUERY}
    `,
-    undefined,
-    endpoint
- )
+    extraHeaders,
+    { sparqlEndpoint: endpoint }
+  )
 }
 
 module.exports = {

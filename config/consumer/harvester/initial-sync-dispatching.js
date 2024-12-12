@@ -1,4 +1,4 @@
-const {  moveToOrgGraph, batchedDbUpdate } = require('./util')
+const { moveToOrgGraph, batchedDbUpdate } = require('./util')
 
 const {
   BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES,
@@ -29,8 +29,8 @@ const endpoint = BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES
  *         ]
  * @return {void} Nothing
  */
-async function dispatch (lib, data) {
-  const { mu,muAuthSudo } = lib
+async function dispatch(lib, data) {
+  const { mu, muAuthSudo } = lib
 
   const triples = data.termObjects.map(
     o => `${o.subject} ${o.predicate} ${o.object}.`
@@ -54,12 +54,12 @@ async function dispatch (lib, data) {
   )
 }
 
-async function onFinishInitialIngest (lib) {
+async function onFinishInitialIngest(lib) {
   const { muAuthSudo } = lib
 
   console.log(`!! On-finish triggered !!`)
 
-  await moveToOrgGraph(muAuthSudo.updateSudo, endpoint)
+  await moveToOrgGraph(muAuthSudo.updateSudo, { 'mu-call-scope-id': MU_CALL_SCOPE_ID_INITIAL_SYNC }, endpoint)
 }
 
 module.exports = {
