@@ -1,0 +1,13 @@
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX reorg: <http://www.w3.org/ns/regorg#>
+CONSTRUCT {
+  ?activity skos:topConceptOf <http://data.vlaanderen.be/id/conceptscheme/VerenigingActiviteitenCode/6c10d98a-9089-4fe8-ba81-3ed136db0265> ;
+    skos:inScheme <http://data.vlaanderen.be/id/conceptscheme/VerenigingActiviteitenCode/6c10d98a-9089-4fe8-ba81-3ed136db0265> .
+    <http://data.vlaanderen.be/id/conceptscheme/VerenigingActiviteitenCode/6c10d98a-9089-4fe8-ba81-3ed136db0265> skos:hasTopConcept ?activity .
+    ?activity a skos:Concept.
+}
+WHERE {
+  ?association reorg:orgActivity ?activity .
+
+  
+}

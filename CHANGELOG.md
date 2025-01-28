@@ -1,4 +1,97 @@
 # Changelog
+## Unreleased
+
+### deploy instructions
+```
+drc down
+rm -rf data
+drc up -d migrations # wait for successs
+```
+On production only update `docker-compose.override.yml` to:
+```
+  virtuoso:
+    volumes:
+      - ./config/virtuoso/virtuoso-production.ini:/data/virtuoso.ini
+```
+(Consider doing the same on QA if it helps)
+
+Then start ingesting `OP` master data.
+
+Update `docker-compose.override.yml` to:
+
+```
+  op-consumer:
+    environment:
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be" # choose the correct endpoint
+      DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+```
+Then:
+```
+drc up -d database op-consumer
+# Wait until success of the previous step
+drc up -d update-bestuurseenheid-mock-login
+# Wait until it boots, before running the next command. You can also wait the cron-job kicks in.
+drc exec update-bestuurseenheid-mock-login curl -X POST http://localhost/heal-mock-logins
+# Takes about 20 min with prod data
+```
+Then, update `docker-compose.override.yml` to:
+```
+  op-consumer:
+    environment:
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be" # choose the correct endpoint
+      DCR_LANDING_ZONE_DATABASE: "database"
+      DCR_REMAPPING_DATABASE: "database"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+```
+```
+drc up -d op-consumer
+```
+Then update the `verenigen-harvester` master data
+
+Update `docker-compose.override.yml` to:
+```
+  harvester-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+      BATCH_SIZE: 2000
+      SLEEP_BETWEEN_BATCHES: 1
+      DCR_SYNC_BASE_URL: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be"
+      DCR_SYNC_LOGIN_ENDPOINT: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be/sync/verenigingen/login"
+      DCR_SECRET_KEY: "THE KEY"
+```
+
+```
+drc up -d database harvester-consumer # wait until this message: delta-sync-queue: Remaining number of tasks 0
+```
+Update `docker-compose.override.yml` to:
+```
+  harvester-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "database" # Restore to database
+      DCR_REMAPPING_DATABASE: "database" # Restore to database
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+      BATCH_SIZE: 2000
+      SLEEP_BETWEEN_BATCHES: 1
+      DCR_SYNC_BASE_URL: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be"
+      DCR_SYNC_LOGIN_ENDPOINT: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be/sync/verenigingen/login"
+      DCR_SECRET_KEY: "THE KEY"
+```
+
+```
+drc up -d
+```
+Then kick the `mu-search` to do its thing:
+```
+/bin/bash ./scripts/reset-elastic.sh
+```
 
 ## 1.1.2 (2024-10-24)
 - [#19](https://github.com/lblod/app-verenigingen-loket/pull/19) [CLBV-930] Fix zwijndrecht's name ([@wolfderechter](https://github.com/wolfderechter))
