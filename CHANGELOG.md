@@ -1,7 +1,9 @@
 # Changelog
-## Unreleased
-
-### deploy instructions
+## 1.2.0 (2025-01-28)
+### Changes
+ - Lots of mini bugfixes.
+ - Ensure now only one graph, making accessible all verenigingen for all bestuurseenheden.
+### Deploy instructions
 ```
 drc down
 rm -rf data
@@ -92,7 +94,6 @@ Then kick the `mu-search` to do its thing:
 ```
 /bin/bash ./scripts/reset-elastic.sh
 ```
-
 ## 1.1.2 (2024-10-24)
 - [#19](https://github.com/lblod/app-verenigingen-loket/pull/19) [CLBV-930] Fix zwijndrecht's name ([@wolfderechter](https://github.com/wolfderechter))
 - [#16](https://github.com/lblod/app-verenigingen-loket/pull/16) [CLBV-914] Updated postalcodes ([@wolfderechter](https://github.com/wolfderechter))
