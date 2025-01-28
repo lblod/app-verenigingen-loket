@@ -68,7 +68,7 @@ Update `docker-compose.override.yml` to:
 ```
 
 ```
-drc up -d database harvester-consumer # wait until it finishes
+drc up -d database harvester-consumer # wait until this message: delta-sync-queue: Remaining number of tasks 0
 ```
 Update `docker-compose.override.yml` to:
 ```
@@ -86,7 +86,7 @@ Update `docker-compose.override.yml` to:
 ```
 
 ```
-drc up -d harvester-consumer # wait until this message: delta-sync-queue: Remaining number of tasks 0
+drc up -d
 ```
 Then kick the `mu-search` to do its thing:
 ```
