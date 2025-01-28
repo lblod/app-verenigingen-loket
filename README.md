@@ -48,36 +48,95 @@ COMPOSE_FILE=docker-compose.yml:docker-compose.dev.yml:docker-compose.override.y
 ```
 
 ##### If you start for the first time
+```
+drc down
+rm -rf data
+drc up -d migrations # wait for successs
+```
+On production only update `docker-compose.override.yml` to:
+```
+  virtuoso:
+    volumes:
+      - ./config/virtuoso/virtuoso-production.ini:/data/virtuoso.ini
+```
+(Consider doing the same on QA if it helps)
 
-The loket app is huge, and a lot of data is being intialized. We want to make sure you don't overload your machine too much doing this the first time.
-It's an optional step, if you trust your machine is powerful enough, you can move on.
-This step should only be done once.
-First start virtuoso and let it setup itself
+Then start ingesting `OP` master data.
+
+Update `docker-compose.override.yml` to:
 
 ```
-docker-compose up virtuoso
+  op-consumer:
+    environment:
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be" # choose the correct endpoint
+      DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+```
+Then:
+```
+drc up -d database op-consumer
+# Wait until success of the previous step
+drc up -d update-bestuurseenheid-mock-login
+# Wait until it boots, before running the next command. You can also wait the cron-job kicks in.
+drc exec update-bestuurseenheid-mock-login curl -X POST http://localhost/heal-mock-logins
+# Takes about 20 min with prod data
+```
+Then, update `docker-compose.override.yml` to:
+```
+  op-consumer:
+    environment:
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be" # choose the correct endpoint
+      DCR_LANDING_ZONE_DATABASE: "database"
+      DCR_REMAPPING_DATABASE: "database"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+```
+```
+drc up -d op-consumer
+```
+Then update the `verenigen-harvester` master data
+
+Update `docker-compose.override.yml` to:
+```
+  harvester-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+      BATCH_SIZE: 2000
+      SLEEP_BETWEEN_BATCHES: 1
+      DCR_SYNC_BASE_URL: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be"
+      DCR_SYNC_LOGIN_ENDPOINT: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be/sync/verenigingen/login"
+      DCR_SECRET_KEY: "THE KEY"
 ```
 
-Wait for the logs
+```
+drc up -d database harvester-consumer # wait until this message: delta-sync-queue: Remaining number of tasks 0
+```
+Update `docker-compose.override.yml` to:
+```
+  harvester-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "database" # Restore to database
+      DCR_REMAPPING_DATABASE: "database" # Restore to database
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+      BATCH_SIZE: 2000
+      SLEEP_BETWEEN_BATCHES: 1
+      DCR_SYNC_BASE_URL: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be"
+      DCR_SYNC_LOGIN_ENDPOINT: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be/sync/verenigingen/login"
+      DCR_SECRET_KEY: "THE KEY"
+```
 
 ```
-HTTP/WebDAV server online at 8890
-Server online at 1111 (pid 1)
+drc up -d
 ```
-
-Then run the migrations
-
+Then kick the `mu-search` to do its thing:
 ```
-drc up migrations
-```
-
-This will take a while. You may choose to monitor the migrations service in a separate terminal to and wait for the overview of all migrations to appear: `docker-compose logs -f --tail=100 migrations`. When finished it should look similar to this:
-
-```
-[2023-04-07 20:13:15] INFO  WEBrick 1.4.2
-[2023-04-07 20:13:15] INFO  ruby 2.5.1 (2018-03-29) [x86_64-linux]
-== Sinatra (v1.4.8) has taken the stage on 80 for production with backup from WEBrick
-[2023-04-07 20:13:15] INFO  WEBrick::HTTPServer#start: pid=13 port=80
+/bin/bash ./scripts/reset-elastic.sh
 ```
 
 ##### Normal start
