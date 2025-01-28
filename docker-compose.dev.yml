@@ -17,6 +17,8 @@ services:
       - "8890:8890"
     restart: "no"
   migrations:
+    volumes:
+      - ./config/dev-migrations:/data/migrations/dev
     restart: "no"
   cache:
     restart: "no"
