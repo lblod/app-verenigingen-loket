@@ -87,31 +87,40 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  update-bestuurseenheid-mock-login:
+    image: lblod/update-bestuurseenheid-mock-login-service:0.4.0
+    volumes:
+      - ./config/mock-login:/config
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
   op-consumer:
     image: lblod/delta-consumer:0.1.0
     environment:
-      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
       DCR_SERVICE_NAME: "op-consumer"
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
       DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
       DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump"
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
       DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
       DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
+      DCR_DISABLE_INITIAL_SYNC: "true"
       DCR_KEEP_DELTA_FILES: "true"
       DCR_DELTA_JOBS_RETENTION_PERIOD: 30
+      DCR_ENABLE_TRIPLE_REMAPPING: "true"
+      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/organizations-public-info"
+      DCR_REMAPPING_GRAPH: "http://mu.semte.ch/graphs/public"
+      DCR_BATCH_SIZE: 1000
       DCR_DELTA_FILE_FOLDER: "/consumer-files"
-      INGEST_GRAPH: "http://mu.semte.ch/graphs/public"
-      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
       SUDO_QUERY_RETRY: "true"
-      SLEEP_BETWEEN_BATCHES: 100
-      DCR_BATCH_SIZE: 10000 # TODO: this is confusing bit in the API -> refers to the chunks of the read stream of the dumpfile of the intiial sync
-      BATCH_SIZE: 10000 # TODO: this is confusing bit in the API -> refers to the chunks of the ingestion in the database
     volumes:
+      - ./config/consumer/op/mapping:/config/mapping
       - ./data/files/consumer-files/op:/consumer-files/
+    restart: always
     labels:
       - "logging=true"
-    restart: always
     logging: *default-logging
   harvester-consumer:
     image: lblod/delta-consumer:0.1.0
