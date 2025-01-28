@@ -158,14 +158,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  reasoner:
-    image: eyereasoner/reasoning-service:increased-stack-limit
-    volumes:
-      - ./config/reasoner:/config
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   dispatcher-associations:
     image: lblod/verenigingen-graph-dispatcher:1.0.1
     environment:
