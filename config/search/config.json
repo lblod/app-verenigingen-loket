@@ -3,45 +3,33 @@
     "persist_indexes": true,
     "update_wait_interval_minutes": 1,
     "number_of_threads": 8,
-    "eager_indexing_groups": [
+    "ignored_allowed_groups": [{ "name": "org", "variables": ["*"] }],
+     "eager_indexing_groups": [
         [
             {
                 "variables": [],
-                "name": "clean"
+                "name": "public"
             }
         ],
+
         [
-            {
-                "variables": [
-                ],
-                "name": "org"
-            },
             {
                 "variables": [],
                 "name": "public"
             },
             {
-                "variables": [
-                    "LoketLB-verenigingenLezer"
-                ],
-                "name": "verenigingen-loket-lezer"
+                "variables": [],
+                "name": "verenigingen-lezer"
             }
         ],
         [
-            {
-                "variables": [
-                ],
-                "name": "org"
-            },
             {
                 "variables": [],
                 "name": "public"
             },
             {
-                "variables": [
-                    "LoketLB-verenigingenGebruiker"
-                ],
-                "name": "verenigingen-loket-beheerder"
+                "variables": [],
+                "name": "verenigingen-beheerder"
             }
         ]
     ],

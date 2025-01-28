@@ -81,7 +81,7 @@
   ("core:Concept" -> _)
   ("core:ConceptScheme" -> _))
 
-(define-graph verenigingen-loket ("http://mu.semte.ch/graphs/organizations")
+(define-graph verenigingen ("http://mu.semte.ch/graphs/organizations")
   ;; This is scoped by session_group and role when suppling access rights
   ;; TODO: should this be scoped only on session_group?
   ("nfo:FileDataObject" -> _)
@@ -109,17 +109,17 @@
 (supply-allowed-group "org"
   :query "PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
          PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
-         SELECT ?session_group ?session_role WHERE {
-           <SESSION_ID> ext:sessionGroup/mu:uuid ?session_group.
+         SELECT ?bestuurseenheid WHERE {
+           <SESSION_ID> ext:sessionGroup/mu:uuid ?bestuurseenheid.
          }"
-  :parameters ("session_group"))
+  :parameters ("bestuurseenheid"))
 
-(supply-allowed-group "verenigingen-loket-beheerder"
+(supply-allowed-group "verenigingen-beheerder"
   :query (query-for-access-by-role "LoketLB-verenigingenGebruiker")
   ;; TODO: does this need session_role?
   :parameters ())
 
-(supply-allowed-group "verenigingen-loket-lezer"
+(supply-allowed-group "verenigingen-lezer"
   :query (query-for-access-by-role "LoketLB-verenigingenLezer")
   ;; TODO: does this need session_role?
   :parameters ())
@@ -136,10 +136,10 @@
        :for "org")
 
 (grant (read write)
-       :to verenigingen-loket
-       :for "verenigingen-loket-beheerder")
+       :to verenigingen
+       :for "verenigingen-beheerder")
 
 (grant (read )
        ;; TODO: if session_role is removed from the allowed_group, write should be removed here
-       :to verenigingen-loket
-       :for "verenigingen-loket-lezer")
+       :to verenigingen
+       :for "verenigingen-lezer")

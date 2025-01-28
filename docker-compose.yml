@@ -185,7 +185,7 @@ services:
     restart: always
     logging: *default-logging
   search:
-    image: semtech/mu-search:0.10.0
+    image: semtech/mu-search:feature-ignored_allowed_groups
     volumes:
       - ./config/search:/config
     labels:
