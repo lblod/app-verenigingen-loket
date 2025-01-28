@@ -17,8 +17,6 @@ services:
       - "8890:8890"
     restart: "no"
   migrations:
-    volumes:
-      - ./config/dev-migrations:/data/migrations/dev
     restart: "no"
   cache:
     restart: "no"
@@ -34,8 +32,6 @@ services:
     restart: "no"
   mocklogin:
     image: lblod/mock-login-service:latest
-    restart: "no"
-  reasoner:
     restart: "no"
   dispatcher-associations:
     restart: "no"
