@@ -712,7 +712,7 @@
         },
         "awarded-by": {
           "predicate": "fv:toegekendDoor",
-          "target": "administrative-unit",
+          "target": "governing-body",
           "cardinality": "one"
         },
         "association": {
