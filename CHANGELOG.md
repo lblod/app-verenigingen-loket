@@ -1,4 +1,18 @@
 # Changelog
+## 1.2.1 (2025-01-28)
+- multiple updates/clean ups
+### Deploy instructions
+#### production
+```
+drc down;
+drc up -d --remove-orphans
+```
+#### development/local
+```
+git fetch origin
+git reset --hard origin/development
+```
+
 ## 1.2.0 (2025-01-28)
 ### Changes
  - Lots of mini bugfixes.
