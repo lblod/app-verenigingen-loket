@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-verenigingen-loket:1.2.3
+    image: lblod/frontend-verenigingen-loket:1.2.6
     links:
       - identifier:backend
     labels:
@@ -87,7 +87,7 @@ services:
     restart: always
     logging: *default-logging
   update-bestuurseenheid-mock-login:
-    image: lblod/update-bestuurseenheid-mock-login-service:0.3.2
+    image: lblod/update-bestuurseenheid-mock-login-service:0.4.0
     volumes:
       - ./config/mock-login:/config
     labels:
@@ -95,58 +95,57 @@ services:
     restart: always
     logging: *default-logging
   op-consumer:
-    image: lblod/delta-consumer:0.0.26
+    image: lblod/delta-consumer:0.1.0
     environment:
-      BATCH_SIZE: 1000
-      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
       DCR_SERVICE_NAME: "op-consumer"
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
       DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
       DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump"
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
       DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
       DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
-      DCR_DELTA_FILE_FOLDER: "/consumer-files"
       DCR_DISABLE_INITIAL_SYNC: "true"
       DCR_KEEP_DELTA_FILES: "true"
-      DCR_DELTA_JOBS_RETENTION_PERIOD: "30"
+      DCR_DELTA_JOBS_RETENTION_PERIOD: 30
       DCR_ENABLE_TRIPLE_REMAPPING: "true"
-      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/op-consumer"
+      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/organizations-public-info"
       DCR_REMAPPING_GRAPH: "http://mu.semte.ch/graphs/public"
       DCR_BATCH_SIZE: 1000
+      DCR_DELTA_FILE_FOLDER: "/consumer-files"
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
       SUDO_QUERY_RETRY: "true"
     volumes:
       - ./config/consumer/op/mapping:/config/mapping
       - ./data/files/consumer-files/op:/consumer-files/
+    restart: always
     labels:
       - "logging=true"
-    restart: always
     logging: *default-logging
   harvester-consumer:
-    image: lblod/delta-consumer:0.0.24
+    image: lblod/delta-consumer:0.1.0
     environment:
       DCR_SERVICE_NAME: "harvester-consumer"
+      DCR_SYNC_BASE_URL: "https://harvester.verenigingen-loket.lblod.info" # replace with link to Loket API
       DCR_SYNC_FILES_PATH: "/sync/verenigingen/files"
       DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/lblod-harvester/VerenigingenCacheGraphDump"
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/verenigingen"
       DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/verenigingenDeltaFileSyncing"
       DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/verenigingen-consumer"
-      DCR_KEEP_DELTA_FILES: "true"
-      DCR_DISABLE_DELTA_INGEST: "false"
-      DCR_ENABLE_DELTA_CONTEXT: "true"
-      DCR_DELTA_FILE_FOLDER: "/consumer-files"
       DCR_DISABLE_INITIAL_SYNC: "true"
-      BYPASS_MU_AUTH_FOR_EXPENSIVE_QUERIES: "true"
-      INGEST_GRAPH: "http://mu.semte.ch/graphs/ingest"
+      DCR_KEEP_DELTA_FILES: "true"
+      DCR_DELTA_JOBS_RETENTION_PERIOD: "30"
+      DCR_ENABLE_TRIPLE_REMAPPING: "true"
+      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/verenigingen-harvester"
+      DCR_REMAPPING_GRAPH: "http://mu.semte.ch/graphs/organizations"
+      DCR_BATCH_SIZE: 1000
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
       SUDO_QUERY_RETRY: "true"
     volumes:
-      - ./config/consumer/harvester:/config/triples-dispatching/custom-dispatching
-      - ./data/files/consumer-files/verenigingen:/consumer-files/
+      - ./config/consumer/harvester/mapping:/config/mapping
+      - ./data/files/consumer-files/harvester:/consumer-files/
+    restart: always
     labels:
       - "logging=true"
-    restart: always
-    logging: *default-logging
   download:
     image: lblod/verenigingsloket-download-service:1.1.1
     labels:
@@ -154,7 +153,7 @@ services:
     restart: always
     logging: *default-logging
   login:
-    image: lblod/acmidm-login-service:0.9.2
+    image: lblod/acmidm-login-service:0.11.0
     environment:
       MU_APPLICATION_AUTH_USERID_CLAIM: "vo_id"
       MU_APPLICATION_AUTH_ROLE_CLAIM: "abb_loketverenigingenapp_rol_3d"
@@ -162,15 +161,6 @@ services:
       MU_APPLICATION_AUTH_CLIENT_ID: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
       MU_APPLICATION_AUTH_REDIRECT_URI: "https://verenigingen-loket.lblod.info/authorization/callback"
       MU_APPLICATION_AUTH_CLIENT_SECRET: "secret"
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
-  dispatcher-associations:
-    image: lblod/verenigingen-graph-dispatcher:1.0.1
-    environment:
-      LOGLEVEL: "info"
-      SUDO_QUERY_RETRY: "true"
     labels:
       - "logging=true"
     restart: always
@@ -184,7 +174,7 @@ services:
     restart: always
     logging: *default-logging
   search:
-    image: semtech/mu-search:0.9.1
+    image: semtech/mu-search:feature-ignored_allowed_groups
     volumes:
       - ./config/search:/config
     labels:

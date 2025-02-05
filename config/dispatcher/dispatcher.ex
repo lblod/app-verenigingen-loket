@@ -54,6 +54,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/concept-schemes/"
   end
 
+  match "/concepts/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/concept/"
+  end
+
     match "/site-type/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/site-types/"
   end

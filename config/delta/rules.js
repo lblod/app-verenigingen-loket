@@ -1,5 +1,3 @@
-import dispatcherAssociations from './dispatcher-associations';
-
 export default [
   {
     match: {},
@@ -24,6 +22,5 @@ export default [
       gracePeriod: 10000,
       ignoreFromSelf: true
     }
-  },
-  ...dispatcherAssociations,
+  }
 ];

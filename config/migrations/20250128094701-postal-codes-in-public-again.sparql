@@ -1,0 +1,23 @@
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+
+DELETE {
+  GRAPH ?g {
+    ?postInfo a adres:Postinfo ;
+              ?p ?o .
+  }
+}
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?postInfo a adres:Postinfo ;
+              ?p ?o .
+  }
+}
+WHERE {
+  GRAPH ?g {
+    ?postInfo a adres:Postinfo ;
+              ?p ?o.
+  }
+}

@@ -35,8 +35,6 @@ services:
   mocklogin:
     image: lblod/mock-login-service:latest
     restart: "no"
-  dispatcher-associations:
-    restart: "no"
   delta-notifier:
     restart: "no"
   search:
