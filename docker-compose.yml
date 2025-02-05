@@ -166,15 +166,6 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
-  dispatcher-associations:
-    image: lblod/verenigingen-graph-dispatcher:1.0.1
-    environment:
-      LOGLEVEL: "info"
-      SUDO_QUERY_RETRY: "true"
-    labels:
-      - "logging=true"
-    restart: always
-    logging: *default-logging
   delta-notifier:
     image: semtech/mu-delta-notifier:0.2.0
     volumes:
