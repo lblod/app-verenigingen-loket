@@ -41,6 +41,7 @@ services:
     image: semtech/sparql-parser:0.0.13
     volumes:
       - ./config/cl-authorization:/config
+      - ./data/authorization:/data
     labels:
       - "logging=true"
     restart: always
