@@ -1,4 +1,12 @@
 # Changelog
+## Unreleased
+- frontend [v1.2.8](https://github.com/lblod/frontend-verenigingen-loket/blob/082687017de29713bb58ae9f73c5d964c11a61c1/CHANGELOG.md#v128-2025-02-06)
+
+### Deploy instructions
+```
+drc up -d frontend
+```
+
 ## 1.2.1 (2025-01-28)
 - multiple updates/clean ups
 ### Deploy instructions
