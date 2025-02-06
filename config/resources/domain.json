@@ -352,10 +352,55 @@
           "predicate": "org:classification",
           "target": "administrative-unit-classification-code",
           "cardinality": "one"
+        },
+        "governing-bodies": {
+          "predicate": "besluit:bestuurt",
+          "target": "governing-body",
+          "cardinality": "many",
+          "inverse": true
         }
       },
       "new-resource-base": "http://data.lblod.info/id/bestuurseenheden/"
     },
+    "governing-bodies": {
+      "name": "governing-body",
+      "class": "besluit:Bestuursorgaan",
+      "attributes": {
+        "start": {
+          "type": "date",
+          "predicate": "mandaat:bindingStart"
+        },
+        "end": {
+          "type": "date",
+          "predicate": "mandaat:bindingEinde"
+        }
+      },
+      "relationships": {
+        "governing-body": {
+          "predicate": "generiek:isTijdspecialisatieVan",
+          "target": "governing-body",
+          "cardinality": "one"
+        },
+        "governing-bodies-in-time": {
+          "predicate": "generiek:isTijdspecialisatieVan",
+          "target": "governing-body",
+          "cardinality": "many",
+          "inverse": true
+        },
+        "administrative-unit": {
+          "predicate": "besluit:bestuurt",
+          "target": "administrative-unit",
+          "cardinality": "one"
+        },
+        "classification": {
+          "predicate": "org:classification",
+          "target": "concept",
+          "cardinality": "one"
+        }
+      },
+      "new-resource-base": "http://data.lblod.info/id/bestuursorganen/"
+    },
+
     "identifiers": {
       "name": "identifier",
       "class": "adms:Identifier",
@@ -667,7 +712,7 @@
         },
         "awarded-by": {
           "predicate": "fv:toegekendDoor",
-          "target": "administrative-unit",
+          "target": "governing-body",
           "cardinality": "one"
         },
         "association": {
