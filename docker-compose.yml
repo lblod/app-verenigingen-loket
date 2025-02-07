@@ -140,6 +140,7 @@ services:
       DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/verenigingen-harvester"
       DCR_REMAPPING_GRAPH: "http://mu.semte.ch/graphs/organizations"
       DCR_BATCH_SIZE: 1000
+      DCR_DELTA_FILE_FOLDER: "/consumer-files"
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
       SUDO_QUERY_RETRY: "true"
     volumes:
