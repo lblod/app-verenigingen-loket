@@ -66,6 +66,10 @@
         "created": {
           "type": "datetime",
           "predicate": "dct:created"
+        },
+        "subject": {
+          "type": "url",
+          "predicate": "dct:subject"
         }
       },
       "relationships": {
