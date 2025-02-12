@@ -1,7 +1,14 @@
 # Changelog
 ## 1.3.0 (2025-02-12)
-- backend: CLBV-954
-- frontend:
+### general
+Lots of fixes:
+- CLBV-797: postcode filter
+- CLBV-957: change the way data is loaded for activities
+- CLBV-951: change governing body on save erkenning
+- CLBV-954: Download spreadsheet functionality
+- CLBV-958: Improved fuzzy search
+- CLBV-959: fix herstel filter
+### frontend
   - update excel download
   - [v1.2.10](https://github.com/lblod/frontend-verenigingen-loket/blob/d3337b4a3aaf414517115b1e3508a34e51e8f240/CHANGELOG.md#v1210-2025-02-10)
   - [v1.2.9](https://github.com/lblod/frontend-verenigingen-loket/blob/a5d9cadb85f647f533153f9a57f1ae5f906a0a6e/CHANGELOG.md#v129-2025-02-06)
