@@ -150,7 +150,11 @@ services:
     labels:
       - "logging=true"
   download:
-    image: lblod/verenigingsloket-download-service:1.1.1
+    image: lblod/verenigingsloket-download-service:2.0.0-rc.1
+    environment:
+      CRON_PATTERN_SPREADSHEET_JOB: "0 0 * * *"
+    volumes:
+      - ./data/files:/share
     labels:
       - "logging=true"
     restart: always
