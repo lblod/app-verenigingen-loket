@@ -1,4 +1,7 @@
 # Changelog
+## Unreleased
+- CLBV-965: Fix an issue with file downloads in Firefox
+
 ## 1.3.0 (2025-02-12)
 ### general
 Lots of fixes:
