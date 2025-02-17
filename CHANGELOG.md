@@ -1,4 +1,7 @@
 # Changelog
+## 1.3.2 (2025-02-17)
+### General
+- https://github.com/lblod/app-verenigingen-loket/pull/32
 ## 1.3.1 (2025-02-13)
 ## Frontend
 - CLBV-965: Fix an issue with file downloads in Firefox
