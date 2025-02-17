@@ -114,14 +114,6 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/organization-status-codes/"
   end
 
-  match "/download/*path", %{ layer: :api } do
-    Proxy.forward conn, path, "http://download/download/"
-  end
-
-  match "/json-ld/*path", %{ layer: :api } do
-    Proxy.forward conn, path, "http://download/json-ld/"
-  end
-
   match "/persons/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/persons/"
   end
@@ -144,15 +136,6 @@ defmodule Dispatcher do
 
   match "/sessions/*path" do
     Proxy.forward conn, path, "http://login/sessions/"
-  end
-  match "/download/*path", %{ accept: [:any], layer: :api} do
-    Proxy.forward conn, path, "http://download/download/"
-  end
-  match "/storeData/*path", %{ accept: [:any], layer: :api} do
-    Proxy.forward conn, path, "http://download/storeData/"
-  end
-  match "/status/*path", %{ accept: [:any], layer: :api} do
-    Proxy.forward conn, path, "http://download/status/"
   end
 
   ###############################################################
