@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## 1.3.3 (2025-02-26)
 - CLBV-970: Fix an issue with file downloads in Chrome
 
 ## 1.3.2 (2025-02-17)
