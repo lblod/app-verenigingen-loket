@@ -1,4 +1,7 @@
 # Changelog
+## Unreleased
+- CLBV-970: Fix an issue with file downloads in Chrome
+
 ## 1.3.2 (2025-02-17)
 ### General
 - https://github.com/lblod/app-verenigingen-loket/pull/32
