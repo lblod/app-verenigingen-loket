@@ -121,8 +121,8 @@ defmodule Dispatcher do
 
   match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
     Proxy.forward conn, path, "http://controle-login-proxied/sessions/"
+  end
 
-   end
   match "/sessions/*path" do
     Proxy.forward conn, path, "http://controle-login/sessions/"
   end
@@ -159,11 +159,6 @@ defmodule Dispatcher do
   match "/*_path", %{ layer: :frontend } do
     Proxy.forward conn, [], "http://controle-frontend/index.html"
   end
-
-
-
-
-
 
   match "/*_", %{accept: [:any], layer: :not_found} do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
