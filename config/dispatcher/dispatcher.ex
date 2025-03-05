@@ -152,11 +152,6 @@ defmodule Dispatcher do
   #   FRONTEND
   ###############################################################
 
-
-  match "/assets/*path", %{ layer: :api } do
-    Proxy.forward conn, path, "http://frontend/assets/"
-  end
-
   match "/assets/*path", %{ layer: :api } do
     Proxy.forward conn, path, "http://frontend/assets/"
   end
