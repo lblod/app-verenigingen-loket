@@ -88,7 +88,7 @@ defmodule Dispatcher do
   end
 
   match "/users/*path" do
-    forward conn, path, "http://cache/users/"
+    Proxy.forward conn, path, "http://cache/users/"
   end
 
   match "/associations/*path", %{ accept: [:json], layer: :api} do
