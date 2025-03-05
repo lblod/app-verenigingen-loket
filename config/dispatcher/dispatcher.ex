@@ -95,10 +95,6 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/governing-bodies/"
   end
 
-  match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
-    Proxy.forward conn, path, "http://mocklogin/sessions/"
-  end
-
   match "/users/*path" do
     Proxy.forward conn, path, "http://cache/users/"
   end
@@ -129,6 +125,10 @@ defmodule Dispatcher do
 
   match "/postal-codes/*path", %{ accept: [:any], layer: :api} do
     Proxy.forward conn, path, "http://cache/postal-codes/"
+  end
+
+  match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://mocklogin/sessions/"
   end
 
   match "/sessions/*path" do
