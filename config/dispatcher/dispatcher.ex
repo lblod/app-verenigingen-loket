@@ -135,6 +135,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://login/sessions/"
   end
 
+  match "/groups/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://resource/administrative-units/"
+  end
+
   ###############################################################
   # SEARCH
   ###############################################################
@@ -167,10 +171,6 @@ defmodule Dispatcher do
 
   match "/*_path", %{ layer: :frontend } do
     Proxy.forward conn, [], "http://frontend/index.html"
-  end
-
-  match "/groups/*path", %{ accept: [:json], layer: :api} do
-    Proxy.forward conn, path, "http://resource/administrative-units/"
   end
 
   match "/*_", %{accept: [:any], layer: :not_found} do
