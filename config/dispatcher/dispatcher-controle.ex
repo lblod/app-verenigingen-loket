@@ -51,6 +51,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/concept-schemes/"
   end
 
+  match "/concepts/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/concepts/"
+  end
+
     match "/site-type/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/site-types/"
   end
@@ -87,8 +91,12 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/administrative-units/"
   end
 
+  match "/governing-bodies/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/governing-bodies/"
+  end
+
   match "/users/*path" do
-    forward conn, path, "http://cache/users/"
+    Proxy.forward conn, path, "http://cache/users/"
   end
 
   match "/associations/*path", %{ accept: [:json], layer: :api} do
@@ -121,8 +129,8 @@ defmodule Dispatcher do
 
   match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
     Proxy.forward conn, path, "http://controle-login-proxied/sessions/"
+  end
 
-   end
   match "/sessions/*path" do
     Proxy.forward conn, path, "http://controle-login/sessions/"
   end
@@ -159,11 +167,6 @@ defmodule Dispatcher do
   match "/*_path", %{ layer: :frontend } do
     Proxy.forward conn, [], "http://controle-frontend/index.html"
   end
-
-
-
-
-
 
   match "/*_", %{accept: [:any], layer: :not_found} do
     send_resp( conn, 404, "Route not found.  See config/dispatcher.ex" )
