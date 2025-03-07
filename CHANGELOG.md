@@ -1,5 +1,12 @@
 # Changelog
+
+# 1.3.4 (2025-03-07)
+
+- CLBV-973: Filters 'Selecteer hoofdactiviteit(en)' and 'Selecteer type(s)' didn't show data
+- CLBV-976: Filter 'Erkend door' didn't show data
+
 ## 1.3.3 (2025-02-26)
+
 - CLBV-970: Fix an issue with file downloads in Chrome
 
 ## 1.3.2 (2025-02-17)
