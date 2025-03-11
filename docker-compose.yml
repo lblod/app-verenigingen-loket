@@ -149,6 +149,7 @@ services:
     restart: always
     labels:
       - "logging=true"
+    logging: *default-logging
   download:
     image: lblod/verenigingsloket-download-service:2.0.0
     environment:
