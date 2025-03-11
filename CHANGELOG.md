@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+- Add missing key to `harvester-consumer`. [DL-6490]
+### Deploy Notes
+```
+drc up -d harvester-consumer
+```
+
 # 1.3.4 (2025-03-07)
 
 - CLBV-973: Filters 'Selecteer hoofdactiviteit(en)' and 'Selecteer type(s)' didn't show data
