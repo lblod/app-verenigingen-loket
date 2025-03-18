@@ -117,7 +117,7 @@ services:
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
       SUDO_QUERY_RETRY: "true"
     volumes:
-      - ./config/consumer/op/mapping:/config/mapping
+      - ./config/delta-consumers/op/mapping:/config/mapping
       - ./data/files/consumer-files/op:/consumer-files/
     restart: always
     labels:
@@ -144,7 +144,7 @@ services:
       SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
       SUDO_QUERY_RETRY: "true"
     volumes:
-      - ./config/consumer/harvester/mapping:/config/mapping
+      - ./config/delta-consumers/harvester/mapping:/config/mapping
       - ./data/files/consumer-files/harvester:/consumer-files/
     restart: always
     labels:
