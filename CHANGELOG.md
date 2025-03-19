@@ -2,9 +2,11 @@
 
 ## Unreleased
 - Add missing key to `harvester-consumer`. [DL-6490]
+- Reorganize delta consumers config to harmonize with the ecosystem
+
 ### Deploy Notes
 ```
-drc up -d harvester-consumer
+drc up -d harvester-consumer op-consumer
 ```
 
 # 1.3.4 (2025-03-07)
