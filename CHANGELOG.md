@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+# 1.4.0 (2025-03-07)
 - Add missing key to `harvester-consumer`. [DL-6490]
 - Reorganize delta consumers config to harmonize with the ecosystem
 
