@@ -4,7 +4,7 @@
     "update_wait_interval_minutes": 1,
     "number_of_threads": 8,
     "ignored_allowed_groups": [{ "name": "org", "variables": ["*"] }],
-     "eager_indexing_groups": [
+    "eager_indexing_groups": [
         [
             {
                 "variables": [],
@@ -77,9 +77,13 @@
                 "description": "http://www.w3.org/2004/02/skos/core#notation",
                 "lastUpdated": "http://purl.org/pav/lastUpdateOn",
                 "createdOn": "http://purl.org/pav/createdOn",
-                "organizationStatus": [
+                "status": [
                   "http://www.w3.org/ns/regorg#orgStatus",
                   "http://www.w3.org/2004/02/skos/core#prefLabel"
+                ],
+                "status_id": [
+                  "http://www.w3.org/ns/regorg#orgStatus",
+                  "http://mu.semte.ch/vocabularies/core/uuid"
                 ],
                 "primarySite": {
                     "via": "http://www.w3.org/ns/org#hasPrimarySite",
@@ -257,6 +261,9 @@
                           "normalizer": "custom_sort_normalizer"
                         }
                       }
+                    },
+                    "status_id": {
+                      "type": "text"
                     },
                     "targetAudience.minimumLeeftijd": {
                         "type": "text",
