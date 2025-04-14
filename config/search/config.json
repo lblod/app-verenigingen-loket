@@ -253,7 +253,7 @@
                             }
                         }
                     },
-                    "organizationStatus": {
+                    "status": {
                       "type": "text",
                       "fields": {
                         "field": {
