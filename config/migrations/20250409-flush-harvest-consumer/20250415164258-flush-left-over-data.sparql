@@ -1,0 +1,45 @@
+DELETE {
+  GRAPH ?g {
+    ?s ?p ?o
+  }
+}
+WHERE {
+  VALUES ?g {
+    <http://mu.semte.ch/graphs/organizations>
+  }
+  VALUES ?s {
+    <https://data.lblod.info/id/verenigingen/V0011575>
+    <https://data.lblod.info/id/verenigingen/V0007115>
+  }
+    VALUES ?p {
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+      <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2004/02/skos/core#prefLabel>
+      <http://www.w3.org/2004/02/skos/core#notation>
+      <https://schema.org/contactPoint>
+      <http://www.w3.org/ns/regorg#orgStatus>
+      <https://data.vlaanderen.be/ns/vertegenwoordigers>
+      <https://data.vlaanderen.be/ns/korteNaam>
+      <http://purl.org/dc/terms/description>
+      <http://www.w3.org/ns/org#hasSite>
+      <http://www.w3.org/ns/org#hasPrimarySite>
+      <http://schema.org/contactPoint>
+      <http://www.w3.org/ns/adms#identifier>
+      <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/doelgroep>
+      <https://data.vlaanderen.be/ns/startdatum>
+      <http://www.w3.org/ns/org#classification>
+      <http://www.w3.org/ns/regorg#orgActivity>
+      <http://www.w3.org/ns/org#hasMembership>
+      <http://purl.org/pav/createdOn>
+      <http://purl.org/pav/lastUpdateOn>
+      <https://data.lblod.info/ns/bron>
+      <https://data.lblod.info/ns/roepnaam>
+      <https://data.lblod.info/ns/isUitgeschrevenUitPubliekeDatastroom>
+      <https://data.lblod.info/ns/korteNaam>
+      <https://data.lblod.info/ns/einddatum>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+    }
+  GRAPH ?g {
+    ?s ?p ?o
+  }
+}
