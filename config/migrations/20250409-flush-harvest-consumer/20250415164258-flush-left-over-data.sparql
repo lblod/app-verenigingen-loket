@@ -1,3 +1,4 @@
+# Clean up of old vereniging data. We are cautious, because some user data might be attached to it
 DELETE {
   GRAPH ?g {
     ?s ?p ?o
@@ -10,7 +11,20 @@ WHERE {
   VALUES ?s {
     <https://data.lblod.info/id/verenigingen/V0011575>
     <https://data.lblod.info/id/verenigingen/V0007115>
+    <https://data.lblod.info/id/verenigingen/V0002224>
+    <https://data.lblod.info/id/verenigingen/V0002197>
+    <https://data.lblod.info/id/verenigingen/V0002177>
+    <https://data.lblod.info/id/verenigingen/V0003123>
+    <https://data.lblod.info/id/verenigingen/V0005960>
+    <https://data.lblod.info/id/verenigingen/V0005959>
+    <https://data.lblod.info/id/verenigingen/V0007052>
+    <https://data.lblod.info/id/verenigingen/V0007002>
+    <https://data.lblod.info/id/verenigingen/V0010101>
+    <https://data.lblod.info/id/verenigingen/V0011574>
+    <https://data.lblod.info/id/verenigingen/V0011573>
+    <https://data.lblod.info/id/verenigingen/V0011572>
   }
+
     VALUES ?p {
       <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
       <http://mu.semte.ch/vocabularies/core/uuid>
