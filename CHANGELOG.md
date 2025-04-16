@@ -1,5 +1,11 @@
 # Changelog
 ## unreleased
+- Fix bug related to duplicate values of some strings.
+  The consumer on initial sync wasn't properly handling multi-line strings. 
+  See [PR:delta-consumer](https://github.com/lblod/delta-consumer/pull/36)
+  Bug reported [CLBV-1004]. Implies full flush.
+- Update of the data type: https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging
+  - See also [CLBV-891] and https://github.com/lblod/app-verenigingen-loket/pull/17
 
 ### Deploy Notes
 Ensure backup first!
