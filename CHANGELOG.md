@@ -28,6 +28,7 @@ Ensure `docker-compose.override.yml` contains:
 ```
 drc up -d migrations
 drc up -d database harvester-consumer
+drc up -d
 ```
 Wait for the consumer to finish.
 If that looks okay; reset elastic.
