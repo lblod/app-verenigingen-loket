@@ -1,5 +1,5 @@
 # Changelog
-## unreleased
+## 1.5.0 (2025-04-17)
 - Fix bug related to duplicate values of some strings.
   The consumer on initial sync wasn't properly handling multi-line strings. 
   See [PR:delta-consumer](https://github.com/lblod/delta-consumer/pull/36)
