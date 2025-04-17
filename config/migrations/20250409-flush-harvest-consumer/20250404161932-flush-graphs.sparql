@@ -1,0 +1,393 @@
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#FeitelijkeVereniging> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+      <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2004/02/skos/core#prefLabel>
+      <http://www.w3.org/2004/02/skos/core#notation>
+      <https://schema.org/contactPoint>
+      <http://www.w3.org/ns/regorg#orgStatus>
+      <https://data.vlaanderen.be/ns/vertegenwoordigers>
+      <https://data.vlaanderen.be/ns/korteNaam>
+      <http://purl.org/dc/terms/description>
+      <http://www.w3.org/ns/org#hasSite>
+      <http://www.w3.org/ns/org#hasPrimarySite>
+      <http://schema.org/contactPoint>
+      <http://www.w3.org/ns/adms#identifier>
+      <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/doelgroep>
+      <https://data.vlaanderen.be/ns/startdatum>
+      <http://www.w3.org/ns/org#classification>
+      <http://www.w3.org/ns/regorg#orgActivity>
+      <http://www.w3.org/ns/org#hasMembership>
+      <http://purl.org/pav/createdOn>
+      <http://purl.org/pav/lastUpdateOn>
+      <https://data.lblod.info/ns/bron>
+      <https://data.lblod.info/ns/roepnaam>
+      <https://data.lblod.info/ns/isUitgeschrevenUitPubliekeDatastroom>
+      <https://data.lblod.info/ns/korteNaam>
+      <https://data.lblod.info/ns/einddatum>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <http://www.w3.org/2004/02/skos/core#Concept> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2004/02/skos/core#prefLabel>
+      <http://www.w3.org/2004/02/skos/core#notation>
+      <http://purl.org/dc/terms/modified>
+      <http://www.w3.org/2004/02/skos/core#inScheme>
+      <http://www.w3.org/2004/02/skos/core#broader>
+      <http://www.w3.org/2004/02/skos/core#hasTopConcept>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2004/02/skos/core#prefLabel>
+      <http://www.w3.org/2004/02/skos/core#definition>
+      <http://www.w3.org/2004/02/skos/core#inScheme>
+      <http://www.w3.org/2004/02/skos/core#hasTopConcept>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <http://www.w3.org/ns/adms#Identifier> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2004/02/skos/core#notation>
+      <https://data.vlaanderen.be/ns/generiek#gestructureerdeIdentificator>
+      <https://data.lblod.info/ns/waarde>
+      <https://data.lblod.info/ns/bron>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <https://data.vlaanderen.be/ns/generiek#lokaleIdentificator>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/Doelgroep> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/minimumleeftijd>
+      <http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/maximumleeftijd>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <http://www.w3.org/ns/org#ChangeEvent> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://purl.org/dc/terms/date>
+      <http://data.lblod.info/vocabularies/contacthub/typeWijziging>
+      <http://www.w3.org/ns/locn#veranderingsgebeurtenisResultaat>
+      <http://www.w3.org/ns/org#resultingOrganization>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <orga:Veranderingsgebeurtenis> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2004/02/skos/core#prefLabel>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <https://data.vlaanderen.be/ns/generiek#GestructureerdeIdentificator> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2002/07/owl#sameAs>
+      <http://www.w3.org/ns/prov#wasGeneratedBy>
+      <https://data.vlaanderen.be/ns/generiek#lokaleIdentificator>
+      <https://data.vlaanderen.be/ns/generiek#naamruimte>
+      <https://data.vlaanderen.be/ns/generiek#versieIdentificator>
+      <http://www.w3.org/ns/prov#wasAssociatedWith>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <http://schema.org/ContactPoint> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2002/07/owl#sameAs>
+      <http://www.w3.org/ns/prov#wasGeneratedBy>
+      <http://www.w3.org/2006/vcard/ns#honorific-prefix>
+      <http://www.w3.org/ns/locn#address>
+      <http://schema.org/hoursAvailable>
+      <http://xmlns.com/foaf/0.1/name>
+      <http://schema.org/email>
+      <http://schema.org/faxNumber>
+      <http://schema.org/openingHours>
+      <http://schema.org/telephone>
+      <http://xmlns.com/foaf/0.1/page>
+      <http://xmlns.com/foaf/0.1/firstName>
+      <http://xmlns.com/foaf/0.1/familyName>
+      <http://schema.org/contactType>
+      <http://schema.org/contactPoint>
+      <https://schema.org/contactPoint>
+      <http://www.w3.org/ns/prov#wasAssociatedWith>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <http://www.w3.org/ns/locn#Address> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2002/07/owl#sameAs>
+      <http://www.w3.org/ns/prov#wasGeneratedBy>
+      <http://www.w3.org/ns/locn#location>
+      <http://www.w3.org/ns/locn#geographicName>
+      <http://www.w3.org/ns/locn#seeAlso>
+      <http://www.w3.org/ns/locn#geometry>
+      <http://www.w3.org/ns/locn#address>
+      <http://www.w3.org/ns/locn#fullAddress>
+      <http://www.w3.org/ns/locn#poBox>
+      <http://www.w3.org/ns/locn#thoroughfare>
+      <http://www.w3.org/ns/locn#locatorDesignator>
+      <http://www.w3.org/ns/locn#locatorName>
+      <http://www.w3.org/ns/locn#addressArea>
+      <http://www.w3.org/ns/locn#postName>
+      <http://www.w3.org/ns/locn#adminUnitL2>
+      <http://www.w3.org/ns/locn#adminUnitL1>
+      <http://www.w3.org/ns/locn#postCode>
+      <http://www.w3.org/ns/locn#addressId>
+      <https://data.vlaanderen.be/ns/adres#Adresvoorstelling.busnummer>
+      <https://data.vlaanderen.be/ns/adres#Adresvoorstelling.huisnummer>
+      <https://data.vlaanderen.be/ns/adres#gemeentenaam>
+      <https://data.vlaanderen.be/ns/adres#land>
+      <http://data.lblod.info/vocabularies/leidinggevenden/adresRegisterId>
+      <https://data.vlaanderen.be/ns/adres#verwijstNaar>
+      <http://www.w3.org/ns/prov#wasAssociatedWith>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <http://www.w3.org/ns/person#Person> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2002/07/owl#sameAs>
+      <http://xmlns.com/foaf/0.1/familyName>
+      <http://xmlns.com/foaf/0.1/givenName>
+      <http://www.w3.org/ns/adms#identifier>
+      <http://schema.org/contactPoint>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <http://data.vlaanderen.be/id/concept/TypeVestiging> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2004/02/skos/core#prefLabel>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <http://www.w3.org/ns/org#Membership> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/ns/org#member>
+      <http://schema.org/contactPoint>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <skos:Concept> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <http://www.w3.org/2004/02/skos/core#notation>
+      <http://www.w3.org/2004/02/skos/core#prefLabel>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};
+
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s ?p ?o.
+  }
+}
+WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?s a <http://www.w3.org/ns/org#Site> ;
+       ?p ?o.
+    VALUES ?p {
+                <http://mu.semte.ch/vocabularies/core/uuid>
+      <https://data.vlaanderen.be/ns/organisatie#bestaatUit>
+      <http://purl.org/dc/terms/description>
+      <http://data.lblod.info/vocabularies/erediensten/vestigingstype>
+      <http://www.w3.org/1999/02/22-rdf-syntax-ns#type>
+
+    }
+  }
+};

@@ -88,7 +88,7 @@
   ("adres:Postinfo" -> _)
   ("feitelijkeverenigingen:Erkenning" -> _)
   ("m8g:PeriodOfTime" -> _)
-  ("feitelijkeverenigingen:FeitelijkeVereniging" -> _)
+  ("feitelijkeverenigingen:Vereniging" -> _)
   ("besluit:Bestuurseenheid" -> _)
   ("org:Organization" -> _)
   ("core:Concept" -> _)

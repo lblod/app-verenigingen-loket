@@ -42,6 +42,8 @@ services:
     volumes:
       - ./config/cl-authorization:/config
       - ./data/cl-authorization:/data
+    environment:
+      LISP_DYNAMIC_SPACE_SIZE: "4096"
     labels:
       - "logging=true"
     restart: always
@@ -97,7 +99,7 @@ services:
     restart: always
     logging: *default-logging
   op-consumer:
-    image: lblod/delta-consumer:0.1.0
+    image: lblod/delta-consumer:0.1.6
     environment:
       DCR_SERVICE_NAME: "op-consumer"
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
@@ -124,7 +126,7 @@ services:
       - "logging=true"
     logging: *default-logging
   harvester-consumer:
-    image: lblod/delta-consumer:0.1.0
+    image: lblod/delta-consumer:0.1.6
     environment:
       DCR_SERVICE_NAME: "harvester-consumer"
       DCR_SYNC_BASE_URL: "https://harvester.verenigingen-loket.lblod.info" # replace with link to Loket API
@@ -151,9 +153,9 @@ services:
       - "logging=true"
     logging: *default-logging
   download:
-    image: lblod/verenigingsloket-download-service:2.1.0
+    image: lblod/verenigingsloket-download-service:3.1.1
     environment:
-      CRON_PATTERN_SPREADSHEET_JOB: "0 0 * * *"
+      CRON_PATTERN_SPREADSHEET_JOB: "0 6 * * *"
     volumes:
       - ./data/files:/share
     labels:
