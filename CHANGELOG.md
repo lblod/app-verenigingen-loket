@@ -40,6 +40,21 @@ So, we'll have to temporarily revert to ingesting directly in Virtuoso and use a
 That should be it.
 
 
+# Unreleased
+- Add status for associations with migration and mu-search config changes
+- bump frontend [v1.4.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v140-2025-04-17)
+- bump verenigingsloket-download-service [v2.1.0](https://github.com/lblod/verenigingsloket-download-service/releases/tag/v2.1.0)
+
+### Deploy Notes
+```
+drc up -d migrations && dcr logs -f migrations
+drc up -d frontend download
+```
+Then kick the `mu-search` to do its thing:
+```
+/bin/bash ./scripts/reset-elastic.sh
+```
+
 # 1.4.0 (2025-03-07)
 - Add missing key to `harvester-consumer`. [DL-6490]
 - Reorganize delta consumers config to harmonize with the ecosystem
