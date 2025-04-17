@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-verenigingen-loket:1.3.4
+    image: lblod/frontend-verenigingen-loket:1.4.0
     links:
       - identifier:backend
     labels:
@@ -151,7 +151,7 @@ services:
       - "logging=true"
     logging: *default-logging
   download:
-    image: lblod/verenigingsloket-download-service:2.0.0
+    image: lblod/verenigingsloket-download-service:2.1.0
     environment:
       CRON_PATTERN_SPREADSHEET_JOB: "0 0 * * *"
     volumes:
