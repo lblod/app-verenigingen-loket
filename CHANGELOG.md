@@ -1,4 +1,13 @@
 # Changelog
+## 1.5.1 (2025-04-17)
+- bump frontend [v1.4.2](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v140-2025-04-17)
+
+### Deploy Notes
+
+```
+drc up -d frontend
+```
+
 ## 1.5.0 (2025-04-17)
 - Fix bug related to duplicate values of some strings.
   The consumer on initial sync wasn't properly handling multi-line strings. 
