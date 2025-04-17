@@ -42,6 +42,8 @@ services:
     volumes:
       - ./config/cl-authorization:/config
       - ./data/cl-authorization:/data
+    environment:
+      LISP_DYNAMIC_SPACE_SIZE: "4096"
     labels:
       - "logging=true"
     restart: always
