@@ -1,4 +1,48 @@
 # Changelog
+## unreleased
+- Fix bug related to duplicate values of some strings.
+  The consumer on initial sync wasn't properly handling multi-line strings. 
+  See [PR:delta-consumer](https://github.com/lblod/delta-consumer/pull/36)
+  Bug reported [CLBV-1004]. Implies full flush.
+- Update of the data type: https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging
+  - See also [CLBV-891] and https://github.com/lblod/app-verenigingen-loket/pull/17
+- Add status for associations with migration and mu-search config changes
+- bump frontend [v1.4.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v140-2025-04-17)
+- bump verenigingsloket-download-service [v2.1.0](https://github.com/lblod/verenigingsloket-download-service/releases/tag/v2.1.0)
+
+### Deploy
+### Deploy Notes
+Ensure backup first!
+```
+drc down
+```
+Ensure `docker-compose.override.yml` contains:
+```
+  harvester-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_DISABLE_DELTA_INGEST: "true"
+      DCR_DISABLE_INITIAL_SYNC: "true"
+```
+```
+drc up -d migrations
+drc up -d database harvester-consumer
+drc up -d
+```
+Wait for the consumer to finish.
+If that looks okay; reset elastic.
+```
+/bin/bash ./scripts/reset-elastic.sh
+```
+Experienced readers might have noticed that we don't revert the consumer back to ingesting in the `database` to trigger constant updates of `mu-search` and other caches. There is a good reason for that: currently, we are facing a bug in both `mu-auth` and `sparql-parser` that occurs with strings exceeding the ASCII range.
+
+So, we'll have to temporarily revert to ingesting directly in Virtuoso and use a cron job running in the background. After everything is set up correctly, add a cron job on the server using `crontab -e`. Don't forget to update the paths depending on the environment you are in. Also respect the quircks of the cronfile.
+
+```
+0 4 * * * /data/app-verenigingen-loket/scripts/reset-elastic.sh > /data/app-verenigingen-loket/reset-elastic.log 2>&1
+```
+That should be it.
 
 # 1.4.0 (2025-03-07)
 - Add missing key to `harvester-consumer`. [DL-6490]
