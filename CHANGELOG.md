@@ -6,7 +6,11 @@
   Bug reported [CLBV-1004]. Implies full flush.
 - Update of the data type: https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#Vereniging
   - See also [CLBV-891] and https://github.com/lblod/app-verenigingen-loket/pull/17
+- Add status for associations with migration and mu-search config changes
+- bump frontend [v1.4.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v140-2025-04-17)
+- bump verenigingsloket-download-service [v2.1.0](https://github.com/lblod/verenigingsloket-download-service/releases/tag/v2.1.0)
 
+### Deploy
 ### Deploy Notes
 Ensure backup first!
 ```
@@ -38,22 +42,6 @@ So, we'll have to temporarily revert to ingesting directly in Virtuoso and use a
 0 4 * * * /data/app-verenigingen-loket/scripts/reset-elastic.sh > /data/app-verenigingen-loket/reset-elastic.log 2>&1
 ```
 That should be it.
-
-
-# Unreleased
-- Add status for associations with migration and mu-search config changes
-- bump frontend [v1.4.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v140-2025-04-17)
-- bump verenigingsloket-download-service [v2.1.0](https://github.com/lblod/verenigingsloket-download-service/releases/tag/v2.1.0)
-
-### Deploy Notes
-```
-drc up -d migrations && dcr logs -f migrations
-drc up -d frontend download
-```
-Then kick the `mu-search` to do its thing:
-```
-/bin/bash ./scripts/reset-elastic.sh
-```
 
 # 1.4.0 (2025-03-07)
 - Add missing key to `harvester-consumer`. [DL-6490]
