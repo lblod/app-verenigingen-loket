@@ -49,7 +49,7 @@ Experienced readers might have noticed that we don't revert the consumer back to
 So, we'll have to temporarily revert to ingesting directly in Virtuoso and use a cron job running in the background. After everything is set up correctly, add a cron job on the server using `crontab -e`. Don't forget to update the paths depending on the environment you are in. Also respect the quircks of the cronfile.
 
 ```
-0 4 * * * /data/app-verenigingen-loket/scripts/reset-elastic.sh > /data/app-verenigingen-loket/reset-elastic.log 2>&1
+00 4 * * * cd /data/app-verenigingen-loket; ./scripts/reset-elastic.sh > /data/app-verenigingen-loket/reset-elastic.log 2>&1
 ```
 That should be it.
 
