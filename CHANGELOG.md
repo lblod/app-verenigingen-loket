@@ -1,4 +1,6 @@
 # Changelog
+## 1.5.2 (2025-04-18)
+- bump frontend [v1.4.3]
 ## 1.5.1 (2025-04-17)
 - bump frontend [v1.4.2](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v140-2025-04-17)
 
