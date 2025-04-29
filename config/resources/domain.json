@@ -404,7 +404,6 @@
       },
       "new-resource-base": "http://data.lblod.info/id/bestuursorganen/"
     },
-
     "identifiers": {
       "name": "identifier",
       "class": "adms:Identifier",
@@ -747,6 +746,20 @@
         }
       },
       "new-resource-base": "http://data.lblod.info/id/periodes/"
+    },
+    "countries": {
+      "class": "euvoc:Country",
+      "attributes": {
+        "country-label": {
+          "type": "string",
+          "predicate": "skos:prefLabel"
+        },
+        "nationality-label": {
+          "type": "string",
+          "predicate": "rdfs:label"
+        }
+      },
+      "new-resource-base": "http://lblod.data.gift/concepts/"
     }
   }
 }

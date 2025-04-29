@@ -139,6 +139,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://resource/administrative-units/"
   end
 
+  match "/countries/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://cache/countries/"
+  end
+
   ###############################################################
   # SEARCH
   ###############################################################
