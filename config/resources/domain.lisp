@@ -10,3 +10,4 @@
 (read-domain-file "extra.lisp")
 (read-domain-file "file.lisp")
 (read-domain-file "concept.lisp")
+(read-domain-file "countries.lisp")
