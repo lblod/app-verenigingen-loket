@@ -211,6 +211,11 @@
         }
       },
       "relationships": {
+        "classification": {
+          "predicate": "org:classification",
+          "target": "concept",
+          "cardinality": "one"
+        },
         "identifiers": {
           "predicate": "adms:identifier",
           "target": "identifier",
@@ -256,6 +261,17 @@
           "predicate": "ver:doelgroep",
           "cardinality": "one",
           "target": "target-audience"
+        },
+        "sub-organizations": {
+          "predicate": "org:hasSubOrganization",
+          "target": "organization",
+          "cardinality": "many"
+        },
+        "is-sub-organization-of": {
+          "predicate": "org:hasSubOrganization",
+          "target": "organization",
+          "cardinality": "one",
+          "inverse": true
         }
       },
       "new-resource-base": "http://data.lblod.info/id/organisaties/"
