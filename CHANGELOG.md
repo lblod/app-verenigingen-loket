@@ -2,7 +2,7 @@
 
 ## unreleased
 
-- Allow displaying associations in the overview beyon 10k
+- Allow displaying associations in the overview beyond 10k
   - See also [CLBV-1021]
 
 ### Deploy Notes
