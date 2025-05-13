@@ -41,3 +41,5 @@ services:
     restart: "no"
   file:
     restart: "no"
+  adressenregister:
+    restart: "no"
