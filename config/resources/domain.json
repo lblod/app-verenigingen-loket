@@ -260,6 +260,14 @@
       },
       "new-resource-base": "http://data.lblod.info/id/organisaties/"
     },
+    "public-organizations": {
+      "name": "public-organization",
+      "class": "m8g:PublicOrganisation",
+      "super": [
+        "organization"
+      ],
+      "new-resource-base": "http://data.lblod.info/id/publieke-organisaties/"
+    },
     "associations": {
       "name": "association",
       "class": "vereniging:Vereniging",
@@ -349,7 +357,7 @@
       "name": "administrative-unit",
       "class": "besluit:Bestuurseenheid",
       "super": [
-        "organization"
+        "public-organization"
       ],
       "relationships": {
         "classification": {
@@ -716,7 +724,7 @@
         },
         "awarded-by": {
           "predicate": "fv:toegekendDoor",
-          "target": "governing-body",
+          "target": "public-organization",
           "cardinality": "one"
         },
         "association": {
