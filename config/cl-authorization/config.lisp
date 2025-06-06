@@ -91,6 +91,7 @@
   ("feitelijkeverenigingen:Vereniging" -> _)
   ("besluit:Bestuurseenheid" -> _)
   ("org:Organization" -> _)
+  ("m8g:PublicOrganisation" -> _)
   ("core:Concept" -> _)
   ("core:ConceptScheme" -> _))
 
