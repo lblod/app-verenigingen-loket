@@ -727,6 +727,11 @@
           "target": "public-organization",
           "cardinality": "one"
         },
+        "delegated-to": {
+          "predicate": "ver:gedelegeerdeToekenningDoor",
+          "target": "public-organization",
+          "cardinality": "one"
+        },
         "association": {
           "target": "association",
           "predicate": "fv:heeftErkenning",
