@@ -9,7 +9,7 @@ defmodule Dispatcher do
     any: [ "*/*" ],
   ]
 
-  define_layers [ :api, :frontend, :not_found ]
+  define_layers [ :custom_api, :api, :frontend, :not_found ]
 
   @any %{}
   @json %{ accept: %{ json: true } }
@@ -55,12 +55,16 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/concepts/"
   end
 
-    match "/site-type/*path", %{ accept: [:json], layer: :api} do
+  match "/site-type/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/site-types/"
   end
 
   match "/sites/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/sites/"
+  end
+
+  patch "/addresses/*path", %{ accept: [:json], layer: :custom_api} do
+    Proxy.forward conn, path, "http://verenigingen-api-adapter/addresses/"
   end
 
   match "/addresses/*path", %{ accept: [:json], layer: :api} do
