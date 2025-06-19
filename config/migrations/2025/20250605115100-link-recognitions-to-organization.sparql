@@ -1,0 +1,19 @@
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX generiek: <https://data.vlaanderen.be/ns/generiek#>
+PREFIX fv: <https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#>
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?recognition fv:toegekendDoor ?bestuursorgaanInTime .
+  }
+} INSERT {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?recognition fv:toegekendDoor ?organization .
+  }
+} WHERE {
+  GRAPH <http://mu.semte.ch/graphs/organizations> {
+    ?recognition fv:toegekendDoor ?bestuursorgaanInTime .
+  }
+
+  ?bestuursorgaanInTime generiek:isTijdspecialisatieVan/besluit:bestuurt ?organization .
+}
