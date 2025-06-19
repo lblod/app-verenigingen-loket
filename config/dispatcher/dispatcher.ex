@@ -31,11 +31,19 @@ defmodule Dispatcher do
     Proxy.forward(conn, path, "http://resource/files/")
   end
 
-  match "/organizations/*path", %{ accept: [:json], layer: :api} do
+  get "/organizations/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/organizations/"
   end
 
-  match "/public-organizations/*path", %{ accept: [:json], layer: :api} do
+  post "/organizations/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/organizations/"
+  end
+
+  get "/public-organizations/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/public-organizations/"
+  end
+
+  post "/public-organizations/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/public-organizations/"
   end
 
