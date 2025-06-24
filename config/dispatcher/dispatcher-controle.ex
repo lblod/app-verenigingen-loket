@@ -47,6 +47,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/public-organizations/"
   end
 
+  get "/ad-hoc-organizations/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/ad-hoc-organizations/"
+  end
+
+  post "/ad-hoc-organizations/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/ad-hoc-organizations/"
+  end
+
   match "/contact-points/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/contact-points/"
   end
