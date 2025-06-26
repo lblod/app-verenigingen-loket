@@ -260,6 +260,22 @@
       },
       "new-resource-base": "http://data.lblod.info/id/organisaties/"
     },
+    "public-organizations": {
+      "name": "public-organization",
+      "class": "m8g:PublicOrganisation",
+      "super": [
+        "organization"
+      ],
+      "new-resource-base": "http://data.lblod.info/id/publieke-organisaties/"
+    },
+    "ad-hoc-organizations": {
+      "name": "ad-hoc-organization",
+      "class": "ver:AdHocOrganisatie",
+      "super": [
+        "public-organization"
+      ],
+      "new-resource-base": "http://data.lblod.info/id/ad-hoc-organisaties/"
+    },
     "associations": {
       "name": "association",
       "class": "vereniging:Vereniging",
@@ -349,7 +365,7 @@
       "name": "administrative-unit",
       "class": "besluit:Bestuurseenheid",
       "super": [
-        "organization"
+        "public-organization"
       ],
       "relationships": {
         "classification": {
@@ -716,7 +732,12 @@
         },
         "awarded-by": {
           "predicate": "fv:toegekendDoor",
-          "target": "governing-body",
+          "target": "public-organization",
+          "cardinality": "one"
+        },
+        "delegated-to": {
+          "predicate": "ver:gedelegeerdeToekenningDoor",
+          "target": "public-organization",
           "cardinality": "one"
         },
         "association": {
