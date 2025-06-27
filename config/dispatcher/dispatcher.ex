@@ -88,10 +88,6 @@ defmodule Dispatcher do
     Proxy.forward conn, [], "http://resource/accounts/"
   end
 
-  match "/accounts/*path", %{ accept: [:json], layer: :api } do
-    Proxy.forward conn, path, "http://accountdetail/accounts/"
-  end
-
   match "/administrative-units/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/administrative-units/"
   end
@@ -160,6 +156,14 @@ defmodule Dispatcher do
 
   delete "/files/*path", %{ accept: [ :json ], layer: :api } do
     Proxy.forward conn, path, "http://file/files/"
+  end
+
+  ###############################################################
+  # ACCOUNTDETAILS
+  ###############################################################
+
+  match "/accounts/*path", %{ accept: [:json], layer: :api } do
+    Proxy.forward conn, path, "http://accountdetail/accounts/"
   end
 
   ###############################################################
