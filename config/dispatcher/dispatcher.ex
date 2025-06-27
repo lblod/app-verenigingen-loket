@@ -171,21 +171,22 @@ defmodule Dispatcher do
   # FRONTEND
   ###############################################################
 
-  match "/assets/*path", %{ layer: :api } do
+  get "/assets/*path", %{ accept: [:any], layer: :frontend } do
     Proxy.forward conn, path, "http://frontend/assets/"
   end
 
-  match "/@appuniversum/*path", %{ layer: :api } do
+  get "/@appuniversum/*path", %{ accept: [:any], layer: :frontend } do
     Proxy.forward conn, path, "http://frontend/@appuniversum/"
   end
 
-  match "/*path", %{ accept: [:html], layer: :api } do
+  get "/*_path", %{ accept: [:html], layer: :frontend } do
     Proxy.forward conn, [], "http://frontend/index.html"
   end
 
-  match "/*_path", %{ layer: :frontend } do
-    Proxy.forward conn, [], "http://frontend/index.html"
-  end
+  # TODO: this is not needed, right? (2025-06-25T04:35+02:00)
+  # match "/*_path", %{ layer: :frontend } do
+  #   Proxy.forward conn, [], "http://frontend/index.html"
+  # end
 
   ###############################################################
   # NOTHING FOUND
