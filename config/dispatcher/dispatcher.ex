@@ -83,6 +83,7 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/structured-identifiers/"
   end
 
+  # NOTE: resource used
   match "/accounts", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, [], "http://resource/accounts/"
   end
@@ -131,6 +132,7 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/postal-codes/"
   end
 
+  # NOTE: resource used
   match "/groups/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://resource/administrative-units/"
   end
@@ -141,7 +143,7 @@ defmodule Dispatcher do
 
   # Resources
 
-  # NOTE: resources used
+  # NOTE: resource used
   get "/files/*path", %{layer: :api, accept: [ :json ]} do
     Proxy.forward conn, path, "http://resource/files/"
   end
