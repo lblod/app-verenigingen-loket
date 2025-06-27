@@ -11,21 +11,9 @@ defmodule Dispatcher do
 
   define_layers [ :api, :frontend, :not_found ]
 
-  post "/files/*path" do
-    Proxy.forward conn, path, "http://file/files/"
-  end
-
-  get "/files/:id/download", %{ layer: :api } do
-    Proxy.forward conn, [], "http://file/files/" <> id <> "/download"
-  end
-
-  delete "/files/*path", %{ accept: [ :json ], layer: :api } do
-    Proxy.forward conn, path, "http://file/files/"
-  end
-
-  get "/files/*path", %{layer: :api, accept: [ :json ]} do
-    Proxy.forward(conn, path, "http://resource/files/")
-  end
+  ###############################################################
+  # BUSINESS RESOURCES
+  ###############################################################
 
   get "/organizations/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://cache/organizations/"
@@ -145,6 +133,31 @@ defmodule Dispatcher do
 
   match "/groups/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://resource/administrative-units/"
+  end
+
+  ###############################################################
+  # FILES
+  ###############################################################
+
+  # Resources
+
+  # NOTE: resources used
+  get "/files/*path", %{layer: :api, accept: [ :json ]} do
+    Proxy.forward conn, path, "http://resource/files/"
+  end
+
+  # Service
+
+  post "/files/*path" do
+    Proxy.forward conn, path, "http://file/files/"
+  end
+
+  get "/files/:id/download", %{ layer: :api } do
+    Proxy.forward conn, [], "http://file/files/" <> id <> "/download"
+  end
+
+  delete "/files/*path", %{ accept: [ :json ], layer: :api } do
+    Proxy.forward conn, path, "http://file/files/"
   end
 
   ###############################################################
