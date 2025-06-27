@@ -43,9 +43,9 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/contact-points/"
   end
 
-  match "/activities/*path", %{ accept: [:json], layer: :api } do
-    Proxy.forward conn, path, "http://cache/activities/"
-  end
+  # match "/activities/*path", %{ accept: [:json], layer: :api } do
+  #   Proxy.forward conn, path, "http://cache/activities/"
+  # end
 
   match "/change-events/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/change-events/"
@@ -133,9 +133,9 @@ defmodule Dispatcher do
   end
 
   # NOTE: resource used
-  match "/groups/*path", %{ accept: [:json], layer: :api } do
-    Proxy.forward conn, path, "http://resource/administrative-units/"
-  end
+  # match "/groups/*path", %{ accept: [:json], layer: :api } do
+  #   Proxy.forward conn, path, "http://resource/administrative-units/"
+  # end
 
   ###############################################################
   # FILES
