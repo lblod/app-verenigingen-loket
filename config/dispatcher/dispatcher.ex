@@ -11,7 +11,6 @@ defmodule Dispatcher do
 
   define_layers [ :api, :frontend, :not_found ]
 
-
   post "/files/*path" do
     Proxy.forward conn, path, "http://file/files/"
   end
@@ -144,14 +143,6 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/postal-codes/"
   end
 
-  match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
-    Proxy.forward conn, path, "http://mocklogin/sessions/"
-  end
-
-  match "/sessions/*path" do
-    Proxy.forward conn, path, "http://login/sessions/"
-  end
-
   match "/groups/*path", %{ accept: [:json], layer: :api} do
     Proxy.forward conn, path, "http://resource/administrative-units/"
   end
@@ -160,13 +151,24 @@ defmodule Dispatcher do
   # SEARCH
   ###############################################################
 
-
   get "/search/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://search/"
   end
 
   ###############################################################
-  #   FRONTEND
+  # AUTHENTICATION
+  ###############################################################
+
+  match "/mock/sessions/*path", %{ accept: [:any], layer: :api} do
+    Proxy.forward conn, path, "http://mocklogin/sessions/"
+  end
+
+  match "/sessions/*path" do
+    Proxy.forward conn, path, "http://login/sessions/"
+  end
+
+  ###############################################################
+  # FRONTEND
   ###############################################################
 
   match "/assets/*path", %{ layer: :api } do
