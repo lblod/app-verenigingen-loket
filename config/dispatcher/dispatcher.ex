@@ -11,9 +11,6 @@ defmodule Dispatcher do
 
   define_layers [ :api, :frontend, :not_found ]
 
-  @any %{}
-  @json %{ accept: %{ json: true } }
-  @html %{ accept: %{ html: true } }
 
   post "/files/*path" do
     Proxy.forward conn, path, "http://file/files/"
@@ -164,7 +161,7 @@ defmodule Dispatcher do
   ###############################################################
 
 
-  get "/search/*path", @json do
+  get "/search/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://search/"
   end
 
