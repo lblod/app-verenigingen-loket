@@ -19,17 +19,19 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/organizations/"
   end
 
-  post "/organizations/*path", %{ accept: [:json], layer: :api } do
-    Proxy.forward conn, path, "http://cache/organizations/"
-  end
+  # NOTE: only found in frontend model, never created as record
+  # post "/organizations/*path", %{ accept: [:json], layer: :api } do
+  #   Proxy.forward conn, path, "http://cache/organizations/"
+  # end
 
   get "/public-organizations/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/public-organizations/"
   end
 
-  post "/public-organizations/*path", %{ accept: [:json], layer: :api } do
-    Proxy.forward conn, path, "http://cache/public-organizations/"
-  end
+  # NOTE: only found in frontend model, never created as record
+  # post "/public-organizations/*path", %{ accept: [:json], layer: :api } do
+  #   Proxy.forward conn, path, "http://cache/public-organizations/"
+  # end
 
   get "/ad-hoc-organizations/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/ad-hoc-organizations/"
@@ -39,64 +41,65 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/ad-hoc-organizations/"
   end
 
-  match "/contact-points/*path", %{ accept: [:json], layer: :api } do
+  get "/contact-points/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/contact-points/"
   end
 
+  # NOTE: No request found in frontend
   # match "/activities/*path", %{ accept: [:json], layer: :api } do
   #   Proxy.forward conn, path, "http://cache/activities/"
   # end
 
-  match "/change-events/*path", %{ accept: [:json], layer: :api } do
+  get "/change-events/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/change-events/"
   end
 
-  match "/concept-schemes/*path", %{ accept: [:json], layer: :api } do
+  get "/concept-schemes/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/concept-schemes/"
   end
 
-  match "/concepts/*path", %{ accept: [:json], layer: :api } do
+  get "/concepts/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/concepts/"
   end
 
-  match "/site-type/*path", %{ accept: [:json], layer: :api } do
+  get "/site-type/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/site-types/"
   end
 
-  match "/sites/*path", %{ accept: [:json], layer: :api } do
+  get "/sites/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/sites/"
   end
 
-  match "/addresses/*path", %{ accept: [:json], layer: :api } do
+  get "/addresses/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/addresses/"
   end
 
-  match "/administrative-unit-classification-codes/*path", %{ accept: [:json], layer: :api } do
+  get "/administrative-unit-classification-codes/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/administrative-unit-classification-codes/"
   end
 
-  match "/identifiers/*path", %{ accept: [:json], layer: :api } do
+  get "/identifiers/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/identifiers/"
   end
 
-  match "/structured-identifiers/*path", %{ accept: [:json], layer: :api } do
+  get "/structured-identifiers/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/structured-identifiers/"
   end
 
   # NOTE: resource used
-  match "/accounts", %{ accept: [:json], layer: :api } do
+  get "/accounts", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, [], "http://resource/accounts/"
   end
 
-  match "/administrative-units/*path", %{ accept: [:json], layer: :api } do
+  get "/administrative-units/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/administrative-units/"
   end
 
-  match "/governing-bodies/*path", %{ accept: [:json], layer: :api } do
+  get "/governing-bodies/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/governing-bodies/"
   end
 
-  match "/users/*path" do
+  get "/users/*path" do
     Proxy.forward conn, path, "http://cache/users/"
   end
 
@@ -104,15 +107,15 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/associations/"
   end
 
-  match "/organization-status-codes/*path", %{ accept: [:json], layer: :api } do
+  get "/organization-status-codes/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/organization-status-codes/"
   end
 
-  match "/persons/*path", %{ accept: [:json], layer: :api } do
+  get "/persons/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/persons/"
   end
 
-  match "/memberships/*path", %{ accept: [:json], layer: :api } do
+  get "/memberships/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/memberships/"
   end
 
@@ -124,11 +127,12 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/periods/"
   end
 
-  match "/postal-codes/*path", %{ accept: [:any], layer: :api } do
+  get "/postal-codes/*path", %{ accept: [:any], layer: :api } do
     Proxy.forward conn, path, "http://cache/postal-codes/"
   end
 
   # NOTE: resource used
+  # NOTE: no request found in frontend
   # match "/groups/*path", %{ accept: [:json], layer: :api } do
   #   Proxy.forward conn, path, "http://resource/administrative-units/"
   # end
