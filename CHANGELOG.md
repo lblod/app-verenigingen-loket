@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Link recognitions to public organization [CLBV-1010] & [CLBV-972]
+- Restructure and strengthen dispatcher rules [DL-6515]
 
 ### Deploy notes
 
