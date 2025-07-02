@@ -1,11 +1,16 @@
 # Changelog
+
 ## Unreleased
+
 - Link recognitions to public organization [CLBV-1010] & [CLBV-972]
+
 ### Deploy notes
+
 ```
 drc restart resource database dispatcher migrations
 drc up -d
 ```
+
 ## 1.5.2 (2025-04-18)
 - bump frontend [v1.4.3]
 ## 1.5.1 (2025-04-17)
