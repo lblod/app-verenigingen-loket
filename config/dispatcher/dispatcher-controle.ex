@@ -208,7 +208,7 @@ defmodule Dispatcher do
 
   # TODO: this is not needed, right? (2025-06-25T04:35+02:00)
   # match "/*_path", %{ layer: :frontend } do
-  #   Proxy.forward conn, [], "http://frontend/index.html"
+  #   Proxy.forward conn, [], "http://controle-frontend/index.html"
   # end
 
   ###############################################################
