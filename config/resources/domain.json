@@ -562,6 +562,9 @@
           "predicate": "skos:prefLabel"
         }
       },
+      "features": [
+        "include-uri"
+      ],
       "new-resource-base": "http://lblod.data.gift/concepts/"
     },
     "postal-codes": {
