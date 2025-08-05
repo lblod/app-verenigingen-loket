@@ -543,6 +543,12 @@
           "predicate": "locn:address",
           "target": "address",
           "cardinality": "one"
+        },
+        "organization": {
+          "predicate": "schema:contactPoint",
+          "target": "organization",
+          "cardinality": "one",
+          "inverse": true
         }
       },
       "new-resource-base": "http://data.lblod.info/id/contact-punten/"
@@ -556,6 +562,9 @@
           "predicate": "skos:prefLabel"
         }
       },
+      "features": [
+        "include-uri"
+      ],
       "new-resource-base": "http://lblod.data.gift/concepts/"
     },
     "postal-codes": {
