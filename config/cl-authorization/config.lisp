@@ -50,6 +50,7 @@
   :org "http://www.w3.org/ns/org#"
   :organisatie "http://lblod.data.gift/vocabularies/organisatie/"
   :nfo "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#"
+  :schema "http://schema.org/"
   :ver "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/")
 
 ;;;;;;;;;;;;;;;;;
@@ -95,7 +96,10 @@
   ("m8g:PublicOrganisation" -> _)
   ("ver:AdHocOrganisatie" -> _)
   ("core:Concept" -> _)
-  ("core:ConceptScheme" -> _))
+  ("core:ConceptScheme" -> _)
+  ;; We add this here to make the edit page work without the custom service
+  ;; TODO: remove this once the microservice flow works as expected.
+  ("schema:ContactPoint" -> _))
 
 
 (define-graph organization ("http://mu.semte.ch/graphs/organizations/")

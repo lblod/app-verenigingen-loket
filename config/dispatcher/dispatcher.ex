@@ -41,7 +41,9 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/ad-hoc-organizations/"
   end
 
-  get "/contact-points/*path", %{ accept: [:json], layer: :api } do
+  # TODO: we temporarily use match here so we can create and update records from the frontend
+  # This should be reverted again once we integrate the custom service.
+  match "/contact-points/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/contact-points/"
   end
 

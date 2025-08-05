@@ -5,6 +5,7 @@
 - Link recognitions to public organization [CLBV-1010] & [CLBV-972]
 - Restructure and strengthen dispatcher rules [DL-6515]
 - fix a pagination issue [CLBV-1024]
+- Allow users to edit contact details of associations [CLBV-586]
 
 ### Deploy notes
 
