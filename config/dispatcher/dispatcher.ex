@@ -178,6 +178,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://search/"
   end
 
+  ##############################################################
+  # VERENIGINGSREGISTER API PROXY
+  ##############################################################
+
+  match "/verenigingen/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://verenigingensregister-api-proxy/verenigingen/"
+  end
+  
   ###############################################################
   # AUTHENTICATION
   ###############################################################
