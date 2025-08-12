@@ -19,18 +19,18 @@ for DEV:
       AUD: 'https://authenticatie-ti.vlaanderen.be/op'
       API_URL: 'https://iv.api.tni-vlaanderen.be/api/v1/organisaties/verenigingen/'
       AUTHORIZATION_KEY: 'your-key'
-      AUT_DOMAIN: 'authenticatie-ti.vlaanderen.be'
+      AUTH_DOMAIN: 'authenticatie-ti.vlaanderen.be'
       CLIENT_ID: 'your-client-id'
 ```
 
 or PRD:
 
-Add key to `/config/verenigingsregister-proxy-service/`
+Add Magda private authentication key (`.pem`) to `/config/verenigingsregister-proxy-service/`
 
 ```
     environment:
       ENVIRONMENT: 'PROD'
-      AUD: AUD: 'https://authenticatie.vlaanderen.be/op'
+      AUD: 'https://authenticatie.vlaanderen.be/op'
       CLIENT_ID: 'your-client-id'
       SCOPE: 'dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D'
 
