@@ -16,6 +16,8 @@ cf [README](https://github.com/lblod/verenigingsregister-proxy-service)
 for DEV:
 
 ```
+  verenigingsregister-api-proxy:
+    environment:
       ENVIRONMENT: 'DEV'
       AUD: 'https://authenticatie-ti.vlaanderen.be/op'
       API_URL: 'https://iv.api.tni-vlaanderen.be/api/v1/organisaties/verenigingen/'
@@ -29,6 +31,7 @@ or PRD:
 Add Magda private authentication key (`.pem`) to `/config/verenigingsregister-proxy-service/`
 
 ```
+  verenigingsregister-api-proxy:
     environment:
       ENVIRONMENT: 'PROD'
       AUD: 'https://authenticatie.vlaanderen.be/op'
@@ -88,12 +91,12 @@ Ensure `docker-compose.override.yml` contains:
 
 ```
 
-harvester-consumer:
-environment:
-DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
-DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
-DCR_DISABLE_DELTA_INGEST: "true"
-DCR_DISABLE_INITIAL_SYNC: "true"
+  harvester-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_DISABLE_DELTA_INGEST: "true"
+      DCR_DISABLE_INITIAL_SYNC: "true"
 
 ```
 
@@ -247,13 +250,13 @@ Update `docker-compose.override.yml` to:
 
 ```
 
-op-consumer:
-environment:
-DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be" # choose the correct endpoint
-DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
-DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
-DCR_DISABLE_DELTA_INGEST: "false"
-DCR_DISABLE_INITIAL_SYNC: "false"
+  op-consumer:
+    environment:
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be" # choose the correct endpoint
+      DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
 
 ```
 
@@ -279,13 +282,13 @@ Then, update `docker-compose.override.yml` to:
 
 ```
 
-op-consumer:
-environment:
-DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be" # choose the correct endpoint
-DCR_LANDING_ZONE_DATABASE: "database"
-DCR_REMAPPING_DATABASE: "database"
-DCR_DISABLE_DELTA_INGEST: "false"
-DCR_DISABLE_INITIAL_SYNC: "false"
+  op-consumer:
+    environment:
+      DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be" # choose the correct endpoint
+      DCR_LANDING_ZONE_DATABASE: "database"
+      DCR_REMAPPING_DATABASE: "database"
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
 
 ```
 
@@ -301,17 +304,17 @@ Update `docker-compose.override.yml` to:
 
 ```
 
-harvester-consumer:
-environment:
-DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
-DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
-DCR_DISABLE_DELTA_INGEST: "false"
-DCR_DISABLE_INITIAL_SYNC: "false"
-BATCH_SIZE: 2000
-SLEEP_BETWEEN_BATCHES: 1
-DCR_SYNC_BASE_URL: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be"
-DCR_SYNC_LOGIN_ENDPOINT: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be/sync/verenigingen/login"
-DCR_SECRET_KEY: "THE KEY"
+  harvester-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+      BATCH_SIZE: 2000
+      SLEEP_BETWEEN_BATCHES: 1
+      DCR_SYNC_BASE_URL: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be"
+      DCR_SYNC_LOGIN_ENDPOINT: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be/sync/verenigingen/login"
+      DCR_SECRET_KEY: "THE KEY"
 
 ```
 
@@ -325,17 +328,17 @@ Update `docker-compose.override.yml` to:
 
 ```
 
-harvester-consumer:
-environment:
-DCR_LANDING_ZONE_DATABASE: "database" # Restore to database
-DCR_REMAPPING_DATABASE: "database" # Restore to database
-DCR_DISABLE_DELTA_INGEST: "false"
-DCR_DISABLE_INITIAL_SYNC: "false"
-BATCH_SIZE: 2000
-SLEEP_BETWEEN_BATCHES: 1
-DCR_SYNC_BASE_URL: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be"
-DCR_SYNC_LOGIN_ENDPOINT: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be/sync/verenigingen/login"
-DCR_SECRET_KEY: "THE KEY"
+  harvester-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "database" # Restore to database
+      DCR_REMAPPING_DATABASE: "database" # Restore to database
+      DCR_DISABLE_DELTA_INGEST: "false"
+      DCR_DISABLE_INITIAL_SYNC: "false"
+      BATCH_SIZE: 2000
+      SLEEP_BETWEEN_BATCHES: 1
+      DCR_SYNC_BASE_URL: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be"
+      DCR_SYNC_LOGIN_ENDPOINT: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be/sync/verenigingen/login"
+      DCR_SECRET_KEY: "THE KEY"
 
 ```
 
@@ -366,4 +369,3 @@ Then kick the `mu-search` to do its thing:
 ## 1.1.0 (2024-08-12)
 
 - frontend [v1.1.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v110-2024-08-06)
-```
