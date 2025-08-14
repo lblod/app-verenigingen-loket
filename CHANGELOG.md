@@ -6,6 +6,7 @@
 - Restructure and strengthen dispatcher rules [DL-6515]
 - fix a pagination issue [CLBV-1024]
 - Add verenigingsregister api proxy service [CLBV-1050]
+- expose internal ids [CLBV-1054]
 
 ### Deploy notes
 
