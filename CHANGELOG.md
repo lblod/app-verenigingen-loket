@@ -37,6 +37,8 @@ Add Magda private authentication key (`.pem`) to `/config/verenigingsregister-pr
 
 ```
 
+```
+
 drc restart resource database dispatcher migrations
 drc up -d
 
