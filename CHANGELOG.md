@@ -5,6 +5,7 @@
 - Link recognitions to public organization [CLBV-1010] & [CLBV-972]
 - Restructure and strengthen dispatcher rules [DL-6515]
 - fix a pagination issue [CLBV-1024]
+- expose internal ids [CLBV-1054]
 
 ### Deploy notes
 

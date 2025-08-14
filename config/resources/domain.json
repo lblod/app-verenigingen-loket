@@ -40,7 +40,8 @@
     "ver": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/",
     "pav": "http://purl.org/pav/",
     "fv": "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#",
-    "eli": "http://data.europa.eu/eli/ontology#"
+    "eli": "http://data.europa.eu/eli/ontology#",
+    "verenigingsregister_internal": "https://data.lblod.info/ns/"
   },
   "resources": {
     "files": {
@@ -347,6 +348,12 @@
     "memberships": {
       "name": "membership",
       "class": "org:Membership",
+      "attributes": {
+        "internal-id": {
+          "type": "integer",
+          "predicate": "verenigingsregister_internal:vertegenwoordigerId"
+        }
+      },
       "relationships": {
         "person": {
           "predicate": "org:member",
@@ -420,7 +427,6 @@
       },
       "new-resource-base": "http://data.lblod.info/id/bestuursorganen/"
     },
-
     "identifiers": {
       "name": "identifier",
       "class": "adms:Identifier",
@@ -482,6 +488,10 @@
         "description": {
           "type": "string",
           "predicate": "dct:description"
+        },
+        "internal-id": {
+          "type": "integer",
+          "predicate": "verenigingsregister_internal:locatieId"
         }
       },
       "relationships": {
@@ -536,6 +546,10 @@
         "type": {
           "type": "string",
           "predicate": "schema:contactType"
+        },
+        "internal-id": {
+          "type": "integer",
+          "predicate": "verenigingsregister_internal:contactgegevenId"
         }
       },
       "relationships": {
