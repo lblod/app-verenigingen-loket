@@ -55,7 +55,8 @@
 
 (define-resource site ()
   :class (s-prefix "org:Site")
-  :properties `((:description :string ,(s-prefix "dct:description")))
+  :properties `((:description :string ,(s-prefix "dct:description"))
+                (:internal-id :number ,(s-prefix "verenigingsregister_internal:locatieId")))
   :has-many `((contact-point :via ,(s-prefix "org:siteAddress")
                              :as "contact-points")
               (association :via ,(s-prefix "org:hasSite")
@@ -65,6 +66,7 @@
                       :as "address")
              (site-type :via ,(s-prefix "ere:vestigingstype")
                         :as "site-type"))
+  :features '(include-uri)
   :on-path "sites"
   :resource-base "http://data.lblod.info/id/vestigingen/")
 
@@ -75,14 +77,19 @@
                 (:telephone :string ,(s-prefix "schema:telephone"))
                 (:fax :string ,(s-prefix "schema:faxNumber"))
                 (:website :uri ,(s-prefix "foaf:page"))
-                (:type :string ,(s-prefix "schema:contactType")))
+                (:type :string ,(s-prefix "schema:contactType"))
+                (:internal-id ,(s-prefix "verenigingsregister_internal:contactgegevenId")))
   :has-one `((address :via ,(s-prefix "locn:address")
-                      :as "contact-address"))
+                      :as "contact-address")
+             (organization :via ,(s-prefix "schema:contactPoint")
+                           :as "organization"
+                           :inverse t))
   :on-path "contact-points"
   :resource-base "http://data.lblod.info/id/contact-punten/")
 
 (define-resource membership ()
   :class (s-prefix "org:Membership")
+  :properties `((:internal-id :number ,(s-prefix "verenigingsregister_internal:vertegenwoordigerId")))
   :has-one `((person :via ,(s-prefix "org:member")
                      :as "person")
              (association :via ,(s-prefix "org:organization")

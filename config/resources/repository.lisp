@@ -40,3 +40,4 @@
 (add-prefix "pav" "http://purl.org/pav/")
 (add-prefix "fv" "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#")
 (add-prefix "eli" "http://data.europa.eu/eli/ontology#")
+(add-prefix "verenigingsregister_internal" "https://data.lblod.info/ns/")
