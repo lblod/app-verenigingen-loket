@@ -5,7 +5,6 @@
 (setf sparql:*experimental-no-application-graph-for-sudo-select-queries* t)
 (setf *cache-model-properties-p* t)
 
-; (read-domain-file "domain.json")
 (read-domain-file "users.lisp")
 (read-domain-file "associations.lisp")
 (read-domain-file "extra.lisp")
