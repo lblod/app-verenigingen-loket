@@ -1,0 +1,168 @@
+(define-resource organization ()
+  :class (s-prefix "org:Organization")
+  :properties `((:name :string ,(s-prefix "skos:prefLabel"))
+                (:alternative-name :string ,(s-prefix "skos:altLabel"))
+                (:expected-end-date :date ,(s-prefix "lblodgeneriek:geplandeEindDatum"))
+                (:last-updated :datetime ,(s-prefix "pav:lastUpdateOn"))
+                (:purpose :string ,(s-prefix "org:purpose")))
+  :has-many `((identifier :via ,(s-prefix "adms:identifier")
+                          :as "identifiers")
+              (site :via ,(s-prefix "org:hasSite")
+                    :as "sites")
+              (contact-point :via ,(s-prefix "schema:contactPoint")
+                             :as "contact-points")
+              (membership :via ,(s-prefix "org:hasMembership")
+                          :as "members")
+              (change-event :via ,(s-prefix "org:resultingOrganization")
+                            :as "change-events"
+                            :inverse t))
+  :has-one `((organization :via ,(s-prefix "org:memberOf")
+                           :as "parent-organization")
+              (organization-status-code :via ,(s-prefix "regorg:orgStatus")
+                                        :as "organization-status")
+              (site :via ,(s-prefix "org:hasPrimarySite")
+                    :as "primary-site")
+              (target-audience :via ,(s-prefix "ver:doelgroep")
+                               :as "target-audience"))
+  :resource-base (s-url "http://data.lblod.info/id/organisaties/")
+  :on-path "organizations")
+
+(define-resource public-organization (organization)
+  :class (s-prefix "m8g:PublicOrganisation")
+  :on-path "public-organizations"
+  :resource-base "http://data.lblod.info/id/publieke-organisaties/")
+
+(define-resource ad-hoc-organization (public-organization)
+  :class (s-prefix "ver:AdHocOrganisatie")
+  :on-path "ad-hoc-organizations"
+  :resource-base "http://data.lblod.info/id/ad-hoc-organisaties/")
+
+(define-resource association (organization)
+  :class (s-prefix "vereniging:Vereniging")
+  :properties `((:description :string ,(s-prefix "dct:description"))
+                (:created-on :date ,(s-prefix "pav:createdOn")))
+  :has-many `((activity :via ,(s-prefix "regorg:orgActivity")
+                        :as "activities")
+              (change-event :via ,(s-prefix "org:resultingOrganization")
+                            :as "change-event"
+                            :inverse t)
+              (recognition :via ,(s-prefix "fv:heeftErkenning")
+                            :as "recognitions"))
+  :has-one `((concept :via ,(s-prefix "org:classification")
+                      :as "classification"))
+  :on-path "associations"
+  :resource-base "http://data.lblod.info/id/verenigingen/")
+
+(define-resource site ()
+  :class (s-prefix "org:Site")
+  :properties `((:description :string ,(s-prefix "dct:description")))
+  :has-many `((contact-point :via ,(s-prefix "org:siteAddress")
+                             :as "contact-points")
+              (association :via ,(s-prefix "org:hasSite")
+                           :as "associations"
+                           :inverse t))
+  :has-one `((address :via ,(s-prefix "organisatie:bestaatUit")
+                      :as "address")
+             (site-type :via ,(s-prefix "ere:vestigingstype")
+                        :as "site-type"))
+  :on-path "sites"
+  :resource-base "http://data.lblod.info/id/vestigingen/")
+
+(define-resource contact-point ()
+  :class (s-prefix "schema:ContactPoint")
+  :properties `((:name :string ,(s-prefix "foaf:name"))
+                (:email :string ,(s-prefix "schema:email"))
+                (:telephone :string ,(s-prefix "schema:telephone"))
+                (:fax :string ,(s-prefix "schema:faxNumber"))
+                (:website :uri ,(s-prefix "foaf:page"))
+                (:type :string ,(s-prefix "schema:contactType")))
+  :has-one `((address :via ,(s-prefix "locn:address")
+                      :as "contact-address"))
+  :on-path "contact-points"
+  :resource-base "http://data.lblod.info/id/contact-punten/")
+
+(define-resource membership ()
+  :class (s-prefix "org:Membership")
+  :has-one `((person :via ,(s-prefix "org:member")
+                     :as "person")
+             (association :via ,(s-prefix "org:organization")
+                          :as "association"))
+  :on-path "memberships"
+  :resource-base "http://data.lblod.info/id/identificatoren/")
+
+(define-resource person ()
+  :class (s-prefix "person:Person")
+  :properties `((:given-name :string ,(s-prefix "foaf:givenName"))
+                (:family-name :string ,(s-prefix "foaf:familyName")))
+  :has-many `((contact-point :via ,(s-prefix "schema:contactPoint")
+                             :as "contact-points"))
+  :has-one `((site :via ,(s-prefix "org:basedAt")
+                   :as "site"))
+  :on-path "persons"
+  :resource-base "http://data.lblod.info/id/personen/")
+
+(define-resource recognition ()
+  :class (s-prefix "fv:Erkenning")
+  :properties `((:status :uri ,(s-prefix "adms:status"))
+                (:date-document :date ,(s-prefix "eli:dateDocument"))
+                (:legal-resource :string ,(s-prefix "eli:hasLegalResource")))
+  :has-one `((period :via ,(s-prefix "fv:geldigheidsperiode")
+                     :as "validity-period")
+             (public-organization :via ,(s-prefix "fv:toegekendDoor")
+                                  :as "awarded-by")
+             (public-organization :via ,(s-prefix "ver:gedelegeerdeToekenningDoor")
+                                  :as "delegated-to")
+             (association :via ,(s-prefix "fv:heeftErkenning")
+                          :as "association"
+                          :inverse t)
+             (file :via ,(s-prefix "rdfs:seeAlso")
+                   :as "file"))
+  :on-path "recognitions"
+  :resource-base "http://data.lblod.info/id/erkenningen/")
+
+(define-resource site-type ()
+  :class (s-prefix "code:TypeVestiging")
+  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :on-path "site-types"
+  :resource-base "http://lblod.data.gift/concepts/")
+
+(define-resource period ()
+  :class (s-prefix "m8g:PeriodOfTime")
+  :properties `((:start-time :datetime ,(s-prefix "m8g:startTime"))
+                (:end-time :datetime ,(s-prefix "m8g:endTime")))
+  :on-path "periods"
+  :resource-base "http://data.lblod.info/id/periodes/")
+
+(define-resource administrative-unit (public-organization)
+  :class (s-prefix "besluit:Bestuurseenheid")
+  :has-many `((governing-body :via ,(s-prefix "besluit:bestuurt")
+                              :as "governing-bodies"
+                              :inverse t))
+  :has-one `((administrative-unit-classification-code :via ,(s-prefix "org:classification")
+                                                      :as "classification"))
+  :on-path "administrative-units"
+  :resource-base "http://data.lblod.info/id/bestuurseenheden/")
+
+(define-resource governing-body ()
+  :class (s-prefix "besluit:Bestuursorgaan")
+  :properties `((:start :date ,(s-prefix "mandaat:bindingStart"))
+                (:end :date ,(s-prefix "mandaat:bindingEinde")))
+  :has-many `((governing-body :via ,(s-prefix "generiek:isTijdspecialisatieVan")
+                              :as "governing-bodies-in-time"
+                              :inverse t))
+  :has-one `((governing-body :via ,(s-prefix "generiek:isTijdspecialisatieVan")
+                             :as "governing-body")
+             (administrative-unit :via ,(s-prefix "besluit:bestuurt")
+                                  :as "administrative-unit")
+             (concept :via ,(s-prefix "org:classification")
+                      :as "classification"))
+  :on-path "governing-bodies"
+  :resource-base "http://data.lblod.info/id/bestuursorganen/")
+
+(define-resource target-audience ()
+  :class (s-prefix "ver:Doelgroep")
+  :properties `((:minimum-leeftijd :number ,(s-prefix "ver:minimumleeftijd"))
+                (:maximum-leeftijd :number ,(s-prefix "ver:maximumleeftijd")))
+  :on-path "target-audiences"
+  :resource-base "http://awesome-poc.com/target/")
+
