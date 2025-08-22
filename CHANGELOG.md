@@ -7,6 +7,7 @@
 - fix a pagination issue [CLBV-1024]
 - Add verenigingsregister api proxy service [CLBV-1050]
 - expose internal ids [CLBV-1054]
+- Expose ETag of associations [CLBV-1046]
 
 ### Deploy notes
 
