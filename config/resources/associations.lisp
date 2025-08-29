@@ -94,9 +94,17 @@
   :has-one `((person :via ,(s-prefix "org:member")
                      :as "person")
              (association :via ,(s-prefix "org:organization")
-                          :as "association"))
+                          :as "association")
+             (role :via ,(s-prefix "org:role")
+                   :as "role"))
   :on-path "memberships"
   :resource-base "http://data.lblod.info/id/identificatoren/")
+
+(define-resource role (concept)
+  :class (s-prefix "org:Role")
+  :on-path "roles"
+  :features '(include-uri)
+  :resource-base "http://lblod.data.gift/concepts/")
 
 (define-resource person ()
   :class (s-prefix "person:Person")
