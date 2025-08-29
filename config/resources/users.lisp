@@ -1,0 +1,21 @@
+(define-resource user ()
+  :class (s-prefix "foaf:Person")
+  :properties `((:first-name :string ,(s-prefix "foaf:firstName"))
+                (:family-name :string ,(s-prefix "foaf:familyName")))
+  :has-many `((account :via ,(s-prefix "foaf:account")
+                       :as "accounts")
+              (administrative-unit :via ,(s-prefix "foaf:member")
+                                   :as "groups"))
+  :resource-base (s-url "http://data.lblod.info/id/gebruiker/")
+  :on-path "users")
+
+(define-resource account ()
+  :class (s-prefix "foaf:OnlineAccount")
+  :properties `((:provider :string ,(s-prefix "foaf:accountServiceHomepage"))
+                (:identifier :string ,(s-prefix "dct:identifier")))
+  :has-one `((user :via ,(s-prefix "foaf:account")
+                   :as "user"
+                   :inverse t))
+  :resource-base (s-url "http://data.lblod.info/id/account/")
+  :on-path "accounts")
+

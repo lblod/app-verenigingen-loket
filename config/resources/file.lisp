@@ -1,0 +1,15 @@
+(define-resource file ()
+  :class (s-prefix "nfo:FileDataObject")
+  :properties `((:name :string ,(s-prefix "nfo:fileName"))
+                (:format :string ,(s-prefix "dct:format"))
+                (:size :integer ,(s-prefix "nfo:fileSize"))
+                (:extension :string ,(s-prefix "resource:fileExtension"))
+                (:created :datetime ,(s-prefix "dct:created"))
+                (:subject :url ,(s-prefix "dct:subject")))
+  :has-one `((file :via ,(s-prefix "nie:dataSource")
+                   :as "download"
+                   :inverse t))
+  :features '(include-uri)
+  :resource-base (s-url "http://data.lblod.info/files/")
+  :on-path "files")
+
