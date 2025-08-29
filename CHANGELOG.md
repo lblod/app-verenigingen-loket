@@ -6,14 +6,15 @@
 - Restructure and strengthen dispatcher rules [DL-6515]
 - fix a pagination issue [CLBV-1024]
 - Add verenigingsregister api proxy service [CLBV-1050]
-- expose internal ids [CLBV-1054]
+- Expose internal ids [CLBV-1054]
+- Expose ETag of associations [CLBV-1046]
 
 ### Deploy notes
 
 Add verenigingsregister client config to dock-compose.override.yml.
 cf [README](https://github.com/lblod/verenigingsregister-proxy-service)
 
-for DEV:
+For DEV:
 
 ```
   verenigingsregister-api-proxy:
@@ -37,14 +38,13 @@ Add Magda private authentication key (`.pem`) to `/config/verenigingsregister-pr
       AUD: 'https://authenticatie.vlaanderen.be/op'
       CLIENT_ID: 'your-client-id'
       SCOPE: 'dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D'
-
 ```
 
-```
+Restart services for new configs:
 
+```
 drc restart resource database dispatcher migrations
 drc up -d
-
 ```
 
 ## 1.5.2 (2025-04-18)
