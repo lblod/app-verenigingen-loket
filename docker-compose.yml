@@ -214,7 +214,14 @@ services:
   verenigingsregister-api-proxy:
     image: lblod/verenigingsregister-proxy-service #TODO: add release tag.
     environment:
-      SCOPE: 'dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D'
+      SCOPE: "dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D"
     volumes:
       - ./config/verenigingsregister-proxy-service:/config
-
+    restart: always
+    logging: *default-logging
+  adressenregister:
+    image: lblod/adressenregister-fuzzy-search-service:0.8.0
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
