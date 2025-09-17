@@ -1,0 +1,37 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+# Copied, with improvements, from 20250409100107-add-organization-statuses.ttl
+
+<http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6>
+  mu:uuid	"63cc561de9188d64ba5840a42ae8f0d6" ;
+  rdf:type	<http://data.vlaanderen.be/id/concept/OrganisatieStatusCode> ;
+  skos:inScheme	<http://lblod.data.gift/concept-schemes/10caf4a4-1ff5-4c05-917e-56489910d68b> ;
+  skos:inScheme	<http://lblod.data.gift/concept-schemes/b8dcb04f0d1feb86ff01cc0677363b20> ;
+  skos:prefLabel	"Actief" ;
+  skos:topConceptOf	<http://lblod.data.gift/concept-schemes/b8dcb04f0d1feb86ff01cc0677363b20> .
+
+<http://lblod.data.gift/concepts/abf4fee82019f88cf122f986830621ab>
+  mu:uuid	"abf4fee82019f88cf122f986830621ab" ;
+  rdf:type	<http://data.vlaanderen.be/id/concept/OrganisatieStatusCode> ;
+  skos:inScheme	<http://lblod.data.gift/concept-schemes/10caf4a4-1ff5-4c05-917e-56489910d68b> ;
+  skos:inScheme	<http://lblod.data.gift/concept-schemes/b8dcb04f0d1feb86ff01cc0677363b20> ;
+  skos:prefLabel	"In oprichting" ;
+  skos:topConceptOf	<http://lblod.data.gift/concept-schemes/b8dcb04f0d1feb86ff01cc0677363b20> .
+
+<http://lblod.data.gift/concepts/d02c4e12bf88d2fdf5123b07f29c9311>
+  mu:uuid	"d02c4e12bf88d2fdf5123b07f29c9311" ;
+  rdf:type	<http://data.vlaanderen.be/id/concept/OrganisatieStatusCode> ;
+  skos:inScheme	<http://lblod.data.gift/concept-schemes/10caf4a4-1ff5-4c05-917e-56489910d68b> ;
+  skos:inScheme	<http://lblod.data.gift/concept-schemes/b8dcb04f0d1feb86ff01cc0677363b20> ;
+  skos:prefLabel	"Niet Actief" ;
+  skos:topConceptOf	<http://lblod.data.gift/concept-schemes/b8dcb04f0d1feb86ff01cc0677363b20> .
+
+<http://lblod.data.gift/concepts/3d790fd9-bec9-43dd-840c-f835eda6997e>
+  mu:uuid	"3d790fd9-bec9-43dd-840c-f835eda6997e" ;
+  rdf:type	<http://data.vlaanderen.be/id/concept/OrganisatieStatusCode> ;
+  skos:inScheme	<http://lblod.data.gift/concept-schemes/10caf4a4-1ff5-4c05-917e-56489910d68b> ;
+  skos:inScheme	<http://lblod.data.gift/concept-schemes/b8dcb04f0d1feb86ff01cc0677363b20> ;
+  skos:prefLabel	"Gestopt" ;
+  skos:topConceptOf	<http://lblod.data.gift/concept-schemes/b8dcb04f0d1feb86ff01cc0677363b20> .
