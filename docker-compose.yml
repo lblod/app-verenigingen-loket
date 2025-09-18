@@ -35,6 +35,14 @@ services:
       - ./config/dispatcher:/config
     labels:
       - "logging=true"
+    # TODO: fix this once the virtuoso bug is fixed
+    # Virtuoso bug: https://github.com/openlink/virtuoso-opensource/issues/1361
+    # High level description: a complex interplay between delta-consumer, mu-auth and virtuoso
+    #  results in string sometimes not being deleted.
+    #  We ingest data now skipping mu-auth, as a result the cache-service is not flushed.
+    #  Hence the extra wiring in 'links' directive, to go to resource directly.
+    links:
+      - resource:cache
     restart: always
     logging: *default-logging
   database:
@@ -214,7 +222,14 @@ services:
   verenigingsregister-api-proxy:
     image: lblod/verenigingsregister-proxy-service #TODO: add release tag.
     environment:
-      SCOPE: 'dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D'
+      SCOPE: "dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D"
     volumes:
       - ./config/verenigingsregister-proxy-service:/config
-
+    restart: always
+    logging: *default-logging
+  adressenregister:
+    image: lblod/adressenregister-fuzzy-search-service:0.8.0
+    labels:
+      - "logging=true"
+    restart: always
+    logging: *default-logging
