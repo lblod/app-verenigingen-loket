@@ -80,7 +80,8 @@
   ("organisatie:BestuurseenheidClassificatieCode" -> _)
   ("organisatie:OrganisatieStatusCode" -> _)
   ("core:Concept" -> _)
-  ("core:ConceptScheme" -> _))
+  ("core:ConceptScheme" -> _)
+  ("org:Role" -> _))
 
 (define-graph verenigingen ("http://mu.semte.ch/graphs/organizations")
   ;; This is scoped by session_group and role when suppling access rights
