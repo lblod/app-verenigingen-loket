@@ -9,6 +9,8 @@
 - Expose internal ids [CLBV-1054]
 - Re-write mu-cl-resources config into Lisp
 - Expose ETag of associations [CLBV-1046]
+- Allow displaying associations in the overview beyond 10k
+  - See also [CLBV-1021]
 
 ### Deploy notes
 
@@ -44,7 +46,9 @@ Add Magda private authentication key (`.pem`) to `/config/verenigingsregister-pr
 Restart services for new configs:
 
 ```
-drc restart resource database dispatcher migrations
+drc stop
+# Only needed to update the settings for existing indexes. Newly created indexes will have the new settings by default.
+bash scripts/increase-max-result-window.sh
 drc up -d
 ```
 
