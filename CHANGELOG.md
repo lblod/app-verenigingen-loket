@@ -11,6 +11,7 @@
 - Expose ETag of associations [CLBV-1046]
 - Allow displaying associations in the overview beyond 10k
   - See also [CLBV-1021]
+- Improvements for mutatiedienst
 
 ### Deploy notes
 
