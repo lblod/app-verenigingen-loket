@@ -3,12 +3,14 @@ export default [
     match: {},
     callback: {
       url: 'http://resource/.mu/delta',
-      method: 'POST'
+      method: 'POST',
+      foldEffectiveChanges: true
     },
     options: {
       resourceFormat: "v0.0.1",
       gracePeriod: 250,
-      ignoreFromSelf: true
+      ignoreFromSelf: true,
+      foldEffectiveChanges: true
     }
   },
   {
@@ -20,7 +22,8 @@ export default [
     options: {
       resourceFormat: "v0.0.1",
       gracePeriod: 10000,
-      ignoreFromSelf: true
+      ignoreFromSelf: true,
+      foldEffectiveChanges: true
     }
   }
 ];
