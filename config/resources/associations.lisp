@@ -140,6 +140,7 @@
   :class (s-prefix "code:TypeVestiging")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :on-path "site-types"
+  :features '(include-uri)
   :resource-base "http://lblod.data.gift/concepts/")
 
 (define-resource period ()
