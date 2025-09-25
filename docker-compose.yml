@@ -145,7 +145,8 @@ services:
       DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/verenigingen-consumer"
       DCR_DISABLE_INITIAL_SYNC: "true"
       DCR_KEEP_DELTA_FILES: "true"
-      DCR_DELTA_JOBS_RETENTION_PERIOD: "30"
+      DCR_DELTA_JOBS_RETENTION_PERIOD: 1
+      DCR_CRON_PATTERN_DELTA_SYNC: "*/5 * * * * *" # Every five seconds
       DCR_ENABLE_TRIPLE_REMAPPING: "true"
       DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/verenigingen-harvester"
       DCR_REMAPPING_GRAPH: "http://mu.semte.ch/graphs/organizations"
