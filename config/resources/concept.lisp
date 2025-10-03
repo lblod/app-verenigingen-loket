@@ -11,7 +11,7 @@
                               :as "top-concept-of"
                               :inverse t))
   :on-path "concepts"
-  :resource-base "http://awesome-poc.com/concepts/")
+  :resource-base (s-url "http://awesome-poc.com/concepts/"))
 
 (define-resource concept-scheme ()
   :class (s-prefix "skos:ConceptScheme")
@@ -23,5 +23,5 @@
               (concept :via ,(s-prefix "skos:hasTopConcept")
                        :as "top-concept"))
   :on-path "concept-schemes"
-  :resource-base "http://awesome-poc.com/concept-schemes/")
+  :resource-base (s-url "http://awesome-poc.com/concept-schemes/"))
 
