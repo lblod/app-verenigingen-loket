@@ -20,46 +20,46 @@
   :has-one `((structured-identifier :via ,(s-prefix "generiek:gestructureerdeIdentificator")
                                     :as "structured-identifier"))
   :on-path "identifiers"
-  :resource-base "http://data.lblod.info/id/identificatoren/")
+  :resource-base (s-url "http://data.lblod.info/id/identificatoren/"))
 
 (define-resource structured-identifier ()
   :class (s-prefix "generiek:GestructureerdeIdentificator")
   :properties `((:local-id :string ,(s-prefix "generiek:lokaleIdentificator")))
   :on-path "structured-identifiers"
-  :resource-base "http://data.lblod.info/id/gestructureerdeIdentificatoren/")
+  :resource-base (s-url "http://data.lblod.info/id/gestructureerdeIdentificatoren/"))
 
 (define-resource administrative-unit-classification-code ()
   :class (s-prefix "bestuurcode:BestuurseenheidClassificatieCode")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :on-path "administrative-unit-classification-codes"
-  :resource-base "http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/")
+  :resource-base (s-url "http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/"))
 
 (define-resource organization-status-code ()
   :class (s-prefix "code:OrganisatieStatusCode")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :features '(include-uri)
   :on-path "organization-status-codes"
-  :resource-base "http://lblod.data.gift/concepts/")
+  :resource-base (s-url "http://lblod.data.gift/concepts/"))
 
 (define-resource postalCode ()
   :class (s-prefix "adres:Postinfo")
   :properties `((:postal-code :string ,(s-prefix "adres:postcode"))
                 (:postal-name :string ,(s-prefix "adres:postnaam")))
   :on-path "postal-codes"
-  :resource-base "http://lblod.data.gift/concepts/")
+  :resource-base (s-url "http://lblod.data.gift/concepts/"))
 
 (define-resource activity ()
   :class (s-prefix "skos:Concept")
   :properties `((:pref-label :string ,(s-prefix "skos:prefLabel"))
                 (:notation :string ,(s-prefix "skos:notation")))
   :on-path "activities"
-  :resource-base "http://data.lblod.info/id/identificatoren/")
+  :resource-base (s-url "http://data.lblod.info/id/identificatoren/"))
 
 (define-resource change ()
   :class (s-prefix "orga:Veranderingsgebeurtenis")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :on-path "changes"
-  :resource-base "http://data.lblod.info/id/identificatoren/")
+  :resource-base (s-url "http://data.lblod.info/id/identificatoren/"))
 
 (define-resource change-event ()
   :class (s-prefix "org:ChangeEvent")
@@ -71,5 +71,5 @@
              (organization :via ,(s-prefix "org:resultingOrganization")
                            :as "association"))
   :on-path "change-events"
-  :resource-base "http://data.lblod.info/id/identificatoren/")
+  :resource-base (s-url "http://data.lblod.info/id/identificatoren/"))
 

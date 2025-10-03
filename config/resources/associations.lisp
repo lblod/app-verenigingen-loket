@@ -31,12 +31,12 @@
 (define-resource public-organization (organization)
   :class (s-prefix "m8g:PublicOrganisation")
   :on-path "public-organizations"
-  :resource-base "http://data.lblod.info/id/publieke-organisaties/")
+  :resource-base (s-url "http://data.lblod.info/id/publieke-organisaties/"))
 
 (define-resource ad-hoc-organization (public-organization)
   :class (s-prefix "ver:AdHocOrganisatie")
   :on-path "ad-hoc-organizations"
-  :resource-base "http://data.lblod.info/id/ad-hoc-organisaties/")
+  :resource-base (s-url "http://data.lblod.info/id/ad-hoc-organisaties/"))
 
 (define-resource association (organization)
   :class (s-prefix "vereniging:Vereniging")
@@ -52,7 +52,7 @@
   :has-one `((concept :via ,(s-prefix "org:classification")
                       :as "classification"))
   :on-path "associations"
-  :resource-base "http://data.lblod.info/id/verenigingen/")
+  :resource-base (s-url "http://data.lblod.info/id/verenigingen/"))
 
 (define-resource site ()
   :class (s-prefix "org:Site")
@@ -69,7 +69,7 @@
                         :as "site-type"))
   :features '(include-uri)
   :on-path "sites"
-  :resource-base "http://data.lblod.info/id/vestigingen/")
+  :resource-base (s-url "http://data.lblod.info/id/vestigingen/"))
 
 (define-resource contact-point ()
   :class (s-prefix "schema:ContactPoint")
@@ -86,7 +86,7 @@
                            :as "organization"
                            :inverse t))
   :on-path "contact-points"
-  :resource-base "http://data.lblod.info/id/contact-punten/")
+  :resource-base (s-url "http://data.lblod.info/id/contact-punten/"))
 
 (define-resource membership ()
   :class (s-prefix "org:Membership")
@@ -98,13 +98,13 @@
              (role :via ,(s-prefix "org:role")
                    :as "role"))
   :on-path "memberships"
-  :resource-base "http://data.lblod.info/id/identificatoren/")
+  :resource-base (s-url "http://data.lblod.info/id/identificatoren/"))
 
 (define-resource role (concept)
   :class (s-prefix "org:Role")
   :on-path "roles"
   :features '(include-uri)
-  :resource-base "http://lblod.data.gift/concepts/")
+  :resource-base (s-url "http://lblod.data.gift/concepts/"))
 
 (define-resource person ()
   :class (s-prefix "person:Person")
@@ -115,7 +115,7 @@
   :has-one `((site :via ,(s-prefix "org:basedAt")
                    :as "site"))
   :on-path "persons"
-  :resource-base "http://data.lblod.info/id/personen/")
+  :resource-base (s-url "http://data.lblod.info/id/personen/"))
 
 (define-resource recognition ()
   :class (s-prefix "fv:Erkenning")
@@ -134,21 +134,21 @@
              (file :via ,(s-prefix "rdfs:seeAlso")
                    :as "file"))
   :on-path "recognitions"
-  :resource-base "http://data.lblod.info/id/erkenningen/")
+  :resource-base (s-url "http://data.lblod.info/id/erkenningen/"))
 
 (define-resource site-type ()
   :class (s-prefix "code:TypeVestiging")
   :properties `((:label :string ,(s-prefix "skos:prefLabel")))
   :on-path "site-types"
   :features '(include-uri)
-  :resource-base "http://lblod.data.gift/concepts/")
+  :resource-base (s-url "http://lblod.data.gift/concepts/"))
 
 (define-resource period ()
   :class (s-prefix "m8g:PeriodOfTime")
   :properties `((:start-time :datetime ,(s-prefix "m8g:startTime"))
                 (:end-time :datetime ,(s-prefix "m8g:endTime")))
   :on-path "periods"
-  :resource-base "http://data.lblod.info/id/periodes/")
+  :resource-base (s-url "http://data.lblod.info/id/periodes/"))
 
 (define-resource administrative-unit (public-organization)
   :class (s-prefix "besluit:Bestuurseenheid")
@@ -158,7 +158,7 @@
   :has-one `((administrative-unit-classification-code :via ,(s-prefix "org:classification")
                                                       :as "classification"))
   :on-path "administrative-units"
-  :resource-base "http://data.lblod.info/id/bestuurseenheden/")
+  :resource-base (s-url "http://data.lblod.info/id/bestuurseenheden/"))
 
 (define-resource governing-body ()
   :class (s-prefix "besluit:Bestuursorgaan")
@@ -174,12 +174,12 @@
              (concept :via ,(s-prefix "org:classification")
                       :as "classification"))
   :on-path "governing-bodies"
-  :resource-base "http://data.lblod.info/id/bestuursorganen/")
+  :resource-base (s-url "http://data.lblod.info/id/bestuursorganen/"))
 
 (define-resource target-audience ()
   :class (s-prefix "ver:Doelgroep")
   :properties `((:minimum-leeftijd :number ,(s-prefix "ver:minimumleeftijd"))
                 (:maximum-leeftijd :number ,(s-prefix "ver:maximumleeftijd")))
   :on-path "target-audiences"
-  :resource-base "http://awesome-poc.com/target/")
+  :resource-base (s-url "http://awesome-poc.com/target/"))
 
