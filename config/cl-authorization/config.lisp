@@ -49,7 +49,8 @@
   :m8g "http://data.europa.eu/m8g/"
   :org "http://www.w3.org/ns/org#"
   :organisatie "http://lblod.data.gift/vocabularies/organisatie/"
-  :nfo "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#")
+  :nfo "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#"
+  :ver "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/")
 
 ;;;;;;;;;;;;;;;;;
 ;; access queries
@@ -91,6 +92,8 @@
   ("feitelijkeverenigingen:Vereniging" -> _)
   ("besluit:Bestuurseenheid" -> _)
   ("org:Organization" -> _)
+  ("m8g:PublicOrganisation" -> _)
+  ("ver:AdHocOrganisatie" -> _)
   ("core:Concept" -> _)
   ("core:ConceptScheme" -> _))
 

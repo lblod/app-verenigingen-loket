@@ -1,11 +1,18 @@
 # Changelog
 
-## unreleased
+## Unreleased
 
+- Link recognitions to public organization [CLBV-1010] & [CLBV-972]
+- Restructure and strengthen dispatcher rules [DL-6515]
 - Allow displaying associations in the overview beyond 10k
   - See also [CLBV-1021]
 
-### Deploy Notes
+### Deploy notes
+
+```
+drc restart resource database dispatcher migrations
+drc up -d
+```
 
 Only needed to update the settings for existing indexes. Newly created indexes will have the new settings by default.
 
