@@ -1,10 +1,10 @@
-version: "3.7"
+version: '3.7'
 
 x-logging: &default-logging
-  driver: "json-file"
+  driver: 'json-file'
   options:
-    max-size: "10m"
-    max-file: "3"
+    max-size: '10m'
+    max-file: '3'
 
 services:
   frontend:
@@ -12,21 +12,21 @@ services:
     links:
       - identifier:backend
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   identifier:
     image: semtech/mu-identifier:1.10.1
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   accountdetail:
     image: lblod/account-detail-service:0.1.0
     labels:
-      - "logging=true"
+      - 'logging=true'
     environment:
-      MU_APPLICATION_GRAPH: "http://mu.semte.ch/graphs/verenigingen/accounts"
+      MU_APPLICATION_GRAPH: 'http://mu.semte.ch/graphs/verenigingen/accounts'
     restart: always
     logging: *default-logging
   dispatcher:
@@ -34,7 +34,7 @@ services:
     volumes:
       - ./config/dispatcher:/config
     labels:
-      - "logging=true"
+      - 'logging=true'
     # TODO: fix this once the virtuoso bug is fixed
     # Virtuoso bug: https://github.com/openlink/virtuoso-opensource/issues/1361
     # High level description: a complex interplay between delta-consumer, mu-auth and virtuoso
@@ -51,21 +51,21 @@ services:
       - ./config/cl-authorization:/config
       - ./data/cl-authorization:/data
     environment:
-      LISP_DYNAMIC_SPACE_SIZE: "4096"
+      LISP_DYNAMIC_SPACE_SIZE: '4096'
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   virtuoso:
-    image: tenforce/virtuoso:1.3.2-virtuoso7.2.5.1
+    image: redpencil/virtuoso:1.3.0
     environment:
-      SPARQL_UPDATE: "true"
-      DEFAULT_GRAPH: "http://mu.semte.ch/application"
+      SPARQL_UPDATE: 'true'
+      DEFAULT_GRAPH: 'http://mu.semte.ch/application'
     volumes:
       - ./data/db:/data
       - ./config/virtuoso/virtuoso.ini:/data/virtuoso.ini # Note: on production override this setting
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   migrations:
@@ -73,11 +73,11 @@ services:
     links:
       - virtuoso:database
     environment:
-      MU_SPARQL_TIMEOUT: "300"
+      MU_SPARQL_TIMEOUT: '300'
     volumes:
       - ./config/migrations:/data/migrations
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   cache:
@@ -85,17 +85,17 @@ services:
     links:
       - resource:backend
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   resource:
     image: semtech/mu-cl-resources:1.25.0
     environment:
-      CACHE_CLEAR_PATH: "http://cache/.mu/clear-keys"
+      CACHE_CLEAR_PATH: 'http://cache/.mu/clear-keys'
     volumes:
       - ./config/resources:/config
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   update-bestuurseenheid-mock-login:
@@ -103,84 +103,84 @@ services:
     volumes:
       - ./config/mock-login:/config
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   op-consumer:
     image: lblod/delta-consumer:0.1.6
     environment:
-      DCR_SERVICE_NAME: "op-consumer"
-      DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
-      DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
-      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump"
-      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
-      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
-      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
-      DCR_DISABLE_INITIAL_SYNC: "true"
-      DCR_KEEP_DELTA_FILES: "true"
+      DCR_SERVICE_NAME: 'op-consumer'
+      DCR_SYNC_BASE_URL: 'https://organisaties.abb.lblod.info'
+      DCR_SYNC_FILES_PATH: '/sync/organizations-public-info/files'
+      DCR_SYNC_DATASET_SUBJECT: 'http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump'
+      DCR_INITIAL_SYNC_JOB_OPERATION: 'http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op'
+      DCR_DELTA_SYNC_JOB_OPERATION: 'http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing'
+      DCR_JOB_CREATOR_URI: 'http://data.lblod.info/services/id/op-consumer'
+      DCR_DISABLE_INITIAL_SYNC: 'true'
+      DCR_KEEP_DELTA_FILES: 'true'
       DCR_DELTA_JOBS_RETENTION_PERIOD: 30
-      DCR_ENABLE_TRIPLE_REMAPPING: "true"
-      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/organizations-public-info"
-      DCR_REMAPPING_GRAPH: "http://mu.semte.ch/graphs/public"
+      DCR_ENABLE_TRIPLE_REMAPPING: 'true'
+      DCR_LANDING_ZONE_GRAPH: 'http://mu.semte.ch/graphs/landing-zone/organizations-public-info'
+      DCR_REMAPPING_GRAPH: 'http://mu.semte.ch/graphs/public'
       DCR_BATCH_SIZE: 1000
-      DCR_DELTA_FILE_FOLDER: "/consumer-files"
-      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
-      SUDO_QUERY_RETRY: "true"
+      DCR_DELTA_FILE_FOLDER: '/consumer-files'
+      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: '404,500,503'
+      SUDO_QUERY_RETRY: 'true'
     volumes:
       - ./config/delta-consumers/op/mapping:/config/mapping
       - ./data/files/consumer-files/op:/consumer-files/
     restart: always
     labels:
-      - "logging=true"
+      - 'logging=true'
     logging: *default-logging
   harvester-consumer:
     image: lblod/delta-consumer:0.1.6
     environment:
-      DCR_SERVICE_NAME: "harvester-consumer"
-      DCR_SYNC_BASE_URL: "https://harvester.verenigingen-loket.lblod.info" # replace with link to Loket API
-      DCR_SYNC_FILES_PATH: "/sync/verenigingen/files"
-      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/lblod-harvester/VerenigingenCacheGraphDump"
-      DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/verenigingen"
-      DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/verenigingenDeltaFileSyncing"
-      DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/verenigingen-consumer"
-      DCR_DISABLE_INITIAL_SYNC: "true"
-      DCR_KEEP_DELTA_FILES: "true"
-      DCR_DELTA_JOBS_RETENTION_PERIOD: "30"
-      DCR_ENABLE_TRIPLE_REMAPPING: "true"
-      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/verenigingen-harvester"
-      DCR_REMAPPING_GRAPH: "http://mu.semte.ch/graphs/organizations"
+      DCR_SERVICE_NAME: 'harvester-consumer'
+      DCR_SYNC_BASE_URL: 'https://harvester.verenigingen-loket.lblod.info' # replace with link to Loket API
+      DCR_SYNC_FILES_PATH: '/sync/verenigingen/files'
+      DCR_SYNC_DATASET_SUBJECT: 'http://data.lblod.info/datasets/delta-producer/dumps/lblod-harvester/VerenigingenCacheGraphDump'
+      DCR_INITIAL_SYNC_JOB_OPERATION: 'http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/verenigingen'
+      DCR_DELTA_SYNC_JOB_OPERATION: 'http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/verenigingenDeltaFileSyncing'
+      DCR_JOB_CREATOR_URI: 'http://data.lblod.info/services/id/verenigingen-consumer'
+      DCR_DISABLE_INITIAL_SYNC: 'true'
+      DCR_KEEP_DELTA_FILES: 'true'
+      DCR_DELTA_JOBS_RETENTION_PERIOD: '30'
+      DCR_ENABLE_TRIPLE_REMAPPING: 'true'
+      DCR_LANDING_ZONE_GRAPH: 'http://mu.semte.ch/graphs/landing-zone/verenigingen-harvester'
+      DCR_REMAPPING_GRAPH: 'http://mu.semte.ch/graphs/organizations'
       DCR_BATCH_SIZE: 1000
-      DCR_DELTA_FILE_FOLDER: "/consumer-files"
-      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: "404,500,503"
-      SUDO_QUERY_RETRY: "true"
+      DCR_DELTA_FILE_FOLDER: '/consumer-files'
+      SUDO_QUERY_RETRY_FOR_HTTP_STATUS_CODES: '404,500,503'
+      SUDO_QUERY_RETRY: 'true'
     volumes:
       - ./config/delta-consumers/harvester/mapping:/config/mapping
       - ./data/files/consumer-files/harvester:/consumer-files/
     restart: always
     labels:
-      - "logging=true"
+      - 'logging=true'
     logging: *default-logging
   download:
     image: lblod/verenigingsloket-download-service:3.1.1
     environment:
-      CRON_PATTERN_SPREADSHEET_JOB: "0 6 * * *"
+      CRON_PATTERN_SPREADSHEET_JOB: '0 6 * * *'
     volumes:
       - ./data/files:/share
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   login:
     image: lblod/acmidm-login-service:0.11.0
     environment:
-      MU_APPLICATION_AUTH_USERID_CLAIM: "vo_id"
-      MU_APPLICATION_AUTH_ROLE_CLAIM: "abb_loketverenigingenapp_rol_3d"
-      MU_APPLICATION_AUTH_DISCOVERY_URL: "https://authenticatie-ti.vlaanderen.be/op"
-      MU_APPLICATION_AUTH_CLIENT_ID: "710dedb2-60e2-458d-85f2-dd4a0e9d79c7"
-      MU_APPLICATION_AUTH_REDIRECT_URI: "https://verenigingen-loket.lblod.info/authorization/callback"
-      MU_APPLICATION_AUTH_CLIENT_SECRET: "secret"
+      MU_APPLICATION_AUTH_USERID_CLAIM: 'vo_id'
+      MU_APPLICATION_AUTH_ROLE_CLAIM: 'abb_loketverenigingenapp_rol_3d'
+      MU_APPLICATION_AUTH_DISCOVERY_URL: 'https://authenticatie-ti.vlaanderen.be/op'
+      MU_APPLICATION_AUTH_CLIENT_ID: '710dedb2-60e2-458d-85f2-dd4a0e9d79c7'
+      MU_APPLICATION_AUTH_REDIRECT_URI: 'https://verenigingen-loket.lblod.info/authorization/callback'
+      MU_APPLICATION_AUTH_CLIENT_SECRET: 'secret'
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   delta-notifier:
@@ -188,7 +188,7 @@ services:
     volumes:
       - ./config/delta:/config
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   search:
@@ -196,7 +196,7 @@ services:
     volumes:
       - ./config/search:/config
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   elasticsearch:
@@ -206,7 +206,7 @@ services:
     environment:
       - discovery.type=single-node
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   file:
@@ -216,13 +216,13 @@ services:
     volumes:
       - ./data/files:/share
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
   verenigingsregister-api-proxy:
     image: lblod/verenigingsregister-proxy-service #TODO: add release tag.
     environment:
-      SCOPE: "dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D"
+      SCOPE: 'dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D'
     volumes:
       - ./config/verenigingsregister-proxy-service:/config
     restart: always
@@ -230,6 +230,6 @@ services:
   adressenregister:
     image: lblod/adressenregister-fuzzy-search-service:0.8.0
     labels:
-      - "logging=true"
+      - 'logging=true'
     restart: always
     logging: *default-logging
