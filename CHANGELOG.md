@@ -12,6 +12,7 @@
 - Allow displaying associations in the overview beyond 10k
   - See also [CLBV-1021]
 - Improvements for mutatiedienst
+- Frontend [v1.6.0](https://github.com/lblod/frontend-verenigingen-loket/blob/1825a15770161d970c4c18710a9df6e487c70fde/CHANGELOG.md#v160-2025-10-06)
 
 ### Deploy notes
 
