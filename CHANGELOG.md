@@ -1,16 +1,58 @@
 # Changelog
 
-## Unreleased
+## 1.6.0 (2025-10-07)
 
 - Link recognitions to public organization [CLBV-1010] & [CLBV-972]
 - Restructure and strengthen dispatcher rules [DL-6515]
+- fix a pagination issue [CLBV-1024]
+- Add verenigingsregister api proxy service [CLBV-1050]
+- Expose internal ids [CLBV-1054]
+- Re-write mu-cl-resources config into Lisp
+- Expose ETag of associations [CLBV-1046]
+- Allow displaying associations in the overview beyond 10k
+  - See also [CLBV-1021]
+- Improvements for mutatiedienst
+- Frontend [v1.6.0](https://github.com/lblod/frontend-verenigingen-loket/blob/1825a15770161d970c4c18710a9df6e487c70fde/CHANGELOG.md#v160-2025-10-06)
 - Allow displaying associations in the overview beyond 10k
   - See also [CLBV-1021]
 
 ### Deploy notes
 
+Add verenigingsregister client config to dock-compose.override.yml.
+cf [README](https://github.com/lblod/verenigingsregister-proxy-service)
+
+For DEV:
+
 ```
-drc restart resource database dispatcher migrations
+  verenigingsregister-api-proxy:
+    environment:
+      ENVIRONMENT: 'DEV'
+      AUD: 'https://authenticatie-ti.vlaanderen.be/op'
+      API_URL: 'https://iv.api.tni-vlaanderen.be/api/v1/organisaties/verenigingen/'
+      AUTHORIZATION_KEY: 'your-key'
+      AUTH_DOMAIN: 'authenticatie-ti.vlaanderen.be'
+      CLIENT_ID: 'your-client-id'
+```
+
+or PRD:
+
+Add Magda private authentication key (`.pem`) to `/config/verenigingsregister-proxy-service/`
+
+```
+  verenigingsregister-api-proxy:
+    environment:
+      ENVIRONMENT: 'PROD'
+      AUD: 'https://authenticatie.vlaanderen.be/op'
+      CLIENT_ID: 'your-client-id'
+      SCOPE: 'dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D'
+```
+
+Restart services for new configs:
+
+```
+drc stop
+# Only needed to update the settings for existing indexes. Newly created indexes will have the new settings by default.
+bash scripts/increase-max-result-window.sh
 drc up -d
 ```
 
@@ -31,7 +73,9 @@ bash scripts/increase-max-result-window.sh
 ### Deploy Notes
 
 ```
+
 drc up -d frontend
+
 ```
 
 ## 1.5.0 (2025-04-17)
@@ -53,31 +97,39 @@ drc up -d frontend
 Ensure backup first!
 
 ```
+
 drc down
+
 ```
 
 Ensure `docker-compose.override.yml` contains:
 
 ```
+
   harvester-consumer:
     environment:
       DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
       DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
       DCR_DISABLE_DELTA_INGEST: "true"
       DCR_DISABLE_INITIAL_SYNC: "true"
+
 ```
 
 ```
+
 drc up -d migrations
 drc up -d database harvester-consumer
 drc up -d
+
 ```
 
 Wait for the consumer to finish.
 If that looks okay; reset elastic.
 
 ```
+
 /bin/bash ./scripts/reset-elastic.sh
+
 ```
 
 Experienced readers might have noticed that we don't revert the consumer back to ingesting in the `database` to trigger constant updates of `mu-search` and other caches. There is a good reason for that: currently, we are facing a bug in both `mu-auth` and `sparql-parser` that occurs with strings exceeding the ASCII range.
@@ -85,7 +137,9 @@ Experienced readers might have noticed that we don't revert the consumer back to
 So, we'll have to temporarily revert to ingesting directly in Virtuoso and use a cron job running in the background. After everything is set up correctly, add a cron job on the server using `crontab -e`. Don't forget to update the paths depending on the environment you are in. Also respect the quircks of the cronfile.
 
 ```
-00 4 * * * cd /data/app-verenigingen-loket; ./scripts/reset-elastic.sh > /data/app-verenigingen-loket/reset-elastic.log 2>&1
+
+00 4 \* \* \* cd /data/app-verenigingen-loket; ./scripts/reset-elastic.sh > /data/app-verenigingen-loket/reset-elastic.log 2>&1
+
 ```
 
 That should be it.
@@ -98,7 +152,9 @@ That should be it.
 ### Deploy Notes
 
 ```
+
 drc up -d harvester-consumer op-consumer
+
 ```
 
 # 1.3.4 (2025-03-07)
@@ -145,8 +201,10 @@ Lots of fixes:
 ### Deploy instructions
 
 ```
+
 drc down;
 drc up -d
+
 ```
 
 ## 1.2.1 (2025-01-28)
@@ -158,15 +216,19 @@ drc up -d
 #### production
 
 ```
+
 drc down;
 drc up -d --remove-orphans
+
 ```
 
 #### development/local
 
 ```
+
 git fetch origin
 git reset --hard origin/development
+
 ```
 
 ## 1.2.0 (2025-01-28)
@@ -179,17 +241,20 @@ git reset --hard origin/development
 ### Deploy instructions
 
 ```
+
 drc down
 rm -rf data
 drc up -d migrations # wait for successs
+
 ```
 
 On production only update `docker-compose.override.yml` to:
 
 ```
-  virtuoso:
-    volumes:
-      - ./config/virtuoso/virtuoso-production.ini:/data/virtuoso.ini
+
+virtuoso:
+volumes: - ./config/virtuoso/virtuoso-production.ini:/data/virtuoso.ini
+
 ```
 
 (Consider doing the same on QA if it helps)
@@ -199,6 +264,7 @@ Then start ingesting `OP` master data.
 Update `docker-compose.override.yml` to:
 
 ```
+
   op-consumer:
     environment:
       DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be" # choose the correct endpoint
@@ -206,22 +272,31 @@ Update `docker-compose.override.yml` to:
       DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
       DCR_DISABLE_DELTA_INGEST: "false"
       DCR_DISABLE_INITIAL_SYNC: "false"
+
 ```
 
 Then:
 
 ```
+
 drc up -d database op-consumer
+
 # Wait until success of the previous step
+
 drc up -d update-bestuurseenheid-mock-login
+
 # Wait until it boots, before running the next command. You can also wait the cron-job kicks in.
+
 drc exec update-bestuurseenheid-mock-login curl -X POST http://localhost/heal-mock-logins
+
 # Takes about 20 min with prod data
+
 ```
 
 Then, update `docker-compose.override.yml` to:
 
 ```
+
   op-consumer:
     environment:
       DCR_SYNC_BASE_URL: "https://organisaties.abb.vlaanderen.be" # choose the correct endpoint
@@ -229,10 +304,13 @@ Then, update `docker-compose.override.yml` to:
       DCR_REMAPPING_DATABASE: "database"
       DCR_DISABLE_DELTA_INGEST: "false"
       DCR_DISABLE_INITIAL_SYNC: "false"
+
 ```
 
 ```
+
 drc up -d op-consumer
+
 ```
 
 Then update the `verenigen-harvester` master data
@@ -240,6 +318,7 @@ Then update the `verenigen-harvester` master data
 Update `docker-compose.override.yml` to:
 
 ```
+
   harvester-consumer:
     environment:
       DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
@@ -251,15 +330,19 @@ Update `docker-compose.override.yml` to:
       DCR_SYNC_BASE_URL: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be"
       DCR_SYNC_LOGIN_ENDPOINT: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be/sync/verenigingen/login"
       DCR_SECRET_KEY: "THE KEY"
+
 ```
 
 ```
+
 drc up -d database harvester-consumer # wait until this message: delta-sync-queue: Remaining number of tasks 0
+
 ```
 
 Update `docker-compose.override.yml` to:
 
 ```
+
   harvester-consumer:
     environment:
       DCR_LANDING_ZONE_DATABASE: "database" # Restore to database
@@ -271,16 +354,21 @@ Update `docker-compose.override.yml` to:
       DCR_SYNC_BASE_URL: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be"
       DCR_SYNC_LOGIN_ENDPOINT: "https://harvester.verenigingen.lokaalbestuur.vlaanderen.be/sync/verenigingen/login"
       DCR_SECRET_KEY: "THE KEY"
+
 ```
 
 ```
+
 drc up -d
+
 ```
 
 Then kick the `mu-search` to do its thing:
 
 ```
+
 /bin/bash ./scripts/reset-elastic.sh
+
 ```
 
 ## 1.1.2 (2024-10-24)

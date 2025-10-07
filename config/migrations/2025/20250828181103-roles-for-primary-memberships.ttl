@@ -1,0 +1,17 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix concept: <http://lblod.data.gift/concepts/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+
+concept:75e74415-35cf-4da5-bac5-b72a1c137799
+  mu:uuid "75e74415-35cf-4da5-bac5-b72a1c137799" ;
+  rdf:type org:Role ;
+  skos:prefLabel "Primary" ;
+  skos:definition "This role indicates that an agent is the primary contact for their organisation." .
+
+concept:78451ac5-ec0b-469d-b918-0a8ef92a77b2
+  mu:uuid "78451ac5-ec0b-469d-b918-0a8ef92a77b2" ;
+  rdf:type org:Role ;
+  skos:prefLabel "Secondary" ;
+  skos:definition "This role indicates that an agent is not the primary contact for their organisation, but another contact point." .

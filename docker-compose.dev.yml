@@ -41,3 +41,7 @@ services:
     restart: "no"
   file:
     restart: "no"
+  verenigingsregister-api-proxy:
+    restart: "no"
+  adressenregister:
+    restart: "no"

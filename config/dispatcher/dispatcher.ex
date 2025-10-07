@@ -119,6 +119,10 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/memberships/"
   end
 
+  get "/roles/*path", %{ accept: [:json], layer: :api } do
+    Proxy.forward conn, path, "http://cache/roles/"
+  end
+
   match "/recognitions/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/recognitions/"
   end
@@ -129,6 +133,10 @@ defmodule Dispatcher do
 
   get "/postal-codes/*path", %{ accept: [:any], layer: :api } do
     Proxy.forward conn, path, "http://cache/postal-codes/"
+  end
+
+  get "/countries/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://cache/countries/"
   end
 
   # NOTE: resource used
@@ -178,6 +186,14 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://search/"
   end
 
+  ##############################################################
+  # VERENIGINGSREGISTER API PROXY
+  ##############################################################
+
+  match "/verenigingen/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://verenigingsregister-api-proxy/verenigingen/"
+  end
+
   ###############################################################
   # AUTHENTICATION
   ###############################################################
@@ -188,6 +204,14 @@ defmodule Dispatcher do
 
   match "/sessions/*path" do
     Proxy.forward conn, path, "http://login/sessions/"
+  end
+
+  ###############################################################
+  # ADDRESS SEARCH
+  ###############################################################
+
+  get "/address-register/*path", %{ accept: [:json], layer: :api} do
+    Proxy.forward conn, path, "http://adressenregister/"
   end
 
   ###############################################################
