@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.6.0 (2025-10-07)
 
 - Link recognitions to public organization [CLBV-1010] & [CLBV-972]
 - Restructure and strengthen dispatcher rules [DL-6515]
@@ -13,6 +13,8 @@
   - See also [CLBV-1021]
 - Improvements for mutatiedienst
 - Frontend [v1.6.0](https://github.com/lblod/frontend-verenigingen-loket/blob/1825a15770161d970c4c18710a9df6e487c70fde/CHANGELOG.md#v160-2025-10-06)
+- Allow displaying associations in the overview beyond 10k
+  - See also [CLBV-1021]
 
 ### Deploy notes
 
@@ -52,6 +54,12 @@ drc stop
 # Only needed to update the settings for existing indexes. Newly created indexes will have the new settings by default.
 bash scripts/increase-max-result-window.sh
 drc up -d
+```
+
+Only needed to update the settings for existing indexes. Newly created indexes will have the new settings by default.
+
+```
+bash scripts/increase-max-result-window.sh
 ```
 
 ## 1.5.2 (2025-04-18)
