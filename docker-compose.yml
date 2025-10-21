@@ -111,8 +111,8 @@ services:
     environment:
       DCR_SERVICE_NAME: "op-consumer"
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
-      DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
-      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump"
+      DCR_SYNC_FILES_PATH: "/sync/public/files"
+      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/PublicCacheGraphDump"
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
       DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
       DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
