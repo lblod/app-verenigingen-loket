@@ -1,4 +1,7 @@
 # Changelog
+## Unreleased
+ - Prepare verenigingen-proxy to work with erkenningen.
+   - see also: CLBV-1097
 
 ## 1.6.0 (2025-10-07)
 
