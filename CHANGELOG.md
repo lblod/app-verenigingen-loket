@@ -2,6 +2,7 @@
 ## Unreleased
  - Prepare verenigingen-proxy to work with erkenningen.
    - see also: CLBV-1097
+- Frontend [v1.7.0](https://github.com/lblod/frontend-verenigingen-loket/blob/454808e1fc5ae9f253113cc801d12bd18c2a9111/CHANGELOG.md#v170-2025-11-03)
 
 ## 1.6.0 (2025-10-07)
 
