@@ -4,6 +4,15 @@
    - see also: CLBV-1097
 - Frontend [v1.7.0](https://github.com/lblod/frontend-verenigingen-loket/blob/454808e1fc5ae9f253113cc801d12bd18c2a9111/CHANGELOG.md#v170-2025-11-03)
 
+### Deploy notes
+For QA:
+- remove the v1.7.0 frontend image override from the docker-compose.override.yml file and use the bundled one
+
+
+```
+drc up -d frontend
+```
+
 ## 1.6.0 (2025-10-07)
 
 - Link recognitions to public organization [CLBV-1010] & [CLBV-972]
