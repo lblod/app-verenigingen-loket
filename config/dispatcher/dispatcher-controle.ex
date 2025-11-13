@@ -9,7 +9,7 @@ defmodule Dispatcher do
     any: ["*/*"],
   ]
 
-  define_layers [:api, :frontend, :not_found]
+  define_layers [:files, :api, :frontend, :not_found]
 
   ###############################################################
   # BUSINESS RESOURCES
@@ -36,7 +36,7 @@ defmodule Dispatcher do
   get "/ad-hoc-organizations/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/ad-hoc-organizations/"
   end
- 
+
   post "/ad-hoc-organizations/*path", %{ accept: [:json], layer: :api } do
     Proxy.forward conn, path, "http://cache/ad-hoc-organizations/"
   end
@@ -154,11 +154,11 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://file/files/"
   end
 
-  get "/files/:id/download", %{ layer: :api } do
+  get "/files/:id/download", %{ layer: :files } do
     Proxy.forward conn, [], "http://file/files/" <> id <> "/download"
   end
 
-  delete "/files/*path", %{ accept: [ :json ], layer: :api } do
+  delete "/files/*path", %{ accept: [ :json ], layer: :files } do
     Proxy.forward conn, path, "http://file/files/"
   end
 

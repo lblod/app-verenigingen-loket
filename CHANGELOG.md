@@ -13,6 +13,9 @@ For QA:
 drc up -d frontend
 ```
 
+## 1.6.1 (2025-11-06)
+- Fix file download [CLBV-1111]
+
 ## 1.6.0 (2025-10-07)
 
 - Link recognitions to public organization [CLBV-1010] & [CLBV-972]
