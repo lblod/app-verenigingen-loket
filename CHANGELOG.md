@@ -78,6 +78,8 @@ Wait until the consumer has finished ingesting (check the logs).
 ```
 drc up -d
 ```
+## 1.6.1 (2025-11-06)
+- Fix file download [CLBV-1111]
 
 ## 1.6.0 (2025-10-07)
 
