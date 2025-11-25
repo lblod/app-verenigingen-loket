@@ -111,8 +111,8 @@ services:
     environment:
       DCR_SERVICE_NAME: "op-consumer"
       DCR_SYNC_BASE_URL: "https://organisaties.abb.lblod.info"
-      DCR_SYNC_FILES_PATH: "/sync/organizations-public-info/files"
-      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/OrganizationsPublicInfoCacheGraphDump"
+      DCR_SYNC_FILES_PATH: "/sync/public/files"
+      DCR_SYNC_DATASET_SUBJECT: "http://data.lblod.info/datasets/delta-producer/dumps/PublicCacheGraphDump"
       DCR_INITIAL_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/op"
       DCR_DELTA_SYNC_JOB_OPERATION: "http://redpencil.data.gift/id/jobs/concept/JobOperation/deltas/consumer/opDeltaFileSyncing"
       DCR_JOB_CREATOR_URI: "http://data.lblod.info/services/id/op-consumer"
@@ -120,7 +120,7 @@ services:
       DCR_KEEP_DELTA_FILES: "true"
       DCR_DELTA_JOBS_RETENTION_PERIOD: 30
       DCR_ENABLE_TRIPLE_REMAPPING: "true"
-      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/organizations-public-info"
+      DCR_LANDING_ZONE_GRAPH: "http://mu.semte.ch/graphs/landing-zone/op-public"
       DCR_REMAPPING_GRAPH: "http://mu.semte.ch/graphs/public"
       DCR_BATCH_SIZE: 1000
       DCR_DELTA_FILE_FOLDER: "/consumer-files"
