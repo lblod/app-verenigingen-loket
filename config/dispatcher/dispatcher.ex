@@ -218,15 +218,19 @@ defmodule Dispatcher do
   # FRONTEND
   ###############################################################
 
-  get "/assets/*path", %{ accept: [:any], layer: :frontend } do
+  get "/assets/*path", %{ accept: [:any], layer: :api } do
     Proxy.forward conn, path, "http://frontend/assets/"
   end
 
-  get "/@appuniversum/*path", %{ accept: [:any], layer: :frontend } do
+  get "/@appuniversum/*path", %{ accept: [:any], layer: :api } do
     Proxy.forward conn, path, "http://frontend/@appuniversum/"
   end
 
-  get "/*_path", %{ accept: [:html], layer: :frontend } do
+  match "/*path", %{ accept: [:html], layer: :api } do
+    Proxy.forward conn, [], "http://frontend/index.html"
+  end
+
+  match "/*_path", %{ accept: [:html], layer: :frontend } do
     Proxy.forward conn, [], "http://frontend/index.html"
   end
 
