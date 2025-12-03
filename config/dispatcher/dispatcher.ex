@@ -190,7 +190,7 @@ defmodule Dispatcher do
   # VERENIGINGSREGISTER API PROXY
   ##############################################################
 
-  match "/verenigingen/*path", %{ accept: %{ json: true }, layer: :api } do
+  match "/verenigingen-proxy/*path", %{ accept: %{ json: true }, layer: :api } do
     Proxy.forward conn, path, "http://verenigingsregister-api-proxy/verenigingen/"
   end
 
