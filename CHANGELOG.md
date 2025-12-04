@@ -13,6 +13,9 @@ For QA:
 drc up -d frontend
 ```
 
+## unreleased
+- Unable to navigate directly through URL [CLBV-1117]
+
 ## 1.6.1 (2025-11-06)
 - Fix file download [CLBV-1111]
 
