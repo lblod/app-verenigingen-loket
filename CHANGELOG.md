@@ -1,7 +1,84 @@
 # Changelog
 
-## unreleased
+## Unreleased
+
+- use op public consumer
 - Unable to navigate directly through URL [CLBV-1117]
+
+### Deploy notes
+
+The order of these steps is crucial.
+
+0. Prepare for deploy
+
+- Ensure backup first!
+- Stop all containers
+
+```
+drc down
+```
+
+Make sure `docker-compose.override.yml` contains:
+
+```
+  op-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_DISABLE_DELTA_INGEST: "true"
+      DCR_DISABLE_INITIAL_SYNC: "true"
+
+```
+
+1. Delete all mapped data in public graph
+
+```
+drc up -d migrations
+```
+
+You should see two migrations being applied:
+
+```
+20251021-flush-op-consumer/20251021100000-flush-pass-through.sparql
+20251021-flush-op-consumer/20251021100001-flush-mapped-identifiers-in-public.sparql
+```
+
+2. Flush previous op consumer jobs and landing zone data
+
+```
+drc up -d database op-consumer
+```
+
+Wait for the consumer to have started and then run:
+
+```
+drc exec op-consumer curl -X POST http://localhost/flush
+```
+
+Wait until the consumer has finished flushing (check the logs).
+
+3. Start re-ingesting op public data
+
+```
+drc exec op-consumer curl -X POST http://localhost/initial-sync-jobs
+```
+
+Wait until the consumer has finished ingesting (check the logs).
+
+4. revert docker-compose.override.yml to normal settings
+
+```
+  op-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "database"
+      DCR_REMAPPING_DATABASE: "database"
+```
+
+5. Restart all services
+
+```
+drc up -d
+```
 
 ## 1.6.1 (2025-11-06)
 - Fix file download [CLBV-1111]
