@@ -3,6 +3,7 @@
 ## Unreleased
 
 - use op public consumer
+- Unable to navigate directly through URL [CLBV-1117]
 
 ### Deploy notes
 
@@ -78,6 +79,7 @@ Wait until the consumer has finished ingesting (check the logs).
 ```
 drc up -d
 ```
+
 ## 1.6.1 (2025-11-06)
 - Fix file download [CLBV-1111]
 
