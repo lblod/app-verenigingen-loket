@@ -1,31 +1,34 @@
 # Changelog
 ## Unreleased
- - Prepare verenigingen-proxy to work with erkenningen.
+- Prepare verenigingen-proxy to work with erkenningen.
    - see also: CLBV-1097
 - Frontend [v1.7.1](https://github.com/lblod/frontend-verenigingen-loket/blob/3a88e91f20ebcebeaa2a0da790b8e299e849bed1/CHANGELOG.md#v171-2025-12-03)
 - Frontend [v1.7.0](https://github.com/lblod/frontend-verenigingen-loket/blob/454808e1fc5ae9f253113cc801d12bd18c2a9111/CHANGELOG.md#v170-2025-11-03)
+- Unable to navigate directly through URL [CLBV-1117]
+- Use op public consumer [CLBV-995]
+- Frontend [v1.8.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v180-2025-12-23)
+  - [CLBV-1125] Disable editing of Verenigingsregister data for certain users
+  - [CLBV-1124] Display a message about the availability of the representatives data
 
 ### Deploy notes
-For QA:
+#### For Dev:
+In the `docker-compose.override.ym` ensure:
+```
+  download:
+    image: lblod/verenigingsloket-download-service:latest # Is removed
+    restart: always # Is removed
+  database: # Is removed
+    image: semtech/sparql-parser:0.0.13 # Is removed
+  resource: # Is removed
+    image: semtech/mu-cl-resources:1.25.0 # Is removed
+  frontend: # Is removed
+  image: lblod/frontend-verenigingen-loket:1.5.1 # Is removed
+```
+#### For QA:
+
 - remove the v1.7.0 frontend image override from the docker-compose.override.yml file and use the bundled one
 
-
-```
-drc up -d frontend
-```
-
-## unreleased
-- Unable to navigate directly through URL [CLBV-1117]
-
-## 1.6.1 (2025-11-06)
-- Fix file download [CLBV-1111]
-
-## Unreleased
-
-- use op public consumer
-
-### Deploy notes
-
+#### All environments
 The order of these steps is crucial.
 
 0. Prepare for deploy
@@ -98,6 +101,9 @@ Wait until the consumer has finished ingesting (check the logs).
 ```
 drc up -d
 ```
+
+## 1.6.1 (2025-11-06)
+- Fix file download [CLBV-1111]
 
 ## 1.6.0 (2025-10-07)
 
