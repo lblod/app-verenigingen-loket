@@ -152,6 +152,7 @@
 
 (define-resource administrative-unit (public-organization)
   :class (s-prefix "besluit:Bestuurseenheid")
+  :properties `((:security-scheme-url :url ,(s-prefix "ext:hasSecurityScheme")))
   :has-many `((governing-body :via ,(s-prefix "besluit:bestuurt")
                               :as "governing-bodies"
                               :inverse t))

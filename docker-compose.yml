@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-verenigingen-loket:1.6.0
+    image: lblod/frontend-verenigingen-loket:1.8.0
     links:
       - identifier:backend
     labels:
@@ -162,9 +162,10 @@ services:
       - "logging=true"
     logging: *default-logging
   download:
-    image: lblod/verenigingsloket-download-service:3.1.1
+    image: lblod/verenigingsloket-download-service:3.2.0
     environment:
       CRON_PATTERN_SPREADSHEET_JOB: "0 6 * * *"
+      FEATURE_INCLUDE_REPRESENTATIVES: "false"
     volumes:
       - ./data/files:/share
     labels:
@@ -221,9 +222,10 @@ services:
     restart: always
     logging: *default-logging
   verenigingsregister-api-proxy:
-    image: lblod/verenigingsregister-proxy-service #TODO: add release tag.
+    image: lblod/verenigingsregister-proxy-service:1.1.0
     environment:
       SCOPE: "dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D"
+      ENABLE_PROCESSING_AGREEMENT_CHECK: false
     volumes:
       - ./config/verenigingsregister-proxy-service:/config
     restart: always
