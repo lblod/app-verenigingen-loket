@@ -1,9 +1,7 @@
 # Changelog
-## Unreleased
-- Prepare verenigingen-proxy to work with erkenningen.
-   - see also: CLBV-1097
-- Frontend [v1.7.1](https://github.com/lblod/frontend-verenigingen-loket/blob/3a88e91f20ebcebeaa2a0da790b8e299e849bed1/CHANGELOG.md#v171-2025-12-03)
-- Frontend [v1.7.0](https://github.com/lblod/frontend-verenigingen-loket/blob/454808e1fc5ae9f253113cc801d12bd18c2a9111/CHANGELOG.md#v170-2025-11-03)
+## 1.8.0 (2025-12-15)
+
+- use op public consumer
 - Unable to navigate directly through URL [CLBV-1117]
 - Use op public consumer [CLBV-995]
 - Frontend [v1.8.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v180-2025-12-23)
@@ -101,6 +99,88 @@ Wait until the consumer has finished ingesting (check the logs).
 ```
 drc up -d
 ```
+
+### Deploy notes
+
+The order of these steps is crucial.
+
+0. Prepare for deploy
+
+- Ensure backup first!
+- Stop all containers
+
+```
+drc down
+```
+
+Make sure `docker-compose.override.yml` contains:
+
+```
+  op-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_REMAPPING_DATABASE: "virtuoso" # for the initial sync, we go directly to virtuoso
+      DCR_DISABLE_DELTA_INGEST: "true"
+      DCR_DISABLE_INITIAL_SYNC: "true"
+
+```
+
+1. Delete all mapped data in public graph
+
+```
+drc up -d migrations
+```
+
+You should see two migrations being applied:
+
+```
+20251021-flush-op-consumer/20251021100000-flush-pass-through.sparql
+20251021-flush-op-consumer/20251021100001-flush-mapped-identifiers-in-public.sparql
+```
+
+2. Flush previous op consumer jobs and landing zone data
+
+```
+drc up -d database op-consumer
+```
+
+Wait for the consumer to have started and then run:
+
+```
+drc exec op-consumer curl -X POST http://localhost/flush
+```
+
+Wait until the consumer has finished flushing (check the logs).
+
+3. Start re-ingesting op public data
+
+```
+drc exec op-consumer curl -X POST http://localhost/initial-sync-jobs
+```
+
+Wait until the consumer has finished ingesting (check the logs).
+
+4. revert docker-compose.override.yml to normal settings
+
+```
+  op-consumer:
+    environment:
+      DCR_LANDING_ZONE_DATABASE: "database"
+      DCR_REMAPPING_DATABASE: "database"
+```
+
+5. Restart all services
+
+```
+drc up -d
+```
+
+## 1.7.0
+- Prepare verenigingen-proxy to work with erkenningen.
+   - see also: CLBV-1097
+- Frontend [v1.7.1](https://github.com/lblod/frontend-verenigingen-loket/blob/3a88e91f20ebcebeaa2a0da790b8e299e849bed1/CHANGELOG.md#v171-2025-12-03)
+- Frontend [v1.7.0](https://github.com/lblod/frontend-verenigingen-loket/blob/454808e1fc5ae9f253113cc801d12bd18c2a9111/CHANGELOG.md#v170-2025-11-03)
+
 
 ## 1.6.1 (2025-11-06)
 - Fix file download [CLBV-1111]
