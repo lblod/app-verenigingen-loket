@@ -1,4 +1,7 @@
 # Changelog
+## Unreleased
+- Frontend v1.9.0 [CLBV-1109]
+
 ## 1.8.1 (2026-01-13)
 - Fix edit functionality when client config is available [CLBV-1156]
 - Fix controller login [CLBV-1153]
@@ -11,6 +14,12 @@
 - Frontend [v1.8.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v180-2025-12-23)
   - [CLBV-1125] Disable editing of Verenigingsregister data for certain users
   - [CLBV-1124] Display a message about the availability of the representatives data
+
+### Deploy notes
+#### For QA:
+- remove the v1.9.0 frontend image override from the docker-compose.override.yml file and use the bundled one
+- verify that the ACM/IDM config is setup up
+- verify that the mock-login service is configured
 
 ### Deploy notes
 #### For Dev:
