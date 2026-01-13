@@ -105,6 +105,9 @@
   ("foaf:OnlineAccount" -> _)
   ("adms:Identifier" -> _))
 
+(define-graph client-configurations ("http://mu.semte.ch/graphs/client-configurations")
+  ("besluit:Bestuurseenheid" -> _))
+
 ;;;;;;;;;;;;;;;;;
 ;; allowed groups
 
@@ -138,6 +141,10 @@
 (grant (read)
        :to organization
        :for "org")
+
+(grant (read)
+       :to client-configurations
+       :for "verenigingen-beheerder")
 
 (grant (read write)
        :to verenigingen
