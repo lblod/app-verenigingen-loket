@@ -1,4 +1,7 @@
 # Changelog
+## 1.8.1 (2026-01-13)
+- Fix edit functionality when client config is available [CLBV-1156]
+
 ## 1.8.0 (2025-12-15)
 
 - use op public consumer
