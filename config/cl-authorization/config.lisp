@@ -144,7 +144,7 @@
 
 (grant (read)
        :to client-configurations
-       :for "org")
+       :for "verenigingen-beheerder")
 
 (grant (read write)
        :to verenigingen
