@@ -1,0 +1,13 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix ext: <http://mu.semte.ch/vocabularies/ext/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://data.lblod.info/id/information-request-reason/5334a6a1-41d7-4f92-8064-4406c4b1679b>
+  a ext:ReasonCode, skos:Concept ;
+  mu:uuid "5334a6a1-41d7-4f92-8064-4406c4b1679b" ;
+  skos:prefLabel "Wettelijke opdracht van de gemeente" .
+
+<http://data.lblod.info/id/information-request-reason/7cd16962-585e-45a5-b271-e204d101d4db>
+  a ext:ReasonCode, skos:Concept ;
+  mu:uuid "7cd16962-585e-45a5-b271-e204d101d4db" ;
+  skos:prefLabel "Gerechtvaardigd belang, rekening houdend met de AVG-privacyregels" .

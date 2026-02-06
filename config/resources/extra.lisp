@@ -61,6 +61,13 @@
   :on-path "changes"
   :resource-base (s-url "http://data.lblod.info/id/identificatoren/"))
 
+(define-resource request-reason ()
+  :class (s-prefix "ext:ReasonCode")
+  :properties `((:label :string ,(s-prefix "skos:prefLabel")))
+  :features '(include-uri)
+  :on-path "request-reasons"
+  :resource-base (s-url "http://data.lblod.info/id/information-request-reason/"))
+
 (define-resource change-event ()
   :class (s-prefix "org:ChangeEvent")
   :properties `((:date :date ,(s-prefix "dct:date")))
