@@ -139,10 +139,6 @@ defmodule Dispatcher do
     Proxy.forward conn, path, "http://cache/countries/"
   end
 
-  get "/request-reasons/*path", %{ accept: %{ json: true }, layer: :api } do
-    Proxy.forward conn, path, "http://cache/request-reasons/"
-  end
-
   # NOTE: resource used
   # NOTE: no request found in frontend
   # match "/groups/*path", %{ accept: %{ json: true }, layer: :api } do
