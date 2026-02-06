@@ -236,3 +236,11 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  recognition-status-maintainer:
+    image: lblod/association-recognition-status-maintainer-service:feature-initial-version
+    environment:
+      CRON_PATTERN: "0 1 * * *"
+      DEFAULT_MU_AUTH_SCOPE: "http://services.semantic.works/recognition-status-maintainer"
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  

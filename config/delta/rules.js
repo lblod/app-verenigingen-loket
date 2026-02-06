@@ -25,5 +25,18 @@ export default [
       ignoreFromSelf: true,
       // foldEffectiveChanges: true // this is has unexpected side effects we need to figure outy
     }
+  },
+  {
+    match: {},
+    callback: {
+      url: 'http://recognition-status-maintainer/delta',
+      method: 'POST'
+    },
+    options: {
+      resourceFormat: "v0.0.1",
+      gracePeriod: 10000,
+      ignoreFromSelf: true,
+      foldEffectiveChanges: true,
+    }
   }
 ];

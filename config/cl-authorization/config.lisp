@@ -154,3 +154,8 @@
        ;; TODO: if session_role is removed from the allowed_group, write should be removed here
        :to verenigingen
        :for "verenigingen-lezer")
+
+(with-scope "http://services.semantic.works/recognition-status-maintainer"
+    (grant (read write)
+      :to verenigingen
+      :for "public"))
