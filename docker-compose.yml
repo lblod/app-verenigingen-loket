@@ -237,7 +237,7 @@ services:
     restart: always
     logging: *default-logging
   recognition-status-maintainer:
-    build: https://github.com/lblod/association-recognition-status-maintainer-service.git#feature/initial-version
+    image: lblod/association-recognition-status-maintainer-service:feature-initial-version
     environment:
       CRON_PATTERN: "0 1 * * *"
       DEFAULT_MU_AUTH_SCOPE: "http://services.semantic.works/recognition-status-maintainer"
