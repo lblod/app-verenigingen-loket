@@ -78,7 +78,7 @@
           "http://www.w3.org/ns/regorg#orgStatus",
           "http://mu.semte.ch/vocabularies/core/uuid"
         ],
-        "recognitionStatus": "http://mu.semte.ch/vocabularies/ext/recognitionStatus",
+        "recognitionStatus": "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/recognitionStatus",
         "primarySite": {
           "via": "http://www.w3.org/ns/org#hasPrimarySite",
           "rdf_type": "http://www.w3.org/ns/org#Site",

@@ -42,7 +42,7 @@
   :class (s-prefix "vereniging:Vereniging")
   :properties `((:description :string ,(s-prefix "dct:description"))
                 (:created-on :date ,(s-prefix "pav:createdOn"))
-                (:recognition-status :uri ,(s-prefix "ext:recognitionStatus")))
+                (:recognition-status :uri ,(s-prefix "ver:recognitionStatus")))
   :has-many `((activity :via ,(s-prefix "regorg:orgActivity")
                         :as "activities")
               (change-event :via ,(s-prefix "org:resultingOrganization")
