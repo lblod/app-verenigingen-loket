@@ -1,0 +1,21 @@
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://lblod.data.gift/concept-schemes/145f3a1b-13f0-4fb6-959a-57872e113bca>
+  a skos:ConceptScheme ;
+  mu:uuid "145f3a1b-13f0-4fb6-959a-57872e113bca" ;
+  skos:prefLabel "Reason codes" .
+
+<http://data.lblod.info/id/information-request-reason/5334a6a1-41d7-4f92-8064-4406c4b1679b>
+  a skos:Concept ;
+  mu:uuid "5334a6a1-41d7-4f92-8064-4406c4b1679b" ;
+  skos:prefLabel "Wettelijke opdracht van de gemeente" ;
+  skos:inScheme <http://lblod.data.gift/concept-schemes/145f3a1b-13f0-4fb6-959a-57872e113bca> ;
+  skos:topConceptOf <http://lblod.data.gift/concept-schemes/145f3a1b-13f0-4fb6-959a-57872e113bca> .
+
+<http://data.lblod.info/id/information-request-reason/7cd16962-585e-45a5-b271-e204d101d4db>
+  a skos:Concept ;
+  mu:uuid "7cd16962-585e-45a5-b271-e204d101d4db" ;
+  skos:prefLabel "Gerechtvaardigd belang, rekening houdend met de AVG-privacyregels" ;
+  skos:inScheme <http://lblod.data.gift/concept-schemes/145f3a1b-13f0-4fb6-959a-57872e113bca> ;
+  skos:topConceptOf <http://lblod.data.gift/concept-schemes/145f3a1b-13f0-4fb6-959a-57872e113bca> .
