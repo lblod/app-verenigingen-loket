@@ -1,0 +1,25 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix mu: <http://mu.semte.ch/vocabularies/core/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+<http://lblod.data.gift/concepts/0d2dc070-2c6d-4af3-bedc-3fd96c45bb3a> 
+  a <http://www.w3.org/2004/02/skos/core#Concept> ;
+  <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/c78e079b-5f38-47fd-b284-f22b33172342>  ;
+  <http://www.w3.org/2004/02/skos/core#prefLabel> "Actief"@nl ;
+  <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://lblod.data.gift/concept-schemes/c78e079b-5f38-47fd-b284-f22b33172342>  .
+
+<http://lblod.data.gift/concepts/34ff67a0-8196-4228-937a-d3f46191c85b> 
+  a <http://www.w3.org/2004/02/skos/core#Concept> ;
+  <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/c78e079b-5f38-47fd-b284-f22b33172342>  ;
+  <http://www.w3.org/2004/02/skos/core#prefLabel> "Verlopen"@nl ;
+  <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://lblod.data.gift/concept-schemes/c78e079b-5f38-47fd-b284-f22b33172342>  .
+
+<http://lblod.data.gift/concepts/61875267-3045-4da7-9e38-ca7ddb7d3e3c> 
+  a <http://www.w3.org/2004/02/skos/core#Concept> ;
+  <http://www.w3.org/2004/02/skos/core#inScheme> <http://lblod.data.gift/concept-schemes/c78e079b-5f38-47fd-b284-f22b33172342>  ;
+  <http://www.w3.org/2004/02/skos/core#prefLabel> "Toekomstig"@nl ;
+  <http://www.w3.org/2004/02/skos/core#topConceptOf> <http://lblod.data.gift/concept-schemes/c78e079b-5f38-47fd-b284-f22b33172342>  .
+
+<http://lblod.data.gift/concept-schemes/c78e079b-5f38-47fd-b284-f22b33172342> 
+  a <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+  <http://www.w3.org/2004/02/skos/core#prefLabel> "Erkenning status code"@nl .

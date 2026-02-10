@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-verenigingen-loket:1.9.2
+    image: lblod/frontend-verenigingen-loket:1.10.0
     links:
       - identifier:backend
     labels:
@@ -237,3 +237,12 @@ services:
       - "logging=true"
     restart: always
     logging: *default-logging
+  recognition-status-maintainer:
+    image: lblod/association-recognition-status-maintainer-service:1.0.0
+    environment:
+      CRON_PATTERN: "0 1 * * *"
+      DEFAULT_MU_AUTH_SCOPE: "http://services.semantic.works/recognition-status-maintainer"
+    restart: always
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+  

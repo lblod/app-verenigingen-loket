@@ -1,7 +1,14 @@
 # Changelog
 ## Unreleased
-- Frontend v1.9.2 [CLBV-1165], v1.9.1 [CLBV-1163], v1.9.0 [CLBV-1109]
+- Frontend v1.10.0 [CLBV-1164], Frontend v1.9.2 [CLBV-1165], v1.9.1 [CLBV-1163], v1.9.0 [CLBV-1109]
 - Verenigingsregister proxy service v1.2.0 [CLBV-1135]. ENABLE_REQUEST_REASON_CHECK switched to false for now.
+- `recognition-status-maintainer` service [CLBV-1164]
+
+### Deploy notes
+- `drc up -d`
+- `drc restart resource cache`
+- `drc restart search`
+- `drc exec recognition-status-maintainer curl -X POST http://localhost/update-all`
 
 ## 1.8.1 (2026-01-13)
 - Fix edit functionality when client config is available [CLBV-1156]
