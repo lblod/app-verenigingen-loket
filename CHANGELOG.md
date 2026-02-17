@@ -1,7 +1,9 @@
 # Changelog
 ## Unreleased
 - Frontend v1.10.0 [CLBV-1164], Frontend v1.9.2 [CLBV-1165], v1.9.1 [CLBV-1163], v1.9.0 [CLBV-1109]
-- Verenigingsregister proxy service v1.2.0 [CLBV-1135]. ENABLE_REQUEST_REASON_CHECK switched to false for now.
+- Verenigingsregister proxy service v1.3.0 
+  - [CLBV-1135]. ENABLE_REQUEST_REASON_CHECK switched to false for now.
+  - new `/authorization-check` endpoint
 - `recognition-status-maintainer` service [CLBV-1164]
 
 ### Deploy notes
