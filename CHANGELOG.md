@@ -10,7 +10,10 @@
 - `drc up -d`
 - `drc restart resource cache`
 - `drc restart search`
+- `drc restart database`
+- wait until database has fully restarted
 - `drc exec recognition-status-maintainer curl -X POST http://localhost/update-all`
+- check the logs of `recognition-status-maintainer` to ensure the queries have successfully run
 
 ## 1.8.1 (2026-01-13)
 - Fix edit functionality when client config is available [CLBV-1156]
