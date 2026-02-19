@@ -8,7 +8,7 @@ x-logging: &default-logging
 
 services:
   frontend:
-    image: lblod/frontend-verenigingen-loket:1.10.0
+    image: lblod/frontend-verenigingen-loket:1.11.0
     links:
       - identifier:backend
     labels:
