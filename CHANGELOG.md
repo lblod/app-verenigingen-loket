@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## 1.9.0 (2026-02-19)
 - Frontend v1.10.0 [CLBV-1164], Frontend v1.9.2 [CLBV-1165], v1.9.1 [CLBV-1163], v1.9.0 [CLBV-1109]
 - Verenigingsregister proxy service v1.3.0 
   - [CLBV-1135]. ENABLE_REQUEST_REASON_CHECK switched to false for now.
