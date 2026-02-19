@@ -1,4 +1,7 @@
 # Changelog
+## Unreleased
+- Frontend v1.11.1 [CLBV-1169]
+
 ## 1.10.0 (2026-02-19)
 - Frontend v1.11.0 [CLBV-1161], [CLBV-1172]
 
