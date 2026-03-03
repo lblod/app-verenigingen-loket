@@ -1,4 +1,8 @@
 # Changelog
+## Unreleased
+- Proxy service for Verenigingsregister API v1.4.0 [CLBV-1176]
+
+
 ## 1.10.1
 - Frontend v1.11.1 [CLBV-1169]
 - Download service v4.1.0 [CLBV-1136]
