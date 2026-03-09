@@ -41,3 +41,5 @@
 (add-prefix "fv" "https://data.vlaanderen.be/ns/FeitelijkeVerenigingen#")
 (add-prefix "eli" "http://data.europa.eu/eli/ontology#")
 (add-prefix "internal" "https://data.lblod.info/ns/")
+(add-prefix "cogs" "http://vocab.deri.ie/cogs#")
+(add-prefix "task" "http://redpencil.data.gift/vocabularies/tasks/")

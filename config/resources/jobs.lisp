@@ -1,0 +1,11 @@
+(define-resource job ()
+  :class (s-prefix "cogs:Job")
+  :properties `((:status :url ,(s-prefix "adms:status"))
+                (:created :datetime ,(s-prefix "dct:created"))
+                (:modified :datetime ,(s-prefix "dct:modified"))
+                (:operation :url ,(s-prefix "task:operation"))
+                (:error :string ,(s-prefix "task:error")))
+  :has-one `((file :via ,(s-prefix "task:resultsContainer")
+                   :as "results-container"))
+  :on-path "jobs"
+  :resource-base (s-url "http://data.lblod.info/id/jobs/"))
