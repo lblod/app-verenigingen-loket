@@ -50,7 +50,8 @@
   :org "http://www.w3.org/ns/org#"
   :organisatie "http://lblod.data.gift/vocabularies/organisatie/"
   :nfo "http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#"
-  :ver "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/")
+  :ver "http://data.lblod.info/vocabularies/FeitelijkeVerenigingen/"
+  :cogs "http://vocab.deri.ie/cogs#")
 
 ;;;;;;;;;;;;;;;;;
 ;; access queries
@@ -105,6 +106,10 @@
   ("foaf:OnlineAccount" -> _)
   ("adms:Identifier" -> _))
 
+(define-graph accounts ("http://mu.semte.ch/graphs/accounts/")
+  ("cogs:Job" -> _)
+  ("nfo:FileDataObject" -> _))
+
 (define-graph client-configurations ("http://mu.semte.ch/graphs/client-configurations")
   ("besluit:Bestuurseenheid" -> _))
 
@@ -120,6 +125,15 @@
            <SESSION_ID> ext:sessionGroup/mu:uuid ?bestuurseenheid.
          }"
   :parameters ("bestuurseenheid"))
+
+(supply-allowed-group "account"
+  :query "PREFIX session: <http://mu.semte.ch/vocabularies/session/>
+         PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+         SELECT ?account WHERE {
+           <SESSION_ID> session:account ?accountUri.
+           ?accountUri mu:uuid ?account.
+         }"
+  :parameters ("account"))
 
 (supply-allowed-group "verenigingen-beheerder"
   :query (query-for-access-by-role "LoketLB-verenigingenGebruiker")
@@ -141,6 +155,10 @@
 (grant (read)
        :to organization
        :for "org")
+
+(grant (read)
+       :to accounts
+       :for "account")
 
 (grant (read)
        :to client-configurations

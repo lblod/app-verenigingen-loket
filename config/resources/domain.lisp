@@ -21,3 +21,4 @@
 (read-domain-file "file.lisp")
 (read-domain-file "concept.lisp")
 (read-domain-file "countries.lisp")
+(read-domain-file "jobs.lisp")

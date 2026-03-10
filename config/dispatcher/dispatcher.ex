@@ -146,6 +146,18 @@ defmodule Dispatcher do
   # end
 
   ###############################################################
+  # DOWNLOAD SERVICE
+  ###############################################################
+
+  match "/verenigingen-downloads/*path", %{ accept: %{ json: true }, layer: :api } do
+    Proxy.forward conn, path, "http://download/sensitive-data-jobs/"
+  end
+
+  get "/jobs/*path", %{ accept: %{ json: true }, layer: :api } do
+    Proxy.forward conn, path, "http://cache/jobs/"
+  end
+
+  ###############################################################
   # FILES
   ###############################################################
 
