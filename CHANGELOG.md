@@ -2,6 +2,7 @@
 ## Unreleased
 - Frontend [v1.12.1](https://github.com/lblod/frontend-verenigingen-loket/blob/2d46fb0a0ce9f06df06ec92e1ded4f8125f9ce69/CHANGELOG.md#v1121-2026-03-10), [v1.12.0](https://github.com/lblod/frontend-verenigingen-loket/blob/a1f2a4a3bfd88f1ab886e3bd3ff17710d94ef830/CHANGELOG.md#v1120-2026-03-05)
 - Proxy service for Verenigingsregister API v1.4.1 [CLBV-1176]
+- Download service V4.1.1
 
 ## 1.10.1
 - Frontend v1.11.1 [CLBV-1169]
