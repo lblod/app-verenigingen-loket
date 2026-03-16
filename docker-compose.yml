@@ -168,6 +168,7 @@ services:
       FEATURE_INCLUDE_REPRESENTATIVES: "false"
     volumes:
       - ./data/files:/share
+      - ./config/verenigingsregister-client:/config
     labels:
       - "logging=true"
     restart: always
@@ -228,7 +229,7 @@ services:
       ENABLE_PROCESSING_AGREEMENT_CHECK: "false"
       ENABLE_REQUEST_REASON_CHECK: "false"
     volumes:
-      - ./config/verenigingsregister-proxy-service:/config
+      - ./config/verenigingsregister-client:/config
     restart: always
     logging: *default-logging
   adressenregister:
