@@ -18,6 +18,7 @@
   - [CLBV-1135]. ENABLE_REQUEST_REASON_CHECK switched to false for now.
   - new `/authorization-check` endpoint
 - `recognition-status-maintainer` service [CLBV-1164]
+- Download service 4.0.0 [CLBV-1136]
 
 ### Deploy notes
 - `drc up -d`
