@@ -6,6 +6,9 @@
 - Download service v4.2.0 [CLBV-1192]
 - Renamed client config directory to `verenigingsregister-client` for clarity because it's used for both the proxy and the download service and added some documentation on how to add new client configs. [CLBV-1183]
 
+### Deploy notes
+  - the VR client key is used for both the proxy and the download service, so only one config needs to be added for both services. Add the client config to `/config/verenigingsregister-client/` (or move your existing config directory) and restart both services.
+
 ## 1.10.1
 - Frontend v1.11.1 [CLBV-1169]
 - Download service v4.1.0 [CLBV-1136]
