@@ -1,6 +1,6 @@
 # Changelog
 ## Unreleased
-- Frontend [v1.12.1](https://github.com/lblod/frontend-verenigingen-loket/blob/2d46fb0a0ce9f06df06ec92e1ded4f8125f9ce69/CHANGELOG.md#v1121-2026-03-10), [v1.12.0](https://github.com/lblod/frontend-verenigingen-loket/blob/a1f2a4a3bfd88f1ab886e3bd3ff17710d94ef830/CHANGELOG.md#v1120-2026-03-05)
+- Frontend [v1.13.0](https://github.com/lblod/frontend-verenigingen-loket/blob/2aa838c54978a00069eb4919498073a860344179/CHANGELOG.md#v1130-2026-03-19), [v1.12.1](https://github.com/lblod/frontend-verenigingen-loket/blob/2d46fb0a0ce9f06df06ec92e1ded4f8125f9ce69/CHANGELOG.md#v1121-2026-03-10), [v1.12.0](https://github.com/lblod/frontend-verenigingen-loket/blob/a1f2a4a3bfd88f1ab886e3bd3ff17710d94ef830/CHANGELOG.md#v1120-2026-03-05)
 - Proxy service for Verenigingsregister API v1.4.1 [CLBV-1176]
 - Download service V4.1.1
 - Renamed client config directory to `verenigingsregister-client` for clarity because it's used for both the proxy and the download service and added some documentation on how to add new client configs. [CLBV-1183]
