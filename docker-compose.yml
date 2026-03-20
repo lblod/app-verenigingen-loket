@@ -162,7 +162,7 @@ services:
       - "logging=true"
     logging: *default-logging
   download:
-    image: lblod/verenigingsloket-download-service:4.1.1
+    image: lblod/verenigingsloket-download-service:4.2.0
     environment:
       CRON_PATTERN_SPREADSHEET_JOB: "0 6 * * *"
       FEATURE_INCLUDE_REPRESENTATIVES: "false"
@@ -223,7 +223,7 @@ services:
     restart: always
     logging: *default-logging
   verenigingsregister-api-proxy:
-    image: lblod/verenigingsregister-proxy-service:1.4.1
+    image: lblod/verenigingsregister-proxy-service:1.5.0
     environment:
       SCOPE: "dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D"
       ENABLE_PROCESSING_AGREEMENT_CHECK: "false"

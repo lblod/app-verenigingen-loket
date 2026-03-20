@@ -19,16 +19,6 @@
       },
       {
         "variables": [],
-        "name": "verenigingen-lezer"
-      }
-    ],
-    [
-      {
-        "variables": [],
-        "name": "public"
-      },
-      {
-        "variables": [],
         "name": "verenigingen-beheerder"
       }
     ]
