@@ -1,5 +1,6 @@
 # Changelog
 ## Unreleased
+- Switch to verenigingenregister API v2 [CLBV-1189]
 - Frontend [v1.13.0](https://github.com/lblod/frontend-verenigingen-loket/blob/2aa838c54978a00069eb4919498073a860344179/CHANGELOG.md#v1130-2026-03-19), [v1.12.1](https://github.com/lblod/frontend-verenigingen-loket/blob/2d46fb0a0ce9f06df06ec92e1ded4f8125f9ce69/CHANGELOG.md#v1121-2026-03-10), [v1.12.0](https://github.com/lblod/frontend-verenigingen-loket/blob/a1f2a4a3bfd88f1ab886e3bd3ff17710d94ef830/CHANGELOG.md#v1120-2026-03-05)
 - Remove unused `verenigingen-lezer` read-only role [CLBV-1192]
 - Proxy service for Verenigingsregister API v1.5.0 [CLBV-1192]
@@ -7,8 +8,16 @@
 - Renamed client config directory to `verenigingsregister-client` for clarity because it's used for both the proxy and the download service and added some documentation on how to add new client configs. [CLBV-1183]
 
 ### Deploy notes
-  - the VR client key is used for both the proxy and the download service, so only one config needs to be added for both services. Add the client config to `/config/verenigingsregister-client/` (or move your existing config directory) and restart both services.
+  - Both app-verenigingen-loket-harvester and app-verenigingen-loket `feature/vzer` (TODO: replace with release tag) need to be deploted together and requires a full harvest to be done, so best to do this after business hours.
 
+    - check out app-verenigingen-loket
+    - run app-verenigingen-loket migrations
+    - `drc up -d` for app-verenigingen-loket-harvester
+    - trigger a full harvest (or wait for the scheduled nightly full harvest to run)
+    - `drc up -d` for app-verenigingen-loket
+
+
+  - the VR client key is used for both the proxy and the download service, so only one config needs to be added for both services. Add the client config to `/config/verenigingsregister-client/` (or move your existing config directory) and restart both services.
 ## 1.10.1
 - Frontend v1.11.1 [CLBV-1169]
 - Download service v4.1.0 [CLBV-1136]
