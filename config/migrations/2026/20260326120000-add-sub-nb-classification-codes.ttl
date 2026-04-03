@@ -1,0 +1,25 @@
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+<http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/5c9ca00c-48ea-47f4-b5b3-e71ea83cde68>
+    a skos:Concept ;
+    mu:uuid "5c9ca00c-48ea-47f4-b5b3-e71ea83cde68" ;
+    skos:inScheme <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode> ;
+    skos:notation "SUB" ;
+    skos:prefLabel "Subvereniging"@nl ;
+    skos:topConceptOf <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode> ;
+.
+
+<http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/f18372a8-f576-4233-b70c-84044f66b2f8>
+    a skos:Concept ;
+    mu:uuid "f18372a8-f576-4233-b70c-84044f66b2f8" ;
+    skos:inScheme <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode> ;
+    skos:notation "NB" ;
+    skos:prefLabel "Niet Bepaald"@nl ;
+    skos:topConceptOf <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode> ;
+.
+
+<http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/f3c67343-57f8-587e-89a8-afe88ccsc8>
+    skos:hasTopConcept
+        <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/5c9ca00c-48ea-47f4-b5b3-e71ea83cde68> ,
+        <http://data.vlaanderen.be/id/conceptscheme/VerenigingClassificatieCode/f18372a8-f576-4233-b70c-84044f66b2f8> .
