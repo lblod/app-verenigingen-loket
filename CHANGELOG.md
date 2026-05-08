@@ -1,10 +1,11 @@
 # Changelog
 ## Unreleased
 - Frontend [v1.14.2](https://github.com/lblod/frontend-verenigingen-loket/blob/24998420c89f2348b857e34b7f3193bf84ed424e/CHANGELOG.md#bug-bug-fix), [v1.14.1](https://github.com/lblod/frontend-verenigingen-loket/blob/073009797a51bc0a7a9a117d6995273cef5d9ffe/CHANGELOG.md#v1141-2026-04-29)
+- Bump login [DL-7346]
 
 ### Deploy notes
 ```
-drc up -d frontend
+drc up -d frontend login
 ```
 ## 1.11.0 (2026-04-29)
 - Switch to verenigingenregister API v2 [CLBV-1189]
