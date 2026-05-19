@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## v1.11.1 (2026-05-19)
 
 - Fix indexing issue / inconsistent load times [CLBV-1216]
 - Added missing controle dispatcher config (download service)
