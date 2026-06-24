@@ -1,14 +1,27 @@
 # Changelog
 ## Unreleased
-- Frontend [v1.14.2](https://github.com/lblod/frontend-verenigingen-loket/blob/24998420c89f2348b857e34b7f3193bf84ed424e/CHANGELOG.md#bug-bug-fix), [v1.14.1](https://github.com/lblod/frontend-verenigingen-loket/blob/073009797a51bc0a7a9a117d6995273cef5d9ffe/CHANGELOG.md#v1141-2026-04-29), Frontend [v1.15.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v1150-2026-06-24)
-- removed key authentication [CLBV-1199]
-- Bump login [DL-7346]
+- Frontend [v1.15.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v1150-2026-06-24)
 - Download service v4.4.0 [CLBV-1251]
 
 ### Deploy notes
 ```
-drc up -d frontend login download
+drc up -d frontend download
 ```
+
+## v1.11.1 (2026-05-19)
+
+- Fix indexing issue / inconsistent load times [CLBV-1216]
+- Added missing controle dispatcher config (download service)
+- Frontend [v1.14.2](https://github.com/lblod/frontend-verenigingen-loket/blob/24998420c89f2348b857e34b7f3193bf84ed424e/CHANGELOG.md#bug-bug-fix), [v1.14.1](https://github.com/lblod/frontend-verenigingen-loket/blob/073009797a51bc0a7a9a117d6995273cef5d9ffe/CHANGELOG.md#v1141-2026-04-29)
+- removed key authentication [CLBV-1199]
+- Bump login [DL-7346]
+
+### Deploy notes
+```
+drc restart search
+drc up -d frontend login
+```
+
 ## 1.11.0 (2026-04-29)
 - Switch to verenigingenregister API v2 [CLBV-1189]
 - Frontend [v1.14.0](https://github.com/lblod/frontend-verenigingen-loket/blob/0b4b735d9061869618e5198dd3cd8bc8a4de5452/CHANGELOG.md#v1140-2026-04-20), [v1.13.0](https://github.com/lblod/frontend-verenigingen-loket/blob/2aa838c54978a00069eb4919498073a860344179/CHANGELOG.md#v1130-2026-03-19), [v1.12.1](https://github.com/lblod/frontend-verenigingen-loket/blob/2d46fb0a0ce9f06df06ec92e1ded4f8125f9ce69/CHANGELOG.md#v1121-2026-03-10), [v1.12.0](https://github.com/lblod/frontend-verenigingen-loket/blob/a1f2a4a3bfd88f1ab886e3bd3ff17710d94ef830/CHANGELOG.md#v1120-2026-03-05)

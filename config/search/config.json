@@ -3,7 +3,10 @@
   "persist_indexes": true,
   "update_wait_interval_minutes": 1,
   "number_of_threads": 8,
-  "ignored_allowed_groups": [{ "name": "org", "variables": ["*"] }],
+  "ignored_allowed_groups": [
+    { "name": "org", "variables": ["*"] },
+    { "name": "account", "variables": ["*"] }
+  ],
   "eager_indexing_groups": [
     [
       {
