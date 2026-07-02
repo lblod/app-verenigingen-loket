@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## v1.12.0
 - Frontend [v1.15.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v1150-2026-06-24)
 - Download service v4.4.0 [CLBV-1251]
 
