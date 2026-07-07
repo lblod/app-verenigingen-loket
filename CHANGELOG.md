@@ -2,11 +2,47 @@
 ## v1.12.0 (2026-07-02)
 - Frontend [v1.15.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v1150-2026-06-24)
 - Download service v4.4.0 [CLBV-1251]
+- Bump virtuoso to redpencil/virtuoso:1.4.0 [CLBV-1069]
+- Bump mu-search to stable v0.12.1 (was on feature branch) [CLBV-1214]
+- Bump acmidm-login to v0.13.0 [CLBV-1214]
+- Bump infrastructure services (mu-identifier, mu-dispatcher, sparql-parser, mu-migrations, mu-cache, mu-cl-resources, update-bestuurseenheid-mock-login, delta-consumer, mu-delta-notifier, mu-file-service, adressenregister-fuzzy-search) [CLBV-1214]
 
 ### Deploy notes
+
+All service bumps except virtuoso are backward-compatible drop-ins.
+
+**Virtuoso upgrade (7.2.5.1 → 7.2.9) - do with great care, take a backup first.** The engine
+version changes, so an in-place start is not supported: dump to nquads on the old image, then
+reload on the new one. Verified on QA copy (2.49M quads: dump ~30s,
+reload ~1min).
+
 ```
-drc up -d frontend download
+# 1. stop everything except virtuoso, so nothing writes during the dump
+docker compose ps --services --status running | grep -vx virtuoso | xargs docker compose stop
+
+# 2. dump nquads on the OLD virtuoso
+# dump_nquads only exists on dbs freshly initialised by the image, so load it first (idempotent)
+docker compose exec -T virtuoso sh -c 'isql-v < /dump_nquads_procedure.sql'
+docker compose exec -T virtuoso isql-v exec="dump_nquads ('dumps', 1, 1000000000, 1);"
+zcat data/db/dumps/*.nq.gz | wc -l    # keep this count for step 5
+
+# 3. stop the db, back up the old db files, stage the dump in toLoad
+docker compose stop virtuoso
+mkdir -p data/db-backup-7.2.5.1 data/db/toLoad
+mv data/db/virtuoso.db data/db/virtuoso.trx data/db/virtuoso.pxa data/db/virtuoso-temp.db \
+   data/db/virtuoso.log data/db/.dba_pwd_set data/db-backup-7.2.5.1/
+rm -f data/db/.data_loaded
+mv data/db/dumps/*.nq.gz data/db/toLoad/
+
+# 4. start the new virtuoso; the import is done once data/db/.data_loaded exists
+docker compose pull virtuoso && docker compose up -d virtuoso && docker compose logs -f virtuoso
+
+# 5. verify the count (>= step 2, surplus is virtuoso-internal graphs), then start the stack
+docker compose exec -T virtuoso isql-v exec="sparql select (count(*) as ?c) where { graph ?g { ?s ?p ?o } filter(?g != <http://www.openlinksw.com/schemas/virtrdf#>) };"
+docker compose up -d
 ```
+
+No search reindex needed. Once verified, remove `data/db-backup-7.2.5.1/` and `data/db/toLoad/*.nq.gz`.
 
 ## v1.11.1 (2026-05-19)
 
