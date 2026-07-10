@@ -1,4 +1,13 @@
 # Changelog
+## Unreleased
+- Bump verenigingsregister-proxy-service to v2.0.0 (drops obsolete VR-Initiator header and processing-agreement check) [CLBV-1148]
+
+### Deploy notes
+
+```
+drc up -d
+```
+
 ## v1.12.0 (2026-07-02)
 - Frontend [v1.15.0](https://github.com/lblod/frontend-verenigingen-loket/blob/master/CHANGELOG.md#v1150-2026-06-24)
 - Download service v4.4.0 [CLBV-1251]

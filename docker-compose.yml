@@ -224,11 +224,10 @@ services:
     restart: always
     logging: *default-logging
   verenigingsregister-api-proxy:
-    image: lblod/verenigingsregister-proxy-service:1.6.0
+    image: lblod/verenigingsregister-proxy-service:2.0.0
     environment:
       API_VERSION: "v2"
       SCOPE: "dv_magda_organisaties_verenigingen_verenigingen_v1_G dv_magda_organisaties_verenigingen_verenigingen_v1_A dv_magda_organisaties_verenigingen_verenigingen_v1_P dv_magda_organisaties_verenigingen_verenigingen_v1_D"
-      ENABLE_PROCESSING_AGREEMENT_CHECK: "false"
       ENABLE_REQUEST_REASON_CHECK: "false"
     volumes:
       - ./config/verenigingsregister-client:/config
