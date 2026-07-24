@@ -1,11 +1,13 @@
 # Changelog
 ## Unreleased
 - Bump verenigingsregister-proxy-service to v2.0.0 (drops obsolete VR-Initiator header and processing-agreement check) [CLBV-1148]
+- Link stad Antwerpen postcodes to their district werkingsgebied [CLBV-1270]
 
 ### Deploy notes
 
 ```
 drc up -d
+drc restart migrations
 ```
 
 ## v1.12.0 (2026-07-02)

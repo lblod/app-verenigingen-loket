@@ -1,0 +1,37 @@
+PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?postInfo geo:sfWithin ?districtArea .
+  }
+}
+WHERE {
+  VALUES (?districtLabel ?postcode) {
+    ("Antwerpen" "2000")
+    ("Antwerpen" "2018")
+    ("Antwerpen" "2020")
+    ("Antwerpen" "2030")
+    ("Antwerpen" "2050")
+    ("Antwerpen" "2060")
+    ("Berchem" "2600")
+    ("Berendrecht-Zandvliet-Lillo" "2040")
+    ("Borgerhout" "2140")
+    ("Borsbeek" "2150")
+    ("Deurne" "2100")
+    ("Ekeren" "2180")
+    ("Hoboken" "2660")
+    ("Merksem" "2170")
+    ("Wilrijk" "2610")
+  }
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?district org:classification <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000003> ;
+      skos:prefLabel ?districtLabel ;
+      besluit:werkingsgebied ?districtArea .
+    ?postInfo a adres:Postinfo ;
+      adres:postcode ?postcode .
+  }
+}
