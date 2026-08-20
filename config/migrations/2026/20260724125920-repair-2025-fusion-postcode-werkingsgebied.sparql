@@ -1,0 +1,84 @@
+PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX regorg: <http://www.w3.org/ns/regorg#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+INSERT {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?postInfo geo:sfWithin ?gemeenteArea .
+  }
+}
+WHERE {
+  VALUES (?gemeenteLabel ?postcode) {
+    ("Antwerpen" "2150")
+    ("Beveren-Kruibeke-Zwijndrecht" "2070")
+    ("Beveren-Kruibeke-Zwijndrecht" "9120")
+    ("Beveren-Kruibeke-Zwijndrecht" "9130")
+    ("Beveren-Kruibeke-Zwijndrecht" "9150")
+    ("Bilzen-Hoeselt" "3730")
+    ("Bilzen-Hoeselt" "3732")
+    ("Hasselt" "3720")
+    ("Hasselt" "3721")
+    ("Hasselt" "3722")
+    ("Hasselt" "3723")
+    ("Hasselt" "3724")
+    ("Lochristi" "9185")
+    ("Lokeren" "9180")
+    ("Merelbeke-Melle" "9090")
+    ("Merelbeke-Melle" "9820")
+    ("Nazareth-De Pinte" "9810")
+    ("Nazareth-De Pinte" "9840")
+    ("Pajottegem" "1540")
+    ("Pajottegem" "1541")
+    ("Pajottegem" "1570")
+    ("Pajottegem" "1755")
+    ("Tessenderlo-Ham" "3980")
+    ("Tielt" "8760")
+    ("Tongeren-Borgloon" "3840")
+    ("Wingene" "8755")
+  }
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?gemeente org:classification <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001> ;
+      skos:prefLabel ?gemeenteLabel ;
+      regorg:orgStatus <http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> ;
+      besluit:werkingsgebied ?gemeenteArea .
+    ?postInfo a adres:Postinfo ;
+      adres:postcode ?postcode .
+  }
+}
+
+;
+
+PREFIX adres: <https://data.vlaanderen.be/ns/adres#>
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX geo: <http://www.opengis.net/ont/geosparql#>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX regorg: <http://www.w3.org/ns/regorg#>
+
+DELETE {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?postInfo geo:sfWithin ?oldArea .
+  }
+}
+WHERE {
+  VALUES ?postcode {
+    "1540" "1541" "1570" "1755" "2070" "2150" "3720" "3721" "3722" "3723"
+    "3724" "3730" "3732" "3840" "3980" "8755" "8760" "9090" "9120" "9130"
+    "9150" "9180" "9185" "9810" "9820" "9840"
+  }
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    ?postInfo a adres:Postinfo ;
+      adres:postcode ?postcode ;
+      geo:sfWithin ?oldArea .
+    ?defunctGemeente org:classification <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001> ;
+      besluit:werkingsgebied ?oldArea ;
+      regorg:orgStatus <http://lblod.data.gift/concepts/d02c4e12bf88d2fdf5123b07f29c9311> .
+    FILTER NOT EXISTS {
+      ?activeGemeente org:classification <http://data.vlaanderen.be/id/concept/BestuurseenheidClassificatieCode/5ab0e9b8a3b2ca7c5e000001> ;
+        besluit:werkingsgebied ?oldArea ;
+        regorg:orgStatus <http://lblod.data.gift/concepts/63cc561de9188d64ba5840a42ae8f0d6> .
+    }
+  }
+}

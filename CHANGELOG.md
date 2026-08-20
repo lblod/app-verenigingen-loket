@@ -1,11 +1,17 @@
 # Changelog
 ## Unreleased
 - Bump verenigingsregister-proxy-service to v2.0.0 (drops obsolete VR-Initiator header and processing-agreement check) [CLBV-1148]
+- Link stad Antwerpen postcodes to their district werkingsgebied [CLBV-1270]
+- Repair 2025-fusion postcode werkingsgebied links (26 postcodes, bpost 2025 source) [CLBV-1270]
+- Bump frontend-verenigingen-loket to v1.16.0 (no-jurisdiction message covers province and district logins) [CLBV-1270]
+- Bump verenigingsloket-download-service to v4.5.0 (match associations to province and district werkingsgebied) [CLBV-1270]
+- Bump verenigingsregister-proxy-service to v2.1.0 (authorize province and district logins via the werkingsgebied hierarchy) [CLBV-1270]
 
 ### Deploy notes
 
 ```
 drc up -d
+drc restart migrations
 ```
 
 ## v1.12.0 (2026-07-02)
