@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## v1.13.0 (2026-08-20)
 - Bump verenigingsregister-proxy-service to v2.0.0 (drops obsolete VR-Initiator header and processing-agreement check) [CLBV-1148]
 - Link stad Antwerpen postcodes to their district werkingsgebied [CLBV-1270]
 - Repair 2025-fusion postcode werkingsgebied links (26 postcodes, bpost 2025 source) [CLBV-1270]
