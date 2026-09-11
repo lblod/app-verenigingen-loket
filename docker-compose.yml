@@ -204,7 +204,7 @@ services:
     restart: always
     logging: *default-logging
   elasticsearch:
-    image: semtech/mu-search-elastic-backend:1.0.1
+    image: semtech/mu-search-elastic-backend:1.3.1
     volumes:
       - ./data/elasticsearch/:/usr/share/elasticsearch/data
     environment:

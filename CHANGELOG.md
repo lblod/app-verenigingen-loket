@@ -1,4 +1,15 @@
 # Changelog
+## Unreleased
+- Bump mu-search-elastic-backend to v1.3.1 (Elasticsearch 9, which mu-search v0.12 needs) [CLBV-1278]
+- Add scripts/reload-virtuoso.sh: dump the triplestore and reload it on the pinned virtuoso image [CLBV-1278]
+
+### Deploy notes
+
+```
+scripts/reload-virtuoso.sh   # dump, fresh db on the new engine, reload, verify
+scripts/reset-elastic.sh     # Elasticsearch 9 cannot read the ES 7 data dir; also starts the rest
+```
+
 ## v1.13.0 (2026-08-20)
 - Bump verenigingsregister-proxy-service to v2.0.0 (drops obsolete VR-Initiator header and processing-agreement check) [CLBV-1148]
 - Link stad Antwerpen postcodes to their district werkingsgebied [CLBV-1270]
