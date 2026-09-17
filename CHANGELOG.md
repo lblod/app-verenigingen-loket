@@ -4,11 +4,18 @@
 - Add scripts/reload-virtuoso.sh: dump the triplestore and reload it on the pinned virtuoso image [CLBV-1278]
 
 ### Deploy notes
-
+(only for QA and PRD)
 ```
 scripts/reload-virtuoso.sh   # dump, fresh db on the new engine, reload, verify
 scripts/reset-elastic.sh     # Elasticsearch 9 cannot read the ES 7 data dir; also starts the rest
 ```
+Run both before any drc up -d. The nightly reset-elastic.sh cron runs drc up -d too, so run them before it fires.
+
+The stack is down while the reload runs. The earlier manual runbook took about two minutes on a QA copy (2.5M quads).
+
+The reload script keeps the old database in data/db-backup-<timestamp> and the dump in data/db/toLoad/. Remove both once the stack runs fine.
+
+If the reload fails, the script says where the old files are. Start services again with docker compose start, not up.
 
 ## v1.13.0 (2026-08-20)
 - Bump verenigingsregister-proxy-service to v2.0.0 (drops obsolete VR-Initiator header and processing-agreement check) [CLBV-1148]
