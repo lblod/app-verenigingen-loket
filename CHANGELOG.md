@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## v1.13.1 (2026-09-21)
 - Bump mu-search-elastic-backend to v1.3.1 (Elasticsearch 9, which mu-search v0.12 needs) [CLBV-1278]
 - Add scripts/reload-virtuoso.sh: dump the triplestore and reload it on the pinned virtuoso image [CLBV-1278]
 
