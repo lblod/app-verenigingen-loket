@@ -1,5 +1,5 @@
 # Changelog
-## Unreleased
+## v1.13.2 (2026-09-29)
 - Bump verenigingsloket-download-service to v4.5.1 (an export keeps running after a logout or a switch of bestuur) [CLBV-1292]
 
 ### Deploy notes
