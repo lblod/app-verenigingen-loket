@@ -1,4 +1,14 @@
 # Changelog
+## Unreleased
+- Bump verenigingsloket-download-service to v4.5.1 (an export keeps running after a logout or a switch of bestuur) [CLBV-1292]
+
+### Deploy notes
+
+```
+drc up -d download
+```
+Check `drc images` afterwards. A service pinned in docker-compose.override.yml keeps its pinned image; remove the pin first.
+
 ## v1.13.1 (2026-09-21)
 - Bump mu-search-elastic-backend to v1.3.1 (Elasticsearch 9, which mu-search v0.12 needs) [CLBV-1278]
 - Add scripts/reload-virtuoso.sh: dump the triplestore and reload it on the pinned virtuoso image [CLBV-1278]

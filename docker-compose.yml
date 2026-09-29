@@ -162,7 +162,7 @@ services:
       - "logging=true"
     logging: *default-logging
   download:
-    image: lblod/verenigingsloket-download-service:4.5.0
+    image: lblod/verenigingsloket-download-service:4.5.1
     environment:
       API_VERSION: "v2"
       CRON_PATTERN_SPREADSHEET_JOB: "0 6 * * *"
