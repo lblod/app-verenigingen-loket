@@ -1,4 +1,14 @@
 # Changelog
+## Unreleased
+- Bump frontend-verenigingen-loket to v1.17.0 (warning on the export card when an export is incomplete) [CLBV-1293]
+
+### Deploy notes
+
+```
+drc up -d frontend
+```
+The warning only appears once verenigingsloket-download-service v4.6.0 is deployed as well.
+
 ## v1.13.2 (2026-09-29)
 - Bump verenigingsloket-download-service to v4.5.1 (an export keeps running after a logout or a switch of bestuur) [CLBV-1292]
 
